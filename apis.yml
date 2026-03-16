@@ -1,92 +1,85 @@
+aid: google-dialogflow
 name: Google Dialogflow
-description: 'Google Dialogflow is a natural language understanding platform that makes it  easy to design and integrate conversational user interfaces into mobile apps,  web applications, devices, bots, and interactive voice response systems.
-
-  '
-image: https://www.gstatic.com/devrel-devsite/prod/v2e9c134f0d9d70e64e9e89a4a0e0e8c8f8c8f8c8f8c8f8c8f8/cloud/images/favicons/onecloud/super_cloud.png
-created: '2024-01-01'
-modified: '2024-01-01'
+description: Google Dialogflow is a natural language understanding platform that makes it easy to design and integrate conversational user interfaces into mobile apps, web applications, devices, bots, and interactive voice response systems.
+image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 url: https://cloud.google.com/dialogflow
-specificationVersion: '0.18'
+created: '2024-01-01'
+modified: '2026-03-16'
+specificationVersion: '0.19'
+type: Index
 tags:
-- artificial intelligence
-- natural language processing
-- chatbots
-- conversational AI
-- machine learning
-- voice assistants
+  - Artificial Intelligence
+  - Natural Language Processing
+  - Chatbots
+  - Conversational AI
+  - Machine Learning
+  - Voice Assistants
 apis:
-- name: Dialogflow API
-  description: 'Build conversational interfaces for websites, mobile applications, popular  messaging platforms, and IoT devices. Dialogflow provides a natural language  understanding platform to process and understand natural language input.
-
-    '
-  image: https://www.gstatic.com/devrel-devsite/prod/v2e9c134f0d9d70e64e9e89a4a0e0e8c8f8c8f8c8f8c8f8c8f8/cloud/images/favicons/onecloud/super_cloud.png
-  humanURL: https://cloud.google.com/dialogflow/docs
-  baseURL: https://dialogflow.googleapis.com
-  tags:
-  - conversational AI
-  - NLP
-  - intents
-  - entities
-  - contexts
-  properties:
-  - type: X-documentation
-    url: https://cloud.google.com/dialogflow/docs
-  - type: X-openapi
-    url: https://dialogflow.googleapis.com/$discovery/rest?version=v2
-  - type: X-pricing
-    url: https://cloud.google.com/dialogflow/pricing
-  - type: X-authentication
-    url: https://cloud.google.com/dialogflow/docs/authentication
-  - type: X-console
-    url: https://dialogflow.cloud.google.com/
-  - type: X-quickstart
-    url: https://cloud.google.com/dialogflow/docs/quick/setup
-  - type: X-client-libraries
-    url: https://cloud.google.com/dialogflow/docs/reference/libraries
-  - type: X-rate-limits
-    url: https://cloud.google.com/dialogflow/quotas
-- name: Dialogflow CX API
-  description: 'Advanced version of Dialogflow for large or complex agents with features  like visual flow builder, version control, and advanced testing capabilities.
-
-    '
-  image: https://www.gstatic.com/devrel-devsite/prod/v2e9c134f0d9d70e64e9e89a4a0e0e8c8f8c8f8c8f8c8f8c8f8/cloud/images/favicons/onecloud/super_cloud.png
-  humanURL: https://cloud.google.com/dialogflow/cx/docs
-  baseURL: https://dialogflow.googleapis.com
-  tags:
-  - conversational AI
-  - enterprise
-  - flows
-  - pages
-  - state machines
-  properties:
-  - type: X-documentation
-    url: https://cloud.google.com/dialogflow/cx/docs
-  - type: X-openapi
-    url: https://dialogflow.googleapis.com/$discovery/rest?version=v3
-  - type: X-pricing
-    url: https://cloud.google.com/dialogflow/cx/pricing
-  - type: X-console
-    url: https://dialogflow.cloud.google.com/cx
-  - type: X-tutorials
-    url: https://cloud.google.com/dialogflow/cx/docs/tutorials
+  - name: Dialogflow API
+    description: Build conversational interfaces for websites, mobile applications, popular messaging platforms, and IoT devices. Dialogflow provides a natural language understanding platform to process and understand natural language input.
+    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    humanURL: https://cloud.google.com/dialogflow/docs
+    baseURL: https://dialogflow.googleapis.com
+    tags:
+      - Conversational AI
+      - NLP
+      - Intents
+      - Entities
+      - Contexts
+    properties:
+      - type: Documentation
+        url: https://cloud.google.com/dialogflow/docs
+      - type: OpenAPI
+        url: https://dialogflow.googleapis.com/$discovery/rest?version=v2
+      - type: Authentication
+        url: https://cloud.google.com/dialogflow/docs/authentication
+      - type: Getting Started
+        url: https://cloud.google.com/dialogflow/docs/quick/setup
+      - type: Pricing
+        url: https://cloud.google.com/dialogflow/pricing
+      - type: Console
+        url: https://dialogflow.cloud.google.com/
+  - name: Dialogflow CX API
+    description: Advanced version of Dialogflow for large or complex agents with features like visual flow builder, version control, and advanced testing capabilities.
+    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    humanURL: https://cloud.google.com/dialogflow/cx/docs
+    baseURL: https://dialogflow.googleapis.com
+    tags:
+      - Conversational AI
+      - Enterprise
+      - Flows
+      - Pages
+      - State Machines
+    properties:
+      - type: Documentation
+        url: https://cloud.google.com/dialogflow/cx/docs
+      - type: OpenAPI
+        url: https://dialogflow.googleapis.com/$discovery/rest?version=v3
+      - type: Authentication
+        url: https://cloud.google.com/docs/authentication
+      - type: Getting Started
+        url: https://cloud.google.com/dialogflow/cx/docs/tutorials
+      - type: Pricing
+        url: https://cloud.google.com/dialogflow/cx/pricing
+      - type: Console
+        url: https://dialogflow.cloud.google.com/cx
 common:
-- type: X-support
-  url: https://cloud.google.com/dialogflow/docs/support
-- type: X-terms-of-service
-  url: https://cloud.google.com/terms
-- type: X-privacy-policy
-  url: https://policies.google.com/privacy
-- type: X-status
-  url: https://status.cloud.google.com/
-- type: X-blog
-  url: https://cloud.google.com/blog/products/ai-machine-learning
-- type: X-github
-  url: https://github.com/GoogleCloudPlatform/dialogflow-integrations
-- type: X-samples
-  url: https://github.com/GoogleCloudPlatform/python-docs-samples/tree/main/dialogflow
-- type: X-release-notes
-  url: https://cloud.google.com/dialogflow/docs/release-notes
+  - type: Portal
+    url: https://cloud.google.com/dialogflow
+  - type: Documentation
+    url: https://cloud.google.com/dialogflow/docs
+  - type: Authentication
+    url: https://cloud.google.com/dialogflow/docs/authentication
+  - type: Blog
+    url: https://cloud.google.com/blog/products/ai-machine-learning
+  - type: Terms of Service
+    url: https://cloud.google.com/terms
+  - type: Privacy Policy
+    url: https://policies.google.com/privacy
+  - type: Status
+    url: https://status.cloud.google.com/
+  - type: Support
+    url: https://cloud.google.com/dialogflow/docs/support
 maintainers:
-- FN: Google Cloud
-  email: google-cloud-support@google.com
-  url: https://cloud.google.com
+  - FN: Kin Lane
+    email: kin@apievangelist.com
