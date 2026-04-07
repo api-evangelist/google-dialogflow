@@ -9,10 +9,10 @@ specificationVersion: '0.19'
 type: Index
 tags:
   - Artificial Intelligence
-  - Natural Language Processing
   - Chatbots
   - Conversational AI
   - Machine Learning
+  - Natural Language Processing
   - Voice Assistants
 apis:
   - name: Dialogflow API
@@ -21,11 +21,11 @@ apis:
     humanURL: https://cloud.google.com/dialogflow/docs
     baseURL: https://dialogflow.googleapis.com
     tags:
-      - Conversational AI
-      - NLP
-      - Intents
-      - Entities
       - Contexts
+      - Conversational AI
+      - Entities
+      - Intents
+      - NLP
     properties:
       - type: Documentation
         url: https://cloud.google.com/dialogflow/docs
