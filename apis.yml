@@ -33,7 +33,7 @@ apis:
         url: https://dialogflow.googleapis.com/$discovery/rest?version=v2
       - type: Authentication
         url: https://cloud.google.com/dialogflow/docs/authentication
-      - type: Getting Started
+      - type: GettingStarted
         url: https://cloud.google.com/dialogflow/docs/quick/setup
       - type: Pricing
         url: https://cloud.google.com/dialogflow/pricing
@@ -57,7 +57,7 @@ apis:
         url: https://dialogflow.googleapis.com/$discovery/rest?version=v3
       - type: Authentication
         url: https://cloud.google.com/docs/authentication
-      - type: Getting Started
+      - type: GettingStarted
         url: https://cloud.google.com/dialogflow/cx/docs/tutorials
       - type: Pricing
         url: https://cloud.google.com/dialogflow/cx/pricing
@@ -72,11 +72,11 @@ common:
     url: https://cloud.google.com/dialogflow/docs/authentication
   - type: Blog
     url: https://cloud.google.com/blog/products/ai-machine-learning
-  - type: Terms of Service
+  - type: TermsOfService
     url: https://cloud.google.com/terms
-  - type: Privacy Policy
+  - type: PrivacyPolicy
     url: https://policies.google.com/privacy
-  - type: Status
+  - type: StatusPage
     url: https://status.cloud.google.com/
   - type: Support
     url: https://cloud.google.com/dialogflow/docs/support
