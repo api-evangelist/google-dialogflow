@@ -64,6 +64,8 @@ apis:
       - type: Console
         url: https://dialogflow.cloud.google.com/cx
 common:
+  - type: GitHubOrganization
+    url: https://github.com/dialogflow
   - type: Portal
     url: https://cloud.google.com/dialogflow
   - type: Documentation
