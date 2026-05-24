@@ -1,0 +1,472 @@
+openapi: 3.1.0
+info:
+  title: Dialogflow ES API
+  description: |
+    Dialogflow ES (Essentials) provides a natural language understanding
+    platform to design and integrate conversational user interfaces. The REST
+    API manages agents, intents, entity types, sessions, contexts, and
+    knowledge bases.
+  version: v2
+servers:
+  - url: https://dialogflow.googleapis.com
+security:
+  - OAuth2: [cloud-platform]
+  - OAuth2: [dialogflow]
+paths:
+  /v2/projects/{project}/agent:
+    get:
+      summary: Get agent
+      operationId: getAgent
+      parameters:
+        - name: project
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Agent configuration
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Agent'
+  /v2/projects/{project}:setAgent:
+    post:
+      summary: Set agent
+      operationId: setAgent
+      parameters:
+        - name: project
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: updateMask
+          in: query
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Agent'
+      responses:
+        '200':
+          description: Updated agent
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Agent'
+  /v2/projects/{project}:deleteAgent:
+    delete:
+      summary: Delete agent
+      operationId: deleteAgent
+      parameters:
+        - name: project
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Empty
+  /v2/projects/{project}/agent/intents:
+    get:
+      summary: List intents
+      operationId: listIntents
+      parameters:
+        - name: project
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: languageCode
+          in: query
+          schema:
+            type: string
+        - name: intentView
+          in: query
+          schema:
+            type: string
+        - name: pageSize
+          in: query
+          schema:
+            type: integer
+        - name: pageToken
+          in: query
+          schema:
+            type: string
+      responses:
+        '200':
+          description: List of intents
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  intents:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Intent'
+                  nextPageToken:
+                    type: string
+    post:
+      summary: Create intent
+      operationId: createIntent
+      parameters:
+        - name: project
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: languageCode
+          in: query
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Intent'
+      responses:
+        '200':
+          description: Created intent
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Intent'
+  /v2/projects/{project}/agent/intents/{intent}:
+    get:
+      summary: Get intent
+      operationId: getIntent
+      parameters:
+        - name: project
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: intent
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Intent details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Intent'
+    patch:
+      summary: Update intent
+      operationId: updateIntent
+      parameters:
+        - name: project
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: intent
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: updateMask
+          in: query
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Intent'
+      responses:
+        '200':
+          description: Updated intent
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Intent'
+    delete:
+      summary: Delete intent
+      operationId: deleteIntent
+      parameters:
+        - name: project
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: intent
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Empty
+  /v2/projects/{project}/agent/sessions/{session}:detectIntent:
+    post:
+      summary: Detect intent
+      operationId: detectIntent
+      parameters:
+        - name: project
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: session
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                queryInput:
+                  type: object
+                queryParams:
+                  type: object
+                outputAudioConfig:
+                  type: object
+                inputAudio:
+                  type: string
+                  format: byte
+      responses:
+        '200':
+          description: Detect intent response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  responseId:
+                    type: string
+                  queryResult:
+                    type: object
+                  outputAudio:
+                    type: string
+                    format: byte
+  /v2/projects/{project}/agent/sessions/{session}/contexts:
+    delete:
+      summary: Delete all contexts
+      operationId: deleteAllContexts
+      parameters:
+        - name: project
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: session
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Empty
+  /v2/projects/{project}/agent/entityTypes:
+    get:
+      summary: List entity types
+      operationId: listEntityTypes
+      parameters:
+        - name: project
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: pageSize
+          in: query
+          schema:
+            type: integer
+        - name: pageToken
+          in: query
+          schema:
+            type: string
+      responses:
+        '200':
+          description: List of entity types
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  entityTypes:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/EntityType'
+    post:
+      summary: Create entity type
+      operationId: createEntityType
+      parameters:
+        - name: project
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EntityType'
+      responses:
+        '200':
+          description: Created entity type
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EntityType'
+  /v2/projects/{project}/knowledgeBases:
+    get:
+      summary: List knowledge bases
+      operationId: listKnowledgeBases
+      parameters:
+        - name: project
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: List of knowledge bases
+          content:
+            application/json:
+              schema:
+                type: object
+    post:
+      summary: Create knowledge base
+      operationId: createKnowledgeBase
+      parameters:
+        - name: project
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: Created knowledge base
+          content:
+            application/json:
+              schema:
+                type: object
+components:
+  securitySchemes:
+    OAuth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://accounts.google.com/o/oauth2/v2/auth
+          tokenUrl: https://oauth2.googleapis.com/token
+          scopes:
+            cloud-platform: View and manage your data across Google Cloud Platform services
+            dialogflow: View, manage and query your Dialogflow agents
+  schemas:
+    Agent:
+      type: object
+      properties:
+        parent:
+          type: string
+        displayName:
+          type: string
+        defaultLanguageCode:
+          type: string
+        supportedLanguageCodes:
+          type: array
+          items:
+            type: string
+        timeZone:
+          type: string
+        description:
+          type: string
+        avatarUri:
+          type: string
+        enableLogging:
+          type: boolean
+        matchMode:
+          type: string
+        classificationThreshold:
+          type: number
+          format: float
+        apiVersion:
+          type: string
+        tier:
+          type: string
+    Intent:
+      type: object
+      properties:
+        name:
+          type: string
+        displayName:
+          type: string
+        webhookState:
+          type: string
+        priority:
+          type: integer
+        isFallback:
+          type: boolean
+        mlDisabled:
+          type: boolean
+        inputContextNames:
+          type: array
+          items:
+            type: string
+        events:
+          type: array
+          items:
+            type: string
+        trainingPhrases:
+          type: array
+          items:
+            type: object
+        action:
+          type: string
+        outputContexts:
+          type: array
+          items:
+            type: object
+        resetContexts:
+          type: boolean
+        parameters:
+          type: array
+          items:
+            type: object
+        messages:
+          type: array
+          items:
+            type: object
+    EntityType:
+      type: object
+      properties:
+        name:
+          type: string
+        displayName:
+          type: string
+        kind:
+          type: string
+        autoExpansionMode:
+          type: string
+        entities:
+          type: array
+          items:
+            type: object
+            properties:
+              value:
+                type: string
+              synonyms:
+                type: array
+                items:
+                  type: string
+        enableFuzzyExtraction:
+          type: boolean
