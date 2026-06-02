@@ -2,13 +2,10 @@
   "repo": "google-dialogflow",
   "feeds": [
     {
-      "source": "https://cloud.google.com/blog/products/ai-machine-learning",
-      "feed_url": "",
-      "title": "",
-      "saved": 0,
-      "error": "no_feed"
+      "source": "https://cloud.google.com/dialogflow/docs/authentication",
+      "error": "HTTPError"
     }
   ],
-  "fetched": "2026-05-17T20:48:52Z",
+  "fetched": "2026-06-01T23:35:02Z",
   "post_count": 0
 }
