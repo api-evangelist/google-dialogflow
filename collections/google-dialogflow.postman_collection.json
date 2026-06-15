@@ -1,0 +1,1657 @@
+{
+  "item": [
+    {
+      "id": "837e63f0-62aa-4cf4-869b-3f3e34adedc5",
+      "name": "Get agent",
+      "request": {
+        "name": "Get agent",
+        "description": {},
+        "url": {
+          "path": [
+            "v2",
+            "projects",
+            ":project",
+            "agent"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": [
+            {
+              "disabled": false,
+              "type": "any",
+              "value": "<string>",
+              "key": "project",
+              "description": "(Required) "
+            }
+          ]
+        },
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "GET",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "7e2209d3-7e9b-477b-bca7-8d388efdfeae",
+          "name": "Agent configuration",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "v2",
+                "projects",
+                ":project",
+                "agent"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "project",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: oauth2",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "<token>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"parent\": \"string\",\n  \"displayName\": \"string\",\n  \"defaultLanguageCode\": \"string\",\n  \"supportedLanguageCodes\": [\n    \"string\",\n    \"string\"\n  ],\n  \"timeZone\": \"string\",\n  \"description\": \"string\",\n  \"avatarUri\": \"string\",\n  \"enableLogging\": false,\n  \"matchMode\": \"string\",\n  \"classificationThreshold\": 3835.902766787077,\n  \"apiVersion\": \"string\",\n  \"tier\": \"string\"\n}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "05d586e3-aa71-4b99-989a-43bcea0cef12",
+      "name": "Set agent",
+      "request": {
+        "name": "Set agent",
+        "description": {},
+        "url": {
+          "path": [
+            "v2",
+            "projects",
+            "{{project}}:setAgent"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [
+            {
+              "disabled": false,
+              "key": "updateMask",
+              "value": "<string>"
+            }
+          ],
+          "variable": []
+        },
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "POST",
+        "auth": null,
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"parent\": \"<string>\",\n  \"displayName\": \"<string>\",\n  \"defaultLanguageCode\": \"<string>\",\n  \"supportedLanguageCodes\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"timeZone\": \"<string>\",\n  \"description\": \"<string>\",\n  \"avatarUri\": \"<string>\",\n  \"enableLogging\": \"<boolean>\",\n  \"matchMode\": \"<string>\",\n  \"classificationThreshold\": \"<float>\",\n  \"apiVersion\": \"<string>\",\n  \"tier\": \"<string>\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "response": [
+        {
+          "id": "182a3fb1-a8e6-4a1b-bfff-9b5d7102a06f",
+          "name": "Updated agent",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "v2",
+                "projects",
+                "{{project}}:setAgent"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "key": "updateMask",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: oauth2",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "<token>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"parent\": \"<string>\",\n  \"displayName\": \"<string>\",\n  \"defaultLanguageCode\": \"<string>\",\n  \"supportedLanguageCodes\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"timeZone\": \"<string>\",\n  \"description\": \"<string>\",\n  \"avatarUri\": \"<string>\",\n  \"enableLogging\": \"<boolean>\",\n  \"matchMode\": \"<string>\",\n  \"classificationThreshold\": \"<float>\",\n  \"apiVersion\": \"<string>\",\n  \"tier\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"parent\": \"string\",\n  \"displayName\": \"string\",\n  \"defaultLanguageCode\": \"string\",\n  \"supportedLanguageCodes\": [\n    \"string\",\n    \"string\"\n  ],\n  \"timeZone\": \"string\",\n  \"description\": \"string\",\n  \"avatarUri\": \"string\",\n  \"enableLogging\": false,\n  \"matchMode\": \"string\",\n  \"classificationThreshold\": 3835.902766787077,\n  \"apiVersion\": \"string\",\n  \"tier\": \"string\"\n}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "56b896e7-e8ba-4f1a-9c7e-527248138b58",
+      "name": "Delete agent",
+      "request": {
+        "name": "Delete agent",
+        "description": {},
+        "url": {
+          "path": [
+            "v2",
+            "projects",
+            "{{project}}:deleteAgent"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": []
+        },
+        "method": "DELETE",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "0cbd2e7e-d5b4-499d-b437-9cdfb3161848",
+          "name": "Empty",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "v2",
+                "projects",
+                "{{project}}:deleteAgent"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: oauth2",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "<token>"
+              }
+            ],
+            "method": "DELETE",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "text/plain"
+            }
+          ],
+          "body": "",
+          "cookie": [],
+          "_postman_previewlanguage": "text"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "17f64841-2d93-4845-893e-2aec84192da8",
+      "name": "List intents",
+      "request": {
+        "name": "List intents",
+        "description": {},
+        "url": {
+          "path": [
+            "v2",
+            "projects",
+            ":project",
+            "agent",
+            "intents"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [
+            {
+              "disabled": false,
+              "key": "languageCode",
+              "value": "<string>"
+            },
+            {
+              "disabled": false,
+              "key": "intentView",
+              "value": "<string>"
+            },
+            {
+              "disabled": false,
+              "key": "pageSize",
+              "value": "<integer>"
+            },
+            {
+              "disabled": false,
+              "key": "pageToken",
+              "value": "<string>"
+            }
+          ],
+          "variable": [
+            {
+              "disabled": false,
+              "type": "any",
+              "value": "<string>",
+              "key": "project",
+              "description": "(Required) "
+            }
+          ]
+        },
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "GET",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "11fb6ff7-55dd-412d-862c-5506cef18f2c",
+          "name": "List of intents",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "v2",
+                "projects",
+                ":project",
+                "agent",
+                "intents"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "key": "languageCode",
+                  "value": "<string>"
+                },
+                {
+                  "key": "intentView",
+                  "value": "<string>"
+                },
+                {
+                  "key": "pageSize",
+                  "value": "<integer>"
+                },
+                {
+                  "key": "pageToken",
+                  "value": "<string>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "project",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: oauth2",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "<token>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"intents\": [\n    {\n      \"name\": \"string\",\n      \"displayName\": \"string\",\n      \"webhookState\": \"string\",\n      \"priority\": 894,\n      \"isFallback\": true,\n      \"mlDisabled\": true,\n      \"inputContextNames\": [\n        \"string\",\n        \"string\"\n      ],\n      \"events\": [\n        \"string\",\n        \"string\"\n      ],\n      \"action\": \"string\",\n      \"resetContexts\": true\n    },\n    {\n      \"name\": \"string\",\n      \"displayName\": \"string\",\n      \"webhookState\": \"string\",\n      \"priority\": 2293,\n      \"isFallback\": true,\n      \"mlDisabled\": false,\n      \"inputContextNames\": [\n        \"string\",\n        \"string\"\n      ],\n      \"events\": [\n        \"string\",\n        \"string\"\n      ],\n      \"action\": \"string\",\n      \"resetContexts\": false\n    }\n  ],\n  \"nextPageToken\": \"string\"\n}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "efcedbe8-9c3d-437f-af7c-ef08c3b6c08b",
+      "name": "Create intent",
+      "request": {
+        "name": "Create intent",
+        "description": {},
+        "url": {
+          "path": [
+            "v2",
+            "projects",
+            ":project",
+            "agent",
+            "intents"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [
+            {
+              "disabled": false,
+              "key": "languageCode",
+              "value": "<string>"
+            }
+          ],
+          "variable": [
+            {
+              "disabled": false,
+              "type": "any",
+              "value": "<string>",
+              "key": "project",
+              "description": "(Required) "
+            }
+          ]
+        },
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "POST",
+        "auth": null,
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"<string>\",\n  \"displayName\": \"<string>\",\n  \"webhookState\": \"<string>\",\n  \"priority\": \"<integer>\",\n  \"isFallback\": \"<boolean>\",\n  \"mlDisabled\": \"<boolean>\",\n  \"inputContextNames\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"events\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"trainingPhrases\": [\n    \"<object>\",\n    \"<object>\"\n  ],\n  \"action\": \"<string>\",\n  \"outputContexts\": [\n    \"<object>\",\n    \"<object>\"\n  ],\n  \"resetContexts\": \"<boolean>\",\n  \"parameters\": [\n    \"<object>\",\n    \"<object>\"\n  ],\n  \"messages\": [\n    \"<object>\",\n    \"<object>\"\n  ]\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "response": [
+        {
+          "id": "69e5c38e-49df-431c-b875-7f1ac7c3cdf5",
+          "name": "Created intent",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "v2",
+                "projects",
+                ":project",
+                "agent",
+                "intents"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "key": "languageCode",
+                  "value": "<string>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "project",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: oauth2",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "<token>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"displayName\": \"<string>\",\n  \"webhookState\": \"<string>\",\n  \"priority\": \"<integer>\",\n  \"isFallback\": \"<boolean>\",\n  \"mlDisabled\": \"<boolean>\",\n  \"inputContextNames\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"events\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"trainingPhrases\": [\n    \"<object>\",\n    \"<object>\"\n  ],\n  \"action\": \"<string>\",\n  \"outputContexts\": [\n    \"<object>\",\n    \"<object>\"\n  ],\n  \"resetContexts\": \"<boolean>\",\n  \"parameters\": [\n    \"<object>\",\n    \"<object>\"\n  ],\n  \"messages\": [\n    \"<object>\",\n    \"<object>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"name\": \"string\",\n  \"displayName\": \"string\",\n  \"webhookState\": \"string\",\n  \"priority\": 3629,\n  \"isFallback\": true,\n  \"mlDisabled\": true,\n  \"inputContextNames\": [\n    \"string\",\n    \"string\"\n  ],\n  \"events\": [\n    \"string\",\n    \"string\"\n  ],\n  \"action\": \"string\",\n  \"resetContexts\": true\n}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "cd7d4a6f-f450-415c-8c09-601f3aeefa6e",
+      "name": "Get intent",
+      "request": {
+        "name": "Get intent",
+        "description": {},
+        "url": {
+          "path": [
+            "v2",
+            "projects",
+            ":project",
+            "agent",
+            "intents",
+            ":intent"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": [
+            {
+              "disabled": false,
+              "type": "any",
+              "value": "<string>",
+              "key": "project",
+              "description": "(Required) "
+            },
+            {
+              "disabled": false,
+              "type": "any",
+              "value": "<string>",
+              "key": "intent",
+              "description": "(Required) "
+            }
+          ]
+        },
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "GET",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "e6cca6c3-f3a1-4d12-a253-43a64bb5b5cb",
+          "name": "Intent details",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "v2",
+                "projects",
+                ":project",
+                "agent",
+                "intents",
+                ":intent"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "project",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "intent",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: oauth2",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "<token>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"name\": \"string\",\n  \"displayName\": \"string\",\n  \"webhookState\": \"string\",\n  \"priority\": 3629,\n  \"isFallback\": true,\n  \"mlDisabled\": true,\n  \"inputContextNames\": [\n    \"string\",\n    \"string\"\n  ],\n  \"events\": [\n    \"string\",\n    \"string\"\n  ],\n  \"action\": \"string\",\n  \"resetContexts\": true\n}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "76639ca3-b0af-4854-a0d0-4925aad1ee86",
+      "name": "Update intent",
+      "request": {
+        "name": "Update intent",
+        "description": {},
+        "url": {
+          "path": [
+            "v2",
+            "projects",
+            ":project",
+            "agent",
+            "intents",
+            ":intent"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [
+            {
+              "disabled": false,
+              "key": "updateMask",
+              "value": "<string>"
+            }
+          ],
+          "variable": [
+            {
+              "disabled": false,
+              "type": "any",
+              "value": "<string>",
+              "key": "project",
+              "description": "(Required) "
+            },
+            {
+              "disabled": false,
+              "type": "any",
+              "value": "<string>",
+              "key": "intent",
+              "description": "(Required) "
+            }
+          ]
+        },
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "PATCH",
+        "auth": null,
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"<string>\",\n  \"displayName\": \"<string>\",\n  \"webhookState\": \"<string>\",\n  \"priority\": \"<integer>\",\n  \"isFallback\": \"<boolean>\",\n  \"mlDisabled\": \"<boolean>\",\n  \"inputContextNames\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"events\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"trainingPhrases\": [\n    \"<object>\",\n    \"<object>\"\n  ],\n  \"action\": \"<string>\",\n  \"outputContexts\": [\n    \"<object>\",\n    \"<object>\"\n  ],\n  \"resetContexts\": \"<boolean>\",\n  \"parameters\": [\n    \"<object>\",\n    \"<object>\"\n  ],\n  \"messages\": [\n    \"<object>\",\n    \"<object>\"\n  ]\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "response": [
+        {
+          "id": "7208c445-d6f5-45cb-af34-01dfe6fa22a7",
+          "name": "Updated intent",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "v2",
+                "projects",
+                ":project",
+                "agent",
+                "intents",
+                ":intent"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "key": "updateMask",
+                  "value": "<string>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "project",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "intent",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: oauth2",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "<token>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"displayName\": \"<string>\",\n  \"webhookState\": \"<string>\",\n  \"priority\": \"<integer>\",\n  \"isFallback\": \"<boolean>\",\n  \"mlDisabled\": \"<boolean>\",\n  \"inputContextNames\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"events\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"trainingPhrases\": [\n    \"<object>\",\n    \"<object>\"\n  ],\n  \"action\": \"<string>\",\n  \"outputContexts\": [\n    \"<object>\",\n    \"<object>\"\n  ],\n  \"resetContexts\": \"<boolean>\",\n  \"parameters\": [\n    \"<object>\",\n    \"<object>\"\n  ],\n  \"messages\": [\n    \"<object>\",\n    \"<object>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"name\": \"string\",\n  \"displayName\": \"string\",\n  \"webhookState\": \"string\",\n  \"priority\": 3629,\n  \"isFallback\": true,\n  \"mlDisabled\": true,\n  \"inputContextNames\": [\n    \"string\",\n    \"string\"\n  ],\n  \"events\": [\n    \"string\",\n    \"string\"\n  ],\n  \"action\": \"string\",\n  \"resetContexts\": true\n}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "d541dbe9-8fd3-49cf-a80a-26f3b7e80be8",
+      "name": "Delete intent",
+      "request": {
+        "name": "Delete intent",
+        "description": {},
+        "url": {
+          "path": [
+            "v2",
+            "projects",
+            ":project",
+            "agent",
+            "intents",
+            ":intent"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": [
+            {
+              "disabled": false,
+              "type": "any",
+              "value": "<string>",
+              "key": "project",
+              "description": "(Required) "
+            },
+            {
+              "disabled": false,
+              "type": "any",
+              "value": "<string>",
+              "key": "intent",
+              "description": "(Required) "
+            }
+          ]
+        },
+        "method": "DELETE",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "b34430ea-528a-4f2c-a1b6-56a7bc19b4ae",
+          "name": "Empty",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "v2",
+                "projects",
+                ":project",
+                "agent",
+                "intents",
+                ":intent"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "project",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "intent",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: oauth2",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "<token>"
+              }
+            ],
+            "method": "DELETE",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "text/plain"
+            }
+          ],
+          "body": "",
+          "cookie": [],
+          "_postman_previewlanguage": "text"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "a6779273-bf87-49cc-adbf-bbf2b0cb3c28",
+      "name": "Detect intent",
+      "request": {
+        "name": "Detect intent",
+        "description": {},
+        "url": {
+          "path": [
+            "v2",
+            "projects",
+            ":project",
+            "agent",
+            "sessions",
+            "{{session}}:detectIntent"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": [
+            {
+              "disabled": false,
+              "type": "any",
+              "value": "<string>",
+              "key": "project",
+              "description": "(Required) "
+            }
+          ]
+        },
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "POST",
+        "auth": null,
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"queryInput\": \"<object>\",\n  \"queryParams\": \"<object>\",\n  \"outputAudioConfig\": \"<object>\",\n  \"inputAudio\": \"<byte>\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "response": [
+        {
+          "id": "89e40ecb-5110-4bfe-bdda-ecb4086bd18b",
+          "name": "Detect intent response",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "v2",
+                "projects",
+                ":project",
+                "agent",
+                "sessions",
+                "{{session}}:detectIntent"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "project",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: oauth2",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "<token>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"queryInput\": \"<object>\",\n  \"queryParams\": \"<object>\",\n  \"outputAudioConfig\": \"<object>\",\n  \"inputAudio\": \"<byte>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"responseId\": \"string\",\n  \"queryResult\": {},\n  \"outputAudio\": \"string\"\n}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "77aa82ba-2826-4660-afc0-3ec631999827",
+      "name": "Delete all contexts",
+      "request": {
+        "name": "Delete all contexts",
+        "description": {},
+        "url": {
+          "path": [
+            "v2",
+            "projects",
+            ":project",
+            "agent",
+            "sessions",
+            ":session",
+            "contexts"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": [
+            {
+              "disabled": false,
+              "type": "any",
+              "value": "<string>",
+              "key": "project",
+              "description": "(Required) "
+            },
+            {
+              "disabled": false,
+              "type": "any",
+              "value": "<string>",
+              "key": "session",
+              "description": "(Required) "
+            }
+          ]
+        },
+        "method": "DELETE",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "abc971be-b240-47e1-a333-255137b28c03",
+          "name": "Empty",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "v2",
+                "projects",
+                ":project",
+                "agent",
+                "sessions",
+                ":session",
+                "contexts"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "project",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "session",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: oauth2",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "<token>"
+              }
+            ],
+            "method": "DELETE",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "text/plain"
+            }
+          ],
+          "body": "",
+          "cookie": [],
+          "_postman_previewlanguage": "text"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "74a9f041-75be-4e20-814b-fdae7bb7b243",
+      "name": "List entity types",
+      "request": {
+        "name": "List entity types",
+        "description": {},
+        "url": {
+          "path": [
+            "v2",
+            "projects",
+            ":project",
+            "agent",
+            "entityTypes"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [
+            {
+              "disabled": false,
+              "key": "pageSize",
+              "value": "<integer>"
+            },
+            {
+              "disabled": false,
+              "key": "pageToken",
+              "value": "<string>"
+            }
+          ],
+          "variable": [
+            {
+              "disabled": false,
+              "type": "any",
+              "value": "<string>",
+              "key": "project",
+              "description": "(Required) "
+            }
+          ]
+        },
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "GET",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "a5cf4836-4f8c-4c35-ac49-77bd560d9ae0",
+          "name": "List of entity types",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "v2",
+                "projects",
+                ":project",
+                "agent",
+                "entityTypes"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "key": "pageSize",
+                  "value": "<integer>"
+                },
+                {
+                  "key": "pageToken",
+                  "value": "<string>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "project",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: oauth2",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "<token>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"entityTypes\": [\n    {\n      \"name\": \"string\",\n      \"displayName\": \"string\",\n      \"kind\": \"string\",\n      \"autoExpansionMode\": \"string\",\n      \"entities\": [\n        {\n          \"value\": \"string\",\n          \"synonyms\": [\n            \"string\",\n            \"string\"\n          ]\n        },\n        {\n          \"value\": \"string\",\n          \"synonyms\": [\n            \"string\",\n            \"string\"\n          ]\n        }\n      ],\n      \"enableFuzzyExtraction\": true\n    },\n    {\n      \"name\": \"string\",\n      \"displayName\": \"string\",\n      \"kind\": \"string\",\n      \"autoExpansionMode\": \"string\",\n      \"entities\": [\n        {\n          \"value\": \"string\",\n          \"synonyms\": [\n            \"string\",\n            \"string\"\n          ]\n        },\n        {\n          \"value\": \"string\",\n          \"synonyms\": [\n            \"string\",\n            \"string\"\n          ]\n        }\n      ],\n      \"enableFuzzyExtraction\": true\n    }\n  ]\n}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "42227bcc-83b9-42af-8f8e-dd4b44c1db69",
+      "name": "Create entity type",
+      "request": {
+        "name": "Create entity type",
+        "description": {},
+        "url": {
+          "path": [
+            "v2",
+            "projects",
+            ":project",
+            "agent",
+            "entityTypes"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": [
+            {
+              "disabled": false,
+              "type": "any",
+              "value": "<string>",
+              "key": "project",
+              "description": "(Required) "
+            }
+          ]
+        },
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "POST",
+        "auth": null,
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"<string>\",\n  \"displayName\": \"<string>\",\n  \"kind\": \"<string>\",\n  \"autoExpansionMode\": \"<string>\",\n  \"entities\": [\n    {\n      \"value\": \"<string>\",\n      \"synonyms\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"value\": \"<string>\",\n      \"synonyms\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ],\n  \"enableFuzzyExtraction\": \"<boolean>\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "response": [
+        {
+          "id": "cf84002a-c42a-4acc-9f2f-49aeb79dab1d",
+          "name": "Created entity type",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "v2",
+                "projects",
+                ":project",
+                "agent",
+                "entityTypes"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "project",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: oauth2",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "<token>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"displayName\": \"<string>\",\n  \"kind\": \"<string>\",\n  \"autoExpansionMode\": \"<string>\",\n  \"entities\": [\n    {\n      \"value\": \"<string>\",\n      \"synonyms\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"value\": \"<string>\",\n      \"synonyms\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ],\n  \"enableFuzzyExtraction\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"name\": \"string\",\n  \"displayName\": \"string\",\n  \"kind\": \"string\",\n  \"autoExpansionMode\": \"string\",\n  \"entities\": [\n    {\n      \"value\": \"string\",\n      \"synonyms\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    {\n      \"value\": \"string\",\n      \"synonyms\": [\n        \"string\",\n        \"string\"\n      ]\n    }\n  ],\n  \"enableFuzzyExtraction\": false\n}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "71797136-ae09-43b8-a168-943c45c1d4d9",
+      "name": "List knowledge bases",
+      "request": {
+        "name": "List knowledge bases",
+        "description": {},
+        "url": {
+          "path": [
+            "v2",
+            "projects",
+            ":project",
+            "knowledgeBases"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": [
+            {
+              "disabled": false,
+              "type": "any",
+              "value": "<string>",
+              "key": "project",
+              "description": "(Required) "
+            }
+          ]
+        },
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "GET",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "e29f6e66-f02c-4100-bacc-0e50818a3351",
+          "name": "List of knowledge bases",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "v2",
+                "projects",
+                ":project",
+                "knowledgeBases"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "project",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: oauth2",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "<token>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "7a8f788d-283e-40e3-a139-23a691121165",
+      "name": "Create knowledge base",
+      "request": {
+        "name": "Create knowledge base",
+        "description": {},
+        "url": {
+          "path": [
+            "v2",
+            "projects",
+            ":project",
+            "knowledgeBases"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": [
+            {
+              "disabled": false,
+              "type": "any",
+              "value": "<string>",
+              "key": "project",
+              "description": "(Required) "
+            }
+          ]
+        },
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "POST",
+        "auth": null,
+        "body": {
+          "mode": "raw",
+          "raw": "<object>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "response": [
+        {
+          "id": "4a4aa6dc-39e7-4832-bccf-8287bfa50730",
+          "name": "Created knowledge base",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "v2",
+                "projects",
+                ":project",
+                "knowledgeBases"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "project",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: oauth2",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "<token>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "<object>",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://dialogflow.googleapis.com",
+      "key": "baseUrl"
+    },
+    {
+      "disabled": false,
+      "description": {
+        "content": "(Required) ",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "<string>",
+      "key": "project"
+    },
+    {
+      "disabled": false,
+      "description": {
+        "content": "(Required) ",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "<string>",
+      "key": "session"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "cloud-platform dialogflow"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://oauth2.googleapis.com/token"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://accounts.google.com/o/oauth2/v2/auth"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "52c4a73b-42b9-4aad-9787-3f033dfcaeab",
+    "name": "Dialogflow ES API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Dialogflow ES (Essentials) provides a natural language understanding\nplatform to design and integrate conversational user interfaces. The REST\nAPI manages agents, intents, entity types, sessions, contexts, and\nknowledge bases.\n",
+      "type": "text/plain"
+    }
+  }
+}

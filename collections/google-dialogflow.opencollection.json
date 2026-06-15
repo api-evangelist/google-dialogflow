@@ -1,0 +1,368 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Dialogflow ES API",
+    "version": "v2"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "authorization_code",
+      "authorizationUrl": "https://accounts.google.com/o/oauth2/v2/auth",
+      "accessTokenUrl": "https://oauth2.googleapis.com/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Get agent",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://dialogflow.googleapis.com/v2/projects/:project/agent",
+        "params": [
+          {
+            "name": "project",
+            "value": "",
+            "type": "path"
+          }
+        ]
+      },
+      "docs": "Get agent"
+    },
+    {
+      "info": {
+        "name": "Set agent",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "https://dialogflow.googleapis.com/v2/projects/:project:setAgent",
+        "params": [
+          {
+            "name": "project",
+            "value": "",
+            "type": "path"
+          },
+          {
+            "name": "updateMask",
+            "value": "",
+            "type": "query"
+          }
+        ],
+        "body": {
+          "type": "json",
+          "data": "{}"
+        }
+      },
+      "docs": "Set agent"
+    },
+    {
+      "info": {
+        "name": "Delete agent",
+        "type": "http"
+      },
+      "http": {
+        "method": "DELETE",
+        "url": "https://dialogflow.googleapis.com/v2/projects/:project:deleteAgent",
+        "params": [
+          {
+            "name": "project",
+            "value": "",
+            "type": "path"
+          }
+        ]
+      },
+      "docs": "Delete agent"
+    },
+    {
+      "info": {
+        "name": "List intents",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://dialogflow.googleapis.com/v2/projects/:project/agent/intents",
+        "params": [
+          {
+            "name": "project",
+            "value": "",
+            "type": "path"
+          },
+          {
+            "name": "languageCode",
+            "value": "",
+            "type": "query"
+          },
+          {
+            "name": "intentView",
+            "value": "",
+            "type": "query"
+          },
+          {
+            "name": "pageSize",
+            "value": "",
+            "type": "query"
+          },
+          {
+            "name": "pageToken",
+            "value": "",
+            "type": "query"
+          }
+        ]
+      },
+      "docs": "List intents"
+    },
+    {
+      "info": {
+        "name": "Create intent",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "https://dialogflow.googleapis.com/v2/projects/:project/agent/intents",
+        "params": [
+          {
+            "name": "project",
+            "value": "",
+            "type": "path"
+          },
+          {
+            "name": "languageCode",
+            "value": "",
+            "type": "query"
+          }
+        ],
+        "body": {
+          "type": "json",
+          "data": "{}"
+        }
+      },
+      "docs": "Create intent"
+    },
+    {
+      "info": {
+        "name": "Get intent",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://dialogflow.googleapis.com/v2/projects/:project/agent/intents/:intent",
+        "params": [
+          {
+            "name": "project",
+            "value": "",
+            "type": "path"
+          },
+          {
+            "name": "intent",
+            "value": "",
+            "type": "path"
+          }
+        ]
+      },
+      "docs": "Get intent"
+    },
+    {
+      "info": {
+        "name": "Update intent",
+        "type": "http"
+      },
+      "http": {
+        "method": "PATCH",
+        "url": "https://dialogflow.googleapis.com/v2/projects/:project/agent/intents/:intent",
+        "params": [
+          {
+            "name": "project",
+            "value": "",
+            "type": "path"
+          },
+          {
+            "name": "intent",
+            "value": "",
+            "type": "path"
+          },
+          {
+            "name": "updateMask",
+            "value": "",
+            "type": "query"
+          }
+        ],
+        "body": {
+          "type": "json",
+          "data": "{}"
+        }
+      },
+      "docs": "Update intent"
+    },
+    {
+      "info": {
+        "name": "Delete intent",
+        "type": "http"
+      },
+      "http": {
+        "method": "DELETE",
+        "url": "https://dialogflow.googleapis.com/v2/projects/:project/agent/intents/:intent",
+        "params": [
+          {
+            "name": "project",
+            "value": "",
+            "type": "path"
+          },
+          {
+            "name": "intent",
+            "value": "",
+            "type": "path"
+          }
+        ]
+      },
+      "docs": "Delete intent"
+    },
+    {
+      "info": {
+        "name": "Detect intent",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "https://dialogflow.googleapis.com/v2/projects/:project/agent/sessions/:session:detectIntent",
+        "params": [
+          {
+            "name": "project",
+            "value": "",
+            "type": "path"
+          },
+          {
+            "name": "session",
+            "value": "",
+            "type": "path"
+          }
+        ],
+        "body": {
+          "type": "json",
+          "data": "{}"
+        }
+      },
+      "docs": "Detect intent"
+    },
+    {
+      "info": {
+        "name": "Delete all contexts",
+        "type": "http"
+      },
+      "http": {
+        "method": "DELETE",
+        "url": "https://dialogflow.googleapis.com/v2/projects/:project/agent/sessions/:session/contexts",
+        "params": [
+          {
+            "name": "project",
+            "value": "",
+            "type": "path"
+          },
+          {
+            "name": "session",
+            "value": "",
+            "type": "path"
+          }
+        ]
+      },
+      "docs": "Delete all contexts"
+    },
+    {
+      "info": {
+        "name": "List entity types",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://dialogflow.googleapis.com/v2/projects/:project/agent/entityTypes",
+        "params": [
+          {
+            "name": "project",
+            "value": "",
+            "type": "path"
+          },
+          {
+            "name": "pageSize",
+            "value": "",
+            "type": "query"
+          },
+          {
+            "name": "pageToken",
+            "value": "",
+            "type": "query"
+          }
+        ]
+      },
+      "docs": "List entity types"
+    },
+    {
+      "info": {
+        "name": "Create entity type",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "https://dialogflow.googleapis.com/v2/projects/:project/agent/entityTypes",
+        "params": [
+          {
+            "name": "project",
+            "value": "",
+            "type": "path"
+          }
+        ],
+        "body": {
+          "type": "json",
+          "data": "{}"
+        }
+      },
+      "docs": "Create entity type"
+    },
+    {
+      "info": {
+        "name": "List knowledge bases",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://dialogflow.googleapis.com/v2/projects/:project/knowledgeBases",
+        "params": [
+          {
+            "name": "project",
+            "value": "",
+            "type": "path"
+          }
+        ]
+      },
+      "docs": "List knowledge bases"
+    },
+    {
+      "info": {
+        "name": "Create knowledge base",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "https://dialogflow.googleapis.com/v2/projects/:project/knowledgeBases",
+        "params": [
+          {
+            "name": "project",
+            "value": "",
+            "type": "path"
+          }
+        ],
+        "body": {
+          "type": "json",
+          "data": "{}"
+        }
+      },
+      "docs": "Create knowledge base"
+    }
+  ],
+  "bundled": true
+}
