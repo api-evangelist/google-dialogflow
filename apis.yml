@@ -1,7 +1,7 @@
 aid: google-dialogflow
 name: Google Dialogflow
 description: Google Dialogflow is a natural language understanding platform that makes it easy to design and integrate conversational user interfaces into mobile apps, web applications, devices, bots, and interactive voice response systems.
-image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
 url: https://cloud.google.com/dialogflow
 created: '2024-01-01'
 modified: '2026-04-28'
@@ -17,7 +17,7 @@ tags:
 apis:
   - name: Dialogflow API
     description: Build conversational interfaces for websites, mobile applications, popular messaging platforms, and IoT devices. Dialogflow provides a natural language understanding platform to process and understand natural language input.
-    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
     humanURL: https://cloud.google.com/dialogflow/docs
     baseURL: https://dialogflow.googleapis.com
     tags:
@@ -41,7 +41,7 @@ apis:
         url: https://dialogflow.cloud.google.com/
   - name: Dialogflow CX API
     description: Advanced version of Dialogflow for large or complex agents with features like visual flow builder, version control, and advanced testing capabilities.
-    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
     humanURL: https://cloud.google.com/dialogflow/cx/docs
     baseURL: https://dialogflow.googleapis.com
     tags:
