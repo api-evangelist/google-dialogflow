@@ -64,6 +64,8 @@ apis:
       - type: Console
         url: https://dialogflow.cloud.google.com/cx
 common:
+  - type: OAuthScopes
+    url: scopes/google-dialogflow-scopes.yml
   - type: GitHubOrganization
     url: https://github.com/dialogflow
   - type: Portal

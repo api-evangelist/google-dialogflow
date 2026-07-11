@@ -1,0 +1,23 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/google-dialogflow-openapi.yml
+schemes:
+- name: OAuth2
+  source: openapi/google-dialogflow-openapi.yml
+  flows:
+  - flow: authorizationCode
+    authorizationUrl: https://accounts.google.com/o/oauth2/v2/auth
+    tokenUrl: https://oauth2.googleapis.com/token
+scopes:
+- scope: cloud-platform
+  description: View and manage your data across Google Cloud Platform services
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/google-dialogflow-openapi.yml
+- scope: dialogflow
+  description: View, manage and query your Dialogflow agents
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/google-dialogflow-openapi.yml
