@@ -64,6 +64,12 @@ apis:
       - type: Console
         url: https://dialogflow.cloud.google.com/cx
 common:
+  - type: VulnerabilityDisclosure
+    url: security/google-dialogflow-vulnerability-disclosure.yml
+  - type: DomainSecurity
+    url: security/google-dialogflow-domain-security.yml
+  - type: Authentication
+    url: authentication/google-dialogflow-authentication.yml
   - type: OAuthScopes
     url: scopes/google-dialogflow-scopes.yml
   - type: GitHubOrganization
