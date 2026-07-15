@@ -64,6 +64,8 @@ apis:
       - type: Console
         url: https://dialogflow.cloud.google.com/cx
 common:
+  - type: AgenticAccess
+    url: agentic-access/google-dialogflow-agentic-access.yml
   - type: VulnerabilityDisclosure
     url: security/google-dialogflow-vulnerability-disclosure.yml
   - type: DomainSecurity
