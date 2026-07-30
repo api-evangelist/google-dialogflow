@@ -1,7 +1,20 @@
 aid: google-dialogflow
 name: Google Dialogflow
 description: Google Dialogflow is a natural language understanding platform that makes it easy to design and integrate conversational user interfaces into mobile apps, web applications, devices, bots, and interactive voice response systems.
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: freemium
+  onboarding: self-serve
+  trial: false
+  try_now: true
+  public: false
+  label: Freemium · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/google-dialogflow.png
 url: https://cloud.google.com/dialogflow
 created: '2024-01-01'
 modified: '2026-04-28'
@@ -15,54 +28,36 @@ tags:
   - Natural Language Processing
   - Voice Assistants
 apis:
-  - name: Dialogflow API
-    description: Build conversational interfaces for websites, mobile applications, popular messaging platforms, and IoT devices. Dialogflow provides a natural language understanding platform to process and understand natural language input.
-    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-    humanURL: https://cloud.google.com/dialogflow/docs
-    baseURL: https://dialogflow.googleapis.com
-    tags:
-      - Contexts
-      - Conversational AI
-      - Entities
-      - Intents
-      - NLP
-    properties:
-      - type: Documentation
-        url: https://cloud.google.com/dialogflow/docs
-      - type: OpenAPI
-        url: https://dialogflow.googleapis.com/$discovery/rest?version=v2
-      - type: Authentication
-        url: https://cloud.google.com/dialogflow/docs/authentication
-      - type: GettingStarted
-        url: https://cloud.google.com/dialogflow/docs/quick/setup
-      - type: Pricing
-        url: https://cloud.google.com/dialogflow/pricing
-      - type: Console
-        url: https://dialogflow.cloud.google.com/
-  - name: Dialogflow CX API
-    description: Advanced version of Dialogflow for large or complex agents with features like visual flow builder, version control, and advanced testing capabilities.
-    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-    humanURL: https://cloud.google.com/dialogflow/cx/docs
-    baseURL: https://dialogflow.googleapis.com
-    tags:
-      - Conversational AI
-      - Enterprise
-      - Flows
-      - Pages
-      - State Machines
-    properties:
-      - type: Documentation
-        url: https://cloud.google.com/dialogflow/cx/docs
-      - type: OpenAPI
-        url: https://dialogflow.googleapis.com/$discovery/rest?version=v3
-      - type: Authentication
-        url: https://cloud.google.com/docs/authentication
-      - type: GettingStarted
-        url: https://cloud.google.com/dialogflow/cx/docs/tutorials
-      - type: Pricing
-        url: https://cloud.google.com/dialogflow/cx/pricing
-      - type: Console
-        url: https://dialogflow.cloud.google.com/cx
+- aid: google-dialogflow:google-dialogflow-projects-api
+  name: Google Dialogflow Projects API
+  description: The Projects API from Google Dialogflow — 9 operation(s) for projects.
+  humanURL: https://cloud.google.com/dialogflow/docs
+  baseURL: https://dialogflow.googleapis.com
+  tags:
+  - Projects
+  properties:
+  - type: OpenAPI
+    url: openapi/google-dialogflow-projects-api-openapi.yml
+  - type: Documentation
+    url: https://cloud.google.com/dialogflow/docs
+  - type: Authentication
+    url: https://cloud.google.com/dialogflow/docs/authentication
+  - type: GettingStarted
+    url: https://cloud.google.com/dialogflow/docs/quick/setup
+  - type: Pricing
+    url: https://cloud.google.com/dialogflow/pricing
+  - type: Console
+    url: https://dialogflow.cloud.google.com/
+  - type: Documentation
+    url: https://cloud.google.com/dialogflow/cx/docs
+  - type: Authentication
+    url: https://cloud.google.com/docs/authentication
+  - type: GettingStarted
+    url: https://cloud.google.com/dialogflow/cx/docs/tutorials
+  - type: Pricing
+    url: https://cloud.google.com/dialogflow/cx/pricing
+  - type: Console
+    url: https://dialogflow.cloud.google.com/cx
 common:
   - type: AgenticAccess
     url: agentic-access/google-dialogflow-agentic-access.yml
