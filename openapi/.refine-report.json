@@ -1,0 +1,14 @@
+{
+  "provider": "google-dialogflow",
+  "sources": [
+    "google-dialogflow-projects-api-openapi.yml"
+  ],
+  "outputs": [
+    "google-dialogflow-projects-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
