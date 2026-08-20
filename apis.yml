@@ -24,6 +24,13 @@ tags:
   - Artificial Intelligence
   - Chatbots
   - Conversational AI
+  - Machine-Learning
+  - Natural Language Processing
+  - Voice Assistants
+tags_raw:
+  - Artificial Intelligence
+  - Chatbots
+  - Conversational AI
   - Machine Learning
   - Natural Language Processing
   - Voice Assistants
@@ -34,6 +41,8 @@ apis:
   humanURL: https://cloud.google.com/dialogflow/docs
   baseURL: https://dialogflow.googleapis.com
   tags:
+  - Project
+  tags_raw:
   - Projects
   properties:
   - type: OpenAPI
