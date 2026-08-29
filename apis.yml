@@ -1,6 +1,18 @@
 aid: google-dialogflow
 name: Google Dialogflow
 description: Google Dialogflow is a natural language understanding platform that makes it easy to design and integrate conversational user interfaces into mobile apps, web applications, devices, bots, and interactive voice response systems.
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: true
+  label: Hosted service · you call their endpoint
+  confidence: high
+  source:
+  - openapi
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: freemium
   onboarding: self-serve
