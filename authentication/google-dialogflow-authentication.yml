@@ -1,8 +1,9 @@
-generated: '2026-07-11'
+generated: '2026-09-12'
 method: derived
-source: openapi/google-dialogflow-openapi.yml
+source: openapi/google-dialogflow-cx-v3-openapi.yml, openapi/google-dialogflow-es-v2-openapi.yml
 summary:
   types:
+  - http
   - oauth2
   oauth2_flows:
   - authorizationCode
@@ -14,5 +15,15 @@ schemes:
     authorizationUrl: https://accounts.google.com/o/oauth2/v2/auth
     tokenUrl: https://oauth2.googleapis.com/token
     scopes: 2
+  description: Google OAuth 2.0. Scopes are declared per operation in the Discovery Document.
   sources:
-  - openapi/google-dialogflow-openapi.yml
+  - openapi/google-dialogflow-cx-v3-openapi.yml
+  - openapi/google-dialogflow-es-v2-openapi.yml
+- name: BearerAuth
+  type: http
+  scheme: bearer
+  description: 'Google OAuth 2.0 access token or service-account-minted bearer token, sent as
+    Authorization: Bearer <token>.'
+  sources:
+  - openapi/google-dialogflow-cx-v3-openapi.yml
+  - openapi/google-dialogflow-es-v2-openapi.yml

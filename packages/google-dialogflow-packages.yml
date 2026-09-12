@@ -1,0 +1,167 @@
+generated: '2026-09-12'
+method: searched
+source: registry.npmjs.org, pypi.org, rubygems.org, api.nuget.org, search.maven.org, proxy.golang.org,
+  repo.packagist.org — queried 2026-09-12
+provider: Google Dialogflow
+providerId: google-dialogflow
+description: >-
+  First-party Google Cloud client libraries for the Dialogflow ES (v2) and Dialogflow CX /
+  Conversational Agents (v3) APIs. Every entry below was read from the registry's own metadata
+  endpoint on 2026-09-12. Google generates these libraries from the same protos kept in
+  googleapis/googleapis (mirrored verbatim in this repo under grpc/), which is why the ES and CX
+  libraries ship as sibling packages in each language rather than one combined SDK.
+official_count: 13
+packages:
+- name: '@google-cloud/dialogflow'
+  language: javascript
+  registry: npm
+  url: https://www.npmjs.com/package/@google-cloud/dialogflow
+  repository: https://github.com/googleapis/google-cloud-node
+  official: true
+  api: Dialogflow ES (v2, v2beta1)
+  version: 8.1.0
+  published: '2026-09-08'
+- name: '@google-cloud/dialogflow-cx'
+  language: javascript
+  registry: npm
+  url: https://www.npmjs.com/package/@google-cloud/dialogflow-cx
+  repository: https://github.com/googleapis/google-cloud-node
+  official: true
+  api: Dialogflow CX (v3, v3beta1)
+  version: 6.1.0
+  published: '2026-09-08'
+- name: dialogflow
+  language: javascript
+  registry: npm
+  url: https://www.npmjs.com/package/dialogflow
+  repository: https://github.com/googleapis/nodejs-dialogflow
+  official: true
+  deprecated: true
+  api: Dialogflow ES (v2)
+  version: 1.2.0
+  published: '2020-02-07'
+  note: Google's original Node.js package name, last published 2020-02-07 and superseded by
+    '@google-cloud/dialogflow'. Recorded because it is still resolvable and is a six-year-old
+    abandonment signal for anyone who pins it.
+- name: google-cloud-dialogflow
+  language: python
+  registry: pypi
+  url: https://pypi.org/project/google-cloud-dialogflow/
+  repository: https://github.com/googleapis/google-cloud-python/tree/main/packages/google-cloud-dialogflow
+  official: true
+  api: Dialogflow ES (v2, v2beta1)
+  version: 2.51.0
+  published: '2026-07-16'
+- name: google-cloud-dialogflow-cx
+  language: python
+  registry: pypi
+  url: https://pypi.org/project/google-cloud-dialogflow-cx/
+  repository: https://github.com/googleapis/google-cloud-python/tree/main/packages/google-cloud-dialogflow-cx
+  official: true
+  api: Dialogflow CX (v3, v3beta1)
+  version: 2.7.0
+  published: '2026-06-25'
+- name: com.google.cloud:google-cloud-dialogflow
+  language: java
+  registry: maven
+  url: https://central.sonatype.com/artifact/com.google.cloud/google-cloud-dialogflow
+  repository: https://github.com/googleapis/google-cloud-java
+  official: true
+  api: Dialogflow ES (v2, v2beta1)
+  version: 4.99.0
+  published: '2026-06-04'
+- name: com.google.cloud:google-cloud-dialogflow-cx
+  language: java
+  registry: maven
+  url: https://central.sonatype.com/artifact/com.google.cloud/google-cloud-dialogflow-cx
+  repository: https://github.com/googleapis/google-cloud-java
+  official: true
+  api: Dialogflow CX (v3, v3beta1)
+  version: 0.104.0
+  published: '2026-06-04'
+- name: Google.Cloud.Dialogflow.V2
+  language: dotnet
+  registry: nuget
+  url: https://www.nuget.org/packages/Google.Cloud.Dialogflow.V2
+  repository: https://github.com/googleapis/google-cloud-dotnet
+  official: true
+  api: Dialogflow ES (v2)
+  version: 4.31.0
+  published: '2026-06-29'
+- name: Google.Cloud.Dialogflow.Cx.V3
+  language: dotnet
+  registry: nuget
+  url: https://www.nuget.org/packages/Google.Cloud.Dialogflow.Cx.V3
+  repository: https://github.com/googleapis/google-cloud-dotnet
+  official: true
+  api: Dialogflow CX (v3)
+  version: 3.1.0
+  published: '2026-03-30'
+- name: cloud.google.com/go/dialogflow
+  language: go
+  registry: go
+  url: https://pkg.go.dev/cloud.google.com/go/dialogflow
+  repository: https://github.com/googleapis/google-cloud-go
+  official: true
+  api: Dialogflow ES (v2, v2beta1) and Dialogflow CX (v3, v3beta1) — CX ships as the
+    cloud.google.com/go/dialogflow/cx subpackage of this module, not a separate module.
+  version: v1.85.0
+  published: '2026-07-20'
+- name: google-cloud-dialogflow
+  language: ruby
+  registry: rubygems
+  url: https://rubygems.org/gems/google-cloud-dialogflow
+  repository: https://github.com/googleapis/google-cloud-ruby
+  official: true
+  api: Dialogflow ES (v2) — wrapper over google-cloud-dialogflow-v2 (1.17.1, 2026-08-05)
+  version: 1.15.1
+  published: '2026-08-05'
+- name: google-cloud-dialogflow-cx
+  language: ruby
+  registry: rubygems
+  url: https://rubygems.org/gems/google-cloud-dialogflow-cx
+  repository: https://github.com/googleapis/google-cloud-ruby
+  official: true
+  api: Dialogflow CX (v3)
+  version: 1.5.1
+  published: '2026-08-05'
+- name: google/cloud-dialogflow
+  language: php
+  registry: packagist
+  url: https://packagist.org/packages/google/cloud-dialogflow
+  repository: https://github.com/googleapis/google-cloud-php
+  official: true
+  api: Dialogflow ES (v2, v2beta1)
+  version: v2.6.1
+  published: '2026-09-01'
+- name: google/cloud-dialogflow-cx
+  language: php
+  registry: packagist
+  url: https://packagist.org/packages/google/cloud-dialogflow-cx
+  repository: https://github.com/googleapis/google-cloud-php
+  official: true
+  api: Dialogflow CX (v3, v3beta1)
+  version: v0.12.1
+  published: '2026-09-01'
+currency:
+  checked: '2026-09-12'
+  freshest: '2026-09-08'
+  stalest_active: '2026-03-30'
+  note: >-
+    Every actively maintained first-party library published inside the last six months, against a
+    Discovery Document revision of 20260825 — no abandonment signal on the supported surface. The
+    only stale package is the deprecated 'dialogflow' npm name (2020-02-07), which Google itself
+    redirects readers away from.
+excluded:
+- name: google-dialogflow2
+  registry: crates.io
+  reason: Third-party. Part of Sebastian Thiel's google-apis-rs generated crate family, not a
+    Google-published library. Recorded here so a later pass does not mistake it for first-party.
+- name: dialogflow-fulfillment
+  registry: npm
+  reason: A webhook-side helper for building fulfillment responses, published under the
+    dialogflow.pkgmgr account. It is not an API client for dialogflow.googleapis.com and is
+    unmaintained (0.6.1). Not counted as an SDK.
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

@@ -1,0 +1,106 @@
+generated: '2026-09-12'
+method: searched
+source: https://cloud.google.com/dialogflow/docs/release-notes, https://cloud.google.com/dialogflow/sla,
+  https://status.cloud.google.com/, https://cloud.google.com/products#product-launch-stages,
+  discovery/google-dialogflow-v2.json, discovery/google-dialogflow-v3.json
+provider: Google Dialogflow
+providerId: google-dialogflow
+description: >-
+  Versioning, channels, deprecation posture, SLA and status for the Dialogflow API surface.
+  Dialogflow is a Google Cloud service, so its lifecycle terms are inherited from Google Cloud's
+  platform-wide launch-stage and deprecation policy rather than published per-product.
+versioning:
+  scheme: path-segment major version with explicit beta channels
+  current:
+  - version: v2
+    product: Dialogflow ES (Essentials)
+    stage: GA
+    path_prefix: /v2/
+    discovery: https://dialogflow.googleapis.com/$discovery/rest?version=v2
+    discovery_revision: '20260825'
+    operations: 279
+  - version: v3
+    product: Dialogflow CX (Conversational Agents)
+    stage: GA
+    path_prefix: /v3/
+    discovery: https://dialogflow.googleapis.com/$discovery/rest?version=v3
+    discovery_revision: '20260825'
+    operations: 158
+  preview:
+  - version: v2beta1
+    product: Dialogflow ES
+    stage: beta
+    discovery: https://dialogflow.googleapis.com/$discovery/rest?version=v2beta1
+    discovery_revision: '20260825'
+    operations: 266
+  - version: v3beta1
+    product: Dialogflow CX
+    stage: beta
+    discovery: https://dialogflow.googleapis.com/$discovery/rest?version=v3beta1
+    discovery_revision: '20260825'
+    operations: 162
+    note: New capability lands on v3beta1 first. Example from the changelog — the
+      LlmModelSettings `temperature`, `input_token_limit` and `output_token_limit` fields shipped to
+      v3beta1 only (2025-10-23).
+  note: >-
+    All four channels are served by the same host (dialogflow.googleapis.com) and share a Discovery
+    revision line, so a beta channel is not a separate deployment — it is a wider surface on the
+    same service.
+deprecation:
+  policy: https://cloud.google.com/terms/service-terms
+  launch_stages: https://cloud.google.com/products#product-launch-stages
+  channel: https://cloud.google.com/dialogflow/docs/release-notes
+  headers:
+    sunset: false
+    deprecation: false
+    note: >-
+      Dialogflow does not emit RFC 8594 Sunset or Deprecation response headers, and the Discovery
+      Documents carry no deprecation markers on any method. Deprecation is announced only in prose
+      on the release-notes page. An agent cannot detect a pending retirement from a response.
+  commitment: >-
+    Google Cloud's GA deprecation policy commits to a minimum of 12 months' notice before a
+    backwards-incompatible change to a GA API. Beta channels (v2beta1, v3beta1) carry no such
+    commitment and may change without notice.
+  observed:
+  - item: Dialogflow CX console
+    announced: '2025-09-04'
+    effective: '2025-10-31'
+    replacement: Conversational Agents console
+    note: Users automatically routed to the new console after the date.
+  - item: gemini-1.0-pro, gemini-1.5-pro and gemini-1.5-flash generative models
+    announced: '2025-08-07'
+    effective: '2025-09-01'
+    replacement: gemini-2.0-flash-001 (auto-upgraded), later gemini-2.5-flash / -lite
+    note: Applies to Playbooks, Data stores, Generators and Generative Fallback.
+  - item: Service agent access tokens for webhook and tool authentication
+    announced: '2025-06-12'
+    note: Discontinued; customers were notified by email ahead of the release note.
+  - item: npm package `dialogflow`
+    effective: '2020-02-07'
+    replacement: '@google-cloud/dialogflow'
+    note: Last publish 2020; superseded package name still resolvable.
+  deprecated_operations: []
+  deprecated_operations_note: No operation in either Discovery Document is marked deprecated.
+sla:
+  url: https://cloud.google.com/dialogflow/sla
+  uptime_target: 99.9%
+  covered_services:
+  - Dialogflow Essentials Edition
+  - Dialogflow Customer Experience Edition
+  excluded:
+  - Dialogflow Trial Edition
+  downtime_definition: More than a 5% Error Rate.
+  back_off_requirement: >-
+    Customer must wait before retrying — minimum 1 second after the first error, increasing
+    exponentially up to 32 seconds. Stated in the SLA itself, so it is a contractual retry
+    obligation, not just guidance.
+  remedy: Financial Credits, stated as the customer's sole and exclusive remedy.
+status_page:
+  url: https://status.cloud.google.com/
+  scope: Google Cloud platform-wide dashboard; Dialogflow appears as a listed product.
+  machine_readable: https://status.cloud.google.com/incidents.json
+support:
+  url: https://cloud.google.com/dialogflow/docs/support
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

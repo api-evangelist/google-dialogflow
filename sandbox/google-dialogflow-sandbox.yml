@@ -1,0 +1,98 @@
+generated: '2026-09-12'
+method: searched
+source: https://cloud.google.com/dialogflow/cx/docs/concept/test-case,
+  https://cloud.google.com/dialogflow/es/docs/agents-prebuilt,
+  https://cloud.google.com/dialogflow/quotas, https://cloud.google.com/dialogflow/pricing,
+  discovery/google-dialogflow-v3.json
+provider: Google Dialogflow
+providerId: google-dialogflow
+description: >-
+  Dialogflow has no test-mode key, no separate sandbox host and no fixture values. There is one
+  production API, one credential type, and every runtime call is billed. What it has instead is a
+  richer thing most providers lack: a first-class, API-addressable test surface — test cases,
+  continuous tests, experiments and versioned environments — that lets you rehearse an agent
+  against recorded conversations without a parallel sandbox account. The distinction matters for an
+  agent planning a write: there is nowhere safe to practice a detectIntent, but there is a
+  documented way to practice a whole conversation.
+test_mode:
+  separate_host: false
+  separate_credentials: false
+  key_prefixes: []
+  test_values: []
+  note: >-
+    No test/live key split exists. Credentials are ordinary Google Cloud OAuth tokens and there are
+    no magic test identifiers, test cards or simulator values to record. Saying so explicitly
+    matters — an absent test mode is a real property of this API, not a gap in this profile.
+free_to_try:
+- name: Design-time requests
+  price: '0.00'
+  note: Navigating the builder and listing agent resources is free of charge. Only runtime
+    conversation turns are billed.
+- name: Dialogflow ES Trial Edition
+  note: Free edition with reduced quotas (180 text rpm, 1000 audio requests/day, 15,000/month) and
+    no SLA coverage.
+- name: Trial credits
+  note: $600 (Flows) and $1000 (Playbooks) auto-activated for new users, expiring after 12 months.
+test_surfaces:
+- name: Test cases
+  api: Dialogflow CX (v3)
+  docs: https://cloud.google.com/dialogflow/cx/docs/concept/test-case
+  operations:
+  - dialogflow_projects_locations_agents_testCases_create
+  - dialogflow_projects_locations_agents_testCases_run
+  - dialogflow_projects_locations_agents_testCases_batchRun
+  - dialogflow_projects_locations_agents_testCases_calculateCoverage
+  - dialogflow_projects_locations_agents_testCases_import
+  - dialogflow_projects_locations_agents_testCases_export
+  - dialogflow_projects_locations_agents_testCases_results_list
+  limit: 2000 test cases per agent
+  note: >-
+    A test case records a conversation turn sequence and its expected responses, and can be replayed
+    against a version or environment. calculateCoverage reports intent, transition and route-group
+    coverage — a genuinely unusual capability to expose over an API.
+- name: Continuous tests
+  api: Dialogflow CX (v3)
+  operations:
+  - dialogflow_projects_locations_agents_environments_runContinuousTest
+  - dialogflow_projects_locations_agents_environments_continuousTestResults_list
+  note: Runs the test-case suite against a deployed environment on a schedule, so a regression
+    surfaces against real deployed config.
+- name: Experiments (A/B)
+  api: Dialogflow CX (v3)
+  operations:
+  - dialogflow_projects_locations_agents_environments_experiments_create
+  - dialogflow_projects_locations_agents_environments_experiments_start
+  - dialogflow_projects_locations_agents_environments_experiments_stop
+  note: Splits live traffic between two flow versions inside an environment and reports on the
+    variants. This is the closest thing to a staged rollout Dialogflow offers.
+- name: Versions and environments
+  api: Dialogflow ES (v2) and CX (v3)
+  note: >-
+    An environment pins a version of the agent, so "draft" and "production" are real, separately
+    addressable targets on the same project. Up to 20 environments per CX agent.
+- name: Agent validation
+  api: Dialogflow CX (v3)
+  operations:
+  - dialogflow_projects_locations_agents_validate
+  - dialogflow_projects_locations_agents_getValidationResult
+  - dialogflow_projects_locations_agents_flows_validate
+  - dialogflow_projects_locations_agents_flows_getValidationResult
+  note: Static analysis of an agent's configuration. There is no per-call dry-run parameter anywhere
+    in the contract; this is the nearest equivalent and it is design-time only.
+- name: Simulator
+  api: both
+  note: Interactive console-only chat panel for trying an agent. Not API-addressable.
+starter_content:
+- name: Prebuilt agents
+  docs: https://cloud.google.com/dialogflow/es/docs/agents-prebuilt
+  note: Google-published starter agents that can be imported into a project as a working baseline.
+- name: Quickstart — build an agent
+  docs: https://cloud.google.com/dialogflow/es/docs/quick/build-agent
+caveats:
+- Every runtime detectIntent is billed, including from the console simulator — "a request is
+  defined as any API call to the platform, whether direct with API usage or indirect with
+  integration or console usage".
+- Test-case runs are agent executions and consume quota and generative tokens like any other turn.
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

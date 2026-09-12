@@ -1,23 +1,34 @@
-generated: '2026-07-11'
+generated: '2026-09-12'
 method: derived
-source: openapi/google-dialogflow-openapi.yml
+source: openapi/google-dialogflow-cx-v3-openapi.yml, openapi/google-dialogflow-es-v2-openapi.yml
 schemes:
 - name: OAuth2
-  source: openapi/google-dialogflow-openapi.yml
+  source: openapi/google-dialogflow-cx-v3-openapi.yml
   flows:
   - flow: authorizationCode
     authorizationUrl: https://accounts.google.com/o/oauth2/v2/auth
     tokenUrl: https://oauth2.googleapis.com/token
+  description: Google OAuth 2.0. Scopes are declared per operation in the Discovery Document.
+- name: OAuth2
+  source: openapi/google-dialogflow-es-v2-openapi.yml
+  flows:
+  - flow: authorizationCode
+    authorizationUrl: https://accounts.google.com/o/oauth2/v2/auth
+    tokenUrl: https://oauth2.googleapis.com/token
+  description: Google OAuth 2.0. Scopes are declared per operation in the Discovery Document.
 scopes:
-- scope: cloud-platform
-  description: View and manage your data across Google Cloud Platform services
+- scope: https://www.googleapis.com/auth/cloud-platform
+  description: See, edit, configure, and delete your Google Cloud data and see the email address
+    for your Google Account.
   flows:
   - authorizationCode
   sources:
-  - openapi/google-dialogflow-openapi.yml
-- scope: dialogflow
+  - openapi/google-dialogflow-cx-v3-openapi.yml
+  - openapi/google-dialogflow-es-v2-openapi.yml
+- scope: https://www.googleapis.com/auth/dialogflow
   description: View, manage and query your Dialogflow agents
   flows:
   - authorizationCode
   sources:
-  - openapi/google-dialogflow-openapi.yml
+  - openapi/google-dialogflow-cx-v3-openapi.yml
+  - openapi/google-dialogflow-es-v2-openapi.yml

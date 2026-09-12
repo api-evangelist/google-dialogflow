@@ -1,0 +1,101 @@
+generated: '2026-09-12'
+method: searched
+source: https://cloud.google.com/dialogflow/cx/docs/concept/webhook,
+  https://cloud.google.com/dialogflow/es/docs/fulfillment-webhook,
+  grpc/v2/webhook.proto, grpc/cx-v3/webhook.proto, discovery/google-dialogflow-v3.json
+provider: Google Dialogflow
+providerId: google-dialogflow
+description: >-
+  Dialogflow publishes no AsyncAPI document, but it has a substantial and fully specified outbound
+  event surface: webhook fulfillment. Dialogflow calls YOUR endpoint mid-conversation with a
+  WebhookRequest and blocks the turn on your WebhookResponse. That inverts the usual webhook
+  contract — this is not a fire-and-forget notification you may drop, it is a synchronous callback
+  on the critical path of a billed conversation turn, and a slow or failing endpoint surfaces to the
+  caller as DEADLINE_EXCEEDED. The message shapes are first-party and machine-readable: they are
+  defined in webhook.proto, mirrored verbatim in this repo under grpc/.
+asyncapi_document: null
+asyncapi_note: >-
+  None published. Recorded as an honest absence — Dialogflow's event surface is real but is
+  described in protos and prose, not in AsyncAPI.
+webhooks:
+  direction: outbound (Dialogflow -> your service)
+  transport: HTTPS POST
+  synchronous: true
+  content_type: application/json
+  managed_as_a_resource: true
+  resource_note: >-
+    Webhooks are first-class API resources in CX — create/list/get/patch/delete under
+    projects/*/locations/*/agents/*/webhooks/* — so an agent can enumerate and reconfigure the
+    event surface programmatically. That is unusual and worth noting: most providers make you
+    configure webhooks in a dashboard.
+  operations:
+  - dialogflow_projects_locations_agents_webhooks_list
+  - dialogflow_projects_locations_agents_webhooks_get
+  - dialogflow_projects_locations_agents_webhooks_create
+  - dialogflow_projects_locations_agents_webhooks_patch
+  - dialogflow_projects_locations_agents_webhooks_delete
+  limits:
+    max_webhooks_per_agent: 100
+    source: https://cloud.google.com/dialogflow/quotas
+  requirements:
+  - HTTPS only. Plain HTTP is unsupported.
+  - The URL must be publicly reachable, unless hosted as a Cloud Run resource or reached through
+    Service Directory private network access.
+  - Webhook calls sit outside a VPC Service Controls perimeter unless Service Directory private
+    network access is configured, and are blocked when VPC-SC is enabled without it.
+  types:
+  - name: standard webhook
+    api: Dialogflow CX (v3)
+    note: Dialogflow controls the request and response body shape (WebhookRequest / WebhookResponse).
+  - name: flexible webhook
+    api: Dialogflow CX (v3)
+    note: You control the request body JSON and map the response fields, which is what lets CX call
+      an arbitrary third-party API (the docs walk a Salesforce template) without a shim service.
+  - name: ES fulfillment webhook
+    api: Dialogflow ES (v2)
+    docs: https://cloud.google.com/dialogflow/es/docs/fulfillment-webhook
+  authentication:
+  - mode: authentication headers
+    note: Arbitrary HTTP header key/value pairs added to the request; commonly a single
+      `authorization` header. Values support session-parameter references and system functions.
+      Google recommends supplying static credentials through Secret Manager.
+  - mode: basic auth
+    note: >-
+      Username and password. Dialogflow sends an authorization header of the form
+      "authorization: Basic <base64 encoding of username:password>".
+  - mode: third-party OAuth
+    note: Configured on the webhook resource.
+  - mode: service agent access token
+    deprecated: true
+    note: Discontinued — announced in the 2025-06-12 release note, with prior customer email.
+  - mode: service account authorization
+    note: Added 2025-10-23 for both tools and webhooks.
+  - mode: mutual TLS
+    docs: https://cloud.google.com/dialogflow/cx/docs/concept/mtls
+  schemas:
+    request:
+      cx: grpc/cx-v3/webhook.proto — WebhookRequest
+      es: grpc/v2/webhook.proto — WebhookRequest
+    response:
+      cx: grpc/cx-v3/webhook.proto — WebhookResponse
+      es: grpc/v2/webhook.proto — WebhookResponse
+other_event_surfaces:
+- name: Conversation events (Agent Assist)
+  transport: Cloud Pub/Sub
+  schema: grpc/v2/conversation_event.proto — ConversationEvent
+  note: >-
+    ES Agent Assist publishes conversation lifecycle and suggestion events to a Pub/Sub topic
+    configured on the conversation profile. This is the closest thing Dialogflow has to a
+    conventional asynchronous event feed.
+- name: Human agent assistant events
+  schema: grpc/v2/human_agent_assistant_event.proto
+- name: StreamingDetectIntent / BidiStreamingAnalyzeContent
+  transport: gRPC bidirectional streaming
+  note: Real-time streaming rather than eventing, but it is the low-latency path and is quota'd
+    separately (50 concurrent bidi streaming sessions on Agent Assist).
+- name: Interaction logging export to BigQuery
+  docs: https://cloud.google.com/dialogflow/cx/docs/concept/export-bigquery
+  note: Batch analytics export, not a callback.
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

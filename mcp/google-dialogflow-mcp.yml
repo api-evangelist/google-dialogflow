@@ -1,0 +1,164 @@
+generated: '2026-09-12'
+method: derived
+source: openapi/google-dialogflow-cx-v3-openapi.yml, openapi/google-dialogflow-es-v2-openapi.yml;
+  searched registry.npmjs.org, api.github.com (org:GoogleCloudPlatform, org:googleapis) and the
+  Dialogflow docs on 2026-09-12
+provider: Google Dialogflow
+providerId: google-dialogflow
+status: candidate
+description: >-
+  Google ships NO Model Context Protocol server for Dialogflow. The tool list below is an API
+  Evangelist candidate derived from operations that genuinely exist in the two converted OpenAPIs —
+  every `rest:` operationId can be grepped out of openapi/. It is a proposal for what a Dialogflow
+  MCP server should expose, not a description of something callable today.
+deployment:
+  mode: none
+  endpoint: null
+  install: null
+  package: null
+  auth: unknown
+  verified: searched
+  note: >-
+    Searched npm (dialogflow mcp), the GoogleCloudPlatform and googleapis GitHub orgs, and the
+    Dialogflow documentation on 2026-09-12. GoogleCloudPlatform publishes MCP servers for Cloud Run,
+    GKE, BigQuery, Cluster Director and Gemini Cloud Assist — but none for Dialogflow or
+    Conversational Agents. The only Dialogflow-named MCP repositories on GitHub are third party
+    (ag2-mcp-servers/dialogflow-api, machine-generated; KemingHe/nodejs-dialogflow-cx-companion-mcp-server,
+    archived by its author) and neither is recorded here as a provider surface.
+direction_note: >-
+  Worth distinguishing: Dialogflow CX is an MCP/tool CONSUMER story, not an MCP provider one.
+  Its `tools` resource (up to 100 per agent) lets an agent you build call external APIs, and
+  playbooks orchestrate those calls. That is Dialogflow reaching out. Nothing in the contract lets
+  an external MCP client reach in.
+candidate_tools:
+- name: dialogflow_detect_intent
+  category: runtime
+  description: Send a text or audio turn to a CX agent session and get the agent's response.
+  rest:
+  - dialogflow_projects_locations_agents_sessions_detectIntent
+  - dialogflow_projects_locations_agents_environments_sessions_detectIntent
+  consequence: billable — each call is a charged conversation turn
+- name: dialogflow_es_detect_intent
+  category: runtime
+  description: Send a turn to a Dialogflow ES agent session.
+  rest:
+  - dialogflow_projects_agent_sessions_detectIntent
+  - dialogflow_projects_locations_agent_sessions_detectIntent
+  consequence: billable
+- name: dialogflow_match_intent
+  category: runtime
+  description: Return the intents a query would match, without running fulfillment or advancing the
+    session.
+  rest:
+  - dialogflow_projects_locations_agents_sessions_matchIntent
+  consequence: read-only against session state
+- name: dialogflow_list_agents
+  category: discovery
+  rest:
+  - dialogflow_projects_locations_agents_list
+- name: dialogflow_get_agent
+  category: discovery
+  rest:
+  - dialogflow_projects_locations_agents_get
+  - dialogflow_projects_getAgent
+- name: dialogflow_list_intents
+  category: design-time read
+  rest:
+  - dialogflow_projects_locations_agents_intents_list
+  - dialogflow_projects_agent_intents_list
+- name: dialogflow_create_intent
+  category: design-time write
+  rest:
+  - dialogflow_projects_locations_agents_intents_create
+  - dialogflow_projects_agent_intents_create
+  consequence: creates a resource; no idempotency key exists, so a retry creates a duplicate
+- name: dialogflow_update_intent
+  category: design-time write
+  rest:
+  - dialogflow_projects_locations_agents_intents_patch
+  consequence: destructive without updateMask — omitting the mask replaces the whole intent
+- name: dialogflow_list_entity_types
+  category: design-time read
+  rest:
+  - dialogflow_projects_locations_agents_entityTypes_list
+  - dialogflow_projects_agent_entityTypes_list
+- name: dialogflow_list_flows
+  category: design-time read
+  rest:
+  - dialogflow_projects_locations_agents_flows_list
+- name: dialogflow_list_pages
+  category: design-time read
+  rest:
+  - dialogflow_projects_locations_agents_flows_pages_list
+- name: dialogflow_list_playbooks
+  category: design-time read
+  rest:
+  - dialogflow_projects_locations_agents_playbooks_list
+- name: dialogflow_list_webhooks
+  category: design-time read
+  rest:
+  - dialogflow_projects_locations_agents_webhooks_list
+- name: dialogflow_list_tools
+  category: design-time read
+  rest:
+  - dialogflow_projects_locations_agents_tools_list
+- name: dialogflow_run_test_case
+  category: testing
+  description: Replay a recorded conversation against a version or environment.
+  rest:
+  - dialogflow_projects_locations_agents_testCases_run
+  - dialogflow_projects_locations_agents_testCases_batchRun
+  consequence: executes real agent turns and consumes quota and generative tokens
+- name: dialogflow_validate_agent
+  category: testing
+  rest:
+  - dialogflow_projects_locations_agents_validate
+  - dialogflow_projects_locations_agents_getValidationResult
+- name: dialogflow_export_agent
+  category: lifecycle
+  rest:
+  - dialogflow_projects_agent_export
+  - dialogflow_projects_locations_agents_export
+  consequence: long-running operation; poll to completion
+- name: dialogflow_restore_agent
+  category: lifecycle
+  rest:
+  - dialogflow_projects_agent_restore
+  - dialogflow_projects_locations_agents_restore
+  consequence: replaces the entire agent from an export — the single most destructive call in the
+    surface, and one of the few reversal paths
+- name: dialogflow_train_agent
+  category: lifecycle
+  rest:
+  - dialogflow_projects_agent_train
+  consequence: long-running operation
+- name: dialogflow_get_operation
+  category: lifecycle
+  description: Poll a long-running operation started by export, restore, train, import or reload.
+  rest:
+  - dialogflow_projects_locations_operations_get
+  - dialogflow_projects_operations_get
+- name: dialogflow_cancel_operation
+  category: lifecycle
+  rest:
+  - dialogflow_projects_locations_operations_cancel
+  - dialogflow_projects_operations_cancel
+- name: dialogflow_list_knowledge_bases
+  category: knowledge
+  rest:
+  - dialogflow_projects_knowledgeBases_list
+  - dialogflow_projects_locations_knowledgeBases_list
+- name: dialogflow_list_documents
+  category: knowledge
+  rest:
+  - dialogflow_projects_knowledgeBases_documents_list
+notes:
+- Any real server would inherit the operation parameters and request bodies from openapi/ as its
+  inputSchema; nothing here needs to be invented.
+- Auth would be OAuth 2.0 with https://www.googleapis.com/auth/dialogflow — there is no API-key
+  path.
+- The design-time write quota (60 requests per minute) is the binding constraint on any agent doing
+  bulk authoring through such a server.
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

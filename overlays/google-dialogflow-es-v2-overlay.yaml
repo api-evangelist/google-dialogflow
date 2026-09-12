@@ -1,0 +1,1416 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for Dialogflow ES API (v2)
+  version: 1.0.0
+extends: google-dialogflow-es-v2-openapi.yml
+x-generated: '2026-09-12'
+x-method: generated
+x-source: openapi/google-dialogflow-es-v2-openapi.yml + discovery/google-dialogflow-v2.json
+x-note: Google's Dialogflow Discovery Documents ship with EVERY method, parameter and schema description
+  set to an empty string, so the OpenAPI converted from them has no summaries. This overlay supplies one
+  summary per operation, derived mechanically from that operation's own operationId (verb + resource)
+  — it adds no facts the contract does not already state. It is an API Evangelist enhancement, not a Google
+  artifact, and it does not modify the file it extends.
+actions:
+- target: $.info
+  description: Record that this document was converted from the first-party Discovery Document, and that
+    the source carries no prose.
+  update:
+    x-api-evangelist-overlay: google-dialogflow
+    x-source-description-coverage: none — every method, parameter and schema description in the Google
+      Discovery Document is an empty string
+- target: $.paths['/v2/projects/{projectsId}/agent'].delete
+  description: Add a human-readable summary for dialogflow_projects_deleteAgent; the source Discovery
+    Document supplies none.
+  update:
+    summary: Delete agent
+- target: $.paths['/v2/projects/{projectsId}/agent'].post
+  description: Add a human-readable summary for dialogflow_projects_setAgent; the source Discovery Document
+    supplies none.
+  update:
+    summary: Set agent
+- target: $.paths['/v2/projects/{projectsId}/agent'].get
+  description: Add a human-readable summary for dialogflow_projects_getAgent; the source Discovery Document
+    supplies none.
+  update:
+    summary: Get agent
+- target: $.paths['/v2/projects/{projectsId}/knowledgeBases/{knowledgeBasesId}'].delete
+  description: Add a human-readable summary for dialogflow_projects_knowledgeBases_delete; the source
+    Discovery Document supplies none.
+  update:
+    summary: Delete knowledge base
+- target: $.paths['/v2/projects/{projectsId}/knowledgeBases/{knowledgeBasesId}'].get
+  description: Add a human-readable summary for dialogflow_projects_knowledgeBases_get; the source Discovery
+    Document supplies none.
+  update:
+    summary: Get knowledge base
+- target: $.paths['/v2/projects/{projectsId}/knowledgeBases/{knowledgeBasesId}'].patch
+  description: Add a human-readable summary for dialogflow_projects_knowledgeBases_patch; the source Discovery
+    Document supplies none.
+  update:
+    summary: Update knowledge base
+- target: $.paths['/v2/projects/{projectsId}/knowledgeBases'].post
+  description: Add a human-readable summary for dialogflow_projects_knowledgeBases_create; the source
+    Discovery Document supplies none.
+  update:
+    summary: Create knowledge base
+- target: $.paths['/v2/projects/{projectsId}/knowledgeBases'].get
+  description: Add a human-readable summary for dialogflow_projects_knowledgeBases_list; the source Discovery
+    Document supplies none.
+  update:
+    summary: List knowledge bases
+- target: $.paths['/v2/projects/{projectsId}/knowledgeBases/{knowledgeBasesId}/documents/{documentsId}'].delete
+  description: Add a human-readable summary for dialogflow_projects_knowledgeBases_documents_delete; the
+    source Discovery Document supplies none.
+  update:
+    summary: Delete document
+- target: $.paths['/v2/projects/{projectsId}/knowledgeBases/{knowledgeBasesId}/documents/{documentsId}'].get
+  description: Add a human-readable summary for dialogflow_projects_knowledgeBases_documents_get; the
+    source Discovery Document supplies none.
+  update:
+    summary: Get document
+- target: $.paths['/v2/projects/{projectsId}/knowledgeBases/{knowledgeBasesId}/documents/{documentsId}'].patch
+  description: Add a human-readable summary for dialogflow_projects_knowledgeBases_documents_patch; the
+    source Discovery Document supplies none.
+  update:
+    summary: Update document
+- target: $.paths['/v2/projects/{projectsId}/knowledgeBases/{knowledgeBasesId}/documents/{documentsId}:reload'].post
+  description: Add a human-readable summary for dialogflow_projects_knowledgeBases_documents_reload; the
+    source Discovery Document supplies none.
+  update:
+    summary: Reload documents
+- target: $.paths['/v2/projects/{projectsId}/knowledgeBases/{knowledgeBasesId}/documents'].get
+  description: Add a human-readable summary for dialogflow_projects_knowledgeBases_documents_list; the
+    source Discovery Document supplies none.
+  update:
+    summary: List documents
+- target: $.paths['/v2/projects/{projectsId}/knowledgeBases/{knowledgeBasesId}/documents'].post
+  description: Add a human-readable summary for dialogflow_projects_knowledgeBases_documents_create; the
+    source Discovery Document supplies none.
+  update:
+    summary: Create document
+- target: $.paths['/v2/projects/{projectsId}/knowledgeBases/{knowledgeBasesId}/documents/{documentsId}:export'].post
+  description: Add a human-readable summary for dialogflow_projects_knowledgeBases_documents_export; the
+    source Discovery Document supplies none.
+  update:
+    summary: Export document
+- target: $.paths['/v2/projects/{projectsId}/knowledgeBases/{knowledgeBasesId}/documents:import'].post
+  description: Add a human-readable summary for dialogflow_projects_knowledgeBases_documents_import; the
+    source Discovery Document supplies none.
+  update:
+    summary: Import documents
+- target: $.paths['/v2/projects/{projectsId}/locations/{locationsId}'].get
+  description: Add a human-readable summary for dialogflow_projects_locations_get; the source Discovery
+    Document supplies none.
+  update:
+    summary: Get location
+- target: $.paths['/v2/projects/{projectsId}/locations/{locationsId}/agent'].get
+  description: Add a human-readable summary for dialogflow_projects_locations_getAgent; the source Discovery
+    Document supplies none.
+  update:
+    summary: Get agent
+- target: $.paths['/v2/projects/{projectsId}/locations/{locationsId}/agent'].post
+  description: Add a human-readable summary for dialogflow_projects_locations_setAgent; the source Discovery
+    Document supplies none.
+  update:
+    summary: Set agent
+- target: $.paths['/v2/projects/{projectsId}/locations/{locationsId}/agent'].delete
+  description: Add a human-readable summary for dialogflow_projects_locations_deleteAgent; the source
+    Discovery Document supplies none.
+  update:
+    summary: Delete agent
+- target: $.paths['/v2/projects/{projectsId}/locations/{locationsId}/encryptionSpec'].get
+  description: Add a human-readable summary for dialogflow_projects_locations_getEncryptionSpec; the source
+    Discovery Document supplies none.
+  update:
+    summary: Get encryption spec
+- target: $.paths['/v2/projects/{projectsId}/locations'].get
+  description: Add a human-readable summary for dialogflow_projects_locations_list; the source Discovery
+    Document supplies none.
+  update:
+    summary: List locations
+- target: $.paths['/v2/projects/{projectsId}/locations/{locationsId}/sipTrunks/{sipTrunksId}'].patch
+  description: Add a human-readable summary for dialogflow_projects_locations_sipTrunks_patch; the source
+    Discovery Document supplies none.
+  update:
+    summary: Update sip trunk
+- target: $.paths['/v2/projects/{projectsId}/locations/{locationsId}/sipTrunks/{sipTrunksId}'].get
+  description: Add a human-readable summary for dialogflow_projects_locations_sipTrunks_get; the source
+    Discovery Document supplies none.
+  update:
+    summary: Get sip trunk
+- target: $.paths['/v2/projects/{projectsId}/locations/{locationsId}/sipTrunks/{sipTrunksId}'].delete
+  description: Add a human-readable summary for dialogflow_projects_locations_sipTrunks_delete; the source
+    Discovery Document supplies none.
+  update:
+    summary: Delete sip trunk
+- target: $.paths['/v2/projects/{projectsId}/locations/{locationsId}/sipTrunks'].get
+  description: Add a human-readable summary for dialogflow_projects_locations_sipTrunks_list; the source
+    Discovery Document supplies none.
+  update:
+    summary: List sip trunks
+- target: $.paths['/v2/projects/{projectsId}/locations/{locationsId}/sipTrunks'].post
+  description: Add a human-readable summary for dialogflow_projects_locations_sipTrunks_create; the source
+    Discovery Document supplies none.
+  update:
+    summary: Create sip trunk
+- target: $.paths['/v2/projects/{projectsId}/locations/{locationsId}/conversationDatasets/{conversationDatasetsId}:importConversationData'].post
+  description: Add a human-readable summary for dialogflow_projects_locations_conversationDatasets_importConversationData;
+    the source Discovery Document supplies none.
+  update:
+    summary: Import conversation data
+- target: $.paths['/v2/projects/{projectsId}/locations/{locationsId}/conversationDatasets'].get
+  description: Add a human-readable summary for dialogflow_projects_locations_conversationDatasets_list;
+    the source Discovery Document supplies none.
+  update:
+    summary: List conversation datasets
+- target: $.paths['/v2/projects/{projectsId}/locations/{locationsId}/conversationDatasets'].post
+  description: Add a human-readable summary for dialogflow_projects_locations_conversationDatasets_create;
+    the source Discovery Document supplies none.
+  update:
+    summary: Create conversation dataset
+- target: $.paths['/v2/projects/{projectsId}/locations/{locationsId}/conversationDatasets/{conversationDatasetsId}'].get
+  description: Add a human-readable summary for dialogflow_projects_locations_conversationDatasets_get;
+    the source Discovery Document supplies none.
+  update:
+    summary: Get conversation dataset
+- target: $.paths['/v2/projects/{projectsId}/locations/{locationsId}/conversationDatasets/{conversationDatasetsId}'].delete
+  description: Add a human-readable summary for dialogflow_projects_locations_conversationDatasets_delete;
+    the source Discovery Document supplies none.
+  update:
+    summary: Delete conversation dataset
+- target: $.paths['/v2/projects/{projectsId}/locations/{locationsId}/statelessSuggestion:generate'].post
+  description: Add a human-readable summary for dialogflow_projects_locations_statelessSuggestion_generate;
+    the source Discovery Document supplies none.
+  update:
+    summary: Generate stateless suggestion
+- target: $.paths['/v2/projects/{projectsId}/locations/{locationsId}/suggestions:searchKnowledge'].post
+  description: Add a human-readable summary for dialogflow_projects_locations_suggestions_searchKnowledge;
+    the source Discovery Document supplies none.
+  update:
+    summary: Search knowledge
+- target: $.paths['/v2/projects/{projectsId}/locations/{locationsId}/suggestions:generateStatelessSummary'].post
+  description: Add a human-readable summary for dialogflow_projects_locations_suggestions_generateStatelessSummary;
+    the source Discovery Document supplies none.
+  update:
+    summary: Generate stateless summary
+- target: $.paths['/v2/projects/{projectsId}/locations/{locationsId}/operations/{operationsId}:cancel'].post
+  description: Add a human-readable summary for dialogflow_projects_locations_operations_cancel; the source
+    Discovery Document supplies none.
+  update:
+    summary: Cancel operation
+- target: $.paths['/v2/projects/{projectsId}/locations/{locationsId}/operations/{operationsId}'].get
+  description: Add a human-readable summary for dialogflow_projects_locations_operations_get; the source
+    Discovery Document supplies none.
+  update:
+    summary: Get operation
+- target: $.paths['/v2/projects/{projectsId}/locations/{locationsId}/operations'].get
+  description: Add a human-readable summary for dialogflow_projects_locations_operations_list; the source
+    Discovery Document supplies none.
+  update:
+    summary: List operations
+- target: $.paths['/v2/projects/{projectsId}/locations/{locationsId}/agent:restore'].post
+  description: Add a human-readable summary for dialogflow_projects_locations_agent_restore; the source
+    Discovery Document supplies none.
+  update:
+    summary: Restore agent
+- target: $.paths['/v2/projects/{projectsId}/locations/{locationsId}/agent/fulfillment'].patch
+  description: Add a human-readable summary for dialogflow_projects_locations_agent_updateFulfillment;
+    the source Discovery Document supplies none.
+  update:
+    summary: Update fulfillment
+- target: $.paths['/v2/projects/{projectsId}/locations/{locationsId}/agent/fulfillment'].get
+  description: Add a human-readable summary for dialogflow_projects_locations_agent_getFulfillment; the
+    source Discovery Document supplies none.
+  update:
+    summary: Get fulfillment
+- target: $.paths['/v2/projects/{projectsId}/locations/{locationsId}/agent/validationResult'].get
+  description: Add a human-readable summary for dialogflow_projects_locations_agent_getValidationResult;
+    the source Discovery Document supplies none.
+  update:
+    summary: Get validation result
+- target: $.paths['/v2/projects/{projectsId}/locations/{locationsId}/agent:search'].get
+  description: Add a human-readable summary for dialogflow_projects_locations_agent_search; the source
+    Discovery Document supplies none.
+  update:
+    summary: Search agent
+- target: $.paths['/v2/projects/{projectsId}/locations/{locationsId}/agent:export'].post
+  description: Add a human-readable summary for dialogflow_projects_locations_agent_export; the source
+    Discovery Document supplies none.
+  update:
+    summary: Export agent
+- target: $.paths['/v2/projects/{projectsId}/locations/{locationsId}/agent:train'].post
+  description: Add a human-readable summary for dialogflow_projects_locations_agent_train; the source
+    Discovery Document supplies none.
+  update:
+    summary: Train agent
+- target: $.paths['/v2/projects/{projectsId}/locations/{locationsId}/agent:import'].post
+  description: Add a human-readable summary for dialogflow_projects_locations_agent_import; the source
+    Discovery Document supplies none.
+  update:
+    summary: Import agent
+- target: $.paths['/v2/projects/{projectsId}/locations/{locationsId}/agent/sessions/{sessionsId}/contexts'].delete
+  description: Add a human-readable summary for dialogflow_projects_locations_agent_sessions_deleteContexts;
+    the source Discovery Document supplies none.
+  update:
+    summary: Delete context
+- target: $.paths['/v2/projects/{projectsId}/locations/{locationsId}/agent/sessions/{sessionsId}/contexts'].post
+  description: Add a human-readable summary for dialogflow_projects_locations_agent_sessions_contexts_create;
+    the source Discovery Document supplies none.
+  update:
+    summary: Create context
+- target: $.paths['/v2/projects/{projectsId}/locations/{locationsId}/agent/sessions/{sessionsId}/contexts'].get
+  description: Add a human-readable summary for dialogflow_projects_locations_agent_sessions_contexts_list;
+    the source Discovery Document supplies none.
+  update:
+    summary: List contexts
+- target: $.paths['/v2/projects/{projectsId}/locations/{locationsId}/agent/sessions/{sessionsId}:detectIntent'].post
+  description: Add a human-readable summary for dialogflow_projects_locations_agent_sessions_detectIntent;
+    the source Discovery Document supplies none.
+  update:
+    summary: Detect intent
+- target: $.paths['/v2/projects/{projectsId}/locations/{locationsId}/agent/sessions/{sessionsId}/entityTypes/{entityTypesId}'].patch
+  description: Add a human-readable summary for dialogflow_projects_locations_agent_sessions_entityTypes_patch;
+    the source Discovery Document supplies none.
+  update:
+    summary: Update entity type
+- target: $.paths['/v2/projects/{projectsId}/locations/{locationsId}/agent/sessions/{sessionsId}/entityTypes/{entityTypesId}'].delete
+  description: Add a human-readable summary for dialogflow_projects_locations_agent_sessions_entityTypes_delete;
+    the source Discovery Document supplies none.
+  update:
+    summary: Delete entity type
+- target: $.paths['/v2/projects/{projectsId}/locations/{locationsId}/agent/sessions/{sessionsId}/entityTypes/{entityTypesId}'].get
+  description: Add a human-readable summary for dialogflow_projects_locations_agent_sessions_entityTypes_get;
+    the source Discovery Document supplies none.
+  update:
+    summary: Get entity type
+- target: $.paths['/v2/projects/{projectsId}/locations/{locationsId}/agent/sessions/{sessionsId}/entityTypes'].get
+  description: Add a human-readable summary for dialogflow_projects_locations_agent_sessions_entityTypes_list;
+    the source Discovery Document supplies none.
+  update:
+    summary: List entity types
+- target: $.paths['/v2/projects/{projectsId}/locations/{locationsId}/agent/sessions/{sessionsId}/entityTypes'].post
+  description: Add a human-readable summary for dialogflow_projects_locations_agent_sessions_entityTypes_create;
+    the source Discovery Document supplies none.
+  update:
+    summary: Create entity type
+- target: $.paths['/v2/projects/{projectsId}/locations/{locationsId}/agent/sessions/{sessionsId}/contexts/{contextsId}'].patch
+  description: Add a human-readable summary for dialogflow_projects_locations_agent_sessions_contexts_patch;
+    the source Discovery Document supplies none.
+  update:
+    summary: Update context
+- target: $.paths['/v2/projects/{projectsId}/locations/{locationsId}/agent/sessions/{sessionsId}/contexts/{contextsId}'].delete
+  description: Add a human-readable summary for dialogflow_projects_locations_agent_sessions_contexts_delete;
+    the source Discovery Document supplies none.
+  update:
+    summary: Delete context
+- target: $.paths['/v2/projects/{projectsId}/locations/{locationsId}/agent/sessions/{sessionsId}/contexts/{contextsId}'].get
+  description: Add a human-readable summary for dialogflow_projects_locations_agent_sessions_contexts_get;
+    the source Discovery Document supplies none.
+  update:
+    summary: Get context
+- target: $.paths['/v2/projects/{projectsId}/locations/{locationsId}/agent/entityTypes'].get
+  description: Add a human-readable summary for dialogflow_projects_locations_agent_entityTypes_list;
+    the source Discovery Document supplies none.
+  update:
+    summary: List entity types
+- target: $.paths['/v2/projects/{projectsId}/locations/{locationsId}/agent/entityTypes'].post
+  description: Add a human-readable summary for dialogflow_projects_locations_agent_entityTypes_create;
+    the source Discovery Document supplies none.
+  update:
+    summary: Create entity type
+- target: $.paths['/v2/projects/{projectsId}/locations/{locationsId}/agent/entityTypes:batchDelete'].post
+  description: Add a human-readable summary for dialogflow_projects_locations_agent_entityTypes_batchDelete;
+    the source Discovery Document supplies none.
+  update:
+    summary: Batch delete
+- target: $.paths['/v2/projects/{projectsId}/locations/{locationsId}/agent/entityTypes/{entityTypesId}'].patch
+  description: Add a human-readable summary for dialogflow_projects_locations_agent_entityTypes_patch;
+    the source Discovery Document supplies none.
+  update:
+    summary: Update entity type
+- target: $.paths['/v2/projects/{projectsId}/locations/{locationsId}/agent/entityTypes/{entityTypesId}'].delete
+  description: Add a human-readable summary for dialogflow_projects_locations_agent_entityTypes_delete;
+    the source Discovery Document supplies none.
+  update:
+    summary: Delete entity type
+- target: $.paths['/v2/projects/{projectsId}/locations/{locationsId}/agent/entityTypes/{entityTypesId}'].get
+  description: Add a human-readable summary for dialogflow_projects_locations_agent_entityTypes_get; the
+    source Discovery Document supplies none.
+  update:
+    summary: Get entity type
+- target: $.paths['/v2/projects/{projectsId}/locations/{locationsId}/agent/entityTypes:batchUpdate'].post
+  description: Add a human-readable summary for dialogflow_projects_locations_agent_entityTypes_batchUpdate;
+    the source Discovery Document supplies none.
+  update:
+    summary: Batch update
+- target: $.paths['/v2/projects/{projectsId}/locations/{locationsId}/agent/entityTypes/{entityTypesId}/entities:batchDelete'].post
+  description: Add a human-readable summary for dialogflow_projects_locations_agent_entityTypes_entities_batchDelete;
+    the source Discovery Document supplies none.
+  update:
+    summary: Batch delete
+- target: $.paths['/v2/projects/{projectsId}/locations/{locationsId}/agent/entityTypes/{entityTypesId}/entities:batchUpdate'].post
+  description: Add a human-readable summary for dialogflow_projects_locations_agent_entityTypes_entities_batchUpdate;
+    the source Discovery Document supplies none.
+  update:
+    summary: Batch update
+- target: $.paths['/v2/projects/{projectsId}/locations/{locationsId}/agent/entityTypes/{entityTypesId}/entities:batchCreate'].post
+  description: Add a human-readable summary for dialogflow_projects_locations_agent_entityTypes_entities_batchCreate;
+    the source Discovery Document supplies none.
+  update:
+    summary: Batch create
+- target: $.paths['/v2/projects/{projectsId}/locations/{locationsId}/agent/intents/{intentsId}'].delete
+  description: Add a human-readable summary for dialogflow_projects_locations_agent_intents_delete; the
+    source Discovery Document supplies none.
+  update:
+    summary: Delete intent
+- target: $.paths['/v2/projects/{projectsId}/locations/{locationsId}/agent/intents/{intentsId}'].patch
+  description: Add a human-readable summary for dialogflow_projects_locations_agent_intents_patch; the
+    source Discovery Document supplies none.
+  update:
+    summary: Update intent
+- target: $.paths['/v2/projects/{projectsId}/locations/{locationsId}/agent/intents/{intentsId}'].get
+  description: Add a human-readable summary for dialogflow_projects_locations_agent_intents_get; the source
+    Discovery Document supplies none.
+  update:
+    summary: Get intent
+- target: $.paths['/v2/projects/{projectsId}/locations/{locationsId}/agent/intents:batchUpdate'].post
+  description: Add a human-readable summary for dialogflow_projects_locations_agent_intents_batchUpdate;
+    the source Discovery Document supplies none.
+  update:
+    summary: Batch update
+- target: $.paths['/v2/projects/{projectsId}/locations/{locationsId}/agent/intents'].post
+  description: Add a human-readable summary for dialogflow_projects_locations_agent_intents_create; the
+    source Discovery Document supplies none.
+  update:
+    summary: Create intent
+- target: $.paths['/v2/projects/{projectsId}/locations/{locationsId}/agent/intents'].get
+  description: Add a human-readable summary for dialogflow_projects_locations_agent_intents_list; the
+    source Discovery Document supplies none.
+  update:
+    summary: List intents
+- target: $.paths['/v2/projects/{projectsId}/locations/{locationsId}/agent/intents:batchDelete'].post
+  description: Add a human-readable summary for dialogflow_projects_locations_agent_intents_batchDelete;
+    the source Discovery Document supplies none.
+  update:
+    summary: Batch delete
+- target: $.paths['/v2/projects/{projectsId}/locations/{locationsId}/agent/versions/{versionsId}'].delete
+  description: Add a human-readable summary for dialogflow_projects_locations_agent_versions_delete; the
+    source Discovery Document supplies none.
+  update:
+    summary: Delete version
+- target: $.paths['/v2/projects/{projectsId}/locations/{locationsId}/agent/versions/{versionsId}'].get
+  description: Add a human-readable summary for dialogflow_projects_locations_agent_versions_get; the
+    source Discovery Document supplies none.
+  update:
+    summary: Get version
+- target: $.paths['/v2/projects/{projectsId}/locations/{locationsId}/agent/versions/{versionsId}'].patch
+  description: Add a human-readable summary for dialogflow_projects_locations_agent_versions_patch; the
+    source Discovery Document supplies none.
+  update:
+    summary: Update version
+- target: $.paths['/v2/projects/{projectsId}/locations/{locationsId}/agent/versions'].post
+  description: Add a human-readable summary for dialogflow_projects_locations_agent_versions_create; the
+    source Discovery Document supplies none.
+  update:
+    summary: Create version
+- target: $.paths['/v2/projects/{projectsId}/locations/{locationsId}/agent/versions'].get
+  description: Add a human-readable summary for dialogflow_projects_locations_agent_versions_list; the
+    source Discovery Document supplies none.
+  update:
+    summary: List versions
+- target: $.paths['/v2/projects/{projectsId}/locations/{locationsId}/agent/environments/{environmentsId}'].delete
+  description: Add a human-readable summary for dialogflow_projects_locations_agent_environments_delete;
+    the source Discovery Document supplies none.
+  update:
+    summary: Delete environment
+- target: $.paths['/v2/projects/{projectsId}/locations/{locationsId}/agent/environments/{environmentsId}'].patch
+  description: Add a human-readable summary for dialogflow_projects_locations_agent_environments_patch;
+    the source Discovery Document supplies none.
+  update:
+    summary: Update environment
+- target: $.paths['/v2/projects/{projectsId}/locations/{locationsId}/agent/environments/{environmentsId}'].get
+  description: Add a human-readable summary for dialogflow_projects_locations_agent_environments_get;
+    the source Discovery Document supplies none.
+  update:
+    summary: Get environment
+- target: $.paths['/v2/projects/{projectsId}/locations/{locationsId}/agent/environments'].post
+  description: Add a human-readable summary for dialogflow_projects_locations_agent_environments_create;
+    the source Discovery Document supplies none.
+  update:
+    summary: Create environment
+- target: $.paths['/v2/projects/{projectsId}/locations/{locationsId}/agent/environments'].get
+  description: Add a human-readable summary for dialogflow_projects_locations_agent_environments_list;
+    the source Discovery Document supplies none.
+  update:
+    summary: List environments
+- target: $.paths['/v2/projects/{projectsId}/locations/{locationsId}/agent/environments/{environmentsId}/history'].get
+  description: Add a human-readable summary for dialogflow_projects_locations_agent_environments_getHistory;
+    the source Discovery Document supplies none.
+  update:
+    summary: Get history
+- target: $.paths['/v2/projects/{projectsId}/locations/{locationsId}/agent/environments/{environmentsId}/users/{usersId}/sessions/{sessionsId}:detectIntent'].post
+  description: Add a human-readable summary for dialogflow_projects_locations_agent_environments_users_sessions_detectIntent;
+    the source Discovery Document supplies none.
+  update:
+    summary: Detect intent
+- target: $.paths['/v2/projects/{projectsId}/locations/{locationsId}/agent/environments/{environmentsId}/users/{usersId}/sessions/{sessionsId}/contexts'].delete
+  description: Add a human-readable summary for dialogflow_projects_locations_agent_environments_users_sessions_deleteContexts;
+    the source Discovery Document supplies none.
+  update:
+    summary: Delete context
+- target: $.paths['/v2/projects/{projectsId}/locations/{locationsId}/agent/environments/{environmentsId}/users/{usersId}/sessions/{sessionsId}/contexts'].post
+  description: Add a human-readable summary for dialogflow_projects_locations_agent_environments_users_sessions_contexts_create;
+    the source Discovery Document supplies none.
+  update:
+    summary: Create context
+- target: $.paths['/v2/projects/{projectsId}/locations/{locationsId}/agent/environments/{environmentsId}/users/{usersId}/sessions/{sessionsId}/contexts'].get
+  description: Add a human-readable summary for dialogflow_projects_locations_agent_environments_users_sessions_contexts_list;
+    the source Discovery Document supplies none.
+  update:
+    summary: List contexts
+- target: $.paths['/v2/projects/{projectsId}/locations/{locationsId}/agent/environments/{environmentsId}/users/{usersId}/sessions/{sessionsId}/entityTypes'].get
+  description: Add a human-readable summary for dialogflow_projects_locations_agent_environments_users_sessions_entityTypes_list;
+    the source Discovery Document supplies none.
+  update:
+    summary: List entity types
+- target: $.paths['/v2/projects/{projectsId}/locations/{locationsId}/agent/environments/{environmentsId}/users/{usersId}/sessions/{sessionsId}/entityTypes'].post
+  description: Add a human-readable summary for dialogflow_projects_locations_agent_environments_users_sessions_entityTypes_create;
+    the source Discovery Document supplies none.
+  update:
+    summary: Create entity type
+- target: $.paths['/v2/projects/{projectsId}/locations/{locationsId}/agent/environments/{environmentsId}/users/{usersId}/sessions/{sessionsId}/entityTypes/{entityTypesId}'].patch
+  description: Add a human-readable summary for dialogflow_projects_locations_agent_environments_users_sessions_entityTypes_patch;
+    the source Discovery Document supplies none.
+  update:
+    summary: Update entity type
+- target: $.paths['/v2/projects/{projectsId}/locations/{locationsId}/agent/environments/{environmentsId}/users/{usersId}/sessions/{sessionsId}/entityTypes/{entityTypesId}'].get
+  description: Add a human-readable summary for dialogflow_projects_locations_agent_environments_users_sessions_entityTypes_get;
+    the source Discovery Document supplies none.
+  update:
+    summary: Get entity type
+- target: $.paths['/v2/projects/{projectsId}/locations/{locationsId}/agent/environments/{environmentsId}/users/{usersId}/sessions/{sessionsId}/entityTypes/{entityTypesId}'].delete
+  description: Add a human-readable summary for dialogflow_projects_locations_agent_environments_users_sessions_entityTypes_delete;
+    the source Discovery Document supplies none.
+  update:
+    summary: Delete entity type
+- target: $.paths['/v2/projects/{projectsId}/locations/{locationsId}/agent/environments/{environmentsId}/users/{usersId}/sessions/{sessionsId}/contexts/{contextsId}'].patch
+  description: Add a human-readable summary for dialogflow_projects_locations_agent_environments_users_sessions_contexts_patch;
+    the source Discovery Document supplies none.
+  update:
+    summary: Update context
+- target: $.paths['/v2/projects/{projectsId}/locations/{locationsId}/agent/environments/{environmentsId}/users/{usersId}/sessions/{sessionsId}/contexts/{contextsId}'].delete
+  description: Add a human-readable summary for dialogflow_projects_locations_agent_environments_users_sessions_contexts_delete;
+    the source Discovery Document supplies none.
+  update:
+    summary: Delete context
+- target: $.paths['/v2/projects/{projectsId}/locations/{locationsId}/agent/environments/{environmentsId}/users/{usersId}/sessions/{sessionsId}/contexts/{contextsId}'].get
+  description: Add a human-readable summary for dialogflow_projects_locations_agent_environments_users_sessions_contexts_get;
+    the source Discovery Document supplies none.
+  update:
+    summary: Get context
+- target: $.paths['/v2/projects/{projectsId}/locations/{locationsId}/agent/environments/{environmentsId}/intents'].get
+  description: Add a human-readable summary for dialogflow_projects_locations_agent_environments_intents_list;
+    the source Discovery Document supplies none.
+  update:
+    summary: List intents
+- target: $.paths['/v2/projects/{projectsId}/locations/{locationsId}/tools'].post
+  description: Add a human-readable summary for dialogflow_projects_locations_tools_create; the source
+    Discovery Document supplies none.
+  update:
+    summary: Create tool
+- target: $.paths['/v2/projects/{projectsId}/locations/{locationsId}/tools'].get
+  description: Add a human-readable summary for dialogflow_projects_locations_tools_list; the source Discovery
+    Document supplies none.
+  update:
+    summary: List tools
+- target: $.paths['/v2/projects/{projectsId}/locations/{locationsId}/tools/{toolsId}'].delete
+  description: Add a human-readable summary for dialogflow_projects_locations_tools_delete; the source
+    Discovery Document supplies none.
+  update:
+    summary: Delete tool
+- target: $.paths['/v2/projects/{projectsId}/locations/{locationsId}/tools/{toolsId}'].get
+  description: Add a human-readable summary for dialogflow_projects_locations_tools_get; the source Discovery
+    Document supplies none.
+  update:
+    summary: Get tool
+- target: $.paths['/v2/projects/{projectsId}/locations/{locationsId}/tools/{toolsId}'].patch
+  description: Add a human-readable summary for dialogflow_projects_locations_tools_patch; the source
+    Discovery Document supplies none.
+  update:
+    summary: Update tool
+- target: $.paths['/v2/projects/{projectsId}/locations/{locationsId}/conversationProfiles/{conversationProfilesId}'].delete
+  description: Add a human-readable summary for dialogflow_projects_locations_conversationProfiles_delete;
+    the source Discovery Document supplies none.
+  update:
+    summary: Delete conversation profile
+- target: $.paths['/v2/projects/{projectsId}/locations/{locationsId}/conversationProfiles/{conversationProfilesId}'].get
+  description: Add a human-readable summary for dialogflow_projects_locations_conversationProfiles_get;
+    the source Discovery Document supplies none.
+  update:
+    summary: Get conversation profile
+- target: $.paths['/v2/projects/{projectsId}/locations/{locationsId}/conversationProfiles/{conversationProfilesId}'].patch
+  description: Add a human-readable summary for dialogflow_projects_locations_conversationProfiles_patch;
+    the source Discovery Document supplies none.
+  update:
+    summary: Update conversation profile
+- target: $.paths['/v2/projects/{projectsId}/locations/{locationsId}/conversationProfiles'].post
+  description: Add a human-readable summary for dialogflow_projects_locations_conversationProfiles_create;
+    the source Discovery Document supplies none.
+  update:
+    summary: Create conversation profile
+- target: $.paths['/v2/projects/{projectsId}/locations/{locationsId}/conversationProfiles'].get
+  description: Add a human-readable summary for dialogflow_projects_locations_conversationProfiles_list;
+    the source Discovery Document supplies none.
+  update:
+    summary: List conversation profiles
+- target: $.paths['/v2/projects/{projectsId}/locations/{locationsId}/conversationProfiles/{conversationProfilesId}:setSuggestionFeatureConfig'].post
+  description: Add a human-readable summary for dialogflow_projects_locations_conversationProfiles_setSuggestionFeatureConfig;
+    the source Discovery Document supplies none.
+  update:
+    summary: Set suggestion feature config
+- target: $.paths['/v2/projects/{projectsId}/locations/{locationsId}/conversationProfiles/{conversationProfilesId}:clearSuggestionFeatureConfig'].post
+  description: Add a human-readable summary for dialogflow_projects_locations_conversationProfiles_clearSuggestionFeatureConfig;
+    the source Discovery Document supplies none.
+  update:
+    summary: Clear suggestion feature config
+- target: $.paths['/v2/projects/{projectsId}/locations/{locationsId}/answerRecords'].get
+  description: Add a human-readable summary for dialogflow_projects_locations_answerRecords_list; the
+    source Discovery Document supplies none.
+  update:
+    summary: List answer records
+- target: $.paths['/v2/projects/{projectsId}/locations/{locationsId}/answerRecords/{answerRecordsId}'].patch
+  description: Add a human-readable summary for dialogflow_projects_locations_answerRecords_patch; the
+    source Discovery Document supplies none.
+  update:
+    summary: Update answer record
+- target: $.paths['/v2/projects/{projectsId}/locations/{locationsId}/conversations/{conversationsId}'].get
+  description: Add a human-readable summary for dialogflow_projects_locations_conversations_get; the source
+    Discovery Document supplies none.
+  update:
+    summary: Get conversation
+- target: $.paths['/v2/projects/{projectsId}/locations/{locationsId}/conversations/{conversationsId}:complete'].post
+  description: Add a human-readable summary for dialogflow_projects_locations_conversations_complete;
+    the source Discovery Document supplies none.
+  update:
+    summary: Complete conversations
+- target: $.paths['/v2/projects/{projectsId}/locations/{locationsId}/conversations'].post
+  description: Add a human-readable summary for dialogflow_projects_locations_conversations_create; the
+    source Discovery Document supplies none.
+  update:
+    summary: Create conversation
+- target: $.paths['/v2/projects/{projectsId}/locations/{locationsId}/conversations'].get
+  description: Add a human-readable summary for dialogflow_projects_locations_conversations_list; the
+    source Discovery Document supplies none.
+  update:
+    summary: List conversations
+- target: $.paths['/v2/projects/{projectsId}/locations/{locationsId}/conversations/{conversationsId}:ingestContextReferences'].post
+  description: Add a human-readable summary for dialogflow_projects_locations_conversations_ingestContextReferences;
+    the source Discovery Document supplies none.
+  update:
+    summary: Ingest context references
+- target: $.paths['/v2/projects/{projectsId}/locations/{locationsId}/conversations/{conversationsId}/participants'].get
+  description: Add a human-readable summary for dialogflow_projects_locations_conversations_participants_list;
+    the source Discovery Document supplies none.
+  update:
+    summary: List participants
+- target: $.paths['/v2/projects/{projectsId}/locations/{locationsId}/conversations/{conversationsId}/participants'].post
+  description: Add a human-readable summary for dialogflow_projects_locations_conversations_participants_create;
+    the source Discovery Document supplies none.
+  update:
+    summary: Create participant
+- target: $.paths['/v2/projects/{projectsId}/locations/{locationsId}/conversations/{conversationsId}/participants/{participantsId}'].patch
+  description: Add a human-readable summary for dialogflow_projects_locations_conversations_participants_patch;
+    the source Discovery Document supplies none.
+  update:
+    summary: Update participant
+- target: $.paths['/v2/projects/{projectsId}/locations/{locationsId}/conversations/{conversationsId}/participants/{participantsId}'].get
+  description: Add a human-readable summary for dialogflow_projects_locations_conversations_participants_get;
+    the source Discovery Document supplies none.
+  update:
+    summary: Get participant
+- target: $.paths['/v2/projects/{projectsId}/locations/{locationsId}/conversations/{conversationsId}/participants/{participantsId}:analyzeContent'].post
+  description: Add a human-readable summary for dialogflow_projects_locations_conversations_participants_analyzeContent;
+    the source Discovery Document supplies none.
+  update:
+    summary: Analyze content
+- target: $.paths['/v2/projects/{projectsId}/locations/{locationsId}/conversations/{conversationsId}/participants/{participantsId}/suggestions:suggestFaqAnswers'].post
+  description: Add a human-readable summary for dialogflow_projects_locations_conversations_participants_suggestions_suggestFaqAnswers;
+    the source Discovery Document supplies none.
+  update:
+    summary: Suggest faq answers
+- target: $.paths['/v2/projects/{projectsId}/locations/{locationsId}/conversations/{conversationsId}/participants/{participantsId}/suggestions:suggestKnowledgeAssist'].post
+  description: Add a human-readable summary for dialogflow_projects_locations_conversations_participants_suggestions_suggestKnowledgeAssist;
+    the source Discovery Document supplies none.
+  update:
+    summary: Suggest knowledge assist
+- target: $.paths['/v2/projects/{projectsId}/locations/{locationsId}/conversations/{conversationsId}/participants/{participantsId}/suggestions:suggestSmartReplies'].post
+  description: Add a human-readable summary for dialogflow_projects_locations_conversations_participants_suggestions_suggestSmartReplies;
+    the source Discovery Document supplies none.
+  update:
+    summary: Suggest smart replies
+- target: $.paths['/v2/projects/{projectsId}/locations/{locationsId}/conversations/{conversationsId}/participants/{participantsId}/suggestions:suggestArticles'].post
+  description: Add a human-readable summary for dialogflow_projects_locations_conversations_participants_suggestions_suggestArticles;
+    the source Discovery Document supplies none.
+  update:
+    summary: Suggest articles
+- target: $.paths['/v2/projects/{projectsId}/locations/{locationsId}/conversations/{conversationsId}/suggestions:suggestConversationSummary'].post
+  description: Add a human-readable summary for dialogflow_projects_locations_conversations_suggestions_suggestConversationSummary;
+    the source Discovery Document supplies none.
+  update:
+    summary: Suggest conversation summary
+- target: $.paths['/v2/projects/{projectsId}/locations/{locationsId}/conversations/{conversationsId}/suggestions:searchKnowledge'].post
+  description: Add a human-readable summary for dialogflow_projects_locations_conversations_suggestions_searchKnowledge;
+    the source Discovery Document supplies none.
+  update:
+    summary: Search knowledge
+- target: $.paths['/v2/projects/{projectsId}/locations/{locationsId}/conversations/{conversationsId}/suggestions:generate'].post
+  description: Add a human-readable summary for dialogflow_projects_locations_conversations_suggestions_generate;
+    the source Discovery Document supplies none.
+  update:
+    summary: Generate suggestions
+- target: $.paths['/v2/projects/{projectsId}/locations/{locationsId}/conversations/{conversationsId}/messages'].get
+  description: Add a human-readable summary for dialogflow_projects_locations_conversations_messages_list;
+    the source Discovery Document supplies none.
+  update:
+    summary: List messages
+- target: $.paths['/v2/projects/{projectsId}/locations/{locationsId}/conversationModels/{conversationModelsId}:deploy'].post
+  description: Add a human-readable summary for dialogflow_projects_locations_conversationModels_deploy;
+    the source Discovery Document supplies none.
+  update:
+    summary: Deploy conversation model
+- target: $.paths['/v2/projects/{projectsId}/locations/{locationsId}/conversationModels'].post
+  description: Add a human-readable summary for dialogflow_projects_locations_conversationModels_create;
+    the source Discovery Document supplies none.
+  update:
+    summary: Create conversation model
+- target: $.paths['/v2/projects/{projectsId}/locations/{locationsId}/conversationModels'].get
+  description: Add a human-readable summary for dialogflow_projects_locations_conversationModels_list;
+    the source Discovery Document supplies none.
+  update:
+    summary: List conversation models
+- target: $.paths['/v2/projects/{projectsId}/locations/{locationsId}/conversationModels/{conversationModelsId}'].get
+  description: Add a human-readable summary for dialogflow_projects_locations_conversationModels_get;
+    the source Discovery Document supplies none.
+  update:
+    summary: Get conversation model
+- target: $.paths['/v2/projects/{projectsId}/locations/{locationsId}/conversationModels/{conversationModelsId}'].delete
+  description: Add a human-readable summary for dialogflow_projects_locations_conversationModels_delete;
+    the source Discovery Document supplies none.
+  update:
+    summary: Delete conversation model
+- target: $.paths['/v2/projects/{projectsId}/locations/{locationsId}/conversationModels/{conversationModelsId}:undeploy'].post
+  description: Add a human-readable summary for dialogflow_projects_locations_conversationModels_undeploy;
+    the source Discovery Document supplies none.
+  update:
+    summary: Undeploy conversation models
+- target: $.paths['/v2/projects/{projectsId}/locations/{locationsId}/conversationModels/{conversationModelsId}/evaluations'].get
+  description: Add a human-readable summary for dialogflow_projects_locations_conversationModels_evaluations_list;
+    the source Discovery Document supplies none.
+  update:
+    summary: List evaluations
+- target: $.paths['/v2/projects/{projectsId}/locations/{locationsId}/conversationModels/{conversationModelsId}/evaluations'].post
+  description: Add a human-readable summary for dialogflow_projects_locations_conversationModels_evaluations_create;
+    the source Discovery Document supplies none.
+  update:
+    summary: Create evaluation
+- target: $.paths['/v2/projects/{projectsId}/locations/{locationsId}/conversationModels/{conversationModelsId}/evaluations/{evaluationsId}'].get
+  description: Add a human-readable summary for dialogflow_projects_locations_conversationModels_evaluations_get;
+    the source Discovery Document supplies none.
+  update:
+    summary: Get evaluation
+- target: $.paths['/v2/projects/{projectsId}/locations/{locationsId}/encryptionSpec:initialize'].post
+  description: Add a human-readable summary for dialogflow_projects_locations_encryptionSpec_initialize;
+    the source Discovery Document supplies none.
+  update:
+    summary: Initialize encryption spec
+- target: $.paths['/v2/projects/{projectsId}/locations/{locationsId}/generators'].post
+  description: Add a human-readable summary for dialogflow_projects_locations_generators_create; the source
+    Discovery Document supplies none.
+  update:
+    summary: Create generator
+- target: $.paths['/v2/projects/{projectsId}/locations/{locationsId}/generators'].get
+  description: Add a human-readable summary for dialogflow_projects_locations_generators_list; the source
+    Discovery Document supplies none.
+  update:
+    summary: List generators
+- target: $.paths['/v2/projects/{projectsId}/locations/{locationsId}/generators/{generatorsId}'].patch
+  description: Add a human-readable summary for dialogflow_projects_locations_generators_patch; the source
+    Discovery Document supplies none.
+  update:
+    summary: Update generator
+- target: $.paths['/v2/projects/{projectsId}/locations/{locationsId}/generators/{generatorsId}'].delete
+  description: Add a human-readable summary for dialogflow_projects_locations_generators_delete; the source
+    Discovery Document supplies none.
+  update:
+    summary: Delete generator
+- target: $.paths['/v2/projects/{projectsId}/locations/{locationsId}/generators/{generatorsId}'].get
+  description: Add a human-readable summary for dialogflow_projects_locations_generators_get; the source
+    Discovery Document supplies none.
+  update:
+    summary: Get generator
+- target: $.paths['/v2/projects/{projectsId}/locations/{locationsId}/generators/{generatorsId}/evaluations/{evaluationsId}'].get
+  description: Add a human-readable summary for dialogflow_projects_locations_generators_evaluations_get;
+    the source Discovery Document supplies none.
+  update:
+    summary: Get evaluation
+- target: $.paths['/v2/projects/{projectsId}/locations/{locationsId}/generators/{generatorsId}/evaluations/{evaluationsId}'].delete
+  description: Add a human-readable summary for dialogflow_projects_locations_generators_evaluations_delete;
+    the source Discovery Document supplies none.
+  update:
+    summary: Delete evaluation
+- target: $.paths['/v2/projects/{projectsId}/locations/{locationsId}/generators/{generatorsId}/evaluations'].get
+  description: Add a human-readable summary for dialogflow_projects_locations_generators_evaluations_list;
+    the source Discovery Document supplies none.
+  update:
+    summary: List evaluations
+- target: $.paths['/v2/projects/{projectsId}/locations/{locationsId}/generators/{generatorsId}/evaluations'].post
+  description: Add a human-readable summary for dialogflow_projects_locations_generators_evaluations_create;
+    the source Discovery Document supplies none.
+  update:
+    summary: Create evaluation
+- target: $.paths['/v2/projects/{projectsId}/locations/{locationsId}/knowledgeBases/{knowledgeBasesId}'].delete
+  description: Add a human-readable summary for dialogflow_projects_locations_knowledgeBases_delete; the
+    source Discovery Document supplies none.
+  update:
+    summary: Delete knowledge base
+- target: $.paths['/v2/projects/{projectsId}/locations/{locationsId}/knowledgeBases/{knowledgeBasesId}'].get
+  description: Add a human-readable summary for dialogflow_projects_locations_knowledgeBases_get; the
+    source Discovery Document supplies none.
+  update:
+    summary: Get knowledge base
+- target: $.paths['/v2/projects/{projectsId}/locations/{locationsId}/knowledgeBases/{knowledgeBasesId}'].patch
+  description: Add a human-readable summary for dialogflow_projects_locations_knowledgeBases_patch; the
+    source Discovery Document supplies none.
+  update:
+    summary: Update knowledge base
+- target: $.paths['/v2/projects/{projectsId}/locations/{locationsId}/knowledgeBases'].post
+  description: Add a human-readable summary for dialogflow_projects_locations_knowledgeBases_create; the
+    source Discovery Document supplies none.
+  update:
+    summary: Create knowledge base
+- target: $.paths['/v2/projects/{projectsId}/locations/{locationsId}/knowledgeBases'].get
+  description: Add a human-readable summary for dialogflow_projects_locations_knowledgeBases_list; the
+    source Discovery Document supplies none.
+  update:
+    summary: List knowledge bases
+- target: $.paths['/v2/projects/{projectsId}/locations/{locationsId}/knowledgeBases/{knowledgeBasesId}/documents/{documentsId}'].get
+  description: Add a human-readable summary for dialogflow_projects_locations_knowledgeBases_documents_get;
+    the source Discovery Document supplies none.
+  update:
+    summary: Get document
+- target: $.paths['/v2/projects/{projectsId}/locations/{locationsId}/knowledgeBases/{knowledgeBasesId}/documents/{documentsId}'].delete
+  description: Add a human-readable summary for dialogflow_projects_locations_knowledgeBases_documents_delete;
+    the source Discovery Document supplies none.
+  update:
+    summary: Delete document
+- target: $.paths['/v2/projects/{projectsId}/locations/{locationsId}/knowledgeBases/{knowledgeBasesId}/documents/{documentsId}'].patch
+  description: Add a human-readable summary for dialogflow_projects_locations_knowledgeBases_documents_patch;
+    the source Discovery Document supplies none.
+  update:
+    summary: Update document
+- target: $.paths['/v2/projects/{projectsId}/locations/{locationsId}/knowledgeBases/{knowledgeBasesId}/documents/{documentsId}:export'].post
+  description: Add a human-readable summary for dialogflow_projects_locations_knowledgeBases_documents_export;
+    the source Discovery Document supplies none.
+  update:
+    summary: Export document
+- target: $.paths['/v2/projects/{projectsId}/locations/{locationsId}/knowledgeBases/{knowledgeBasesId}/documents:import'].post
+  description: Add a human-readable summary for dialogflow_projects_locations_knowledgeBases_documents_import;
+    the source Discovery Document supplies none.
+  update:
+    summary: Import documents
+- target: $.paths['/v2/projects/{projectsId}/locations/{locationsId}/knowledgeBases/{knowledgeBasesId}/documents'].get
+  description: Add a human-readable summary for dialogflow_projects_locations_knowledgeBases_documents_list;
+    the source Discovery Document supplies none.
+  update:
+    summary: List documents
+- target: $.paths['/v2/projects/{projectsId}/locations/{locationsId}/knowledgeBases/{knowledgeBasesId}/documents'].post
+  description: Add a human-readable summary for dialogflow_projects_locations_knowledgeBases_documents_create;
+    the source Discovery Document supplies none.
+  update:
+    summary: Create document
+- target: $.paths['/v2/projects/{projectsId}/locations/{locationsId}/knowledgeBases/{knowledgeBasesId}/documents/{documentsId}:reload'].post
+  description: Add a human-readable summary for dialogflow_projects_locations_knowledgeBases_documents_reload;
+    the source Discovery Document supplies none.
+  update:
+    summary: Reload documents
+- target: $.paths['/v2/projects/{projectsId}/agent:restore'].post
+  description: Add a human-readable summary for dialogflow_projects_agent_restore; the source Discovery
+    Document supplies none.
+  update:
+    summary: Restore agent
+- target: $.paths['/v2/projects/{projectsId}/agent:search'].get
+  description: Add a human-readable summary for dialogflow_projects_agent_search; the source Discovery
+    Document supplies none.
+  update:
+    summary: Search agent
+- target: $.paths['/v2/projects/{projectsId}/agent/validationResult'].get
+  description: Add a human-readable summary for dialogflow_projects_agent_getValidationResult; the source
+    Discovery Document supplies none.
+  update:
+    summary: Get validation result
+- target: $.paths['/v2/projects/{projectsId}/agent:export'].post
+  description: Add a human-readable summary for dialogflow_projects_agent_export; the source Discovery
+    Document supplies none.
+  update:
+    summary: Export agent
+- target: $.paths['/v2/projects/{projectsId}/agent/fulfillment'].patch
+  description: Add a human-readable summary for dialogflow_projects_agent_updateFulfillment; the source
+    Discovery Document supplies none.
+  update:
+    summary: Update fulfillment
+- target: $.paths['/v2/projects/{projectsId}/agent/fulfillment'].get
+  description: Add a human-readable summary for dialogflow_projects_agent_getFulfillment; the source Discovery
+    Document supplies none.
+  update:
+    summary: Get fulfillment
+- target: $.paths['/v2/projects/{projectsId}/agent:import'].post
+  description: Add a human-readable summary for dialogflow_projects_agent_import; the source Discovery
+    Document supplies none.
+  update:
+    summary: Import agent
+- target: $.paths['/v2/projects/{projectsId}/agent:train'].post
+  description: Add a human-readable summary for dialogflow_projects_agent_train; the source Discovery
+    Document supplies none.
+  update:
+    summary: Train agent
+- target: $.paths['/v2/projects/{projectsId}/agent/knowledgeBases/{knowledgeBasesId}'].delete
+  description: Add a human-readable summary for dialogflow_projects_agent_knowledgeBases_delete; the source
+    Discovery Document supplies none.
+  update:
+    summary: Delete knowledge base
+- target: $.paths['/v2/projects/{projectsId}/agent/knowledgeBases/{knowledgeBasesId}'].patch
+  description: Add a human-readable summary for dialogflow_projects_agent_knowledgeBases_patch; the source
+    Discovery Document supplies none.
+  update:
+    summary: Update knowledge base
+- target: $.paths['/v2/projects/{projectsId}/agent/knowledgeBases/{knowledgeBasesId}'].get
+  description: Add a human-readable summary for dialogflow_projects_agent_knowledgeBases_get; the source
+    Discovery Document supplies none.
+  update:
+    summary: Get knowledge base
+- target: $.paths['/v2/projects/{projectsId}/agent/knowledgeBases'].post
+  description: Add a human-readable summary for dialogflow_projects_agent_knowledgeBases_create; the source
+    Discovery Document supplies none.
+  update:
+    summary: Create knowledge base
+- target: $.paths['/v2/projects/{projectsId}/agent/knowledgeBases'].get
+  description: Add a human-readable summary for dialogflow_projects_agent_knowledgeBases_list; the source
+    Discovery Document supplies none.
+  update:
+    summary: List knowledge bases
+- target: $.paths['/v2/projects/{projectsId}/agent/knowledgeBases/{knowledgeBasesId}/documents/{documentsId}'].patch
+  description: Add a human-readable summary for dialogflow_projects_agent_knowledgeBases_documents_patch;
+    the source Discovery Document supplies none.
+  update:
+    summary: Update document
+- target: $.paths['/v2/projects/{projectsId}/agent/knowledgeBases/{knowledgeBasesId}/documents/{documentsId}'].get
+  description: Add a human-readable summary for dialogflow_projects_agent_knowledgeBases_documents_get;
+    the source Discovery Document supplies none.
+  update:
+    summary: Get document
+- target: $.paths['/v2/projects/{projectsId}/agent/knowledgeBases/{knowledgeBasesId}/documents/{documentsId}'].delete
+  description: Add a human-readable summary for dialogflow_projects_agent_knowledgeBases_documents_delete;
+    the source Discovery Document supplies none.
+  update:
+    summary: Delete document
+- target: $.paths['/v2/projects/{projectsId}/agent/knowledgeBases/{knowledgeBasesId}/documents'].get
+  description: Add a human-readable summary for dialogflow_projects_agent_knowledgeBases_documents_list;
+    the source Discovery Document supplies none.
+  update:
+    summary: List documents
+- target: $.paths['/v2/projects/{projectsId}/agent/knowledgeBases/{knowledgeBasesId}/documents'].post
+  description: Add a human-readable summary for dialogflow_projects_agent_knowledgeBases_documents_create;
+    the source Discovery Document supplies none.
+  update:
+    summary: Create document
+- target: $.paths['/v2/projects/{projectsId}/agent/knowledgeBases/{knowledgeBasesId}/documents/{documentsId}:reload'].post
+  description: Add a human-readable summary for dialogflow_projects_agent_knowledgeBases_documents_reload;
+    the source Discovery Document supplies none.
+  update:
+    summary: Reload documents
+- target: $.paths['/v2/projects/{projectsId}/agent/entityTypes:batchDelete'].post
+  description: Add a human-readable summary for dialogflow_projects_agent_entityTypes_batchDelete; the
+    source Discovery Document supplies none.
+  update:
+    summary: Batch delete
+- target: $.paths['/v2/projects/{projectsId}/agent/entityTypes'].post
+  description: Add a human-readable summary for dialogflow_projects_agent_entityTypes_create; the source
+    Discovery Document supplies none.
+  update:
+    summary: Create entity type
+- target: $.paths['/v2/projects/{projectsId}/agent/entityTypes'].get
+  description: Add a human-readable summary for dialogflow_projects_agent_entityTypes_list; the source
+    Discovery Document supplies none.
+  update:
+    summary: List entity types
+- target: $.paths['/v2/projects/{projectsId}/agent/entityTypes/{entityTypesId}'].patch
+  description: Add a human-readable summary for dialogflow_projects_agent_entityTypes_patch; the source
+    Discovery Document supplies none.
+  update:
+    summary: Update entity type
+- target: $.paths['/v2/projects/{projectsId}/agent/entityTypes/{entityTypesId}'].get
+  description: Add a human-readable summary for dialogflow_projects_agent_entityTypes_get; the source
+    Discovery Document supplies none.
+  update:
+    summary: Get entity type
+- target: $.paths['/v2/projects/{projectsId}/agent/entityTypes/{entityTypesId}'].delete
+  description: Add a human-readable summary for dialogflow_projects_agent_entityTypes_delete; the source
+    Discovery Document supplies none.
+  update:
+    summary: Delete entity type
+- target: $.paths['/v2/projects/{projectsId}/agent/entityTypes:batchUpdate'].post
+  description: Add a human-readable summary for dialogflow_projects_agent_entityTypes_batchUpdate; the
+    source Discovery Document supplies none.
+  update:
+    summary: Batch update
+- target: $.paths['/v2/projects/{projectsId}/agent/entityTypes/{entityTypesId}/entities:batchDelete'].post
+  description: Add a human-readable summary for dialogflow_projects_agent_entityTypes_entities_batchDelete;
+    the source Discovery Document supplies none.
+  update:
+    summary: Batch delete
+- target: $.paths['/v2/projects/{projectsId}/agent/entityTypes/{entityTypesId}/entities:batchUpdate'].post
+  description: Add a human-readable summary for dialogflow_projects_agent_entityTypes_entities_batchUpdate;
+    the source Discovery Document supplies none.
+  update:
+    summary: Batch update
+- target: $.paths['/v2/projects/{projectsId}/agent/entityTypes/{entityTypesId}/entities:batchCreate'].post
+  description: Add a human-readable summary for dialogflow_projects_agent_entityTypes_entities_batchCreate;
+    the source Discovery Document supplies none.
+  update:
+    summary: Batch create
+- target: $.paths['/v2/projects/{projectsId}/agent/versions/{versionsId}'].patch
+  description: Add a human-readable summary for dialogflow_projects_agent_versions_patch; the source Discovery
+    Document supplies none.
+  update:
+    summary: Update version
+- target: $.paths['/v2/projects/{projectsId}/agent/versions/{versionsId}'].get
+  description: Add a human-readable summary for dialogflow_projects_agent_versions_get; the source Discovery
+    Document supplies none.
+  update:
+    summary: Get version
+- target: $.paths['/v2/projects/{projectsId}/agent/versions/{versionsId}'].delete
+  description: Add a human-readable summary for dialogflow_projects_agent_versions_delete; the source
+    Discovery Document supplies none.
+  update:
+    summary: Delete version
+- target: $.paths['/v2/projects/{projectsId}/agent/versions'].get
+  description: Add a human-readable summary for dialogflow_projects_agent_versions_list; the source Discovery
+    Document supplies none.
+  update:
+    summary: List versions
+- target: $.paths['/v2/projects/{projectsId}/agent/versions'].post
+  description: Add a human-readable summary for dialogflow_projects_agent_versions_create; the source
+    Discovery Document supplies none.
+  update:
+    summary: Create version
+- target: $.paths['/v2/projects/{projectsId}/agent/environments/{environmentsId}/history'].get
+  description: Add a human-readable summary for dialogflow_projects_agent_environments_getHistory; the
+    source Discovery Document supplies none.
+  update:
+    summary: Get history
+- target: $.paths['/v2/projects/{projectsId}/agent/environments/{environmentsId}'].delete
+  description: Add a human-readable summary for dialogflow_projects_agent_environments_delete; the source
+    Discovery Document supplies none.
+  update:
+    summary: Delete environment
+- target: $.paths['/v2/projects/{projectsId}/agent/environments/{environmentsId}'].get
+  description: Add a human-readable summary for dialogflow_projects_agent_environments_get; the source
+    Discovery Document supplies none.
+  update:
+    summary: Get environment
+- target: $.paths['/v2/projects/{projectsId}/agent/environments/{environmentsId}'].patch
+  description: Add a human-readable summary for dialogflow_projects_agent_environments_patch; the source
+    Discovery Document supplies none.
+  update:
+    summary: Update environment
+- target: $.paths['/v2/projects/{projectsId}/agent/environments'].post
+  description: Add a human-readable summary for dialogflow_projects_agent_environments_create; the source
+    Discovery Document supplies none.
+  update:
+    summary: Create environment
+- target: $.paths['/v2/projects/{projectsId}/agent/environments'].get
+  description: Add a human-readable summary for dialogflow_projects_agent_environments_list; the source
+    Discovery Document supplies none.
+  update:
+    summary: List environments
+- target: $.paths['/v2/projects/{projectsId}/agent/environments/{environmentsId}/users/{usersId}/sessions/{sessionsId}/contexts'].delete
+  description: Add a human-readable summary for dialogflow_projects_agent_environments_users_sessions_deleteContexts;
+    the source Discovery Document supplies none.
+  update:
+    summary: Delete context
+- target: $.paths['/v2/projects/{projectsId}/agent/environments/{environmentsId}/users/{usersId}/sessions/{sessionsId}/contexts'].post
+  description: Add a human-readable summary for dialogflow_projects_agent_environments_users_sessions_contexts_create;
+    the source Discovery Document supplies none.
+  update:
+    summary: Create context
+- target: $.paths['/v2/projects/{projectsId}/agent/environments/{environmentsId}/users/{usersId}/sessions/{sessionsId}/contexts'].get
+  description: Add a human-readable summary for dialogflow_projects_agent_environments_users_sessions_contexts_list;
+    the source Discovery Document supplies none.
+  update:
+    summary: List contexts
+- target: $.paths['/v2/projects/{projectsId}/agent/environments/{environmentsId}/users/{usersId}/sessions/{sessionsId}:detectIntent'].post
+  description: Add a human-readable summary for dialogflow_projects_agent_environments_users_sessions_detectIntent;
+    the source Discovery Document supplies none.
+  update:
+    summary: Detect intent
+- target: $.paths['/v2/projects/{projectsId}/agent/environments/{environmentsId}/users/{usersId}/sessions/{sessionsId}/contexts/{contextsId}'].patch
+  description: Add a human-readable summary for dialogflow_projects_agent_environments_users_sessions_contexts_patch;
+    the source Discovery Document supplies none.
+  update:
+    summary: Update context
+- target: $.paths['/v2/projects/{projectsId}/agent/environments/{environmentsId}/users/{usersId}/sessions/{sessionsId}/contexts/{contextsId}'].get
+  description: Add a human-readable summary for dialogflow_projects_agent_environments_users_sessions_contexts_get;
+    the source Discovery Document supplies none.
+  update:
+    summary: Get context
+- target: $.paths['/v2/projects/{projectsId}/agent/environments/{environmentsId}/users/{usersId}/sessions/{sessionsId}/contexts/{contextsId}'].delete
+  description: Add a human-readable summary for dialogflow_projects_agent_environments_users_sessions_contexts_delete;
+    the source Discovery Document supplies none.
+  update:
+    summary: Delete context
+- target: $.paths['/v2/projects/{projectsId}/agent/environments/{environmentsId}/users/{usersId}/sessions/{sessionsId}/entityTypes'].post
+  description: Add a human-readable summary for dialogflow_projects_agent_environments_users_sessions_entityTypes_create;
+    the source Discovery Document supplies none.
+  update:
+    summary: Create entity type
+- target: $.paths['/v2/projects/{projectsId}/agent/environments/{environmentsId}/users/{usersId}/sessions/{sessionsId}/entityTypes'].get
+  description: Add a human-readable summary for dialogflow_projects_agent_environments_users_sessions_entityTypes_list;
+    the source Discovery Document supplies none.
+  update:
+    summary: List entity types
+- target: $.paths['/v2/projects/{projectsId}/agent/environments/{environmentsId}/users/{usersId}/sessions/{sessionsId}/entityTypes/{entityTypesId}'].get
+  description: Add a human-readable summary for dialogflow_projects_agent_environments_users_sessions_entityTypes_get;
+    the source Discovery Document supplies none.
+  update:
+    summary: Get entity type
+- target: $.paths['/v2/projects/{projectsId}/agent/environments/{environmentsId}/users/{usersId}/sessions/{sessionsId}/entityTypes/{entityTypesId}'].delete
+  description: Add a human-readable summary for dialogflow_projects_agent_environments_users_sessions_entityTypes_delete;
+    the source Discovery Document supplies none.
+  update:
+    summary: Delete entity type
+- target: $.paths['/v2/projects/{projectsId}/agent/environments/{environmentsId}/users/{usersId}/sessions/{sessionsId}/entityTypes/{entityTypesId}'].patch
+  description: Add a human-readable summary for dialogflow_projects_agent_environments_users_sessions_entityTypes_patch;
+    the source Discovery Document supplies none.
+  update:
+    summary: Update entity type
+- target: $.paths['/v2/projects/{projectsId}/agent/environments/{environmentsId}/intents'].get
+  description: Add a human-readable summary for dialogflow_projects_agent_environments_intents_list; the
+    source Discovery Document supplies none.
+  update:
+    summary: List intents
+- target: $.paths['/v2/projects/{projectsId}/agent/intents/{intentsId}'].patch
+  description: Add a human-readable summary for dialogflow_projects_agent_intents_patch; the source Discovery
+    Document supplies none.
+  update:
+    summary: Update intent
+- target: $.paths['/v2/projects/{projectsId}/agent/intents/{intentsId}'].get
+  description: Add a human-readable summary for dialogflow_projects_agent_intents_get; the source Discovery
+    Document supplies none.
+  update:
+    summary: Get intent
+- target: $.paths['/v2/projects/{projectsId}/agent/intents/{intentsId}'].delete
+  description: Add a human-readable summary for dialogflow_projects_agent_intents_delete; the source Discovery
+    Document supplies none.
+  update:
+    summary: Delete intent
+- target: $.paths['/v2/projects/{projectsId}/agent/intents:batchUpdate'].post
+  description: Add a human-readable summary for dialogflow_projects_agent_intents_batchUpdate; the source
+    Discovery Document supplies none.
+  update:
+    summary: Batch update
+- target: $.paths['/v2/projects/{projectsId}/agent/intents'].get
+  description: Add a human-readable summary for dialogflow_projects_agent_intents_list; the source Discovery
+    Document supplies none.
+  update:
+    summary: List intents
+- target: $.paths['/v2/projects/{projectsId}/agent/intents'].post
+  description: Add a human-readable summary for dialogflow_projects_agent_intents_create; the source Discovery
+    Document supplies none.
+  update:
+    summary: Create intent
+- target: $.paths['/v2/projects/{projectsId}/agent/intents:batchDelete'].post
+  description: Add a human-readable summary for dialogflow_projects_agent_intents_batchDelete; the source
+    Discovery Document supplies none.
+  update:
+    summary: Batch delete
+- target: $.paths['/v2/projects/{projectsId}/agent/sessions/{sessionsId}:detectIntent'].post
+  description: Add a human-readable summary for dialogflow_projects_agent_sessions_detectIntent; the source
+    Discovery Document supplies none.
+  update:
+    summary: Detect intent
+- target: $.paths['/v2/projects/{projectsId}/agent/sessions/{sessionsId}/contexts'].delete
+  description: Add a human-readable summary for dialogflow_projects_agent_sessions_deleteContexts; the
+    source Discovery Document supplies none.
+  update:
+    summary: Delete context
+- target: $.paths['/v2/projects/{projectsId}/agent/sessions/{sessionsId}/contexts'].get
+  description: Add a human-readable summary for dialogflow_projects_agent_sessions_contexts_list; the
+    source Discovery Document supplies none.
+  update:
+    summary: List contexts
+- target: $.paths['/v2/projects/{projectsId}/agent/sessions/{sessionsId}/contexts'].post
+  description: Add a human-readable summary for dialogflow_projects_agent_sessions_contexts_create; the
+    source Discovery Document supplies none.
+  update:
+    summary: Create context
+- target: $.paths['/v2/projects/{projectsId}/agent/sessions/{sessionsId}/entityTypes/{entityTypesId}'].patch
+  description: Add a human-readable summary for dialogflow_projects_agent_sessions_entityTypes_patch;
+    the source Discovery Document supplies none.
+  update:
+    summary: Update entity type
+- target: $.paths['/v2/projects/{projectsId}/agent/sessions/{sessionsId}/entityTypes/{entityTypesId}'].get
+  description: Add a human-readable summary for dialogflow_projects_agent_sessions_entityTypes_get; the
+    source Discovery Document supplies none.
+  update:
+    summary: Get entity type
+- target: $.paths['/v2/projects/{projectsId}/agent/sessions/{sessionsId}/entityTypes/{entityTypesId}'].delete
+  description: Add a human-readable summary for dialogflow_projects_agent_sessions_entityTypes_delete;
+    the source Discovery Document supplies none.
+  update:
+    summary: Delete entity type
+- target: $.paths['/v2/projects/{projectsId}/agent/sessions/{sessionsId}/entityTypes'].post
+  description: Add a human-readable summary for dialogflow_projects_agent_sessions_entityTypes_create;
+    the source Discovery Document supplies none.
+  update:
+    summary: Create entity type
+- target: $.paths['/v2/projects/{projectsId}/agent/sessions/{sessionsId}/entityTypes'].get
+  description: Add a human-readable summary for dialogflow_projects_agent_sessions_entityTypes_list; the
+    source Discovery Document supplies none.
+  update:
+    summary: List entity types
+- target: $.paths['/v2/projects/{projectsId}/agent/sessions/{sessionsId}/contexts/{contextsId}'].get
+  description: Add a human-readable summary for dialogflow_projects_agent_sessions_contexts_get; the source
+    Discovery Document supplies none.
+  update:
+    summary: Get context
+- target: $.paths['/v2/projects/{projectsId}/agent/sessions/{sessionsId}/contexts/{contextsId}'].patch
+  description: Add a human-readable summary for dialogflow_projects_agent_sessions_contexts_patch; the
+    source Discovery Document supplies none.
+  update:
+    summary: Update context
+- target: $.paths['/v2/projects/{projectsId}/agent/sessions/{sessionsId}/contexts/{contextsId}'].delete
+  description: Add a human-readable summary for dialogflow_projects_agent_sessions_contexts_delete; the
+    source Discovery Document supplies none.
+  update:
+    summary: Delete context
+- target: $.paths['/v2/projects/{projectsId}/conversationProfiles'].post
+  description: Add a human-readable summary for dialogflow_projects_conversationProfiles_create; the source
+    Discovery Document supplies none.
+  update:
+    summary: Create conversation profile
+- target: $.paths['/v2/projects/{projectsId}/conversationProfiles'].get
+  description: Add a human-readable summary for dialogflow_projects_conversationProfiles_list; the source
+    Discovery Document supplies none.
+  update:
+    summary: List conversation profiles
+- target: $.paths['/v2/projects/{projectsId}/conversationProfiles/{conversationProfilesId}:setSuggestionFeatureConfig'].post
+  description: Add a human-readable summary for dialogflow_projects_conversationProfiles_setSuggestionFeatureConfig;
+    the source Discovery Document supplies none.
+  update:
+    summary: Set suggestion feature config
+- target: $.paths['/v2/projects/{projectsId}/conversationProfiles/{conversationProfilesId}'].patch
+  description: Add a human-readable summary for dialogflow_projects_conversationProfiles_patch; the source
+    Discovery Document supplies none.
+  update:
+    summary: Update conversation profile
+- target: $.paths['/v2/projects/{projectsId}/conversationProfiles/{conversationProfilesId}'].delete
+  description: Add a human-readable summary for dialogflow_projects_conversationProfiles_delete; the source
+    Discovery Document supplies none.
+  update:
+    summary: Delete conversation profile
+- target: $.paths['/v2/projects/{projectsId}/conversationProfiles/{conversationProfilesId}'].get
+  description: Add a human-readable summary for dialogflow_projects_conversationProfiles_get; the source
+    Discovery Document supplies none.
+  update:
+    summary: Get conversation profile
+- target: $.paths['/v2/projects/{projectsId}/conversationProfiles/{conversationProfilesId}:clearSuggestionFeatureConfig'].post
+  description: Add a human-readable summary for dialogflow_projects_conversationProfiles_clearSuggestionFeatureConfig;
+    the source Discovery Document supplies none.
+  update:
+    summary: Clear suggestion feature config
+- target: $.paths['/v2/projects/{projectsId}/conversationDatasets/{conversationDatasetsId}'].get
+  description: Add a human-readable summary for dialogflow_projects_conversationDatasets_get; the source
+    Discovery Document supplies none.
+  update:
+    summary: Get conversation dataset
+- target: $.paths['/v2/projects/{projectsId}/conversationDatasets'].get
+  description: Add a human-readable summary for dialogflow_projects_conversationDatasets_list; the source
+    Discovery Document supplies none.
+  update:
+    summary: List conversation datasets
+- target: $.paths['/v2/projects/{projectsId}/conversationDatasets/{conversationDatasetsId}:importConversationData'].post
+  description: Add a human-readable summary for dialogflow_projects_conversationDatasets_importConversationData;
+    the source Discovery Document supplies none.
+  update:
+    summary: Import conversation data
+- target: $.paths['/v2/projects/{projectsId}/conversations/{conversationsId}:complete'].post
+  description: Add a human-readable summary for dialogflow_projects_conversations_complete; the source
+    Discovery Document supplies none.
+  update:
+    summary: Complete conversations
+- target: $.paths['/v2/projects/{projectsId}/conversations'].get
+  description: Add a human-readable summary for dialogflow_projects_conversations_list; the source Discovery
+    Document supplies none.
+  update:
+    summary: List conversations
+- target: $.paths['/v2/projects/{projectsId}/conversations'].post
+  description: Add a human-readable summary for dialogflow_projects_conversations_create; the source Discovery
+    Document supplies none.
+  update:
+    summary: Create conversation
+- target: $.paths['/v2/projects/{projectsId}/conversations/{conversationsId}'].get
+  description: Add a human-readable summary for dialogflow_projects_conversations_get; the source Discovery
+    Document supplies none.
+  update:
+    summary: Get conversation
+- target: $.paths['/v2/projects/{projectsId}/conversations/{conversationsId}/participants'].post
+  description: Add a human-readable summary for dialogflow_projects_conversations_participants_create;
+    the source Discovery Document supplies none.
+  update:
+    summary: Create participant
+- target: $.paths['/v2/projects/{projectsId}/conversations/{conversationsId}/participants'].get
+  description: Add a human-readable summary for dialogflow_projects_conversations_participants_list; the
+    source Discovery Document supplies none.
+  update:
+    summary: List participants
+- target: $.paths['/v2/projects/{projectsId}/conversations/{conversationsId}/participants/{participantsId}'].get
+  description: Add a human-readable summary for dialogflow_projects_conversations_participants_get; the
+    source Discovery Document supplies none.
+  update:
+    summary: Get participant
+- target: $.paths['/v2/projects/{projectsId}/conversations/{conversationsId}/participants/{participantsId}'].patch
+  description: Add a human-readable summary for dialogflow_projects_conversations_participants_patch;
+    the source Discovery Document supplies none.
+  update:
+    summary: Update participant
+- target: $.paths['/v2/projects/{projectsId}/conversations/{conversationsId}/participants/{participantsId}:analyzeContent'].post
+  description: Add a human-readable summary for dialogflow_projects_conversations_participants_analyzeContent;
+    the source Discovery Document supplies none.
+  update:
+    summary: Analyze content
+- target: $.paths['/v2/projects/{projectsId}/conversations/{conversationsId}/participants/{participantsId}/suggestions:suggestSmartReplies'].post
+  description: Add a human-readable summary for dialogflow_projects_conversations_participants_suggestions_suggestSmartReplies;
+    the source Discovery Document supplies none.
+  update:
+    summary: Suggest smart replies
+- target: $.paths['/v2/projects/{projectsId}/conversations/{conversationsId}/participants/{participantsId}/suggestions:suggestArticles'].post
+  description: Add a human-readable summary for dialogflow_projects_conversations_participants_suggestions_suggestArticles;
+    the source Discovery Document supplies none.
+  update:
+    summary: Suggest articles
+- target: $.paths['/v2/projects/{projectsId}/conversations/{conversationsId}/participants/{participantsId}/suggestions:suggestKnowledgeAssist'].post
+  description: Add a human-readable summary for dialogflow_projects_conversations_participants_suggestions_suggestKnowledgeAssist;
+    the source Discovery Document supplies none.
+  update:
+    summary: Suggest knowledge assist
+- target: $.paths['/v2/projects/{projectsId}/conversations/{conversationsId}/participants/{participantsId}/suggestions:suggestFaqAnswers'].post
+  description: Add a human-readable summary for dialogflow_projects_conversations_participants_suggestions_suggestFaqAnswers;
+    the source Discovery Document supplies none.
+  update:
+    summary: Suggest faq answers
+- target: $.paths['/v2/projects/{projectsId}/conversations/{conversationsId}/messages'].get
+  description: Add a human-readable summary for dialogflow_projects_conversations_messages_list; the source
+    Discovery Document supplies none.
+  update:
+    summary: List messages
+- target: $.paths['/v2/projects/{projectsId}/conversations/{conversationsId}/suggestions:generate'].post
+  description: Add a human-readable summary for dialogflow_projects_conversations_suggestions_generate;
+    the source Discovery Document supplies none.
+  update:
+    summary: Generate suggestions
+- target: $.paths['/v2/projects/{projectsId}/conversations/{conversationsId}/suggestions:searchKnowledge'].post
+  description: Add a human-readable summary for dialogflow_projects_conversations_suggestions_searchKnowledge;
+    the source Discovery Document supplies none.
+  update:
+    summary: Search knowledge
+- target: $.paths['/v2/projects/{projectsId}/conversations/{conversationsId}/suggestions:suggestConversationSummary'].post
+  description: Add a human-readable summary for dialogflow_projects_conversations_suggestions_suggestConversationSummary;
+    the source Discovery Document supplies none.
+  update:
+    summary: Suggest conversation summary
+- target: $.paths['/v2/projects/{projectsId}/answerRecords'].get
+  description: Add a human-readable summary for dialogflow_projects_answerRecords_list; the source Discovery
+    Document supplies none.
+  update:
+    summary: List answer records
+- target: $.paths['/v2/projects/{projectsId}/answerRecords/{answerRecordsId}'].patch
+  description: Add a human-readable summary for dialogflow_projects_answerRecords_patch; the source Discovery
+    Document supplies none.
+  update:
+    summary: Update answer record
+- target: $.paths['/v2/projects/{projectsId}/conversationModels/{conversationModelsId}:undeploy'].post
+  description: Add a human-readable summary for dialogflow_projects_conversationModels_undeploy; the source
+    Discovery Document supplies none.
+  update:
+    summary: Undeploy conversation models
+- target: $.paths['/v2/projects/{projectsId}/conversationModels/{conversationModelsId}'].get
+  description: Add a human-readable summary for dialogflow_projects_conversationModels_get; the source
+    Discovery Document supplies none.
+  update:
+    summary: Get conversation model
+- target: $.paths['/v2/projects/{projectsId}/conversationModels/{conversationModelsId}'].delete
+  description: Add a human-readable summary for dialogflow_projects_conversationModels_delete; the source
+    Discovery Document supplies none.
+  update:
+    summary: Delete conversation model
+- target: $.paths['/v2/projects/{projectsId}/conversationModels'].post
+  description: Add a human-readable summary for dialogflow_projects_conversationModels_create; the source
+    Discovery Document supplies none.
+  update:
+    summary: Create conversation model
+- target: $.paths['/v2/projects/{projectsId}/conversationModels'].get
+  description: Add a human-readable summary for dialogflow_projects_conversationModels_list; the source
+    Discovery Document supplies none.
+  update:
+    summary: List conversation models
+- target: $.paths['/v2/projects/{projectsId}/conversationModels/{conversationModelsId}:deploy'].post
+  description: Add a human-readable summary for dialogflow_projects_conversationModels_deploy; the source
+    Discovery Document supplies none.
+  update:
+    summary: Deploy conversation model
+- target: $.paths['/v2/projects/{projectsId}/conversationModels/{conversationModelsId}/evaluations'].get
+  description: Add a human-readable summary for dialogflow_projects_conversationModels_evaluations_list;
+    the source Discovery Document supplies none.
+  update:
+    summary: List evaluations
+- target: $.paths['/v2/projects/{projectsId}/conversationModels/{conversationModelsId}/evaluations/{evaluationsId}'].get
+  description: Add a human-readable summary for dialogflow_projects_conversationModels_evaluations_get;
+    the source Discovery Document supplies none.
+  update:
+    summary: Get evaluation
+- target: $.paths['/v2/projects/{projectsId}/operations/{operationsId}:cancel'].post
+  description: Add a human-readable summary for dialogflow_projects_operations_cancel; the source Discovery
+    Document supplies none.
+  update:
+    summary: Cancel operation
+- target: $.paths['/v2/projects/{projectsId}/operations/{operationsId}'].get
+  description: Add a human-readable summary for dialogflow_projects_operations_get; the source Discovery
+    Document supplies none.
+  update:
+    summary: Get operation
+- target: $.paths['/v2/projects/{projectsId}/operations'].get
+  description: Add a human-readable summary for dialogflow_projects_operations_list; the source Discovery
+    Document supplies none.
+  update:
+    summary: List operations
+- target: $.paths['/v2/projects/{projectsId}/generators'].get
+  description: Add a human-readable summary for dialogflow_projects_generators_list; the source Discovery
+    Document supplies none.
+  update:
+    summary: List generators
+- target: $.paths['/v2/projects/{projectsId}/generators'].post
+  description: Add a human-readable summary for dialogflow_projects_generators_create; the source Discovery
+    Document supplies none.
+  update:
+    summary: Create generator
+- target: $.paths['/v2/projects/{projectsId}/suggestions:generateStatelessSummary'].post
+  description: Add a human-readable summary for dialogflow_projects_suggestions_generateStatelessSummary;
+    the source Discovery Document supplies none.
+  update:
+    summary: Generate stateless summary
+- target: $.paths['/v2/projects/{projectsId}/suggestions:searchKnowledge'].post
+  description: Add a human-readable summary for dialogflow_projects_suggestions_searchKnowledge; the source
+    Discovery Document supplies none.
+  update:
+    summary: Search knowledge

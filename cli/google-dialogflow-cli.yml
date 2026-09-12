@@ -1,0 +1,60 @@
+generated: '2026-09-12'
+method: searched
+source: https://cloud.google.com/sdk/gcloud/reference/alpha/dialogflow
+provider: Google Dialogflow
+providerId: google-dialogflow
+name: gcloud alpha dialogflow
+description: >-
+  Dialogflow has no standalone CLI. Its command surface ships inside the Google Cloud CLI (gcloud)
+  as the `gcloud alpha dialogflow` command group — "interact with and manage Dialogflow agents,
+  entities, and intents". The surface covers Dialogflow ES only; there is no gcloud command group
+  for Dialogflow CX / Conversational Agents, which is managed through the API, the console, or the
+  client libraries. The group is still marked ALPHA (Google's own page: "This command is currently
+  in alpha and might change without notice"), which is a material caveat for anyone scripting
+  against it.
+maturity: alpha
+covers: Dialogflow ES (v2) only
+binary: gcloud
+docs: https://cloud.google.com/sdk/gcloud/reference/alpha/dialogflow
+install:
+- method: google-cloud-cli
+  url: https://cloud.google.com/sdk/docs/install
+  note: Dialogflow commands are part of the gcloud alpha surface; no separate component install is
+    documented on the reference page.
+groups:
+- name: agent
+  description: Manage, train, and query the Dialogflow agent for a project.
+  commands:
+  - name: describe
+    description: Describe the Dialogflow agent of the current project.
+  - name: export
+    description: Export the Dialogflow agent to a zip file.
+  - name: import
+    description: Import a Dialogflow agent from a zip file.
+  - name: query
+    description: Send a text or audio conversational query to the agent of the current project.
+  - name: train
+    description: Train the Dialogflow agent of the current project.
+- name: entity-types
+  description: Create, list, describe, update, and delete Dialogflow entity types.
+  commands:
+  - name: create
+  - name: delete
+  - name: describe
+  - name: list
+  - name: update
+- name: intents
+  description: Create, list, describe, and delete Dialogflow intents.
+  commands:
+  - name: create
+  - name: delete
+  - name: describe
+  - name: list
+  - name: update
+gaps:
+- No CX / Conversational Agents command group exists in gcloud.
+- No flows, pages, playbooks, tools, webhooks, test-case or environment commands.
+- The group has been in alpha since it shipped; page last updated 2026-05-27.
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

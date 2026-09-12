@@ -1,0 +1,124 @@
+generated: '2026-09-12'
+method: searched
+source: https://cloud.google.com/dialogflow/docs/release-notes
+provider: Google Dialogflow
+providerId: google-dialogflow
+description: >-
+  Dialogflow publishes one dated release-notes page covering both editions, with entries typed as
+  Feature / Change / Announcement / Deprecated / Security / Fixed. It is also machine-consumable in
+  three ways Google names on the page itself: an RSS feed, the Google Cloud console release-notes
+  filter, and a BigQuery dataset of all Google Cloud release notes. Recent window only; the page
+  goes back to 2017-11-16.
+url: https://cloud.google.com/dialogflow/docs/release-notes
+feed: https://cloud.google.com/feeds/dialogflow-release-notes.xml
+bigquery: https://cloud.google.com/release-notes#bigquery
+scheme: dated entries, typed by change class; no semantic version on the API surface
+current_version:
+  discovery_revision: '20260825'
+  channels:
+  - v2
+  - v2beta1
+  - v3
+  - v3beta1
+  note: >-
+    The only version number Dialogflow exposes machine-readably is the Discovery Document revision
+    (a date stamp), which was 20260825 on all four channels when probed on 2026-09-12. Release notes
+    are not tied to it.
+entries:
+- date: '2026-05-07'
+  type: Fixed
+  breaking: false
+  highlights:
+  - A Missing Authorization vulnerability in Dialogflow CX playbook import allowed an authenticated
+    user with specific roles to escalate privileges and potentially take over a project via a
+    maliciously crafted playbook import. Patched 2026-03-15; no customer action needed.
+- date: '2025-12-11'
+  type: Feature, Security
+  breaking: false
+  highlights:
+  - New Responsible AI fields on the v3 and v3beta1 endpoints to flag, filter or block harmful
+    content.
+  - Dialogflow CX Messenger integration contained an authentication-bypass vulnerability when an
+    agent was configured to use an authenticated API with a third-party identity. All versions
+    released after 2025-08-20 are patched; no user action required.
+  - Support for log splitting of large Cloud Logging entries.
+- date: '2025-11-13'
+  type: Feature
+  breaking: false
+  highlights:
+  - Regular-expression validation (Regex) available in Agent Settings and Entity Types.
+- date: '2025-11-06'
+  type: Feature
+  breaking: false
+  highlights:
+  - Custom voice selectable in the Conversation profiles console menu.
+- date: '2025-10-23'
+  type: Feature
+  breaking: false
+  highlights:
+  - Service account authorization configurable for both tools and webhooks.
+  - New temperature, input_token_limit and output_token_limit fields on LlmModelSettings in the
+    v3beta1 API, allowing per-playbook model tuning.
+  - The "Block none" safety setting is no longer restricted access.
+  - Entity Types console supports page size and pagination for entity entries.
+- date: '2025-10-16'
+  type: Change
+  breaking: false
+  highlights:
+  - Default models for data stores and playbooks upgraded — voice summarization
+    gemini-2.0-flash-lite-001 to gemini-2.5-flash-lite, text summarization gemini-2.0-flash-001 to
+    gemini-2.5-flash.
+- date: '2025-09-04'
+  type: Announcement, Feature
+  breaking: true
+  highlights:
+  - The Dialogflow CX console will be deprecated on 2025-10-31; all users are then routed to the
+    Conversational Agents console.
+  - Deactivated models auto-upgraded to gemini-2.5-flash, except generative fallback which moves to
+    gemini-2.5-flash-lite.
+  - New regions asia-southeast2, europe-west4, europe-west6.
+  - gemini-2.5-flash-lite available in all regions; gemini-2.5-flash now GA.
+  - New prompt security controls in agent settings.
+- date: '2025-08-07'
+  type: Deprecated
+  breaking: true
+  highlights:
+  - gemini-1.0-pro, gemini-1.5-pro and gemini-1.5-flash deprecated on 2025-09-01 and automatically
+    upgraded to gemini-2.0-flash-001, across Playbooks, Data stores, Generators and Generative
+    Fallback.
+- date: '2025-07-31'
+  type: Feature
+  breaking: false
+  highlights:
+  - Routine playbooks generally available.
+  - Parameter passing documented between routine playbooks, task playbooks and flows.
+- date: '2025-07-24'
+  type: Feature
+  breaking: false
+  highlights:
+  - 21 new Chirp 3 HD voices across 34 locales.
+  - AlloyDB AI, Bigtable, Firestore, Spanner and Cloud SQL data store sources GA; Microsoft Entra ID
+    source in private GA.
+- date: '2025-07-17'
+  type: Feature
+  breaking: false
+  highlights:
+  - CMEK available in EU regions.
+  - Conversational history flow analysis available.
+  - gemini-2.5-flash available in all regions for Generators, Playbooks and Data store tools.
+- date: '2025-06-12'
+  type: Feature, Change, Announcement
+  breaking: true
+  highlights:
+  - New Chirp 3 HD voice Autonoe.
+  - Conversational Agents console supports test cases.
+  - Data store handler use tracking corrected for billing purposes.
+  - Service agent access tokens used for webhook and tool authentication discontinued.
+observations:
+- The release notes are overwhelmingly about Dialogflow CX / Conversational Agents. Dialogflow ES
+  receives almost no feature traffic — a meaningful signal for anyone choosing between the editions.
+- Breaking changes are announced on this page and nowhere in the contract. No Sunset or Deprecation
+  header is emitted; see lifecycle/google-dialogflow-lifecycle.yml.
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

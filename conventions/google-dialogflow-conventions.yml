@@ -1,0 +1,182 @@
+generated: '2026-09-12'
+method: derived
+source: discovery/google-dialogflow-v2.json, discovery/google-dialogflow-v3.json,
+  openapi/google-dialogflow-es-v2-openapi.yml, openapi/google-dialogflow-cx-v3-openapi.yml,
+  https://cloud.google.com/apis/design, https://cloud.google.com/dialogflow/quotas
+provider: Google Dialogflow
+providerId: google-dialogflow
+description: >-
+  Cross-cutting runtime semantics for the Dialogflow ES (v2) and CX (v3) REST surface. Dialogflow is
+  a Google Cloud API and follows the Google API Improvement Proposals (AIP) / Cloud API Design Guide
+  conventions almost exactly — resource names as paths, field masks for partial update, page
+  token pagination, google.rpc.Status errors and google.longrunning.Operation for anything slow.
+  Everything below was read from the two Discovery Documents unless a docs URL is given.
+authentication:
+  style: OAuth 2.0 bearer token
+  header: 'Authorization: Bearer <access token>'
+  scopes:
+  - https://www.googleapis.com/auth/cloud-platform
+  - https://www.googleapis.com/auth/dialogflow
+  note: >-
+    Every one of the 437 operations across v2 and v3 declares both scopes. There is no API-key
+    surface and no per-resource scope narrowing — the contract offers exactly two scopes, the
+    broader of which (cloud-platform) grants access to all Google Cloud data for the project.
+  detail: authentication/google-dialogflow-authentication.yml
+  scopes_artifact: scopes/google-dialogflow-scopes.yml
+idempotency:
+  coverage: none
+  mechanism: null
+  header: null
+  scope: []
+  evidence: >-
+    No Idempotency-Key (or equivalent) header is declared on any of the 437 operations in the v2 and
+    v3 Discovery Documents, and neither document carries an ETag field or an If-Match precondition
+    on any resource. The one `requestId` field present in v2 belongs to
+    GoogleCloudDialogflowV2StreamingDetectIntentRequest, where it correlates streaming frames — it
+    is not a replay key and is not honoured as one. 199 mutating operations (109 POST + 33 PATCH +
+    37 DELETE in v2; 58 POST + 20 PATCH + 20 DELETE in v3) therefore have no replay protection.
+  guidance: >-
+    An agent retrying a create after a timeout will create a second resource. Reads and design-time
+    list/get calls are naturally safe; detectIntent is not — a retried turn is a second turn, and is
+    billed as one.
+reversibility:
+  grade: documented
+  summary: >-
+    Dialogflow publishes real reversal paths for the three write surfaces that matter most —
+    long-running operations can be cancelled, whole agents can be exported and restored, and CX
+    playbook/tool versions can be restored — but it states a retention window for none of them, so
+    an agent can learn that an action is reversible without learning for how long.
+  reversals:
+  - surface: long-running operations (import, export, train, reload, batch update/delete)
+    operation: cancel
+    operationIds:
+    - dialogflow_projects_operations_cancel
+    - dialogflow_projects_locations_operations_cancel
+    api: v2 and v3
+    window: null
+    window_note: >-
+      Only valid while the operation is still running; google.longrunning.Operation semantics make
+      cancellation best-effort and do not guarantee the work is undone. No duration is stated.
+  - surface: whole agent (ES)
+    operation: restore
+    operationIds:
+    - dialogflow_projects_agent_restore
+    - dialogflow_projects_locations_agent_restore
+    api: v2
+    window: null
+    window_note: >-
+      Restores an agent from a caller-supplied export. The caller owns the backup, so the effective
+      window is however long the caller kept the zip — Dialogflow states none.
+  - surface: whole agent (CX)
+    operation: restore
+    operationIds:
+    - dialogflow_projects_locations_agents_restore
+    api: v3
+    window: null
+  - surface: CX playbook versions
+    operation: restore
+    operationIds:
+    - dialogflow_projects_locations_agents_playbooks_versions_restore
+    api: v3
+    window: null
+    window_note: Bounded instead by a count limit — max 100 versions per playbook.
+  - surface: CX tool versions
+    operation: restore
+    operationIds:
+    - dialogflow_projects_locations_agents_tools_versions_restore
+    api: v3
+    window: null
+  irreversible:
+  - Resource deletes (intents, entity types, contexts, pages, flows, webhooks, sessions,
+    environments) have no undelete or restore counterpart. Several accept a `force` flag that
+    cascades the delete to referencing resources, which widens the blast radius with no matching
+    reversal.
+  - Conversation and session data is retained for 30 minutes after the last request
+    (https://cloud.google.com/dialogflow/quotas) and then aged out; there is no API to recover it.
+  - Billing is per request or per second of audio, so a mistaken detectIntent turn cannot be
+    reversed — only not repeated.
+  note: >-
+    No window is asserted anywhere in this block that Google does not state. Grade is `documented`
+    (reversal paths exist and are named) rather than `verified` (which would need a stated window).
+pagination:
+  style: page token
+  request_params:
+  - pageSize
+  - pageToken
+  response_fields:
+  - nextPageToken
+  note: >-
+    Every list operation in both versions follows the AIP-158 shape. An empty or absent
+    nextPageToken means the last page. Page size ceilings are per-resource and are not declared in
+    the Discovery Document.
+partial_update:
+  style: field mask
+  param: updateMask
+  location: query
+  format: google-fieldmask (comma-separated FieldMask paths)
+  note: >-
+    All 53 PATCH operations across v2 and v3 accept updateMask. Omitting it replaces the whole
+    resource with the request body, which is the single most common destructive mistake on a
+    Google API — an agent must send updateMask on every partial write.
+long_running_operations:
+  style: google.longrunning.Operation
+  count:
+    v2: 59
+    v3: 23
+  poll: dialogflow_projects_locations_operations_get / dialogflow_projects_operations_get
+  list: dialogflow_projects_locations_operations_list
+  cancel: dialogflow_projects_locations_operations_cancel
+  note: >-
+    Imports, exports, training, document reloads, batch updates, agent restore and CX environment
+    runs all return an Operation immediately and complete asynchronously. The response is not the
+    result — an agent must poll until done:true and then read either `response` or `error`.
+resource_naming:
+  style: hierarchical resource names carried in the URL path
+  examples:
+  - projects/{project}/agent/intents/{intent}
+  - projects/{project}/locations/{location}/agents/{agent}/flows/{flow}/pages/{page}
+  note: >-
+    The Discovery Document declares one path parameter (`name` or `parent`) with a regex pattern;
+    the flatPath decomposes it into per-segment ids. The converted OpenAPI in openapi/ uses the
+    flatPath form so that every operation has a unique path, and carries the original template on
+    each operation as `x-discovery-path-template`.
+regionalization:
+  style: regional endpoints and location-scoped resource names
+  note: >-
+    CX resources are location-scoped (projects/*/locations/*/agents/*) and CX agents must be called
+    on the matching regional endpoint. `global` is the default. Regional hosts take the form
+    https://{region}-dialogflow.googleapis.com. This is a data-residency control as well as a
+    routing one — see conformance/google-dialogflow-conformance.yml.
+versioning:
+  style: path-segment major version
+  detail: lifecycle/google-dialogflow-lifecycle.yml
+error_envelope:
+  shape: google.rpc.Status
+  media_type: application/json
+  body: '{"error": {"code": <http status>, "message": <string>, "status": <canonical code>, "details": [...]}}'
+  rfc9457: false
+  detail: errors/google-dialogflow-problem-types.yml
+rate_limit_signaling:
+  headers: []
+  status_on_exhaustion: 429
+  note: >-
+    Dialogflow returns 429 RESOURCE_EXHAUSTED when a per-minute quota is exceeded but publishes no
+    X-RateLimit-* or RateLimit-* response headers, so remaining quota is not visible at runtime —
+    only after the fact in Cloud Monitoring. The SLA's own Back-off Requirements (1s doubling to
+    32s) are the documented recovery procedure.
+  detail: rate-limits/google-dialogflow-rate-limits.yml
+request_tracing:
+  header: x-goog-request-params
+  note: >-
+    Google Cloud client libraries set x-goog-request-params for routing. Dialogflow does not
+    document a caller-supplied correlation id for REST, and no request-id field is returned in the
+    error envelope.
+dry_run:
+  supported: false
+  note: >-
+    No validateOnly parameter exists on any operation in either Discovery Document. CX offers test
+    cases and an agent validation surface (agents.validate, flows.validate) as a design-time
+    rehearsal, but there is no per-call dry run.
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

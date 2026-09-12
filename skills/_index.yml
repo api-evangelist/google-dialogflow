@@ -1,0 +1,55 @@
+generated: '2026-09-12'
+method: generated
+source: openapi/google-dialogflow-es-v2-openapi.yml, openapi/google-dialogflow-cx-v3-openapi.yml,
+  conventions/google-dialogflow-conventions.yml, rate-limits/google-dialogflow-rate-limits.yml,
+  asyncapi/google-dialogflow-webhooks.yml
+provider: Google Dialogflow
+providerId: google-dialogflow
+description: >-
+  Packaged Agent Skills for the three flows that carry the most risk on this API: running a
+  conversation turn, authoring intents, and wiring the fulfillment webhook. Every operationId
+  referenced in these skills was grepped out of the converted OpenAPIs in openapi/ — none is
+  invented. Google publishes no skills or AGENTS.md of its own; these are API Evangelist
+  generations.
+searched_for_provider_skills:
+  result: none found
+  checked:
+  - https://cloud.google.com/dialogflow/docs
+  - https://github.com/googleapis/googleapis
+  - https://github.com/GoogleCloudPlatform
+skills:
+- name: google-dialogflow-detect-intent
+  file: google-dialogflow-detect-intent.md
+  api: Dialogflow CX (v3) and Dialogflow ES (v2)
+  flow: runtime conversation turn
+  operations: 5
+  why: >-
+    The only billed surface. Covers session lifetime (30 minutes), regional routing, matchIntent as
+    the nearest thing to a dry run, and why a retry loop on detectIntent costs money.
+- name: google-dialogflow-manage-intents
+  file: google-dialogflow-manage-intents.md
+  api: Dialogflow CX (v3) and Dialogflow ES (v2)
+  flow: design-time authoring
+  operations: 12
+  why: >-
+    Carries the updateMask rule — omitting it on any of the 53 PATCH operations replaces the whole
+    resource — plus the 60-writes-per-minute quota, the fixed count limits, and the fact that
+    nothing deleted can be undeleted.
+- name: google-dialogflow-webhook-fulfillment
+  file: google-dialogflow-webhook-fulfillment.md
+  api: Dialogflow CX (v3)
+  flow: event surface
+  operations: 5
+  why: >-
+    Dialogflow's webhook is a synchronous callback on the critical path of a billed turn, not a
+    notification. Covers the HTTPS and VPC-SC requirements, the five authentication mechanisms, the
+    discontinued one, and the protobuf message shapes.
+shared_rules:
+- No idempotency exists anywhere in this API. 199 mutating operations, zero replay protection.
+- Every PATCH needs updateMask or it replaces the whole resource.
+- Errors are google.rpc.Status; branch on error.status, never on error.message.
+- No rate-limit response headers. On 429 back off 1s doubling to 32s, per the SLA's own terms.
+- Long-running operations return immediately; poll until done:true then check for `error`.
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

@@ -1,6 +1,7 @@
 aid: google-dialogflow
 name: Google Dialogflow
-description: Google Dialogflow is a natural language understanding platform that makes it easy to design and integrate conversational user interfaces into mobile apps, web applications, devices, bots, and interactive voice response systems.
+description: Google Dialogflow is Google Cloud's conversational-agent platform, shipped as two editions on one API host. Dialogflow ES (Essentials, API v2) builds intent-, entity- and context-driven agents with knowledge connectors and the Agent Assist surface for human contact-centre agents. Dialogflow CX — now branded Conversational Agents, API v3 — builds flow-based state-machine agents and generative playbook agents backed by Gemini models, data stores, generators and tool calling, with test cases, experiments, versions and environments as first-class API resources. Both are called at dialogflow.googleapis.com with a Google OAuth 2.0 bearer token; there is no API key. Google publishes no OpenAPI for Dialogflow — the first-party machine-readable contracts are the Google Discovery Documents served by the API host itself (279 operations on v2, 158 on v3) and the protobuf IDL in googleapis/googleapis (42 gRPC services, 267 RPCs).
+type: Index
 deliveryModel:
   model: saas
   open_source: false
@@ -14,104 +15,287 @@ deliveryModel:
   generated: '2026-08-28'
   method: derived
 accessModel:
-  pricing: freemium
+  pricing: usage-based
   onboarding: self-serve
-  trial: false
+  trial: true
   try_now: true
   public: false
-  label: Freemium · Self-serve signup
+  label: Pay-as-you-go usage billing · Self-serve signup · Google Cloud project and OAuth required
   confidence: high
   source:
   - plans
+  - rate-limits
   - authentication
-  generated: '2026-07-22'
+  generated: '2026-09-12'
   method: derived
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/google-dialogflow.png
-url: https://cloud.google.com/dialogflow
+url: https://raw.githubusercontent.com/api-evangelist/google-dialogflow/refs/heads/main/apis.yml
 created: '2024-01-01'
-modified: '2026-04-28'
+modified: '2026-09-12'
 specificationVersion: '0.23'
-type: Index
+position: Producing
 tags:
-  - Artificial Intelligence
-  - Chatbots
-  - Conversational AI
-  - Machine-Learning
-  - Natural Language Processing
-  - Voice Assistants
+- Agents
+- Artificial Intelligence
+- Chatbots
+- Conversational AI
+- Google Cloud
+- Machine-Learning
+- Natural Language Processing
+- Speech Recognition
+- Virtual Agents
+- Voice Assistants
 tags_raw:
-  - Artificial Intelligence
-  - Chatbots
-  - Conversational AI
-  - Machine Learning
-  - Natural Language Processing
-  - Voice Assistants
+- Agents
+- Artificial Intelligence
+- Chatbots
+- Conversational AI
+- Google Cloud
+- Machine Learning
+- Natural Language Processing
+- Speech Recognition
+- Virtual Agents
+- Voice Assistants
 apis:
-- aid: google-dialogflow:google-dialogflow-projects-api
-  name: Google Dialogflow Projects API
-  description: The Projects API from Google Dialogflow — 9 operation(s) for projects.
-  humanURL: https://cloud.google.com/dialogflow/docs
+- aid: google-dialogflow:google-dialogflow-cx-api
+  name: Dialogflow CX API (Conversational Agents)
+  description: The Dialogflow CX v3 API — 158 operations across 23 resource groups covering agents, flows, pages, intents, entity types, transition route groups, webhooks, tools, playbooks, examples, generators, generative settings, security settings, test cases, continuous tests, experiments, versions, environments, deployments, changelogs and the runtime session surface (detectIntent, matchIntent, fulfillIntent). Google publishes no OpenAPI; the definition here is a mechanical conversion of Google's own Discovery Document.
+  humanURL: https://cloud.google.com/dialogflow/cx/docs
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/google-dialogflow.png
   baseURL: https://dialogflow.googleapis.com
   tags:
-  - Project
+  - Agent
+  - Conversational AI
+  - Flow
+  - Generative AI
+  - Intent
+  - Page
+  - Playbook
+  - Session
+  - Webhook
   tags_raw:
-  - Projects
+  - agents
+  - conversational-ai
+  - flows
+  - generative-ai
+  - intents
+  - pages
+  - playbooks
+  - sessions
+  - webhooks
   properties:
   - type: OpenAPI
-    url: openapi/google-dialogflow-projects-api-openapi.yml
+    name: Dialogflow CX v3 OpenAPI (converted from the first-party Discovery Document)
+    url: openapi/google-dialogflow-cx-v3-openapi.yml
+  - type: Discovery
+    name: Google Discovery Document — dialogflow v3 (revision 20260825)
+    url: discovery/google-dialogflow-v3.json
+  - type: Discovery
+    name: Google Discovery Document — dialogflow v3beta1 (revision 20260825)
+    url: discovery/google-dialogflow-v3beta1.json
+  - type: Overlay
+    url: overlays/google-dialogflow-cx-v3-overlay.yaml
+  - type: Protobuf
+    name: Dialogflow CX v3 protobuf IDL (20 gRPC services, 137 RPCs)
+    url: grpc/cx-v3/session.proto
+  - type: Protobuf
+    name: Dialogflow CX v3 agent service
+    url: grpc/cx-v3/agent.proto
+  - type: Protobuf
+    name: Dialogflow CX v3 webhook messages
+    url: grpc/cx-v3/webhook.proto
+  - type: Protobuf
+    name: Dialogflow CX v3 tool service
+    url: grpc/cx-v3/tool.proto
   - type: Documentation
-    url: https://cloud.google.com/dialogflow/docs
-  - type: Authentication
-    url: https://cloud.google.com/dialogflow/docs/authentication
+    url: https://cloud.google.com/dialogflow/cx/docs
+  - type: APIReference
+    url: https://cloud.google.com/dialogflow/cx/docs/reference/rest
   - type: GettingStarted
-    url: https://cloud.google.com/dialogflow/docs/quick/setup
+    url: https://cloud.google.com/dialogflow/cx/docs/quick/setup
+  - type: Quickstart
+    url: https://cloud.google.com/dialogflow/cx/docs/quick/build-agent
+  - type: Authentication
+    url: https://cloud.google.com/dialogflow/cx/docs/concept/access-control
+  - type: Pricing
+    url: https://cloud.google.com/dialogflow/pricing
+  - type: Console
+    url: https://dialogflow.cloud.google.com/cx
+  - type: Webhooks
+    url: https://cloud.google.com/dialogflow/cx/docs/concept/webhook
+- aid: google-dialogflow:google-dialogflow-es-api
+  name: Dialogflow ES API (Essentials)
+  description: The Dialogflow ES v2 API — 279 operations across 27 resource groups covering the agent, intents, entity types, contexts, session entity types, environments, versions, fulfillment, knowledge bases and documents, plus the Agent Assist surface (conversation profiles, conversations, participants, messages, answer records, conversation datasets and models, generators) and SIP trunks. Google publishes no OpenAPI; the definition here is a mechanical conversion of Google's own Discovery Document.
+  humanURL: https://cloud.google.com/dialogflow/es/docs
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/google-dialogflow.png
+  baseURL: https://dialogflow.googleapis.com
+  tags:
+  - Agent
+  - Agent Assist
+  - Context
+  - Conversational AI
+  - Entity
+  - Intent
+  - Knowledge Base
+  - Session
+  tags_raw:
+  - agent
+  - agent-assist
+  - contexts
+  - conversational-ai
+  - entity-types
+  - intents
+  - knowledge-bases
+  - sessions
+  properties:
+  - type: OpenAPI
+    name: Dialogflow ES v2 OpenAPI (converted from the first-party Discovery Document)
+    url: openapi/google-dialogflow-es-v2-openapi.yml
+  - type: Discovery
+    name: Google Discovery Document — dialogflow v2 (revision 20260825)
+    url: discovery/google-dialogflow-v2.json
+  - type: Discovery
+    name: Google Discovery Document — dialogflow v2beta1 (revision 20260825)
+    url: discovery/google-dialogflow-v2beta1.json
+  - type: Overlay
+    url: overlays/google-dialogflow-es-v2-overlay.yaml
+  - type: Protobuf
+    name: Dialogflow ES v2 protobuf IDL (22 gRPC services, 130 RPCs)
+    url: grpc/v2/session.proto
+  - type: Protobuf
+    name: Dialogflow ES v2 agent service
+    url: grpc/v2/agent.proto
+  - type: Protobuf
+    name: Dialogflow ES v2 intent service
+    url: grpc/v2/intent.proto
+  - type: Protobuf
+    name: Dialogflow ES v2 webhook messages
+    url: grpc/v2/webhook.proto
+  - type: Documentation
+    url: https://cloud.google.com/dialogflow/es/docs
+  - type: APIReference
+    url: https://cloud.google.com/dialogflow/es/docs/reference/rest/v2-overview
+  - type: GettingStarted
+    url: https://cloud.google.com/dialogflow/es/docs/quick/setup
+  - type: Quickstart
+    url: https://cloud.google.com/dialogflow/es/docs/quick/build-agent
+  - type: Authentication
+    url: https://cloud.google.com/dialogflow/es/docs/access-control
   - type: Pricing
     url: https://cloud.google.com/dialogflow/pricing
   - type: Console
     url: https://dialogflow.cloud.google.com/
+  - type: Webhooks
+    url: https://cloud.google.com/dialogflow/es/docs/fulfillment-webhook
+- name: Dialogflow
+  description: Natural Language Processing
+  humanURL: https://cloud.google.com/dialogflow/docs/
+  baseURL: https://cloud.google.com/dialogflow/docs/
+  tags:
+  - Machine-Learning
+  tags_raw:
+  - Machine Learning
+  properties:
   - type: Documentation
-    url: https://cloud.google.com/dialogflow/cx/docs
-  - type: Authentication
-    url: https://cloud.google.com/docs/authentication
-  - type: GettingStarted
-    url: https://cloud.google.com/dialogflow/cx/docs/tutorials
-  - type: Pricing
-    url: https://cloud.google.com/dialogflow/cx/pricing
-  - type: Console
-    url: https://dialogflow.cloud.google.com/cx
+    url: https://cloud.google.com/dialogflow/docs/
 common:
-  - type: AgenticAccess
-    url: agentic-access/google-dialogflow-agentic-access.yml
-  - type: VulnerabilityDisclosure
-    url: security/google-dialogflow-vulnerability-disclosure.yml
-  - type: DomainSecurity
-    url: security/google-dialogflow-domain-security.yml
-  - type: Authentication
-    url: authentication/google-dialogflow-authentication.yml
-  - type: OAuthScopes
-    url: scopes/google-dialogflow-scopes.yml
-  - type: GitHubOrganization
-    url: https://github.com/dialogflow
-  - type: Portal
-    url: https://cloud.google.com/dialogflow
-  - type: Documentation
-    url: https://cloud.google.com/dialogflow/docs
-  - type: Authentication
-    url: https://cloud.google.com/dialogflow/docs/authentication
-  - type: Blog
-    url: https://cloud.google.com/blog/products/ai-machine-learning
-  - type: TermsOfService
-    url: https://cloud.google.com/terms
-  - type: PrivacyPolicy
-    url: https://policies.google.com/privacy
-  - type: StatusPage
-    url: https://status.cloud.google.com/
-  - type: Support
-    url: https://cloud.google.com/dialogflow/docs/support
-  - type: Integrations
-    url: https://cloud.google.com/marketplace
+- type: PublicAPIsListing
+  url: https://github.com/public-apis/public-apis
+- type: Website
+  url: https://cloud.google.com/dialogflow
+- type: DeveloperPortal
+  url: https://cloud.google.com/dialogflow/docs
+- type: Documentation
+  url: https://cloud.google.com/dialogflow/docs
+- type: APIReference
+  url: https://cloud.google.com/dialogflow/docs/reference/rest
+- type: GettingStarted
+  url: https://cloud.google.com/dialogflow/es/docs/quick/setup
+- type: Authentication
+  url: authentication/google-dialogflow-authentication.yml
+- type: OAuthScopes
+  url: scopes/google-dialogflow-scopes.yml
+- type: AgenticAccess
+  url: agentic-access/google-dialogflow-agentic-access.yml
+- type: Packages
+  url: packages/google-dialogflow-packages.yml
+- type: SDKs
+  url: packages/google-dialogflow-packages.yml
+- type: CLI
+  url: cli/google-dialogflow-cli.yml
+- type: Components
+  url: components/google-dialogflow-components.yml
+- type: Sandbox
+  url: sandbox/google-dialogflow-sandbox.yml
+- type: Conventions
+  url: conventions/google-dialogflow-conventions.yml
+- type: DataModel
+  url: data-model/google-dialogflow-data-model.yml
+- type: ErrorCatalog
+  url: errors/google-dialogflow-problem-types.yml
+- type: Lifecycle
+  url: lifecycle/google-dialogflow-lifecycle.yml
+- type: StatusPage
+  url: https://status.cloud.google.com/
+- type: Deprecation
+  url: lifecycle/google-dialogflow-lifecycle.yml
+- type: ChangeLog
+  url: changelog/google-dialogflow-changelog.yml
+- type: ReleaseNotes
+  url: https://cloud.google.com/dialogflow/docs/release-notes
+- type: Conformance
+  url: conformance/google-dialogflow-conformance.yml
+- type: Compliance
+  url: https://cloud.google.com/dialogflow/docs/compliance-security-controls
+- type: Webhooks
+  url: asyncapi/google-dialogflow-webhooks.yml
+- type: AgentSkill
+  url: skills/_index.yml
+- type: LLMsTxt
+  url: llms/google-dialogflow-llms.txt
+- type: WellKnown
+  url: well-known/google-dialogflow-well-known.yml
+- type: SecurityTxt
+  url: well-known/google-dialogflow-security.txt
+- type: Security
+  url: security/google-dialogflow-vulnerability-disclosure.yml
+- type: VulnerabilityDisclosure
+  url: security/google-dialogflow-vulnerability-disclosure.yml
+- type: DomainSecurity
+  url: security/google-dialogflow-domain-security.yml
+- type: Plans
+  url: plans/google-dialogflow-plans-pricing.yml
+- type: RateLimits
+  url: rate-limits/google-dialogflow-rate-limits.yml
+- type: FinOps
+  url: finops/google-dialogflow-finops.yml
+- type: Pricing
+  url: https://cloud.google.com/dialogflow/pricing
+- type: SignUp
+  url: https://console.cloud.google.com/freetrial
+- type: Support
+  url: https://cloud.google.com/dialogflow/docs/support
+- type: Blog
+  url: https://cloud.google.com/blog/products/ai-machine-learning
+- type: GitHubOrganization
+  url: https://github.com/googleapis
+- type: TermsOfService
+  url: https://cloud.google.com/terms
+- type: PrivacyPolicy
+  url: https://policies.google.com/privacy
+- type: ServiceLevelAgreement
+  url: https://cloud.google.com/dialogflow/sla
+- type: Quotas
+  url: https://cloud.google.com/dialogflow/quotas
+x-enrichment:
+  date: '2026-09-12'
+  status: enriched
+  artifacts_added: 34
+  pass: local-v3
 integrations:
-  - name: Become a Partner
+- name: Become a Partner
 maintainers:
-  - FN: Kin Lane
-    email: kin@apievangelist.com
+- FN: Kin Lane
+  email: kin@apievangelist.com
+x-parent: google-cloud-platform
+x-relationship: product

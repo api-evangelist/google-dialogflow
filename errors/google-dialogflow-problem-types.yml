@@ -1,0 +1,167 @@
+generated: '2026-09-12'
+method: derived
+source: discovery/google-dialogflow-v2.json, discovery/google-dialogflow-v3.json,
+  openapi/google-dialogflow-es-v2-openapi.yml, openapi/google-dialogflow-cx-v3-openapi.yml,
+  https://cloud.google.com/apis/design/errors, https://cloud.google.com/dialogflow/quotas
+provider: Google Dialogflow
+providerId: google-dialogflow
+format: google.rpc.Status
+rfc9457: false
+media_type: application/json
+description: >-
+  Dialogflow returns the Google Cloud canonical error envelope (google.rpc.Status), not RFC 9457
+  problem+json. The Discovery Documents declare no per-operation error responses at all — Google
+  publishes one platform-wide error model instead — so the catalogue below is the canonical code set
+  as it applies to Dialogflow, with the Dialogflow-specific causes that actually produce each one.
+  Nothing here is invented: the codes and HTTP mappings come from Google's API error design guide,
+  and each Dialogflow cause is traceable to the quota, auth or lifecycle facts recorded elsewhere in
+  this repo.
+envelope:
+  shape: |
+    {
+      "error": {
+        "code": 400,
+        "message": "Human readable description.",
+        "status": "INVALID_ARGUMENT",
+        "details": [ { "@type": "type.googleapis.com/google.rpc.ErrorInfo", ... } ]
+      }
+    }
+  fields:
+  - name: error.code
+    description: HTTP status code as an integer.
+  - name: error.message
+    description: English-language description intended for a developer, not an end user.
+  - name: error.status
+    description: The canonical gRPC status name. This is the stable field to branch on.
+  - name: error.details
+    description: >-
+      Repeated google.protobuf.Any. Commonly carries google.rpc.ErrorInfo (reason, domain,
+      metadata), google.rpc.QuotaFailure on 429, google.rpc.BadRequest field violations on 400, and
+      google.rpc.RetryInfo where a retry delay is known.
+  note: >-
+    In a long-running operation the same Status appears as the `error` field of the
+    google.longrunning.Operation rather than as the HTTP response body — an agent polling an
+    Operation must read done:true then check for `error`, because the poll itself returns 200.
+problem_types:
+- status: INVALID_ARGUMENT
+  http: 400
+  retryable: false
+  title: The request was malformed or a field value is unacceptable.
+  dialogflow_causes:
+  - A detectIntent call with no queryInput, or a queryInput whose languageCode is not enabled on the
+    agent.
+  - An updateMask naming a field that does not exist on the resource.
+  - Audio that does not match the declared audioEncoding or sampleRateHertz in InputAudioConfig.
+  remediation: Fix the request. Retrying the identical request will fail identically.
+- status: FAILED_PRECONDITION
+  http: 400
+  retryable: false
+  title: The request is valid but the system is not in a state that allows it.
+  dialogflow_causes:
+  - Calling detectIntent before the ES agent has been trained.
+  - Deleting a resource that other resources still reference without setting `force` (3 v2 and 9 v3
+    operations accept a force flag for exactly this).
+  - Using a CX regional agent against the global endpoint.
+  remediation: Change the system state — train the agent, remove references, or call the matching
+    regional endpoint — then retry.
+- status: UNAUTHENTICATED
+  http: 401
+  retryable: false
+  title: No valid authentication credential was supplied.
+  dialogflow_causes:
+  - Missing or expired OAuth 2.0 bearer token.
+  - Service account key used without minting an access token.
+  remediation: Re-mint an access token against https://oauth2.googleapis.com/token and retry once.
+- status: PERMISSION_DENIED
+  http: 403
+  retryable: false
+  title: The caller is authenticated but not authorized for this resource or operation.
+  dialogflow_causes:
+  - Token lacks the https://www.googleapis.com/auth/dialogflow or .../cloud-platform scope.
+  - The principal has no Dialogflow IAM role on the project.
+  - The Dialogflow API is not enabled on the project.
+  - VPC Service Controls perimeter denies the call.
+  remediation: Grant the IAM role or scope. Never retry on a loop; this will not clear by itself.
+- status: NOT_FOUND
+  http: 404
+  retryable: false
+  title: The named resource does not exist.
+  dialogflow_causes:
+  - A resource name whose pattern is right but whose id is wrong or already deleted.
+  - Addressing a CX agent in the wrong location (a regional resource is invisible to the global
+    endpoint, so it reads as missing rather than misplaced).
+  remediation: Re-resolve the resource name with the matching list operation.
+- status: ALREADY_EXISTS
+  http: 409
+  retryable: false
+  title: The resource the caller tried to create already exists.
+  dialogflow_causes:
+  - Creating an entity type or intent with a displayName already in use.
+  - A retried create after a timed-out first attempt — Dialogflow has no idempotency key, so this is
+    the shape a duplicate-write bug takes.
+  remediation: Read before write, or treat as success if the existing resource is equivalent.
+- status: ABORTED
+  http: 409
+  retryable: true
+  title: Concurrent modification conflict.
+  dialogflow_causes:
+  - Two writers updating the same agent resource at once.
+  remediation: Retry with backoff; re-read the resource first if the write is not a blind overwrite.
+- status: RESOURCE_EXHAUSTED
+  http: 429
+  retryable: true
+  title: A per-project, per-minute or per-region quota was exceeded.
+  dialogflow_causes:
+  - Text detectIntent above 1200 rpm (CX) or 600 rpm (ES Essentials) / 180 rpm (ES Trial).
+  - Audio in/out above 600 rpm (CX) or 300 rpm (ES Essentials).
+  - Generative features above the 600,000 tokens-per-minute ConversationalAgentLlmTokenConsumption
+    quota for that model and region.
+  - Design-time writes above 60 rpm, design-time reads above 300 rpm (CX) / 60 rpm (ES).
+  remediation: >-
+    Back off per the SLA's own Back-off Requirements — wait 1 second after the first error and
+    double up to 32 seconds. No RateLimit-* response header is returned, so remaining quota must be
+    read from Cloud Monitoring, not from the response.
+  details_type: google.rpc.QuotaFailure
+- status: CANCELLED
+  http: 499
+  retryable: false
+  title: The operation was cancelled, typically by the caller.
+  dialogflow_causes:
+  - operations.cancel was called on a running long-running operation.
+  - The client closed a StreamingDetectIntent stream.
+- status: INTERNAL
+  http: 500
+  retryable: true
+  title: An unexpected server-side error.
+  remediation: Retry with exponential backoff. Escalate through
+    https://cloud.google.com/dialogflow/docs/support if it persists.
+- status: UNIMPLEMENTED
+  http: 501
+  retryable: false
+  title: The operation is not implemented or not supported for this resource or channel.
+  dialogflow_causes:
+  - Calling a v3beta1-only field or method against the v3 GA endpoint.
+- status: UNAVAILABLE
+  http: 503
+  retryable: true
+  title: The service is temporarily unavailable.
+  remediation: >-
+    Retry with exponential backoff. Sustained 503s above a 5% error rate are what the SLA defines as
+    Downtime; check https://status.cloud.google.com/ before escalating.
+- status: DEADLINE_EXCEEDED
+  http: 504
+  retryable: true
+  title: The request did not complete within the deadline.
+  dialogflow_causes:
+  - A fulfillment webhook that exceeded its own timeout, propagated to the caller.
+  remediation: Retry, and check the webhook's latency — Dialogflow's webhook timeout is configured
+    per webhook and a slow endpoint surfaces here.
+gaps:
+- The Discovery Document declares no error responses on any operation, so an OpenAPI generated from
+  it carries only a `default` response. The converted specs in openapi/ add that default and bind it
+  to a GoogleRpcStatus schema so the envelope is at least discoverable from the contract.
+- Dialogflow publishes no numbered, product-specific error-code registry (the way Twilio does).
+  Everything routes through the 16 canonical gRPC codes plus a free-text message.
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

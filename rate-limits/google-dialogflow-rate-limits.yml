@@ -3,96 +3,334 @@ specificationVersion: '0.1'
 schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/RateLimits
 provider: Google Dialogflow
 providerId: google-dialogflow
+generated: '2026-09-12'
+method: searched
+source: https://cloud.google.com/dialogflow/quotas
 created: '2026-05-04'
-# Provenance stamped 2026-08-11: this artifact was written by the API Evangelist
-# bulk sweep dated 2026-05-04, not harvested from the provider. See roadmap#35.
-method: generated
-modified: '2026-05-04'
+modified: '2026-09-12'
+description: >-
+  Published Dialogflow quotas and limits, read from Google's own quotas page on 2026-09-12. This
+  file replaces a 2026-05-04 scaffold whose numbers (10 rpm free / 100 rpm pro / 1000 rpm
+  enterprise, X-RateLimit-* headers) were placeholder defaults and matched nothing Google
+  publishes. Quotas apply per Google Cloud project and are shared across every application and IP
+  using that project. Paid editions can request an increase; fixed limits cannot be raised.
 tags:
-  - Artificial Intelligence
-  - Chatbots
-  - Conversational AI
-  - Machine Learning
-  - Natural Language Processing
-  - Voice Assistants
-  - Rate Limiting
-  - Quotas
-  - Throttling
-description: Machine-readable rate limit definitions for the Google Dialogflow API surface. Captures per-tier
-  quotas, burst behavior, response signaling, and recovery semantics. Defaults are scaffold values to
-  be replaced with published provider limits.
+- Conversational AI
+- Quotas
+- Rate Limiting
 headers:
-  limit: X-RateLimit-Limit
-  remaining: X-RateLimit-Remaining
-  reset: X-RateLimit-Reset
-  retryAfter: Retry-After
-  policy: RateLimit-Policy
+  limit: null
+  remaining: null
+  reset: null
+  retryAfter: null
+  policy: null
+  note: >-
+    Dialogflow publishes NO rate-limit response headers. Remaining quota is not observable at
+    runtime — an agent learns it is over only by receiving a 429, and must then follow the SLA's
+    own Back-off Requirements (wait 1 second after the first error, doubling to a 32-second
+    ceiling). Actual consumption is visible only in Cloud Monitoring
+    (Conversational Agent LLM tokens quota usage and the per-quota metrics).
 responseCodes:
   throttled: 429
   quotaExceeded: 429
-  serviceUnavailable: 503
+  canonicalStatus: RESOURCE_EXHAUSTED
+  detailsType: google.rpc.QuotaFailure
+resetSemantics:
+  perMinute: Refreshed every 60 seconds on the minute.
+  perDay: Replenished daily at 12:00 AM Pacific Time.
+  perMonth: Replenished on the 1st of each month at 12:00 AM Pacific Time.
+limit_count: 25
 limits:
-  - tier: free
-    name: Free Tier Default
-    scope: api-key
-    metric: requests_per_minute
-    limit: 10
-    burst: 20
-    timeFrame: minute
-    applies:
-      - Dialogflow API
-      - Dialogflow CX API
-  - tier: free
-    name: Free Tier Monthly Quota
-    scope: api-key
-    metric: requests_per_month
+- tier: Dialogflow CX Edition
+  name: Text requests
+  scope: project
+  metric: requests_per_minute
+  limit: 1200
+  timeFrame: minute
+  applies:
+  - Dialogflow CX API
+  note: All DetectIntent, StreamingDetectIntent and FulfillIntent requests that do not contain audio.
+- tier: Dialogflow CX Edition
+  name: Audio input/output requests
+  scope: project
+  metric: requests_per_minute
+  limit: 600
+  timeFrame: minute
+  applies:
+  - Dialogflow CX API
+  note: Speech-to-text, text-to-speech and telephony.
+- tier: Dialogflow CX Edition
+  name: Audio query operations with Chirp 3 HD voice
+  scope: project
+  metric: requests_per_minute
+  limit: 25
+  timeFrame: minute
+  applies:
+  - Dialogflow CX API
+  note: On exceeding this, Chirp 3 HD voices may fall back to Neural or Standard voices rather than
+    failing the request.
+- tier: Dialogflow CX Edition
+  name: Generative features (ConversationalAgentLlmTokenConsumption)
+  scope: project-and-region-and-model
+  metric: tokens_per_minute
+  limit: 600000
+  timeFrame: minute
+  applies:
+  - Dialogflow CX API
+  note: >-
+    Regional quota, tracked per combination of base model and region across Generators, Generative
+    Fallback, Playbooks and Data stores. Covers gemini-1.5-pro, -pro-002, -flash, -flash-002,
+    gemini-2.0-flash-001, -flash-lite-001, gemini-2.5-flash and -flash-lite. Multi-region increase
+    requests must be filed against us-central1 (US/Global) or europe-west4 (EU).
+- tier: Dialogflow CX Edition
+  name: Dialogflow CX Phone Gateway
+  scope: project
+  metric: phone_minutes_per_minute
+  limit: 100
+  timeFrame: minute
+  applies:
+  - Dialogflow CX API
+- tier: Dialogflow CX Edition
+  name: Design-time write requests
+  scope: project
+  metric: requests_per_minute
+  limit: 60
+  timeFrame: minute
+  applies:
+  - Dialogflow CX API
+  note: Calls that build or update an agent. This is the ceiling that constrains any agent doing
+    bulk authoring.
+- tier: Dialogflow CX Edition
+  name: Design-time read requests
+  scope: project
+  metric: requests_per_minute
+  limit: 300
+  timeFrame: minute
+  applies:
+  - Dialogflow CX API
+- tier: Dialogflow CX Edition
+  name: Other session requests
+  scope: project
+  metric: requests_per_minute
+  limit: 100
+  timeFrame: minute
+  applies:
+  - Dialogflow CX API
+  note: For example setting or getting session entities.
+- tier: Dialogflow ES Trial Edition
+  name: Text requests
+  scope: project
+  metric: requests_per_minute
+  limit: 180
+  timeFrame: minute
+  applies:
+  - Dialogflow ES API
+- tier: Dialogflow ES Trial Edition
+  name: Audio input requests
+  scope: project
+  metric: requests_per_minute
+  limit: 100
+  timeFrame: minute
+  applies:
+  - Dialogflow ES API
+  note: Also capped at 1000 per day, 15,000 per month, and 60 seconds of audio per request.
+- tier: Dialogflow ES Trial Edition
+  name: Audio input requests (daily)
+  scope: project
+  metric: requests_per_day
+  limit: 1000
+  timeFrame: day
+  applies:
+  - Dialogflow ES API
+- tier: Dialogflow ES Trial Edition
+  name: Audio input requests (monthly)
+  scope: project
+  metric: requests_per_month
+  limit: 15000
+  timeFrame: month
+  applies:
+  - Dialogflow ES API
+- tier: Dialogflow ES Trial Edition
+  name: Phone gateway
+  scope: project
+  metric: phone_minutes_per_minute
+  limit: 3
+  timeFrame: minute
+  applies:
+  - Dialogflow ES API
+  note: Also 30 phone minutes per day and 500 per month; number reserved for 30 days; no toll-free
+    number.
+- tier: Dialogflow ES Trial Edition
+  name: Mega agent requests
+  scope: project
+  metric: requests_per_day
+  limit: 1000
+  timeFrame: day
+  applies:
+  - Dialogflow ES API
+- tier: Dialogflow ES Essentials Edition
+  name: Text requests
+  scope: project
+  metric: requests_per_minute
+  limit: 600
+  timeFrame: minute
+  applies:
+  - Dialogflow ES API
+- tier: Dialogflow ES Essentials Edition
+  name: Audio input/output requests
+  scope: project
+  metric: requests_per_minute
+  limit: 300
+  timeFrame: minute
+  applies:
+  - Dialogflow ES API
+  note: Maximum 60 seconds of audio length per request.
+- tier: Dialogflow ES Essentials Edition
+  name: Phone gateway
+  scope: project
+  metric: phone_minutes_per_minute
+  limit: 100
+  timeFrame: minute
+  applies:
+  - Dialogflow ES API
+- tier: Dialogflow ES (both editions)
+  name: Design-time write requests
+  scope: project
+  metric: requests_per_minute
+  limit: 60
+  timeFrame: minute
+  applies:
+  - Dialogflow ES API
+- tier: Dialogflow ES (both editions)
+  name: Design-time read requests
+  scope: project
+  metric: requests_per_minute
+  limit: 60
+  timeFrame: minute
+  applies:
+  - Dialogflow ES API
+- tier: Dialogflow ES (both editions)
+  name: Other session requests
+  scope: project
+  metric: requests_per_minute
+  limit: 100
+  timeFrame: minute
+  applies:
+  - Dialogflow ES API
+  note: For example setting or getting session entities, or updating/querying context.
+- tier: Agent Assist (Essentials Edition)
+  name: Conversation and participant management operations
+  scope: project
+  metric: requests_per_minute
+  limit: 300
+  timeFrame: minute
+  applies:
+  - Dialogflow ES API
+  note: Not available on the Trial Edition.
+- tier: Agent Assist (Essentials Edition)
+  name: AnalyzeContent / StreamingAnalyzeContent operations
+  scope: project
+  metric: requests_per_minute
+  limit: 300
+  timeFrame: minute
+  applies:
+  - Dialogflow ES API
+- tier: Agent Assist (Essentials Edition)
+  name: Concurrent bidi streaming sessions
+  scope: project
+  metric: concurrent_requests
+  limit: 50
+  timeFrame: concurrent
+  applies:
+  - Dialogflow ES API
+- tier: Agent Assist (Essentials Edition)
+  name: Conversation summary suggestion polling
+  scope: project
+  metric: requests_per_minute
+  limit: 60
+  timeFrame: minute
+  applies:
+  - Dialogflow ES API
+- tier: Agent Assist (Essentials Edition)
+  name: SearchKnowledge requests
+  scope: project
+  metric: requests_per_minute
+  limit: 60
+  timeFrame: minute
+  applies:
+  - Dialogflow ES API
+fixedLimits:
+  note: >-
+    Fixed constraints on the service implementation. Unlike quotas these cannot be increased. Only
+    the headline ones are reproduced here; the full table is on the quotas page.
+  dialogflow_cx:
+  - description: Maximum agents per Google Cloud project
     limit: 1000
-    timeFrame: month
-    applies:
-      - Dialogflow API
-      - Dialogflow CX API
-  - tier: professional
-    name: Professional Tier Default
-    scope: api-key
-    metric: requests_per_minute
+  - description: Maximum flows per agent
+    limit: 50
+  - description: Maximum pages per flow
+    limit: 250
+  - description: Maximum intents per agent
+    limit: 10000
+  - description: Maximum entity types per agent
+    limit: 250
+  - description: Maximum webhooks per agent
     limit: 100
-    burst: 200
-    timeFrame: minute
-    applies:
-      - Dialogflow API
-      - Dialogflow CX API
-  - tier: professional
-    name: Professional Tier Monthly Quota
-    scope: api-key
-    metric: requests_per_month
-    limit: 100000
-    timeFrame: month
-    applies:
-      - Dialogflow API
-      - Dialogflow CX API
-  - tier: enterprise
-    name: Enterprise Negotiated Limit
-    scope: contract
-    metric: requests_per_minute
-    limit: 1000
-    burst: 5000
-    timeFrame: minute
-    applies:
-      - Dialogflow API
-      - Dialogflow CX API
+  - description: Maximum tools per agent
+    limit: 100
+  - description: Maximum playbooks per agent
+    limit: 50
+  - description: Maximum versions per playbook
+    limit: 100
+  - description: Maximum test cases per agent
+    limit: 2000
+  - description: Maximum environments per agent
+    limit: 20
+  - description: Maximum changelog entries per agent
+    limit: 20000
+  - description: Maximum training phrases per intent and per language
+    limit: 2000
+  - description: Maximum entity entries per entity type
+    limit: 30000
+  - description: Maximum steps per conversation
+    limit: 100
+  - description: Maximum playbook invocations in one conversational turn
+    limit: 3
+  - description: Maximum LLM calls per playbook invocation in the same turn
+    limit: 10
+  dialogflow_es:
+  - description: Maximum agents per region and per Google Cloud project
+    limit: 1
+  - description: Maximum intents
+    limit: 2000
+  - description: Maximum entity types
+    limit: 250
+  - description: Maximum training phrases per intent and per language
+    limit: 2000
+  - description: Maximum entity entries
+    limit: 30000
+  - description: Maximum input contexts per intent
+    limit: 5
+  - description: Maximum output contexts per intent
+    limit: 30
+  - description: Maximum parameters per intent
+    limit: 20
 policies:
-  - name: Backoff Strategy
-    description: Clients should implement exponential backoff with jitter, honoring the Retry-After header
-      when present.
-  - name: Burst Handling
-    description: Short bursts above the steady-state limit are tolerated up to the documented burst ceiling
-      before throttling engages.
-  - name: Quota Reset
-    description: Monthly quotas reset at the start of each calendar month in UTC. Per-minute and per-second
-      windows reset on a sliding-window basis.
-  - name: Fair Use
-    description: Even on uncapped enterprise tiers, sustained usage that materially impacts shared infrastructure
-      may be subject to fair-use throttling.
+- name: Back-off
+  description: >-
+    Stated in the SLA itself, not just in guidance: after the first error wait a minimum of 1
+    second, then increase the interval exponentially up to 32 seconds. Meeting this is a customer
+    obligation for SLA credit eligibility.
+  source: https://cloud.google.com/dialogflow/sla
+- name: Quota increase
+  description: >-
+    Paid editions can request an increase through the Cloud console quotas page. ES agents must be
+    upgraded to the Essentials edition first. If the authenticating project differs from the project
+    holding the agent, the increase must be requested on the consumer project.
+  source: https://cloud.google.com/dialogflow/quotas
+- name: Session retention
+  description: A session remains active and its data is stored for 30 minutes after the last request.
+  source: https://cloud.google.com/dialogflow/quotas
 maintainers:
-  - FN: Kin Lane
-    email: kin@apievangelist.com
+- FN: Kin Lane
+  email: kin@apievangelist.com

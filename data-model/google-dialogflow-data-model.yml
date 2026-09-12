@@ -1,0 +1,275 @@
+generated: '2026-09-12'
+method: derived
+source: discovery/google-dialogflow-v2.json, discovery/google-dialogflow-v3.json,
+  openapi/google-dialogflow-es-v2-openapi.yml, openapi/google-dialogflow-cx-v3-openapi.yml
+provider: Google Dialogflow
+providerId: google-dialogflow
+description: >-
+  Entity-relationship graph for the two Dialogflow editions, derived from the resource hierarchy and
+  $ref graph in Google's Discovery Documents. Dialogflow encodes its relationships in the resource
+  NAME rather than in foreign-key fields — projects/{p}/locations/{l}/agents/{a}/flows/{f}/pages/{g}
+  is the containment graph, written out in the URL. So the parent/child edges below are read from
+  the path hierarchy, and the cross-cutting references from schema fields that hold another
+  resource's name.
+identifier_convention:
+  style: hierarchical resource name
+  format: 'projects/{project}[/locations/{location}]/{collection}/{id}[/{collection}/{id}...]'
+  note: >-
+    The id segment is a server-assigned opaque string, not a prefixed key. There is no Stripe-style
+    `cus_`/`ch_` prefix family, so an id on its own does not tell you what it is — only the full
+    name does. Contract patterns are declared per operation, e.g.
+    ^projects/[^/]+/agent/intents/[^/]+$.
+schema_counts:
+  es_v2:
+    total_schemas: 692
+    core_entities: 24
+  cx_v3:
+    total_schemas: 667
+    core_entities: 26
+editions:
+- name: Dialogflow ES
+  api: v2
+  root: projects/{project}
+  entities:
+  - name: Agent
+    schema: GoogleCloudDialogflowV2Agent
+    note: Singleton. One agent per region per project — projects/{project}/agent, not a collection.
+    relationships:
+    - has_many: Intent
+      via: projects/{project}/agent/intents
+    - has_many: EntityType
+      via: projects/{project}/agent/entityTypes
+    - has_many: Environment
+      via: projects/{project}/agent/environments
+    - has_many: Version
+      via: projects/{project}/agent/versions
+    - has_one: Fulfillment
+      via: projects/{project}/agent/fulfillment
+  - name: Intent
+    schema: GoogleCloudDialogflowV2Intent
+    relationships:
+    - has_many: TrainingPhrase
+      via: trainingPhrases[] (embedded, max 2000 per language)
+    - has_many: Parameter
+      via: parameters[] (embedded, max 20)
+    - belongs_to: Intent
+      via: parentFollowupIntentName
+    - has_many: Intent
+      via: followupIntentInfo[]
+    - references: Context
+      via: inputContextNames[] (max 5), outputContexts[] (max 30)
+  - name: EntityType
+    schema: GoogleCloudDialogflowV2EntityType
+    relationships:
+    - has_many: Entity
+      via: entities[] (embedded, max 30000)
+  - name: Context
+    schema: GoogleCloudDialogflowV2Context
+    relationships:
+    - belongs_to: Session
+      via: projects/{project}/agent/sessions/{session}/contexts/{context}
+  - name: SessionEntityType
+    schema: GoogleCloudDialogflowV2SessionEntityType
+    relationships:
+    - belongs_to: Session
+    - references: EntityType
+      via: name suffix matches the developer entity type being overridden
+  - name: Environment
+    schema: GoogleCloudDialogflowV2Environment
+    relationships:
+    - references: Version
+      via: agentVersion
+    - has_many: EnvironmentHistory
+      via: projects/{project}/agent/environments/{env}/history
+  - name: Version
+    schema: GoogleCloudDialogflowV2Version
+  - name: Fulfillment
+    schema: GoogleCloudDialogflowV2Fulfillment
+    note: Singleton per agent. Holds the webhook configuration.
+  - name: KnowledgeBase
+    schema: GoogleCloudDialogflowV2KnowledgeBase
+    relationships:
+    - has_many: Document
+      via: projects/{project}/knowledgeBases/{kb}/documents
+  - name: Document
+    schema: GoogleCloudDialogflowV2Document
+  - name: ConversationProfile
+    schema: GoogleCloudDialogflowV2ConversationProfile
+    note: The Agent Assist configuration object — binds suggestion features, models and the Pub/Sub
+      notification topic.
+    relationships:
+    - references: ConversationModel
+    - references: KnowledgeBase
+  - name: Conversation
+    schema: GoogleCloudDialogflowV2Conversation
+    relationships:
+    - belongs_to: ConversationProfile
+      via: conversationProfile
+    - has_many: Participant
+      via: projects/{project}/conversations/{conv}/participants
+    - has_many: Message
+      via: projects/{project}/conversations/{conv}/messages
+  - name: Participant
+    schema: GoogleCloudDialogflowV2Participant
+  - name: AnswerRecord
+    schema: GoogleCloudDialogflowV2AnswerRecord
+    note: The feedback join between a suggestion and what the human agent did with it.
+  - name: ConversationDataset
+    schema: GoogleCloudDialogflowV2ConversationDataset
+  - name: ConversationModel
+    schema: GoogleCloudDialogflowV2ConversationModel
+    relationships:
+    - belongs_to: ConversationDataset
+      via: datasets[]
+    - has_many: ConversationModelEvaluation
+  - name: Generator
+    schema: GoogleCloudDialogflowV2Generator
+    relationships:
+    - has_many: GeneratorEvaluation
+  - name: Tool
+    schema: GoogleCloudDialogflowV2Tool
+  - name: SipTrunk
+    schema: GoogleCloudDialogflowV2SipTrunk
+  - name: EncryptionSpec
+    schema: GoogleCloudDialogflowV2EncryptionSpec
+    note: Singleton per location; holds the CMEK key name.
+- name: Dialogflow CX (Conversational Agents)
+  api: v3
+  root: projects/{project}/locations/{location}
+  entities:
+  - name: Agent
+    schema: GoogleCloudDialogflowCxV3Agent
+    note: A collection here, unlike ES — up to 1000 agents per project.
+    relationships:
+    - has_many: Flow
+      via: agents/{agent}/flows (max 50)
+    - has_many: Intent
+      via: agents/{agent}/intents (max 10000)
+    - has_many: EntityType
+      via: agents/{agent}/entityTypes (max 250)
+    - has_many: Webhook
+      via: agents/{agent}/webhooks (max 100)
+    - has_many: Tool
+      via: agents/{agent}/tools (max 100)
+    - has_many: Playbook
+      via: agents/{agent}/playbooks (max 50)
+    - has_many: Environment
+      via: agents/{agent}/environments (max 20)
+    - has_many: TestCase
+      via: agents/{agent}/testCases (max 2000)
+    - has_many: Changelog
+      via: agents/{agent}/changelogs (max 20000)
+    - has_one: GenerativeSettings
+      via: agents/{agent}/generativeSettings
+    - references: SecuritySettings
+      via: securitySettings
+    - references: Flow
+      via: startFlow
+  - name: Flow
+    schema: GoogleCloudDialogflowCxV3Flow
+    relationships:
+    - has_many: Page
+      via: flows/{flow}/pages (max 250)
+    - has_many: TransitionRouteGroup
+      via: flows/{flow}/transitionRouteGroups (max 100)
+    - has_many: Version
+      via: flows/{flow}/versions (max 20)
+    - references: Intent
+      via: transitionRoutes[].intent
+  - name: Page
+    schema: GoogleCloudDialogflowCxV3Page
+    relationships:
+    - references: Page
+      via: transitionRoutes[].targetPage
+    - references: Flow
+      via: transitionRoutes[].targetFlow
+    - references: Webhook
+      via: entryFulfillment.webhook, form.parameters[].fillBehavior
+    - references: TransitionRouteGroup
+      via: transitionRouteGroups[]
+  - name: Intent
+    schema: GoogleCloudDialogflowCxV3Intent
+    relationships:
+    - has_many: TrainingPhrase
+      via: trainingPhrases[] (embedded, max 2000 per language)
+    - references: EntityType
+      via: parameters[].entityType
+  - name: EntityType
+    schema: GoogleCloudDialogflowCxV3EntityType
+  - name: TransitionRouteGroup
+    schema: GoogleCloudDialogflowCxV3TransitionRouteGroup
+  - name: Webhook
+    schema: GoogleCloudDialogflowCxV3Webhook
+    note: See asyncapi/google-dialogflow-webhooks.yml — the event surface is a managed resource.
+  - name: Tool
+    schema: GoogleCloudDialogflowCxV3Tool
+    relationships:
+    - has_many: ToolVersion
+      via: tools/{tool}/versions
+  - name: Playbook
+    schema: GoogleCloudDialogflowCxV3Playbook
+    relationships:
+    - has_many: Example
+      via: playbooks/{playbook}/examples
+    - has_many: PlaybookVersion
+      via: playbooks/{playbook}/versions (max 100)
+    - references: Tool
+      via: referencedTools[]
+    - references: Playbook
+      via: referencedPlaybooks[]
+    - references: Flow
+      via: referencedFlows[]
+  - name: Example
+    schema: GoogleCloudDialogflowCxV3Example
+    note: A worked conversation used to steer a playbook; the generative counterpart of a training
+      phrase.
+  - name: Generator
+    schema: GoogleCloudDialogflowCxV3Generator
+  - name: Environment
+    schema: GoogleCloudDialogflowCxV3Environment
+    relationships:
+    - references: Version
+      via: versionConfigs[].version
+    - has_many: Deployment
+      via: environments/{env}/deployments
+    - has_many: ContinuousTestResult
+      via: environments/{env}/continuousTestResults
+    - has_many: Experiment
+      via: environments/{env}/experiments
+  - name: Version
+    schema: GoogleCloudDialogflowCxV3Version
+    note: Scoped to a flow, not to the agent — flows/{flow}/versions.
+  - name: Deployment
+    schema: GoogleCloudDialogflowCxV3Deployment
+  - name: Experiment
+    schema: GoogleCloudDialogflowCxV3Experiment
+  - name: TestCase
+    schema: GoogleCloudDialogflowCxV3TestCase
+    relationships:
+    - has_many: TestCaseResult
+      via: testCases/{tc}/results
+  - name: SessionEntityType
+    schema: GoogleCloudDialogflowCxV3SessionEntityType
+  - name: SecuritySettings
+    schema: GoogleCloudDialogflowCxV3SecuritySettings
+    note: Location-scoped, not agent-scoped — retention, redaction and inspect templates live here.
+  - name: Changelog
+    schema: GoogleCloudDialogflowCxV3Changelog
+    note: Read-only audit record of design-time edits.
+  - name: AnswerFeedback
+    schema: GoogleCloudDialogflowCxV3AnswerFeedback
+cross_edition:
+  note: >-
+    ES and CX share a host and an auth model but not a data model. There is no foreign key between
+    them. Google documents a one-way migration path (ES to CX) rather than interoperation.
+runtime_vs_design_time:
+  note: >-
+    The graph above is almost entirely DESIGN-TIME. The runtime surface is thin by comparison —
+    sessions:detectIntent, sessions:streamingDetectIntent, sessions:matchIntent,
+    sessions:fulfillIntent and the session entity types — and a Session is not a retrievable
+    resource: it has no get operation and its data is aged out 30 minutes after the last request.
+    This split matters for quota too: design-time reads and writes are quota'd separately and far
+    more tightly (60/300 rpm) than runtime turns (600/1200 rpm).
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

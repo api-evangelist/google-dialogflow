@@ -1,0 +1,64 @@
+generated: '2026-09-12'
+method: searched
+source: https://github.com/googleapis/googleapis/tree/master/google/cloud/dialogflow
+provider: Google Dialogflow
+providerId: google-dialogflow
+description: >-
+  Google's first-party Protocol Buffers IDL for Dialogflow, mirrored verbatim from the googleapis
+  repository on 2026-09-12. This is a contract in its own right, not documentation: the gRPC
+  services below are what every Google client library is generated from, and they carry the
+  message-level field comments that the Discovery Document omits entirely. Nothing here was
+  authored or edited by API Evangelist.
+license: Apache-2.0 (per the header on every file)
+editions:
+- name: Dialogflow ES
+  api: v2
+  path: grpc/v2/
+  upstream: https://github.com/googleapis/googleapis/tree/master/google/cloud/dialogflow/v2
+  proto_files: 34
+  services: 22
+  rpcs: 130
+  service_config: grpc/v2/dialogflow_v2.yaml
+  grpc_service_config: grpc/v2/dialogflow_grpc_service_config.json
+  service_names:
+  - Agents
+  - AnswerRecords
+  - Contexts
+  - ConversationDatasets
+  - ConversationModels
+  - ConversationProfiles
+  - Conversations
+  - Documents
+  - EncryptionSpecService
+  - EntityTypes
+  - Environments
+  - Fulfillments
+  - Generators
+  - GeneratorEvaluations
+  - Intents
+  - KnowledgeBases
+  - Participants
+  - SessionEntityTypes
+  - Sessions
+  - SipTrunks
+  - Tools
+  - Versions
+- name: Dialogflow CX (Conversational Agents)
+  api: v3
+  path: grpc/cx-v3/
+  upstream: https://github.com/googleapis/googleapis/tree/master/google/cloud/dialogflow/cx/v3
+  proto_files: 35
+  services: 20
+  rpcs: 137
+  service_config: grpc/cx-v3/dialogflow_v3.yaml
+  grpc_service_config: grpc/cx-v3/dialogflow_grpc_service_config.json
+notes:
+- The protos are the only first-party place Dialogflow's field semantics are written down in
+  machine-readable form. The Discovery Documents at discovery/ carry the full method and schema
+  surface but every description field in them is an empty string.
+- Streaming RPCs (StreamingDetectIntent, BidiStreamingAnalyzeContent) exist only here and in the
+  client libraries — they have no REST projection, so they are absent from openapi/ by necessity,
+  not by omission.
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

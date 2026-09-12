@@ -1,0 +1,82 @@
+generated: '2026-09-12'
+method: searched
+source: https://cloud.google.com/dialogflow/cx/docs/concept/integration/dialogflow-messenger
+provider: Google Dialogflow
+providerId: google-dialogflow
+description: >-
+  Client-side, embeddable surfaces Dialogflow ships for putting an agent in front of an end user
+  without calling the REST API directly. The marquee one is Dialogflow Messenger — a real custom
+  element (<df-messenger>) loaded from a Google-hosted CDN bundle, with documented HTML attributes,
+  CSS custom properties, a JavaScript event surface and a JavaScript function surface. These are
+  distinct from the SDKs in packages/: an SDK calls dialogflow.googleapis.com from your server; a
+  component runs in the visitor's browser and holds the conversation itself.
+families:
+- name: Dialogflow Messenger
+  kind: web component (custom element)
+  element: df-messenger
+  api: Dialogflow CX (v3)
+  docs: https://cloud.google.com/dialogflow/cx/docs/concept/integration/dialogflow-messenger
+  loader:
+    registry: cdn
+    url: https://www.gstatic.com/dialogflow-console/fast/df-messenger/prod/v1/df-messenger.js
+    version: null
+    version_note: >-
+      The loader URL pins only the major channel (`prod/v1`) and floats to whatever Google has
+      deployed behind it. There is no version in the URL and no jsDelivr/unpkg mirror to read
+      metadata from, so a consumer cannot tell which build they are getting — which is itself the
+      finding. Google's 2025-12-11 release note about a Messenger authentication-bypass fix
+      illustrates the consequence: "All versions released after August 20th, 2025 have been updated
+      ... No user action is required" — because nobody pins it, everybody was silently moved.
+  placement: The <df-messenger> element must sit inside the page <body>.
+  surfaces:
+  - name: HTML customizations
+    docs: https://cloud.google.com/dialogflow/cx/docs/concept/integration/dialogflow-messenger/html
+  - name: CSS customizations
+    docs: https://cloud.google.com/dialogflow/cx/docs/concept/integration/dialogflow-messenger/css
+  - name: JavaScript events
+    docs: https://cloud.google.com/dialogflow/cx/docs/concept/integration/dialogflow-messenger/javascript-events
+  - name: JavaScript functions
+    docs: https://cloud.google.com/dialogflow/cx/docs/concept/integration/dialogflow-messenger/javascript-functions
+  - name: Messenger fulfillment
+    docs: https://cloud.google.com/dialogflow/cx/docs/concept/integration/dialogflow-messenger/fulfillment
+  auth_modes:
+  - mode: unauthenticated
+    note: Anonymous end-user agent query access.
+  - mode: authenticated
+    attribute: oauth-client-id
+    note: Set the oauth-client-id attribute to use end-user identity for the session.
+- name: Legacy Dialogflow Messenger
+  kind: web component (superseded)
+  api: Dialogflow CX (v3)
+  docs: https://cloud.google.com/dialogflow/cx/docs/concept/integration/dialogflow-messenger/legacy
+  note: Retained by Google for existing embeds; new integrations use the current Messenger above.
+- name: Dialogflow CX Phone Gateway
+  kind: hosted telephony surface
+  api: Dialogflow CX (v3)
+  note: >-
+    A Google-provisioned phone number attached to an agent. Not a UI component in the DOM sense, but
+    it is a prebuilt end-user surface that requires no client code, and it is metered separately
+    (100 phone minutes per minute on CX; see rate-limits/). Included here because it is the voice
+    counterpart to Messenger.
+- name: Conversational Agents console
+  kind: hosted builder
+  url: https://dialogflow.cloud.google.com/cx
+  note: >-
+    The design-time surface. Replaced the Dialogflow CX console on 2025-10-31. The ES console
+    remains at https://dialogflow.cloud.google.com/.
+third_party_channel_integrations:
+  note: >-
+    Dialogflow also ships first-party connectors into third-party messaging surfaces. These are
+    configuration, not embeddable code, so they are listed rather than described.
+  channels:
+  - Messenger from Meta
+  - Workplace from Meta
+  - LINE
+  - Slack
+  - Google Chat
+  - Avatar
+  - Soul Machines
+  - Call companion
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

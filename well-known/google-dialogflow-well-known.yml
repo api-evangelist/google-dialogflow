@@ -1,0 +1,158 @@
+generated: '2026-09-12'
+method: probed
+source: live HTTPS GET of the named /.well-known/ paths on every host this record knows, 2026-09-12
+provider: Google Dialogflow
+providerId: google-dialogflow
+description: >-
+  Named-path /.well-known/ probe across the registrable domain, the API host, the docs host, the
+  Dialogflow console host and the OAuth authorization server that the Dialogflow securitySchemes
+  name (accounts.google.com). Two real documents were found: Google's RFC 9116 security.txt on
+  google.com, and the OpenID Connect / RFC 8414 discovery pair on accounts.google.com, which is the
+  authorization server every Dialogflow OAuth flow actually talks to. The Dialogflow product hosts
+  themselves serve nothing at /.well-known/.
+hosts:
+- host: google.com
+  role: registrable domain
+  documents:
+  - path: /.well-known/security.txt
+    status: 200
+    file: google-dialogflow-security.txt
+    content_type: text/plain
+    note: RFC 9116. Contact https://g.co/vulnz, Policy https://g.co/vrp (Google VRP), Expires
+      2030-04-01.
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404
+  - path: /.well-known/agent-card.json
+    status: 404
+  - path: /.well-known/agent.json
+    status: 404
+- host: www.google.com
+  role: registrable domain (www)
+  documents:
+  - path: /.well-known/security.txt
+    status: 200
+    file: google-dialogflow-security.txt
+    content_type: text/plain
+    note: Byte-identical to the apex response; saved once.
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404
+  - path: /.well-known/agent-card.json
+    status: 404
+  - path: /.well-known/agent.json
+    status: 404
+- host: accounts.google.com
+  role: OAuth 2.0 authorization server named in the Dialogflow OpenAPI securitySchemes
+    (authorizationUrl https://accounts.google.com/o/oauth2/v2/auth)
+  documents:
+  - path: /.well-known/openid-configuration
+    status: 200
+    file: google-dialogflow-accounts-openid-configuration.json
+    content_type: application/json
+    note: OpenID Connect Discovery 1.0. issuer https://accounts.google.com, jwks_uri
+      https://www.googleapis.com/oauth2/v3/certs.
+  - path: /.well-known/oauth-authorization-server
+    status: 200
+    file: google-dialogflow-accounts-oauth-authorization-server.json
+    content_type: application/json
+    note: RFC 8414 OAuth 2.0 Authorization Server Metadata.
+  - path: /.well-known/security.txt
+    status: 404
+- host: dialogflow.googleapis.com
+  role: API host (OpenAPI servers[] and apis.yml baseURL)
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404
+  - path: /.well-known/agent-card.json
+    status: 404
+  - path: /.well-known/agent.json
+    status: 404
+- host: cloud.google.com
+  role: documentation host
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404
+  - path: /.well-known/agent-card.json
+    status: 404
+  - path: /.well-known/agent.json
+    status: 200
+    note: >-
+      MISS, not a hit. The 200 is the Google Cloud documentation shell (41 KB of HTML, not JSON) —
+      cloud.google.com answers 200 with a rendered docs page for unmatched paths under some
+      prefixes. No agent card exists here.
+- host: dialogflow.cloud.google.com
+  role: Dialogflow ES / CX console host
+  documents:
+  - path: /.well-known/security.txt
+    status: 200
+    note: >-
+      MISS. This host is a single-page app that answers 200 with the same 153 KB HTML shell for
+      every /.well-known/* path probed. None of the seven responses is a document.
+  - path: /.well-known/openid-configuration
+    status: 200
+    note: SPA shell (HTML), not a document.
+  - path: /.well-known/oauth-authorization-server
+    status: 200
+    note: SPA shell (HTML), not a document.
+  - path: /.well-known/api-catalog
+    status: 200
+    note: SPA shell (HTML), not a document.
+  - path: /.well-known/ai-plugin.json
+    status: 200
+    note: SPA shell (HTML), not a document.
+  - path: /.well-known/agent-card.json
+    status: 200
+    note: SPA shell (HTML), not a document.
+  - path: /.well-known/agent.json
+    status: 200
+    note: SPA shell (HTML), not a document.
+- host: developers.google.com
+  role: secondary developer host
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/agent-card.json
+    status: 404
+  - path: /.well-known/agent.json
+    status: 404
+findings:
+  api_catalog: absent on every host probed
+  agent_card: >-
+    absent. The only 200s were HTML shells (cloud.google.com and dialogflow.cloud.google.com), which
+    is the documented false-positive shape for this probe. No a2a/ artifact was written.
+  security_txt: served on the registrable domain (google.com / www.google.com)
+  oauth_metadata: >-
+    served by the authorization server, not by the Dialogflow product — which is correct for a
+    Google Cloud API, since Dialogflow delegates every token to accounts.google.com.
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com
