@@ -57,55 +57,38 @@ tags_raw:
 - Virtual Agents
 - Voice Assistants
 apis:
-- aid: google-dialogflow:google-dialogflow-cx-api
-  name: Dialogflow CX API (Conversational Agents)
-  description: The Dialogflow CX v3 API — 158 operations across 23 resource groups covering agents, flows, pages, intents, entity types, transition route groups, webhooks, tools, playbooks, examples, generators, generative settings, security settings, test cases, continuous tests, experiments, versions, environments, deployments, changelogs and the runtime session surface (detectIntent, matchIntent, fulfillIntent). Google publishes no OpenAPI; the definition here is a mechanical conversion of Google's own Discovery Document.
+- name: Dialogflow
+  description: Natural Language Processing
+  humanURL: https://cloud.google.com/dialogflow/docs/
+  baseURL: https://cloud.google.com/dialogflow/docs/
+  tags:
+  - Machine-Learning
+  tags_raw:
+  - Machine Learning
+  properties:
+  - type: Documentation
+    url: https://cloud.google.com/dialogflow/docs/
+- aid: google-dialogflow:google-dialogflow-agent-api
+  name: Google Dialogflow Agent API
+  description: The agent API from Google Dialogflow — 14 operation(s) for agent.
   humanURL: https://cloud.google.com/dialogflow/cx/docs
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/google-dialogflow.png
   baseURL: https://dialogflow.googleapis.com
   tags:
-  - Agent
-  - Conversational AI
-  - Flow
-  - Generative AI
-  - Intent
-  - Page
-  - Playbook
-  - Session
-  - Webhook
-  tags_raw:
-  - agents
-  - conversational-ai
-  - flows
-  - generative-ai
-  - intents
-  - pages
-  - playbooks
-  - sessions
-  - webhooks
+  - agent
   properties:
   - type: OpenAPI
-    name: Dialogflow CX v3 OpenAPI (converted from the first-party Discovery Document)
-    url: openapi/google-dialogflow-cx-v3-openapi.yml
+    url: openapi/google-dialogflow-agent-api-openapi.yml
   - type: Discovery
-    name: Google Discovery Document — dialogflow v3 (revision 20260825)
     url: discovery/google-dialogflow-v3.json
   - type: Discovery
-    name: Google Discovery Document — dialogflow v3beta1 (revision 20260825)
     url: discovery/google-dialogflow-v3beta1.json
-  - type: Overlay
-    url: overlays/google-dialogflow-cx-v3-overlay.yaml
   - type: Protobuf
-    name: Dialogflow CX v3 protobuf IDL (20 gRPC services, 137 RPCs)
     url: grpc/cx-v3/session.proto
   - type: Protobuf
-    name: Dialogflow CX v3 agent service
     url: grpc/cx-v3/agent.proto
   - type: Protobuf
-    name: Dialogflow CX v3 webhook messages
     url: grpc/cx-v3/webhook.proto
   - type: Protobuf
-    name: Dialogflow CX v3 tool service
     url: grpc/cx-v3/tool.proto
   - type: Documentation
     url: https://cloud.google.com/dialogflow/cx/docs
@@ -123,53 +106,17 @@ apis:
     url: https://dialogflow.cloud.google.com/cx
   - type: Webhooks
     url: https://cloud.google.com/dialogflow/cx/docs/concept/webhook
-- aid: google-dialogflow:google-dialogflow-es-api
-  name: Dialogflow ES API (Essentials)
-  description: The Dialogflow ES v2 API — 279 operations across 27 resource groups covering the agent, intents, entity types, contexts, session entity types, environments, versions, fulfillment, knowledge bases and documents, plus the Agent Assist surface (conversation profiles, conversations, participants, messages, answer records, conversation datasets and models, generators) and SIP trunks. Google publishes no OpenAPI; the definition here is a mechanical conversion of Google's own Discovery Document.
-  humanURL: https://cloud.google.com/dialogflow/es/docs
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/google-dialogflow.png
-  baseURL: https://dialogflow.googleapis.com
-  tags:
-  - Agent
-  - Agent Assist
-  - Context
-  - Conversational AI
-  - Entity
-  - Intent
-  - Knowledge Base
-  - Session
-  tags_raw:
-  - agent
-  - agent-assist
-  - contexts
-  - conversational-ai
-  - entity-types
-  - intents
-  - knowledge-bases
-  - sessions
-  properties:
-  - type: OpenAPI
-    name: Dialogflow ES v2 OpenAPI (converted from the first-party Discovery Document)
-    url: openapi/google-dialogflow-es-v2-openapi.yml
   - type: Discovery
-    name: Google Discovery Document — dialogflow v2 (revision 20260825)
     url: discovery/google-dialogflow-v2.json
   - type: Discovery
-    name: Google Discovery Document — dialogflow v2beta1 (revision 20260825)
     url: discovery/google-dialogflow-v2beta1.json
-  - type: Overlay
-    url: overlays/google-dialogflow-es-v2-overlay.yaml
   - type: Protobuf
-    name: Dialogflow ES v2 protobuf IDL (22 gRPC services, 130 RPCs)
     url: grpc/v2/session.proto
   - type: Protobuf
-    name: Dialogflow ES v2 agent service
     url: grpc/v2/agent.proto
   - type: Protobuf
-    name: Dialogflow ES v2 intent service
     url: grpc/v2/intent.proto
   - type: Protobuf
-    name: Dialogflow ES v2 webhook messages
     url: grpc/v2/webhook.proto
   - type: Documentation
     url: https://cloud.google.com/dialogflow/es/docs
@@ -181,24 +128,2581 @@ apis:
     url: https://cloud.google.com/dialogflow/es/docs/quick/build-agent
   - type: Authentication
     url: https://cloud.google.com/dialogflow/es/docs/access-control
-  - type: Pricing
-    url: https://cloud.google.com/dialogflow/pricing
   - type: Console
     url: https://dialogflow.cloud.google.com/
   - type: Webhooks
     url: https://cloud.google.com/dialogflow/es/docs/fulfillment-webhook
-- name: Dialogflow
-  description: Natural Language Processing
-  humanURL: https://cloud.google.com/dialogflow/docs/
-  baseURL: https://cloud.google.com/dialogflow/docs/
+- aid: google-dialogflow:google-dialogflow-agents-api
+  name: Google Dialogflow Agents API
+  description: The agents API from Google Dialogflow — 7 operation(s) for agents.
+  humanURL: https://cloud.google.com/dialogflow/cx/docs
+  baseURL: https://dialogflow.googleapis.com
   tags:
-  - Machine-Learning
-  tags_raw:
-  - Machine Learning
+  - agents
   properties:
+  - type: OpenAPI
+    url: openapi/google-dialogflow-agents-api-openapi.yml
+  - type: Discovery
+    url: discovery/google-dialogflow-v3.json
+  - type: Discovery
+    url: discovery/google-dialogflow-v3beta1.json
+  - type: Protobuf
+    url: grpc/cx-v3/session.proto
+  - type: Protobuf
+    url: grpc/cx-v3/agent.proto
+  - type: Protobuf
+    url: grpc/cx-v3/webhook.proto
+  - type: Protobuf
+    url: grpc/cx-v3/tool.proto
   - type: Documentation
-    url: https://cloud.google.com/dialogflow/docs/
+    url: https://cloud.google.com/dialogflow/cx/docs
+  - type: APIReference
+    url: https://cloud.google.com/dialogflow/cx/docs/reference/rest
+  - type: GettingStarted
+    url: https://cloud.google.com/dialogflow/cx/docs/quick/setup
+  - type: Quickstart
+    url: https://cloud.google.com/dialogflow/cx/docs/quick/build-agent
+  - type: Authentication
+    url: https://cloud.google.com/dialogflow/cx/docs/concept/access-control
+  - type: Pricing
+    url: https://cloud.google.com/dialogflow/pricing
+  - type: Console
+    url: https://dialogflow.cloud.google.com/cx
+  - type: Webhooks
+    url: https://cloud.google.com/dialogflow/cx/docs/concept/webhook
+  - type: Discovery
+    url: discovery/google-dialogflow-v2.json
+  - type: Discovery
+    url: discovery/google-dialogflow-v2beta1.json
+  - type: Protobuf
+    url: grpc/v2/session.proto
+  - type: Protobuf
+    url: grpc/v2/agent.proto
+  - type: Protobuf
+    url: grpc/v2/intent.proto
+  - type: Protobuf
+    url: grpc/v2/webhook.proto
+  - type: Documentation
+    url: https://cloud.google.com/dialogflow/es/docs
+  - type: APIReference
+    url: https://cloud.google.com/dialogflow/es/docs/reference/rest/v2-overview
+  - type: GettingStarted
+    url: https://cloud.google.com/dialogflow/es/docs/quick/setup
+  - type: Quickstart
+    url: https://cloud.google.com/dialogflow/es/docs/quick/build-agent
+  - type: Authentication
+    url: https://cloud.google.com/dialogflow/es/docs/access-control
+  - type: Console
+    url: https://dialogflow.cloud.google.com/
+  - type: Webhooks
+    url: https://cloud.google.com/dialogflow/es/docs/fulfillment-webhook
+- aid: google-dialogflow:google-dialogflow-answerrecords-api
+  name: Google Dialogflow Answer Records API
+  description: The answerRecords API from Google Dialogflow — 4 operation(s) for answerrecords.
+  humanURL: https://cloud.google.com/dialogflow/cx/docs
+  baseURL: https://dialogflow.googleapis.com
+  tags:
+  - answerRecords
+  properties:
+  - type: OpenAPI
+    url: openapi/google-dialogflow-answerrecords-api-openapi.yml
+  - type: Discovery
+    url: discovery/google-dialogflow-v3.json
+  - type: Discovery
+    url: discovery/google-dialogflow-v3beta1.json
+  - type: Protobuf
+    url: grpc/cx-v3/session.proto
+  - type: Protobuf
+    url: grpc/cx-v3/agent.proto
+  - type: Protobuf
+    url: grpc/cx-v3/webhook.proto
+  - type: Protobuf
+    url: grpc/cx-v3/tool.proto
+  - type: Documentation
+    url: https://cloud.google.com/dialogflow/cx/docs
+  - type: APIReference
+    url: https://cloud.google.com/dialogflow/cx/docs/reference/rest
+  - type: GettingStarted
+    url: https://cloud.google.com/dialogflow/cx/docs/quick/setup
+  - type: Quickstart
+    url: https://cloud.google.com/dialogflow/cx/docs/quick/build-agent
+  - type: Authentication
+    url: https://cloud.google.com/dialogflow/cx/docs/concept/access-control
+  - type: Pricing
+    url: https://cloud.google.com/dialogflow/pricing
+  - type: Console
+    url: https://dialogflow.cloud.google.com/cx
+  - type: Webhooks
+    url: https://cloud.google.com/dialogflow/cx/docs/concept/webhook
+  - type: Discovery
+    url: discovery/google-dialogflow-v2.json
+  - type: Discovery
+    url: discovery/google-dialogflow-v2beta1.json
+  - type: Protobuf
+    url: grpc/v2/session.proto
+  - type: Protobuf
+    url: grpc/v2/agent.proto
+  - type: Protobuf
+    url: grpc/v2/intent.proto
+  - type: Protobuf
+    url: grpc/v2/webhook.proto
+  - type: Documentation
+    url: https://cloud.google.com/dialogflow/es/docs
+  - type: APIReference
+    url: https://cloud.google.com/dialogflow/es/docs/reference/rest/v2-overview
+  - type: GettingStarted
+    url: https://cloud.google.com/dialogflow/es/docs/quick/setup
+  - type: Quickstart
+    url: https://cloud.google.com/dialogflow/es/docs/quick/build-agent
+  - type: Authentication
+    url: https://cloud.google.com/dialogflow/es/docs/access-control
+  - type: Console
+    url: https://dialogflow.cloud.google.com/
+  - type: Webhooks
+    url: https://cloud.google.com/dialogflow/es/docs/fulfillment-webhook
+- aid: google-dialogflow:google-dialogflow-changelogs-api
+  name: Google Dialogflow Changelogs API
+  description: The changelogs API from Google Dialogflow — 2 operation(s) for changelogs.
+  humanURL: https://cloud.google.com/dialogflow/cx/docs
+  baseURL: https://dialogflow.googleapis.com
+  tags:
+  - changelogs
+  properties:
+  - type: OpenAPI
+    url: openapi/google-dialogflow-changelogs-api-openapi.yml
+  - type: Discovery
+    url: discovery/google-dialogflow-v3.json
+  - type: Discovery
+    url: discovery/google-dialogflow-v3beta1.json
+  - type: Protobuf
+    url: grpc/cx-v3/session.proto
+  - type: Protobuf
+    url: grpc/cx-v3/agent.proto
+  - type: Protobuf
+    url: grpc/cx-v3/webhook.proto
+  - type: Protobuf
+    url: grpc/cx-v3/tool.proto
+  - type: Documentation
+    url: https://cloud.google.com/dialogflow/cx/docs
+  - type: APIReference
+    url: https://cloud.google.com/dialogflow/cx/docs/reference/rest
+  - type: GettingStarted
+    url: https://cloud.google.com/dialogflow/cx/docs/quick/setup
+  - type: Quickstart
+    url: https://cloud.google.com/dialogflow/cx/docs/quick/build-agent
+  - type: Authentication
+    url: https://cloud.google.com/dialogflow/cx/docs/concept/access-control
+  - type: Pricing
+    url: https://cloud.google.com/dialogflow/pricing
+  - type: Console
+    url: https://dialogflow.cloud.google.com/cx
+  - type: Webhooks
+    url: https://cloud.google.com/dialogflow/cx/docs/concept/webhook
+  - type: Discovery
+    url: discovery/google-dialogflow-v2.json
+  - type: Discovery
+    url: discovery/google-dialogflow-v2beta1.json
+  - type: Protobuf
+    url: grpc/v2/session.proto
+  - type: Protobuf
+    url: grpc/v2/agent.proto
+  - type: Protobuf
+    url: grpc/v2/intent.proto
+  - type: Protobuf
+    url: grpc/v2/webhook.proto
+  - type: Documentation
+    url: https://cloud.google.com/dialogflow/es/docs
+  - type: APIReference
+    url: https://cloud.google.com/dialogflow/es/docs/reference/rest/v2-overview
+  - type: GettingStarted
+    url: https://cloud.google.com/dialogflow/es/docs/quick/setup
+  - type: Quickstart
+    url: https://cloud.google.com/dialogflow/es/docs/quick/build-agent
+  - type: Authentication
+    url: https://cloud.google.com/dialogflow/es/docs/access-control
+  - type: Console
+    url: https://dialogflow.cloud.google.com/
+  - type: Webhooks
+    url: https://cloud.google.com/dialogflow/es/docs/fulfillment-webhook
+- aid: google-dialogflow:google-dialogflow-contexts-api
+  name: Google Dialogflow Contexts API
+  description: The contexts API from Google Dialogflow — 8 operation(s) for contexts.
+  humanURL: https://cloud.google.com/dialogflow/cx/docs
+  baseURL: https://dialogflow.googleapis.com
+  tags:
+  - contexts
+  properties:
+  - type: OpenAPI
+    url: openapi/google-dialogflow-contexts-api-openapi.yml
+  - type: Discovery
+    url: discovery/google-dialogflow-v3.json
+  - type: Discovery
+    url: discovery/google-dialogflow-v3beta1.json
+  - type: Protobuf
+    url: grpc/cx-v3/session.proto
+  - type: Protobuf
+    url: grpc/cx-v3/agent.proto
+  - type: Protobuf
+    url: grpc/cx-v3/webhook.proto
+  - type: Protobuf
+    url: grpc/cx-v3/tool.proto
+  - type: Documentation
+    url: https://cloud.google.com/dialogflow/cx/docs
+  - type: APIReference
+    url: https://cloud.google.com/dialogflow/cx/docs/reference/rest
+  - type: GettingStarted
+    url: https://cloud.google.com/dialogflow/cx/docs/quick/setup
+  - type: Quickstart
+    url: https://cloud.google.com/dialogflow/cx/docs/quick/build-agent
+  - type: Authentication
+    url: https://cloud.google.com/dialogflow/cx/docs/concept/access-control
+  - type: Pricing
+    url: https://cloud.google.com/dialogflow/pricing
+  - type: Console
+    url: https://dialogflow.cloud.google.com/cx
+  - type: Webhooks
+    url: https://cloud.google.com/dialogflow/cx/docs/concept/webhook
+  - type: Discovery
+    url: discovery/google-dialogflow-v2.json
+  - type: Discovery
+    url: discovery/google-dialogflow-v2beta1.json
+  - type: Protobuf
+    url: grpc/v2/session.proto
+  - type: Protobuf
+    url: grpc/v2/agent.proto
+  - type: Protobuf
+    url: grpc/v2/intent.proto
+  - type: Protobuf
+    url: grpc/v2/webhook.proto
+  - type: Documentation
+    url: https://cloud.google.com/dialogflow/es/docs
+  - type: APIReference
+    url: https://cloud.google.com/dialogflow/es/docs/reference/rest/v2-overview
+  - type: GettingStarted
+    url: https://cloud.google.com/dialogflow/es/docs/quick/setup
+  - type: Quickstart
+    url: https://cloud.google.com/dialogflow/es/docs/quick/build-agent
+  - type: Authentication
+    url: https://cloud.google.com/dialogflow/es/docs/access-control
+  - type: Console
+    url: https://dialogflow.cloud.google.com/
+  - type: Webhooks
+    url: https://cloud.google.com/dialogflow/es/docs/fulfillment-webhook
+- aid: google-dialogflow:google-dialogflow-continuoustestresults-api
+  name: Google Dialogflow Continuous Test Results API
+  description: >-
+    The continuousTestResults API from Google Dialogflow — 1 operation(s) for continuoustestresults.
+  humanURL: https://cloud.google.com/dialogflow/cx/docs
+  baseURL: https://dialogflow.googleapis.com
+  tags:
+  - continuousTestResults
+  properties:
+  - type: OpenAPI
+    url: openapi/google-dialogflow-continuoustestresults-api-openapi.yml
+  - type: Discovery
+    url: discovery/google-dialogflow-v3.json
+  - type: Discovery
+    url: discovery/google-dialogflow-v3beta1.json
+  - type: Protobuf
+    url: grpc/cx-v3/session.proto
+  - type: Protobuf
+    url: grpc/cx-v3/agent.proto
+  - type: Protobuf
+    url: grpc/cx-v3/webhook.proto
+  - type: Protobuf
+    url: grpc/cx-v3/tool.proto
+  - type: Documentation
+    url: https://cloud.google.com/dialogflow/cx/docs
+  - type: APIReference
+    url: https://cloud.google.com/dialogflow/cx/docs/reference/rest
+  - type: GettingStarted
+    url: https://cloud.google.com/dialogflow/cx/docs/quick/setup
+  - type: Quickstart
+    url: https://cloud.google.com/dialogflow/cx/docs/quick/build-agent
+  - type: Authentication
+    url: https://cloud.google.com/dialogflow/cx/docs/concept/access-control
+  - type: Pricing
+    url: https://cloud.google.com/dialogflow/pricing
+  - type: Console
+    url: https://dialogflow.cloud.google.com/cx
+  - type: Webhooks
+    url: https://cloud.google.com/dialogflow/cx/docs/concept/webhook
+  - type: Discovery
+    url: discovery/google-dialogflow-v2.json
+  - type: Discovery
+    url: discovery/google-dialogflow-v2beta1.json
+  - type: Protobuf
+    url: grpc/v2/session.proto
+  - type: Protobuf
+    url: grpc/v2/agent.proto
+  - type: Protobuf
+    url: grpc/v2/intent.proto
+  - type: Protobuf
+    url: grpc/v2/webhook.proto
+  - type: Documentation
+    url: https://cloud.google.com/dialogflow/es/docs
+  - type: APIReference
+    url: https://cloud.google.com/dialogflow/es/docs/reference/rest/v2-overview
+  - type: GettingStarted
+    url: https://cloud.google.com/dialogflow/es/docs/quick/setup
+  - type: Quickstart
+    url: https://cloud.google.com/dialogflow/es/docs/quick/build-agent
+  - type: Authentication
+    url: https://cloud.google.com/dialogflow/es/docs/access-control
+  - type: Console
+    url: https://dialogflow.cloud.google.com/
+  - type: Webhooks
+    url: https://cloud.google.com/dialogflow/es/docs/fulfillment-webhook
+- aid: google-dialogflow:google-dialogflow-conversationdatasets-api
+  name: Google Dialogflow Conversation Datasets API
+  description: >-
+    The conversationDatasets API from Google Dialogflow — 6 operation(s) for conversationdatasets.
+  humanURL: https://cloud.google.com/dialogflow/cx/docs
+  baseURL: https://dialogflow.googleapis.com
+  tags:
+  - conversationDatasets
+  properties:
+  - type: OpenAPI
+    url: openapi/google-dialogflow-conversationdatasets-api-openapi.yml
+  - type: Discovery
+    url: discovery/google-dialogflow-v3.json
+  - type: Discovery
+    url: discovery/google-dialogflow-v3beta1.json
+  - type: Protobuf
+    url: grpc/cx-v3/session.proto
+  - type: Protobuf
+    url: grpc/cx-v3/agent.proto
+  - type: Protobuf
+    url: grpc/cx-v3/webhook.proto
+  - type: Protobuf
+    url: grpc/cx-v3/tool.proto
+  - type: Documentation
+    url: https://cloud.google.com/dialogflow/cx/docs
+  - type: APIReference
+    url: https://cloud.google.com/dialogflow/cx/docs/reference/rest
+  - type: GettingStarted
+    url: https://cloud.google.com/dialogflow/cx/docs/quick/setup
+  - type: Quickstart
+    url: https://cloud.google.com/dialogflow/cx/docs/quick/build-agent
+  - type: Authentication
+    url: https://cloud.google.com/dialogflow/cx/docs/concept/access-control
+  - type: Pricing
+    url: https://cloud.google.com/dialogflow/pricing
+  - type: Console
+    url: https://dialogflow.cloud.google.com/cx
+  - type: Webhooks
+    url: https://cloud.google.com/dialogflow/cx/docs/concept/webhook
+  - type: Discovery
+    url: discovery/google-dialogflow-v2.json
+  - type: Discovery
+    url: discovery/google-dialogflow-v2beta1.json
+  - type: Protobuf
+    url: grpc/v2/session.proto
+  - type: Protobuf
+    url: grpc/v2/agent.proto
+  - type: Protobuf
+    url: grpc/v2/intent.proto
+  - type: Protobuf
+    url: grpc/v2/webhook.proto
+  - type: Documentation
+    url: https://cloud.google.com/dialogflow/es/docs
+  - type: APIReference
+    url: https://cloud.google.com/dialogflow/es/docs/reference/rest/v2-overview
+  - type: GettingStarted
+    url: https://cloud.google.com/dialogflow/es/docs/quick/setup
+  - type: Quickstart
+    url: https://cloud.google.com/dialogflow/es/docs/quick/build-agent
+  - type: Authentication
+    url: https://cloud.google.com/dialogflow/es/docs/access-control
+  - type: Console
+    url: https://dialogflow.cloud.google.com/
+  - type: Webhooks
+    url: https://cloud.google.com/dialogflow/es/docs/fulfillment-webhook
+- aid: google-dialogflow:google-dialogflow-conversationmodels-api
+  name: Google Dialogflow Conversation Models API
+  description: >-
+    The conversationModels API from Google Dialogflow — 8 operation(s) for conversationmodels.
+  humanURL: https://cloud.google.com/dialogflow/cx/docs
+  baseURL: https://dialogflow.googleapis.com
+  tags:
+  - conversationModels
+  properties:
+  - type: OpenAPI
+    url: openapi/google-dialogflow-conversationmodels-api-openapi.yml
+  - type: Discovery
+    url: discovery/google-dialogflow-v3.json
+  - type: Discovery
+    url: discovery/google-dialogflow-v3beta1.json
+  - type: Protobuf
+    url: grpc/cx-v3/session.proto
+  - type: Protobuf
+    url: grpc/cx-v3/agent.proto
+  - type: Protobuf
+    url: grpc/cx-v3/webhook.proto
+  - type: Protobuf
+    url: grpc/cx-v3/tool.proto
+  - type: Documentation
+    url: https://cloud.google.com/dialogflow/cx/docs
+  - type: APIReference
+    url: https://cloud.google.com/dialogflow/cx/docs/reference/rest
+  - type: GettingStarted
+    url: https://cloud.google.com/dialogflow/cx/docs/quick/setup
+  - type: Quickstart
+    url: https://cloud.google.com/dialogflow/cx/docs/quick/build-agent
+  - type: Authentication
+    url: https://cloud.google.com/dialogflow/cx/docs/concept/access-control
+  - type: Pricing
+    url: https://cloud.google.com/dialogflow/pricing
+  - type: Console
+    url: https://dialogflow.cloud.google.com/cx
+  - type: Webhooks
+    url: https://cloud.google.com/dialogflow/cx/docs/concept/webhook
+  - type: Discovery
+    url: discovery/google-dialogflow-v2.json
+  - type: Discovery
+    url: discovery/google-dialogflow-v2beta1.json
+  - type: Protobuf
+    url: grpc/v2/session.proto
+  - type: Protobuf
+    url: grpc/v2/agent.proto
+  - type: Protobuf
+    url: grpc/v2/intent.proto
+  - type: Protobuf
+    url: grpc/v2/webhook.proto
+  - type: Documentation
+    url: https://cloud.google.com/dialogflow/es/docs
+  - type: APIReference
+    url: https://cloud.google.com/dialogflow/es/docs/reference/rest/v2-overview
+  - type: GettingStarted
+    url: https://cloud.google.com/dialogflow/es/docs/quick/setup
+  - type: Quickstart
+    url: https://cloud.google.com/dialogflow/es/docs/quick/build-agent
+  - type: Authentication
+    url: https://cloud.google.com/dialogflow/es/docs/access-control
+  - type: Console
+    url: https://dialogflow.cloud.google.com/
+  - type: Webhooks
+    url: https://cloud.google.com/dialogflow/es/docs/fulfillment-webhook
+- aid: google-dialogflow:google-dialogflow-conversationprofiles-api
+  name: Google Dialogflow Conversation Profiles API
+  description: >-
+    The conversationProfiles API from Google Dialogflow — 8 operation(s) for conversationprofiles.
+  humanURL: https://cloud.google.com/dialogflow/cx/docs
+  baseURL: https://dialogflow.googleapis.com
+  tags:
+  - conversationProfiles
+  properties:
+  - type: OpenAPI
+    url: openapi/google-dialogflow-conversationprofiles-api-openapi.yml
+  - type: Discovery
+    url: discovery/google-dialogflow-v3.json
+  - type: Discovery
+    url: discovery/google-dialogflow-v3beta1.json
+  - type: Protobuf
+    url: grpc/cx-v3/session.proto
+  - type: Protobuf
+    url: grpc/cx-v3/agent.proto
+  - type: Protobuf
+    url: grpc/cx-v3/webhook.proto
+  - type: Protobuf
+    url: grpc/cx-v3/tool.proto
+  - type: Documentation
+    url: https://cloud.google.com/dialogflow/cx/docs
+  - type: APIReference
+    url: https://cloud.google.com/dialogflow/cx/docs/reference/rest
+  - type: GettingStarted
+    url: https://cloud.google.com/dialogflow/cx/docs/quick/setup
+  - type: Quickstart
+    url: https://cloud.google.com/dialogflow/cx/docs/quick/build-agent
+  - type: Authentication
+    url: https://cloud.google.com/dialogflow/cx/docs/concept/access-control
+  - type: Pricing
+    url: https://cloud.google.com/dialogflow/pricing
+  - type: Console
+    url: https://dialogflow.cloud.google.com/cx
+  - type: Webhooks
+    url: https://cloud.google.com/dialogflow/cx/docs/concept/webhook
+  - type: Discovery
+    url: discovery/google-dialogflow-v2.json
+  - type: Discovery
+    url: discovery/google-dialogflow-v2beta1.json
+  - type: Protobuf
+    url: grpc/v2/session.proto
+  - type: Protobuf
+    url: grpc/v2/agent.proto
+  - type: Protobuf
+    url: grpc/v2/intent.proto
+  - type: Protobuf
+    url: grpc/v2/webhook.proto
+  - type: Documentation
+    url: https://cloud.google.com/dialogflow/es/docs
+  - type: APIReference
+    url: https://cloud.google.com/dialogflow/es/docs/reference/rest/v2-overview
+  - type: GettingStarted
+    url: https://cloud.google.com/dialogflow/es/docs/quick/setup
+  - type: Quickstart
+    url: https://cloud.google.com/dialogflow/es/docs/quick/build-agent
+  - type: Authentication
+    url: https://cloud.google.com/dialogflow/es/docs/access-control
+  - type: Console
+    url: https://dialogflow.cloud.google.com/
+  - type: Webhooks
+    url: https://cloud.google.com/dialogflow/es/docs/fulfillment-webhook
+- aid: google-dialogflow:google-dialogflow-conversations-api
+  name: Google Dialogflow Conversations API
+  description: The conversations API from Google Dialogflow — 7 operation(s) for conversations.
+  humanURL: https://cloud.google.com/dialogflow/cx/docs
+  baseURL: https://dialogflow.googleapis.com
+  tags:
+  - conversations
+  properties:
+  - type: OpenAPI
+    url: openapi/google-dialogflow-conversations-api-openapi.yml
+  - type: Discovery
+    url: discovery/google-dialogflow-v3.json
+  - type: Discovery
+    url: discovery/google-dialogflow-v3beta1.json
+  - type: Protobuf
+    url: grpc/cx-v3/session.proto
+  - type: Protobuf
+    url: grpc/cx-v3/agent.proto
+  - type: Protobuf
+    url: grpc/cx-v3/webhook.proto
+  - type: Protobuf
+    url: grpc/cx-v3/tool.proto
+  - type: Documentation
+    url: https://cloud.google.com/dialogflow/cx/docs
+  - type: APIReference
+    url: https://cloud.google.com/dialogflow/cx/docs/reference/rest
+  - type: GettingStarted
+    url: https://cloud.google.com/dialogflow/cx/docs/quick/setup
+  - type: Quickstart
+    url: https://cloud.google.com/dialogflow/cx/docs/quick/build-agent
+  - type: Authentication
+    url: https://cloud.google.com/dialogflow/cx/docs/concept/access-control
+  - type: Pricing
+    url: https://cloud.google.com/dialogflow/pricing
+  - type: Console
+    url: https://dialogflow.cloud.google.com/cx
+  - type: Webhooks
+    url: https://cloud.google.com/dialogflow/cx/docs/concept/webhook
+  - type: Discovery
+    url: discovery/google-dialogflow-v2.json
+  - type: Discovery
+    url: discovery/google-dialogflow-v2beta1.json
+  - type: Protobuf
+    url: grpc/v2/session.proto
+  - type: Protobuf
+    url: grpc/v2/agent.proto
+  - type: Protobuf
+    url: grpc/v2/intent.proto
+  - type: Protobuf
+    url: grpc/v2/webhook.proto
+  - type: Documentation
+    url: https://cloud.google.com/dialogflow/es/docs
+  - type: APIReference
+    url: https://cloud.google.com/dialogflow/es/docs/reference/rest/v2-overview
+  - type: GettingStarted
+    url: https://cloud.google.com/dialogflow/es/docs/quick/setup
+  - type: Quickstart
+    url: https://cloud.google.com/dialogflow/es/docs/quick/build-agent
+  - type: Authentication
+    url: https://cloud.google.com/dialogflow/es/docs/access-control
+  - type: Console
+    url: https://dialogflow.cloud.google.com/
+  - type: Webhooks
+    url: https://cloud.google.com/dialogflow/es/docs/fulfillment-webhook
+- aid: google-dialogflow:google-dialogflow-deployments-api
+  name: Google Dialogflow Deployments API
+  description: The deployments API from Google Dialogflow — 2 operation(s) for deployments.
+  humanURL: https://cloud.google.com/dialogflow/cx/docs
+  baseURL: https://dialogflow.googleapis.com
+  tags:
+  - deployments
+  properties:
+  - type: OpenAPI
+    url: openapi/google-dialogflow-deployments-api-openapi.yml
+  - type: Discovery
+    url: discovery/google-dialogflow-v3.json
+  - type: Discovery
+    url: discovery/google-dialogflow-v3beta1.json
+  - type: Protobuf
+    url: grpc/cx-v3/session.proto
+  - type: Protobuf
+    url: grpc/cx-v3/agent.proto
+  - type: Protobuf
+    url: grpc/cx-v3/webhook.proto
+  - type: Protobuf
+    url: grpc/cx-v3/tool.proto
+  - type: Documentation
+    url: https://cloud.google.com/dialogflow/cx/docs
+  - type: APIReference
+    url: https://cloud.google.com/dialogflow/cx/docs/reference/rest
+  - type: GettingStarted
+    url: https://cloud.google.com/dialogflow/cx/docs/quick/setup
+  - type: Quickstart
+    url: https://cloud.google.com/dialogflow/cx/docs/quick/build-agent
+  - type: Authentication
+    url: https://cloud.google.com/dialogflow/cx/docs/concept/access-control
+  - type: Pricing
+    url: https://cloud.google.com/dialogflow/pricing
+  - type: Console
+    url: https://dialogflow.cloud.google.com/cx
+  - type: Webhooks
+    url: https://cloud.google.com/dialogflow/cx/docs/concept/webhook
+  - type: Discovery
+    url: discovery/google-dialogflow-v2.json
+  - type: Discovery
+    url: discovery/google-dialogflow-v2beta1.json
+  - type: Protobuf
+    url: grpc/v2/session.proto
+  - type: Protobuf
+    url: grpc/v2/agent.proto
+  - type: Protobuf
+    url: grpc/v2/intent.proto
+  - type: Protobuf
+    url: grpc/v2/webhook.proto
+  - type: Documentation
+    url: https://cloud.google.com/dialogflow/es/docs
+  - type: APIReference
+    url: https://cloud.google.com/dialogflow/es/docs/reference/rest/v2-overview
+  - type: GettingStarted
+    url: https://cloud.google.com/dialogflow/es/docs/quick/setup
+  - type: Quickstart
+    url: https://cloud.google.com/dialogflow/es/docs/quick/build-agent
+  - type: Authentication
+    url: https://cloud.google.com/dialogflow/es/docs/access-control
+  - type: Console
+    url: https://dialogflow.cloud.google.com/
+  - type: Webhooks
+    url: https://cloud.google.com/dialogflow/es/docs/fulfillment-webhook
+- aid: google-dialogflow:google-dialogflow-documents-api
+  name: Google Dialogflow Documents API
+  description: The documents API from Google Dialogflow — 13 operation(s) for documents.
+  humanURL: https://cloud.google.com/dialogflow/cx/docs
+  baseURL: https://dialogflow.googleapis.com
+  tags:
+  - documents
+  properties:
+  - type: OpenAPI
+    url: openapi/google-dialogflow-documents-api-openapi.yml
+  - type: Discovery
+    url: discovery/google-dialogflow-v3.json
+  - type: Discovery
+    url: discovery/google-dialogflow-v3beta1.json
+  - type: Protobuf
+    url: grpc/cx-v3/session.proto
+  - type: Protobuf
+    url: grpc/cx-v3/agent.proto
+  - type: Protobuf
+    url: grpc/cx-v3/webhook.proto
+  - type: Protobuf
+    url: grpc/cx-v3/tool.proto
+  - type: Documentation
+    url: https://cloud.google.com/dialogflow/cx/docs
+  - type: APIReference
+    url: https://cloud.google.com/dialogflow/cx/docs/reference/rest
+  - type: GettingStarted
+    url: https://cloud.google.com/dialogflow/cx/docs/quick/setup
+  - type: Quickstart
+    url: https://cloud.google.com/dialogflow/cx/docs/quick/build-agent
+  - type: Authentication
+    url: https://cloud.google.com/dialogflow/cx/docs/concept/access-control
+  - type: Pricing
+    url: https://cloud.google.com/dialogflow/pricing
+  - type: Console
+    url: https://dialogflow.cloud.google.com/cx
+  - type: Webhooks
+    url: https://cloud.google.com/dialogflow/cx/docs/concept/webhook
+  - type: Discovery
+    url: discovery/google-dialogflow-v2.json
+  - type: Discovery
+    url: discovery/google-dialogflow-v2beta1.json
+  - type: Protobuf
+    url: grpc/v2/session.proto
+  - type: Protobuf
+    url: grpc/v2/agent.proto
+  - type: Protobuf
+    url: grpc/v2/intent.proto
+  - type: Protobuf
+    url: grpc/v2/webhook.proto
+  - type: Documentation
+    url: https://cloud.google.com/dialogflow/es/docs
+  - type: APIReference
+    url: https://cloud.google.com/dialogflow/es/docs/reference/rest/v2-overview
+  - type: GettingStarted
+    url: https://cloud.google.com/dialogflow/es/docs/quick/setup
+  - type: Quickstart
+    url: https://cloud.google.com/dialogflow/es/docs/quick/build-agent
+  - type: Authentication
+    url: https://cloud.google.com/dialogflow/es/docs/access-control
+  - type: Console
+    url: https://dialogflow.cloud.google.com/
+  - type: Webhooks
+    url: https://cloud.google.com/dialogflow/es/docs/fulfillment-webhook
+- aid: google-dialogflow:google-dialogflow-encryptionspec-api
+  name: Google Dialogflow Encryption Spec API
+  description: The encryptionSpec API from Google Dialogflow — 1 operation(s) for encryptionspec.
+  humanURL: https://cloud.google.com/dialogflow/cx/docs
+  baseURL: https://dialogflow.googleapis.com
+  tags:
+  - encryptionSpec
+  properties:
+  - type: OpenAPI
+    url: openapi/google-dialogflow-encryptionspec-api-openapi.yml
+  - type: Discovery
+    url: discovery/google-dialogflow-v3.json
+  - type: Discovery
+    url: discovery/google-dialogflow-v3beta1.json
+  - type: Protobuf
+    url: grpc/cx-v3/session.proto
+  - type: Protobuf
+    url: grpc/cx-v3/agent.proto
+  - type: Protobuf
+    url: grpc/cx-v3/webhook.proto
+  - type: Protobuf
+    url: grpc/cx-v3/tool.proto
+  - type: Documentation
+    url: https://cloud.google.com/dialogflow/cx/docs
+  - type: APIReference
+    url: https://cloud.google.com/dialogflow/cx/docs/reference/rest
+  - type: GettingStarted
+    url: https://cloud.google.com/dialogflow/cx/docs/quick/setup
+  - type: Quickstart
+    url: https://cloud.google.com/dialogflow/cx/docs/quick/build-agent
+  - type: Authentication
+    url: https://cloud.google.com/dialogflow/cx/docs/concept/access-control
+  - type: Pricing
+    url: https://cloud.google.com/dialogflow/pricing
+  - type: Console
+    url: https://dialogflow.cloud.google.com/cx
+  - type: Webhooks
+    url: https://cloud.google.com/dialogflow/cx/docs/concept/webhook
+  - type: Discovery
+    url: discovery/google-dialogflow-v2.json
+  - type: Discovery
+    url: discovery/google-dialogflow-v2beta1.json
+  - type: Protobuf
+    url: grpc/v2/session.proto
+  - type: Protobuf
+    url: grpc/v2/agent.proto
+  - type: Protobuf
+    url: grpc/v2/intent.proto
+  - type: Protobuf
+    url: grpc/v2/webhook.proto
+  - type: Documentation
+    url: https://cloud.google.com/dialogflow/es/docs
+  - type: APIReference
+    url: https://cloud.google.com/dialogflow/es/docs/reference/rest/v2-overview
+  - type: GettingStarted
+    url: https://cloud.google.com/dialogflow/es/docs/quick/setup
+  - type: Quickstart
+    url: https://cloud.google.com/dialogflow/es/docs/quick/build-agent
+  - type: Authentication
+    url: https://cloud.google.com/dialogflow/es/docs/access-control
+  - type: Console
+    url: https://dialogflow.cloud.google.com/
+  - type: Webhooks
+    url: https://cloud.google.com/dialogflow/es/docs/fulfillment-webhook
+- aid: google-dialogflow:google-dialogflow-entities-api
+  name: Google Dialogflow Entities API
+  description: The entities API from Google Dialogflow — 6 operation(s) for entities.
+  humanURL: https://cloud.google.com/dialogflow/cx/docs
+  baseURL: https://dialogflow.googleapis.com
+  tags:
+  - entities
+  properties:
+  - type: OpenAPI
+    url: openapi/google-dialogflow-entities-api-openapi.yml
+  - type: Discovery
+    url: discovery/google-dialogflow-v3.json
+  - type: Discovery
+    url: discovery/google-dialogflow-v3beta1.json
+  - type: Protobuf
+    url: grpc/cx-v3/session.proto
+  - type: Protobuf
+    url: grpc/cx-v3/agent.proto
+  - type: Protobuf
+    url: grpc/cx-v3/webhook.proto
+  - type: Protobuf
+    url: grpc/cx-v3/tool.proto
+  - type: Documentation
+    url: https://cloud.google.com/dialogflow/cx/docs
+  - type: APIReference
+    url: https://cloud.google.com/dialogflow/cx/docs/reference/rest
+  - type: GettingStarted
+    url: https://cloud.google.com/dialogflow/cx/docs/quick/setup
+  - type: Quickstart
+    url: https://cloud.google.com/dialogflow/cx/docs/quick/build-agent
+  - type: Authentication
+    url: https://cloud.google.com/dialogflow/cx/docs/concept/access-control
+  - type: Pricing
+    url: https://cloud.google.com/dialogflow/pricing
+  - type: Console
+    url: https://dialogflow.cloud.google.com/cx
+  - type: Webhooks
+    url: https://cloud.google.com/dialogflow/cx/docs/concept/webhook
+  - type: Discovery
+    url: discovery/google-dialogflow-v2.json
+  - type: Discovery
+    url: discovery/google-dialogflow-v2beta1.json
+  - type: Protobuf
+    url: grpc/v2/session.proto
+  - type: Protobuf
+    url: grpc/v2/agent.proto
+  - type: Protobuf
+    url: grpc/v2/intent.proto
+  - type: Protobuf
+    url: grpc/v2/webhook.proto
+  - type: Documentation
+    url: https://cloud.google.com/dialogflow/es/docs
+  - type: APIReference
+    url: https://cloud.google.com/dialogflow/es/docs/reference/rest/v2-overview
+  - type: GettingStarted
+    url: https://cloud.google.com/dialogflow/es/docs/quick/setup
+  - type: Quickstart
+    url: https://cloud.google.com/dialogflow/es/docs/quick/build-agent
+  - type: Authentication
+    url: https://cloud.google.com/dialogflow/es/docs/access-control
+  - type: Console
+    url: https://dialogflow.cloud.google.com/
+  - type: Webhooks
+    url: https://cloud.google.com/dialogflow/es/docs/fulfillment-webhook
+- aid: google-dialogflow:google-dialogflow-entitytypes-api
+  name: Google Dialogflow Entity Types API
+  description: The entityTypes API from Google Dialogflow — 24 operation(s) for entitytypes.
+  humanURL: https://cloud.google.com/dialogflow/cx/docs
+  baseURL: https://dialogflow.googleapis.com
+  tags:
+  - entityTypes
+  properties:
+  - type: OpenAPI
+    url: openapi/google-dialogflow-entitytypes-api-openapi.yml
+  - type: Discovery
+    url: discovery/google-dialogflow-v3.json
+  - type: Discovery
+    url: discovery/google-dialogflow-v3beta1.json
+  - type: Protobuf
+    url: grpc/cx-v3/session.proto
+  - type: Protobuf
+    url: grpc/cx-v3/agent.proto
+  - type: Protobuf
+    url: grpc/cx-v3/webhook.proto
+  - type: Protobuf
+    url: grpc/cx-v3/tool.proto
+  - type: Documentation
+    url: https://cloud.google.com/dialogflow/cx/docs
+  - type: APIReference
+    url: https://cloud.google.com/dialogflow/cx/docs/reference/rest
+  - type: GettingStarted
+    url: https://cloud.google.com/dialogflow/cx/docs/quick/setup
+  - type: Quickstart
+    url: https://cloud.google.com/dialogflow/cx/docs/quick/build-agent
+  - type: Authentication
+    url: https://cloud.google.com/dialogflow/cx/docs/concept/access-control
+  - type: Pricing
+    url: https://cloud.google.com/dialogflow/pricing
+  - type: Console
+    url: https://dialogflow.cloud.google.com/cx
+  - type: Webhooks
+    url: https://cloud.google.com/dialogflow/cx/docs/concept/webhook
+  - type: Discovery
+    url: discovery/google-dialogflow-v2.json
+  - type: Discovery
+    url: discovery/google-dialogflow-v2beta1.json
+  - type: Protobuf
+    url: grpc/v2/session.proto
+  - type: Protobuf
+    url: grpc/v2/agent.proto
+  - type: Protobuf
+    url: grpc/v2/intent.proto
+  - type: Protobuf
+    url: grpc/v2/webhook.proto
+  - type: Documentation
+    url: https://cloud.google.com/dialogflow/es/docs
+  - type: APIReference
+    url: https://cloud.google.com/dialogflow/es/docs/reference/rest/v2-overview
+  - type: GettingStarted
+    url: https://cloud.google.com/dialogflow/es/docs/quick/setup
+  - type: Quickstart
+    url: https://cloud.google.com/dialogflow/es/docs/quick/build-agent
+  - type: Authentication
+    url: https://cloud.google.com/dialogflow/es/docs/access-control
+  - type: Console
+    url: https://dialogflow.cloud.google.com/
+  - type: Webhooks
+    url: https://cloud.google.com/dialogflow/es/docs/fulfillment-webhook
+- aid: google-dialogflow:google-dialogflow-environments-api
+  name: Google Dialogflow Environments API
+  description: The environments API from Google Dialogflow — 11 operation(s) for environments.
+  humanURL: https://cloud.google.com/dialogflow/cx/docs
+  baseURL: https://dialogflow.googleapis.com
+  tags:
+  - environments
+  properties:
+  - type: OpenAPI
+    url: openapi/google-dialogflow-environments-api-openapi.yml
+  - type: Discovery
+    url: discovery/google-dialogflow-v3.json
+  - type: Discovery
+    url: discovery/google-dialogflow-v3beta1.json
+  - type: Protobuf
+    url: grpc/cx-v3/session.proto
+  - type: Protobuf
+    url: grpc/cx-v3/agent.proto
+  - type: Protobuf
+    url: grpc/cx-v3/webhook.proto
+  - type: Protobuf
+    url: grpc/cx-v3/tool.proto
+  - type: Documentation
+    url: https://cloud.google.com/dialogflow/cx/docs
+  - type: APIReference
+    url: https://cloud.google.com/dialogflow/cx/docs/reference/rest
+  - type: GettingStarted
+    url: https://cloud.google.com/dialogflow/cx/docs/quick/setup
+  - type: Quickstart
+    url: https://cloud.google.com/dialogflow/cx/docs/quick/build-agent
+  - type: Authentication
+    url: https://cloud.google.com/dialogflow/cx/docs/concept/access-control
+  - type: Pricing
+    url: https://cloud.google.com/dialogflow/pricing
+  - type: Console
+    url: https://dialogflow.cloud.google.com/cx
+  - type: Webhooks
+    url: https://cloud.google.com/dialogflow/cx/docs/concept/webhook
+  - type: Discovery
+    url: discovery/google-dialogflow-v2.json
+  - type: Discovery
+    url: discovery/google-dialogflow-v2beta1.json
+  - type: Protobuf
+    url: grpc/v2/session.proto
+  - type: Protobuf
+    url: grpc/v2/agent.proto
+  - type: Protobuf
+    url: grpc/v2/intent.proto
+  - type: Protobuf
+    url: grpc/v2/webhook.proto
+  - type: Documentation
+    url: https://cloud.google.com/dialogflow/es/docs
+  - type: APIReference
+    url: https://cloud.google.com/dialogflow/es/docs/reference/rest/v2-overview
+  - type: GettingStarted
+    url: https://cloud.google.com/dialogflow/es/docs/quick/setup
+  - type: Quickstart
+    url: https://cloud.google.com/dialogflow/es/docs/quick/build-agent
+  - type: Authentication
+    url: https://cloud.google.com/dialogflow/es/docs/access-control
+  - type: Console
+    url: https://dialogflow.cloud.google.com/
+  - type: Webhooks
+    url: https://cloud.google.com/dialogflow/es/docs/fulfillment-webhook
+- aid: google-dialogflow:google-dialogflow-evaluations-api
+  name: Google Dialogflow Evaluations API
+  description: The evaluations API from Google Dialogflow — 6 operation(s) for evaluations.
+  humanURL: https://cloud.google.com/dialogflow/cx/docs
+  baseURL: https://dialogflow.googleapis.com
+  tags:
+  - evaluations
+  properties:
+  - type: OpenAPI
+    url: openapi/google-dialogflow-evaluations-api-openapi.yml
+  - type: Discovery
+    url: discovery/google-dialogflow-v3.json
+  - type: Discovery
+    url: discovery/google-dialogflow-v3beta1.json
+  - type: Protobuf
+    url: grpc/cx-v3/session.proto
+  - type: Protobuf
+    url: grpc/cx-v3/agent.proto
+  - type: Protobuf
+    url: grpc/cx-v3/webhook.proto
+  - type: Protobuf
+    url: grpc/cx-v3/tool.proto
+  - type: Documentation
+    url: https://cloud.google.com/dialogflow/cx/docs
+  - type: APIReference
+    url: https://cloud.google.com/dialogflow/cx/docs/reference/rest
+  - type: GettingStarted
+    url: https://cloud.google.com/dialogflow/cx/docs/quick/setup
+  - type: Quickstart
+    url: https://cloud.google.com/dialogflow/cx/docs/quick/build-agent
+  - type: Authentication
+    url: https://cloud.google.com/dialogflow/cx/docs/concept/access-control
+  - type: Pricing
+    url: https://cloud.google.com/dialogflow/pricing
+  - type: Console
+    url: https://dialogflow.cloud.google.com/cx
+  - type: Webhooks
+    url: https://cloud.google.com/dialogflow/cx/docs/concept/webhook
+  - type: Discovery
+    url: discovery/google-dialogflow-v2.json
+  - type: Discovery
+    url: discovery/google-dialogflow-v2beta1.json
+  - type: Protobuf
+    url: grpc/v2/session.proto
+  - type: Protobuf
+    url: grpc/v2/agent.proto
+  - type: Protobuf
+    url: grpc/v2/intent.proto
+  - type: Protobuf
+    url: grpc/v2/webhook.proto
+  - type: Documentation
+    url: https://cloud.google.com/dialogflow/es/docs
+  - type: APIReference
+    url: https://cloud.google.com/dialogflow/es/docs/reference/rest/v2-overview
+  - type: GettingStarted
+    url: https://cloud.google.com/dialogflow/es/docs/quick/setup
+  - type: Quickstart
+    url: https://cloud.google.com/dialogflow/es/docs/quick/build-agent
+  - type: Authentication
+    url: https://cloud.google.com/dialogflow/es/docs/access-control
+  - type: Console
+    url: https://dialogflow.cloud.google.com/
+  - type: Webhooks
+    url: https://cloud.google.com/dialogflow/es/docs/fulfillment-webhook
+- aid: google-dialogflow:google-dialogflow-examples-api
+  name: Google Dialogflow Examples API
+  description: The examples API from Google Dialogflow — 2 operation(s) for examples.
+  humanURL: https://cloud.google.com/dialogflow/cx/docs
+  baseURL: https://dialogflow.googleapis.com
+  tags:
+  - examples
+  properties:
+  - type: OpenAPI
+    url: openapi/google-dialogflow-examples-api-openapi.yml
+  - type: Discovery
+    url: discovery/google-dialogflow-v3.json
+  - type: Discovery
+    url: discovery/google-dialogflow-v3beta1.json
+  - type: Protobuf
+    url: grpc/cx-v3/session.proto
+  - type: Protobuf
+    url: grpc/cx-v3/agent.proto
+  - type: Protobuf
+    url: grpc/cx-v3/webhook.proto
+  - type: Protobuf
+    url: grpc/cx-v3/tool.proto
+  - type: Documentation
+    url: https://cloud.google.com/dialogflow/cx/docs
+  - type: APIReference
+    url: https://cloud.google.com/dialogflow/cx/docs/reference/rest
+  - type: GettingStarted
+    url: https://cloud.google.com/dialogflow/cx/docs/quick/setup
+  - type: Quickstart
+    url: https://cloud.google.com/dialogflow/cx/docs/quick/build-agent
+  - type: Authentication
+    url: https://cloud.google.com/dialogflow/cx/docs/concept/access-control
+  - type: Pricing
+    url: https://cloud.google.com/dialogflow/pricing
+  - type: Console
+    url: https://dialogflow.cloud.google.com/cx
+  - type: Webhooks
+    url: https://cloud.google.com/dialogflow/cx/docs/concept/webhook
+  - type: Discovery
+    url: discovery/google-dialogflow-v2.json
+  - type: Discovery
+    url: discovery/google-dialogflow-v2beta1.json
+  - type: Protobuf
+    url: grpc/v2/session.proto
+  - type: Protobuf
+    url: grpc/v2/agent.proto
+  - type: Protobuf
+    url: grpc/v2/intent.proto
+  - type: Protobuf
+    url: grpc/v2/webhook.proto
+  - type: Documentation
+    url: https://cloud.google.com/dialogflow/es/docs
+  - type: APIReference
+    url: https://cloud.google.com/dialogflow/es/docs/reference/rest/v2-overview
+  - type: GettingStarted
+    url: https://cloud.google.com/dialogflow/es/docs/quick/setup
+  - type: Quickstart
+    url: https://cloud.google.com/dialogflow/es/docs/quick/build-agent
+  - type: Authentication
+    url: https://cloud.google.com/dialogflow/es/docs/access-control
+  - type: Console
+    url: https://dialogflow.cloud.google.com/
+  - type: Webhooks
+    url: https://cloud.google.com/dialogflow/es/docs/fulfillment-webhook
+- aid: google-dialogflow:google-dialogflow-experiments-api
+  name: Google Dialogflow Experiments API
+  description: The experiments API from Google Dialogflow — 4 operation(s) for experiments.
+  humanURL: https://cloud.google.com/dialogflow/cx/docs
+  baseURL: https://dialogflow.googleapis.com
+  tags:
+  - experiments
+  properties:
+  - type: OpenAPI
+    url: openapi/google-dialogflow-experiments-api-openapi.yml
+  - type: Discovery
+    url: discovery/google-dialogflow-v3.json
+  - type: Discovery
+    url: discovery/google-dialogflow-v3beta1.json
+  - type: Protobuf
+    url: grpc/cx-v3/session.proto
+  - type: Protobuf
+    url: grpc/cx-v3/agent.proto
+  - type: Protobuf
+    url: grpc/cx-v3/webhook.proto
+  - type: Protobuf
+    url: grpc/cx-v3/tool.proto
+  - type: Documentation
+    url: https://cloud.google.com/dialogflow/cx/docs
+  - type: APIReference
+    url: https://cloud.google.com/dialogflow/cx/docs/reference/rest
+  - type: GettingStarted
+    url: https://cloud.google.com/dialogflow/cx/docs/quick/setup
+  - type: Quickstart
+    url: https://cloud.google.com/dialogflow/cx/docs/quick/build-agent
+  - type: Authentication
+    url: https://cloud.google.com/dialogflow/cx/docs/concept/access-control
+  - type: Pricing
+    url: https://cloud.google.com/dialogflow/pricing
+  - type: Console
+    url: https://dialogflow.cloud.google.com/cx
+  - type: Webhooks
+    url: https://cloud.google.com/dialogflow/cx/docs/concept/webhook
+  - type: Discovery
+    url: discovery/google-dialogflow-v2.json
+  - type: Discovery
+    url: discovery/google-dialogflow-v2beta1.json
+  - type: Protobuf
+    url: grpc/v2/session.proto
+  - type: Protobuf
+    url: grpc/v2/agent.proto
+  - type: Protobuf
+    url: grpc/v2/intent.proto
+  - type: Protobuf
+    url: grpc/v2/webhook.proto
+  - type: Documentation
+    url: https://cloud.google.com/dialogflow/es/docs
+  - type: APIReference
+    url: https://cloud.google.com/dialogflow/es/docs/reference/rest/v2-overview
+  - type: GettingStarted
+    url: https://cloud.google.com/dialogflow/es/docs/quick/setup
+  - type: Quickstart
+    url: https://cloud.google.com/dialogflow/es/docs/quick/build-agent
+  - type: Authentication
+    url: https://cloud.google.com/dialogflow/es/docs/access-control
+  - type: Console
+    url: https://dialogflow.cloud.google.com/
+  - type: Webhooks
+    url: https://cloud.google.com/dialogflow/es/docs/fulfillment-webhook
+- aid: google-dialogflow:google-dialogflow-flows-api
+  name: Google Dialogflow Flows API
+  description: The flows API from Google Dialogflow — 7 operation(s) for flows.
+  humanURL: https://cloud.google.com/dialogflow/cx/docs
+  baseURL: https://dialogflow.googleapis.com
+  tags:
+  - flows
+  properties:
+  - type: OpenAPI
+    url: openapi/google-dialogflow-flows-api-openapi.yml
+  - type: Discovery
+    url: discovery/google-dialogflow-v3.json
+  - type: Discovery
+    url: discovery/google-dialogflow-v3beta1.json
+  - type: Protobuf
+    url: grpc/cx-v3/session.proto
+  - type: Protobuf
+    url: grpc/cx-v3/agent.proto
+  - type: Protobuf
+    url: grpc/cx-v3/webhook.proto
+  - type: Protobuf
+    url: grpc/cx-v3/tool.proto
+  - type: Documentation
+    url: https://cloud.google.com/dialogflow/cx/docs
+  - type: APIReference
+    url: https://cloud.google.com/dialogflow/cx/docs/reference/rest
+  - type: GettingStarted
+    url: https://cloud.google.com/dialogflow/cx/docs/quick/setup
+  - type: Quickstart
+    url: https://cloud.google.com/dialogflow/cx/docs/quick/build-agent
+  - type: Authentication
+    url: https://cloud.google.com/dialogflow/cx/docs/concept/access-control
+  - type: Pricing
+    url: https://cloud.google.com/dialogflow/pricing
+  - type: Console
+    url: https://dialogflow.cloud.google.com/cx
+  - type: Webhooks
+    url: https://cloud.google.com/dialogflow/cx/docs/concept/webhook
+  - type: Discovery
+    url: discovery/google-dialogflow-v2.json
+  - type: Discovery
+    url: discovery/google-dialogflow-v2beta1.json
+  - type: Protobuf
+    url: grpc/v2/session.proto
+  - type: Protobuf
+    url: grpc/v2/agent.proto
+  - type: Protobuf
+    url: grpc/v2/intent.proto
+  - type: Protobuf
+    url: grpc/v2/webhook.proto
+  - type: Documentation
+    url: https://cloud.google.com/dialogflow/es/docs
+  - type: APIReference
+    url: https://cloud.google.com/dialogflow/es/docs/reference/rest/v2-overview
+  - type: GettingStarted
+    url: https://cloud.google.com/dialogflow/es/docs/quick/setup
+  - type: Quickstart
+    url: https://cloud.google.com/dialogflow/es/docs/quick/build-agent
+  - type: Authentication
+    url: https://cloud.google.com/dialogflow/es/docs/access-control
+  - type: Console
+    url: https://dialogflow.cloud.google.com/
+  - type: Webhooks
+    url: https://cloud.google.com/dialogflow/es/docs/fulfillment-webhook
+- aid: google-dialogflow:google-dialogflow-generators-api
+  name: Google Dialogflow Generators API
+  description: The generators API from Google Dialogflow — 5 operation(s) for generators.
+  humanURL: https://cloud.google.com/dialogflow/cx/docs
+  baseURL: https://dialogflow.googleapis.com
+  tags:
+  - generators
+  properties:
+  - type: OpenAPI
+    url: openapi/google-dialogflow-generators-api-openapi.yml
+  - type: Discovery
+    url: discovery/google-dialogflow-v3.json
+  - type: Discovery
+    url: discovery/google-dialogflow-v3beta1.json
+  - type: Protobuf
+    url: grpc/cx-v3/session.proto
+  - type: Protobuf
+    url: grpc/cx-v3/agent.proto
+  - type: Protobuf
+    url: grpc/cx-v3/webhook.proto
+  - type: Protobuf
+    url: grpc/cx-v3/tool.proto
+  - type: Documentation
+    url: https://cloud.google.com/dialogflow/cx/docs
+  - type: APIReference
+    url: https://cloud.google.com/dialogflow/cx/docs/reference/rest
+  - type: GettingStarted
+    url: https://cloud.google.com/dialogflow/cx/docs/quick/setup
+  - type: Quickstart
+    url: https://cloud.google.com/dialogflow/cx/docs/quick/build-agent
+  - type: Authentication
+    url: https://cloud.google.com/dialogflow/cx/docs/concept/access-control
+  - type: Pricing
+    url: https://cloud.google.com/dialogflow/pricing
+  - type: Console
+    url: https://dialogflow.cloud.google.com/cx
+  - type: Webhooks
+    url: https://cloud.google.com/dialogflow/cx/docs/concept/webhook
+  - type: Discovery
+    url: discovery/google-dialogflow-v2.json
+  - type: Discovery
+    url: discovery/google-dialogflow-v2beta1.json
+  - type: Protobuf
+    url: grpc/v2/session.proto
+  - type: Protobuf
+    url: grpc/v2/agent.proto
+  - type: Protobuf
+    url: grpc/v2/intent.proto
+  - type: Protobuf
+    url: grpc/v2/webhook.proto
+  - type: Documentation
+    url: https://cloud.google.com/dialogflow/es/docs
+  - type: APIReference
+    url: https://cloud.google.com/dialogflow/es/docs/reference/rest/v2-overview
+  - type: GettingStarted
+    url: https://cloud.google.com/dialogflow/es/docs/quick/setup
+  - type: Quickstart
+    url: https://cloud.google.com/dialogflow/es/docs/quick/build-agent
+  - type: Authentication
+    url: https://cloud.google.com/dialogflow/es/docs/access-control
+  - type: Console
+    url: https://dialogflow.cloud.google.com/
+  - type: Webhooks
+    url: https://cloud.google.com/dialogflow/es/docs/fulfillment-webhook
+- aid: google-dialogflow:google-dialogflow-intents-api
+  name: Google Dialogflow Intents API
+  description: The intents API from Google Dialogflow — 14 operation(s) for intents.
+  humanURL: https://cloud.google.com/dialogflow/cx/docs
+  baseURL: https://dialogflow.googleapis.com
+  tags:
+  - intents
+  properties:
+  - type: OpenAPI
+    url: openapi/google-dialogflow-intents-api-openapi.yml
+  - type: Discovery
+    url: discovery/google-dialogflow-v3.json
+  - type: Discovery
+    url: discovery/google-dialogflow-v3beta1.json
+  - type: Protobuf
+    url: grpc/cx-v3/session.proto
+  - type: Protobuf
+    url: grpc/cx-v3/agent.proto
+  - type: Protobuf
+    url: grpc/cx-v3/webhook.proto
+  - type: Protobuf
+    url: grpc/cx-v3/tool.proto
+  - type: Documentation
+    url: https://cloud.google.com/dialogflow/cx/docs
+  - type: APIReference
+    url: https://cloud.google.com/dialogflow/cx/docs/reference/rest
+  - type: GettingStarted
+    url: https://cloud.google.com/dialogflow/cx/docs/quick/setup
+  - type: Quickstart
+    url: https://cloud.google.com/dialogflow/cx/docs/quick/build-agent
+  - type: Authentication
+    url: https://cloud.google.com/dialogflow/cx/docs/concept/access-control
+  - type: Pricing
+    url: https://cloud.google.com/dialogflow/pricing
+  - type: Console
+    url: https://dialogflow.cloud.google.com/cx
+  - type: Webhooks
+    url: https://cloud.google.com/dialogflow/cx/docs/concept/webhook
+  - type: Discovery
+    url: discovery/google-dialogflow-v2.json
+  - type: Discovery
+    url: discovery/google-dialogflow-v2beta1.json
+  - type: Protobuf
+    url: grpc/v2/session.proto
+  - type: Protobuf
+    url: grpc/v2/agent.proto
+  - type: Protobuf
+    url: grpc/v2/intent.proto
+  - type: Protobuf
+    url: grpc/v2/webhook.proto
+  - type: Documentation
+    url: https://cloud.google.com/dialogflow/es/docs
+  - type: APIReference
+    url: https://cloud.google.com/dialogflow/es/docs/reference/rest/v2-overview
+  - type: GettingStarted
+    url: https://cloud.google.com/dialogflow/es/docs/quick/setup
+  - type: Quickstart
+    url: https://cloud.google.com/dialogflow/es/docs/quick/build-agent
+  - type: Authentication
+    url: https://cloud.google.com/dialogflow/es/docs/access-control
+  - type: Console
+    url: https://dialogflow.cloud.google.com/
+  - type: Webhooks
+    url: https://cloud.google.com/dialogflow/es/docs/fulfillment-webhook
+- aid: google-dialogflow:google-dialogflow-knowledgebases-api
+  name: Google Dialogflow Knowledge Bases API
+  description: The knowledgeBases API from Google Dialogflow — 6 operation(s) for knowledgebases.
+  humanURL: https://cloud.google.com/dialogflow/cx/docs
+  baseURL: https://dialogflow.googleapis.com
+  tags:
+  - knowledgeBases
+  properties:
+  - type: OpenAPI
+    url: openapi/google-dialogflow-knowledgebases-api-openapi.yml
+  - type: Discovery
+    url: discovery/google-dialogflow-v3.json
+  - type: Discovery
+    url: discovery/google-dialogflow-v3beta1.json
+  - type: Protobuf
+    url: grpc/cx-v3/session.proto
+  - type: Protobuf
+    url: grpc/cx-v3/agent.proto
+  - type: Protobuf
+    url: grpc/cx-v3/webhook.proto
+  - type: Protobuf
+    url: grpc/cx-v3/tool.proto
+  - type: Documentation
+    url: https://cloud.google.com/dialogflow/cx/docs
+  - type: APIReference
+    url: https://cloud.google.com/dialogflow/cx/docs/reference/rest
+  - type: GettingStarted
+    url: https://cloud.google.com/dialogflow/cx/docs/quick/setup
+  - type: Quickstart
+    url: https://cloud.google.com/dialogflow/cx/docs/quick/build-agent
+  - type: Authentication
+    url: https://cloud.google.com/dialogflow/cx/docs/concept/access-control
+  - type: Pricing
+    url: https://cloud.google.com/dialogflow/pricing
+  - type: Console
+    url: https://dialogflow.cloud.google.com/cx
+  - type: Webhooks
+    url: https://cloud.google.com/dialogflow/cx/docs/concept/webhook
+  - type: Discovery
+    url: discovery/google-dialogflow-v2.json
+  - type: Discovery
+    url: discovery/google-dialogflow-v2beta1.json
+  - type: Protobuf
+    url: grpc/v2/session.proto
+  - type: Protobuf
+    url: grpc/v2/agent.proto
+  - type: Protobuf
+    url: grpc/v2/intent.proto
+  - type: Protobuf
+    url: grpc/v2/webhook.proto
+  - type: Documentation
+    url: https://cloud.google.com/dialogflow/es/docs
+  - type: APIReference
+    url: https://cloud.google.com/dialogflow/es/docs/reference/rest/v2-overview
+  - type: GettingStarted
+    url: https://cloud.google.com/dialogflow/es/docs/quick/setup
+  - type: Quickstart
+    url: https://cloud.google.com/dialogflow/es/docs/quick/build-agent
+  - type: Authentication
+    url: https://cloud.google.com/dialogflow/es/docs/access-control
+  - type: Console
+    url: https://dialogflow.cloud.google.com/
+  - type: Webhooks
+    url: https://cloud.google.com/dialogflow/es/docs/fulfillment-webhook
+- aid: google-dialogflow:google-dialogflow-locations-api
+  name: Google Dialogflow Locations API
+  description: The locations API from Google Dialogflow — 6 operation(s) for locations.
+  humanURL: https://cloud.google.com/dialogflow/cx/docs
+  baseURL: https://dialogflow.googleapis.com
+  tags:
+  - locations
+  properties:
+  - type: OpenAPI
+    url: openapi/google-dialogflow-locations-api-openapi.yml
+  - type: Discovery
+    url: discovery/google-dialogflow-v3.json
+  - type: Discovery
+    url: discovery/google-dialogflow-v3beta1.json
+  - type: Protobuf
+    url: grpc/cx-v3/session.proto
+  - type: Protobuf
+    url: grpc/cx-v3/agent.proto
+  - type: Protobuf
+    url: grpc/cx-v3/webhook.proto
+  - type: Protobuf
+    url: grpc/cx-v3/tool.proto
+  - type: Documentation
+    url: https://cloud.google.com/dialogflow/cx/docs
+  - type: APIReference
+    url: https://cloud.google.com/dialogflow/cx/docs/reference/rest
+  - type: GettingStarted
+    url: https://cloud.google.com/dialogflow/cx/docs/quick/setup
+  - type: Quickstart
+    url: https://cloud.google.com/dialogflow/cx/docs/quick/build-agent
+  - type: Authentication
+    url: https://cloud.google.com/dialogflow/cx/docs/concept/access-control
+  - type: Pricing
+    url: https://cloud.google.com/dialogflow/pricing
+  - type: Console
+    url: https://dialogflow.cloud.google.com/cx
+  - type: Webhooks
+    url: https://cloud.google.com/dialogflow/cx/docs/concept/webhook
+  - type: Discovery
+    url: discovery/google-dialogflow-v2.json
+  - type: Discovery
+    url: discovery/google-dialogflow-v2beta1.json
+  - type: Protobuf
+    url: grpc/v2/session.proto
+  - type: Protobuf
+    url: grpc/v2/agent.proto
+  - type: Protobuf
+    url: grpc/v2/intent.proto
+  - type: Protobuf
+    url: grpc/v2/webhook.proto
+  - type: Documentation
+    url: https://cloud.google.com/dialogflow/es/docs
+  - type: APIReference
+    url: https://cloud.google.com/dialogflow/es/docs/reference/rest/v2-overview
+  - type: GettingStarted
+    url: https://cloud.google.com/dialogflow/es/docs/quick/setup
+  - type: Quickstart
+    url: https://cloud.google.com/dialogflow/es/docs/quick/build-agent
+  - type: Authentication
+    url: https://cloud.google.com/dialogflow/es/docs/access-control
+  - type: Console
+    url: https://dialogflow.cloud.google.com/
+  - type: Webhooks
+    url: https://cloud.google.com/dialogflow/es/docs/fulfillment-webhook
+- aid: google-dialogflow:google-dialogflow-messages-api
+  name: Google Dialogflow Messages API
+  description: The messages API from Google Dialogflow — 2 operation(s) for messages.
+  humanURL: https://cloud.google.com/dialogflow/cx/docs
+  baseURL: https://dialogflow.googleapis.com
+  tags:
+  - messages
+  properties:
+  - type: OpenAPI
+    url: openapi/google-dialogflow-messages-api-openapi.yml
+  - type: Discovery
+    url: discovery/google-dialogflow-v3.json
+  - type: Discovery
+    url: discovery/google-dialogflow-v3beta1.json
+  - type: Protobuf
+    url: grpc/cx-v3/session.proto
+  - type: Protobuf
+    url: grpc/cx-v3/agent.proto
+  - type: Protobuf
+    url: grpc/cx-v3/webhook.proto
+  - type: Protobuf
+    url: grpc/cx-v3/tool.proto
+  - type: Documentation
+    url: https://cloud.google.com/dialogflow/cx/docs
+  - type: APIReference
+    url: https://cloud.google.com/dialogflow/cx/docs/reference/rest
+  - type: GettingStarted
+    url: https://cloud.google.com/dialogflow/cx/docs/quick/setup
+  - type: Quickstart
+    url: https://cloud.google.com/dialogflow/cx/docs/quick/build-agent
+  - type: Authentication
+    url: https://cloud.google.com/dialogflow/cx/docs/concept/access-control
+  - type: Pricing
+    url: https://cloud.google.com/dialogflow/pricing
+  - type: Console
+    url: https://dialogflow.cloud.google.com/cx
+  - type: Webhooks
+    url: https://cloud.google.com/dialogflow/cx/docs/concept/webhook
+  - type: Discovery
+    url: discovery/google-dialogflow-v2.json
+  - type: Discovery
+    url: discovery/google-dialogflow-v2beta1.json
+  - type: Protobuf
+    url: grpc/v2/session.proto
+  - type: Protobuf
+    url: grpc/v2/agent.proto
+  - type: Protobuf
+    url: grpc/v2/intent.proto
+  - type: Protobuf
+    url: grpc/v2/webhook.proto
+  - type: Documentation
+    url: https://cloud.google.com/dialogflow/es/docs
+  - type: APIReference
+    url: https://cloud.google.com/dialogflow/es/docs/reference/rest/v2-overview
+  - type: GettingStarted
+    url: https://cloud.google.com/dialogflow/es/docs/quick/setup
+  - type: Quickstart
+    url: https://cloud.google.com/dialogflow/es/docs/quick/build-agent
+  - type: Authentication
+    url: https://cloud.google.com/dialogflow/es/docs/access-control
+  - type: Console
+    url: https://dialogflow.cloud.google.com/
+  - type: Webhooks
+    url: https://cloud.google.com/dialogflow/es/docs/fulfillment-webhook
+- aid: google-dialogflow:google-dialogflow-operations-api
+  name: Google Dialogflow Operations API
+  description: The operations API from Google Dialogflow — 12 operation(s) for operations.
+  humanURL: https://cloud.google.com/dialogflow/cx/docs
+  baseURL: https://dialogflow.googleapis.com
+  tags:
+  - operations
+  properties:
+  - type: OpenAPI
+    url: openapi/google-dialogflow-operations-api-openapi.yml
+  - type: Discovery
+    url: discovery/google-dialogflow-v3.json
+  - type: Discovery
+    url: discovery/google-dialogflow-v3beta1.json
+  - type: Protobuf
+    url: grpc/cx-v3/session.proto
+  - type: Protobuf
+    url: grpc/cx-v3/agent.proto
+  - type: Protobuf
+    url: grpc/cx-v3/webhook.proto
+  - type: Protobuf
+    url: grpc/cx-v3/tool.proto
+  - type: Documentation
+    url: https://cloud.google.com/dialogflow/cx/docs
+  - type: APIReference
+    url: https://cloud.google.com/dialogflow/cx/docs/reference/rest
+  - type: GettingStarted
+    url: https://cloud.google.com/dialogflow/cx/docs/quick/setup
+  - type: Quickstart
+    url: https://cloud.google.com/dialogflow/cx/docs/quick/build-agent
+  - type: Authentication
+    url: https://cloud.google.com/dialogflow/cx/docs/concept/access-control
+  - type: Pricing
+    url: https://cloud.google.com/dialogflow/pricing
+  - type: Console
+    url: https://dialogflow.cloud.google.com/cx
+  - type: Webhooks
+    url: https://cloud.google.com/dialogflow/cx/docs/concept/webhook
+  - type: Discovery
+    url: discovery/google-dialogflow-v2.json
+  - type: Discovery
+    url: discovery/google-dialogflow-v2beta1.json
+  - type: Protobuf
+    url: grpc/v2/session.proto
+  - type: Protobuf
+    url: grpc/v2/agent.proto
+  - type: Protobuf
+    url: grpc/v2/intent.proto
+  - type: Protobuf
+    url: grpc/v2/webhook.proto
+  - type: Documentation
+    url: https://cloud.google.com/dialogflow/es/docs
+  - type: APIReference
+    url: https://cloud.google.com/dialogflow/es/docs/reference/rest/v2-overview
+  - type: GettingStarted
+    url: https://cloud.google.com/dialogflow/es/docs/quick/setup
+  - type: Quickstart
+    url: https://cloud.google.com/dialogflow/es/docs/quick/build-agent
+  - type: Authentication
+    url: https://cloud.google.com/dialogflow/es/docs/access-control
+  - type: Console
+    url: https://dialogflow.cloud.google.com/
+  - type: Webhooks
+    url: https://cloud.google.com/dialogflow/es/docs/fulfillment-webhook
+- aid: google-dialogflow:google-dialogflow-pages-api
+  name: Google Dialogflow Pages API
+  description: The pages API from Google Dialogflow — 2 operation(s) for pages.
+  humanURL: https://cloud.google.com/dialogflow/cx/docs
+  baseURL: https://dialogflow.googleapis.com
+  tags:
+  - pages
+  properties:
+  - type: OpenAPI
+    url: openapi/google-dialogflow-pages-api-openapi.yml
+  - type: Discovery
+    url: discovery/google-dialogflow-v3.json
+  - type: Discovery
+    url: discovery/google-dialogflow-v3beta1.json
+  - type: Protobuf
+    url: grpc/cx-v3/session.proto
+  - type: Protobuf
+    url: grpc/cx-v3/agent.proto
+  - type: Protobuf
+    url: grpc/cx-v3/webhook.proto
+  - type: Protobuf
+    url: grpc/cx-v3/tool.proto
+  - type: Documentation
+    url: https://cloud.google.com/dialogflow/cx/docs
+  - type: APIReference
+    url: https://cloud.google.com/dialogflow/cx/docs/reference/rest
+  - type: GettingStarted
+    url: https://cloud.google.com/dialogflow/cx/docs/quick/setup
+  - type: Quickstart
+    url: https://cloud.google.com/dialogflow/cx/docs/quick/build-agent
+  - type: Authentication
+    url: https://cloud.google.com/dialogflow/cx/docs/concept/access-control
+  - type: Pricing
+    url: https://cloud.google.com/dialogflow/pricing
+  - type: Console
+    url: https://dialogflow.cloud.google.com/cx
+  - type: Webhooks
+    url: https://cloud.google.com/dialogflow/cx/docs/concept/webhook
+  - type: Discovery
+    url: discovery/google-dialogflow-v2.json
+  - type: Discovery
+    url: discovery/google-dialogflow-v2beta1.json
+  - type: Protobuf
+    url: grpc/v2/session.proto
+  - type: Protobuf
+    url: grpc/v2/agent.proto
+  - type: Protobuf
+    url: grpc/v2/intent.proto
+  - type: Protobuf
+    url: grpc/v2/webhook.proto
+  - type: Documentation
+    url: https://cloud.google.com/dialogflow/es/docs
+  - type: APIReference
+    url: https://cloud.google.com/dialogflow/es/docs/reference/rest/v2-overview
+  - type: GettingStarted
+    url: https://cloud.google.com/dialogflow/es/docs/quick/setup
+  - type: Quickstart
+    url: https://cloud.google.com/dialogflow/es/docs/quick/build-agent
+  - type: Authentication
+    url: https://cloud.google.com/dialogflow/es/docs/access-control
+  - type: Console
+    url: https://dialogflow.cloud.google.com/
+  - type: Webhooks
+    url: https://cloud.google.com/dialogflow/es/docs/fulfillment-webhook
+- aid: google-dialogflow:google-dialogflow-participants-api
+  name: Google Dialogflow Participants API
+  description: The participants API from Google Dialogflow — 6 operation(s) for participants.
+  humanURL: https://cloud.google.com/dialogflow/cx/docs
+  baseURL: https://dialogflow.googleapis.com
+  tags:
+  - participants
+  properties:
+  - type: OpenAPI
+    url: openapi/google-dialogflow-participants-api-openapi.yml
+  - type: Discovery
+    url: discovery/google-dialogflow-v3.json
+  - type: Discovery
+    url: discovery/google-dialogflow-v3beta1.json
+  - type: Protobuf
+    url: grpc/cx-v3/session.proto
+  - type: Protobuf
+    url: grpc/cx-v3/agent.proto
+  - type: Protobuf
+    url: grpc/cx-v3/webhook.proto
+  - type: Protobuf
+    url: grpc/cx-v3/tool.proto
+  - type: Documentation
+    url: https://cloud.google.com/dialogflow/cx/docs
+  - type: APIReference
+    url: https://cloud.google.com/dialogflow/cx/docs/reference/rest
+  - type: GettingStarted
+    url: https://cloud.google.com/dialogflow/cx/docs/quick/setup
+  - type: Quickstart
+    url: https://cloud.google.com/dialogflow/cx/docs/quick/build-agent
+  - type: Authentication
+    url: https://cloud.google.com/dialogflow/cx/docs/concept/access-control
+  - type: Pricing
+    url: https://cloud.google.com/dialogflow/pricing
+  - type: Console
+    url: https://dialogflow.cloud.google.com/cx
+  - type: Webhooks
+    url: https://cloud.google.com/dialogflow/cx/docs/concept/webhook
+  - type: Discovery
+    url: discovery/google-dialogflow-v2.json
+  - type: Discovery
+    url: discovery/google-dialogflow-v2beta1.json
+  - type: Protobuf
+    url: grpc/v2/session.proto
+  - type: Protobuf
+    url: grpc/v2/agent.proto
+  - type: Protobuf
+    url: grpc/v2/intent.proto
+  - type: Protobuf
+    url: grpc/v2/webhook.proto
+  - type: Documentation
+    url: https://cloud.google.com/dialogflow/es/docs
+  - type: APIReference
+    url: https://cloud.google.com/dialogflow/es/docs/reference/rest/v2-overview
+  - type: GettingStarted
+    url: https://cloud.google.com/dialogflow/es/docs/quick/setup
+  - type: Quickstart
+    url: https://cloud.google.com/dialogflow/es/docs/quick/build-agent
+  - type: Authentication
+    url: https://cloud.google.com/dialogflow/es/docs/access-control
+  - type: Console
+    url: https://dialogflow.cloud.google.com/
+  - type: Webhooks
+    url: https://cloud.google.com/dialogflow/es/docs/fulfillment-webhook
+- aid: google-dialogflow:google-dialogflow-playbooks-api
+  name: Google Dialogflow Playbooks API
+  description: The playbooks API from Google Dialogflow — 4 operation(s) for playbooks.
+  humanURL: https://cloud.google.com/dialogflow/cx/docs
+  baseURL: https://dialogflow.googleapis.com
+  tags:
+  - playbooks
+  properties:
+  - type: OpenAPI
+    url: openapi/google-dialogflow-playbooks-api-openapi.yml
+  - type: Discovery
+    url: discovery/google-dialogflow-v3.json
+  - type: Discovery
+    url: discovery/google-dialogflow-v3beta1.json
+  - type: Protobuf
+    url: grpc/cx-v3/session.proto
+  - type: Protobuf
+    url: grpc/cx-v3/agent.proto
+  - type: Protobuf
+    url: grpc/cx-v3/webhook.proto
+  - type: Protobuf
+    url: grpc/cx-v3/tool.proto
+  - type: Documentation
+    url: https://cloud.google.com/dialogflow/cx/docs
+  - type: APIReference
+    url: https://cloud.google.com/dialogflow/cx/docs/reference/rest
+  - type: GettingStarted
+    url: https://cloud.google.com/dialogflow/cx/docs/quick/setup
+  - type: Quickstart
+    url: https://cloud.google.com/dialogflow/cx/docs/quick/build-agent
+  - type: Authentication
+    url: https://cloud.google.com/dialogflow/cx/docs/concept/access-control
+  - type: Pricing
+    url: https://cloud.google.com/dialogflow/pricing
+  - type: Console
+    url: https://dialogflow.cloud.google.com/cx
+  - type: Webhooks
+    url: https://cloud.google.com/dialogflow/cx/docs/concept/webhook
+  - type: Discovery
+    url: discovery/google-dialogflow-v2.json
+  - type: Discovery
+    url: discovery/google-dialogflow-v2beta1.json
+  - type: Protobuf
+    url: grpc/v2/session.proto
+  - type: Protobuf
+    url: grpc/v2/agent.proto
+  - type: Protobuf
+    url: grpc/v2/intent.proto
+  - type: Protobuf
+    url: grpc/v2/webhook.proto
+  - type: Documentation
+    url: https://cloud.google.com/dialogflow/es/docs
+  - type: APIReference
+    url: https://cloud.google.com/dialogflow/es/docs/reference/rest/v2-overview
+  - type: GettingStarted
+    url: https://cloud.google.com/dialogflow/es/docs/quick/setup
+  - type: Quickstart
+    url: https://cloud.google.com/dialogflow/es/docs/quick/build-agent
+  - type: Authentication
+    url: https://cloud.google.com/dialogflow/es/docs/access-control
+  - type: Console
+    url: https://dialogflow.cloud.google.com/
+  - type: Webhooks
+    url: https://cloud.google.com/dialogflow/es/docs/fulfillment-webhook
+- aid: google-dialogflow:google-dialogflow-projects-api
+  name: Google Dialogflow Projects API
+  description: The projects API from Google Dialogflow — 1 operation(s) for projects.
+  humanURL: https://cloud.google.com/dialogflow/cx/docs
+  baseURL: https://dialogflow.googleapis.com
+  tags:
+  - projects
+  properties:
+  - type: OpenAPI
+    url: openapi/google-dialogflow-projects-api-openapi.yml
+  - type: Discovery
+    url: discovery/google-dialogflow-v3.json
+  - type: Discovery
+    url: discovery/google-dialogflow-v3beta1.json
+  - type: Protobuf
+    url: grpc/cx-v3/session.proto
+  - type: Protobuf
+    url: grpc/cx-v3/agent.proto
+  - type: Protobuf
+    url: grpc/cx-v3/webhook.proto
+  - type: Protobuf
+    url: grpc/cx-v3/tool.proto
+  - type: Documentation
+    url: https://cloud.google.com/dialogflow/cx/docs
+  - type: APIReference
+    url: https://cloud.google.com/dialogflow/cx/docs/reference/rest
+  - type: GettingStarted
+    url: https://cloud.google.com/dialogflow/cx/docs/quick/setup
+  - type: Quickstart
+    url: https://cloud.google.com/dialogflow/cx/docs/quick/build-agent
+  - type: Authentication
+    url: https://cloud.google.com/dialogflow/cx/docs/concept/access-control
+  - type: Pricing
+    url: https://cloud.google.com/dialogflow/pricing
+  - type: Console
+    url: https://dialogflow.cloud.google.com/cx
+  - type: Webhooks
+    url: https://cloud.google.com/dialogflow/cx/docs/concept/webhook
+  - type: Discovery
+    url: discovery/google-dialogflow-v2.json
+  - type: Discovery
+    url: discovery/google-dialogflow-v2beta1.json
+  - type: Protobuf
+    url: grpc/v2/session.proto
+  - type: Protobuf
+    url: grpc/v2/agent.proto
+  - type: Protobuf
+    url: grpc/v2/intent.proto
+  - type: Protobuf
+    url: grpc/v2/webhook.proto
+  - type: Documentation
+    url: https://cloud.google.com/dialogflow/es/docs
+  - type: APIReference
+    url: https://cloud.google.com/dialogflow/es/docs/reference/rest/v2-overview
+  - type: GettingStarted
+    url: https://cloud.google.com/dialogflow/es/docs/quick/setup
+  - type: Quickstart
+    url: https://cloud.google.com/dialogflow/es/docs/quick/build-agent
+  - type: Authentication
+    url: https://cloud.google.com/dialogflow/es/docs/access-control
+  - type: Console
+    url: https://dialogflow.cloud.google.com/
+  - type: Webhooks
+    url: https://cloud.google.com/dialogflow/es/docs/fulfillment-webhook
+- aid: google-dialogflow:google-dialogflow-results-api
+  name: Google Dialogflow Results API
+  description: The results API from Google Dialogflow — 2 operation(s) for results.
+  humanURL: https://cloud.google.com/dialogflow/cx/docs
+  baseURL: https://dialogflow.googleapis.com
+  tags:
+  - results
+  properties:
+  - type: OpenAPI
+    url: openapi/google-dialogflow-results-api-openapi.yml
+  - type: Discovery
+    url: discovery/google-dialogflow-v3.json
+  - type: Discovery
+    url: discovery/google-dialogflow-v3beta1.json
+  - type: Protobuf
+    url: grpc/cx-v3/session.proto
+  - type: Protobuf
+    url: grpc/cx-v3/agent.proto
+  - type: Protobuf
+    url: grpc/cx-v3/webhook.proto
+  - type: Protobuf
+    url: grpc/cx-v3/tool.proto
+  - type: Documentation
+    url: https://cloud.google.com/dialogflow/cx/docs
+  - type: APIReference
+    url: https://cloud.google.com/dialogflow/cx/docs/reference/rest
+  - type: GettingStarted
+    url: https://cloud.google.com/dialogflow/cx/docs/quick/setup
+  - type: Quickstart
+    url: https://cloud.google.com/dialogflow/cx/docs/quick/build-agent
+  - type: Authentication
+    url: https://cloud.google.com/dialogflow/cx/docs/concept/access-control
+  - type: Pricing
+    url: https://cloud.google.com/dialogflow/pricing
+  - type: Console
+    url: https://dialogflow.cloud.google.com/cx
+  - type: Webhooks
+    url: https://cloud.google.com/dialogflow/cx/docs/concept/webhook
+  - type: Discovery
+    url: discovery/google-dialogflow-v2.json
+  - type: Discovery
+    url: discovery/google-dialogflow-v2beta1.json
+  - type: Protobuf
+    url: grpc/v2/session.proto
+  - type: Protobuf
+    url: grpc/v2/agent.proto
+  - type: Protobuf
+    url: grpc/v2/intent.proto
+  - type: Protobuf
+    url: grpc/v2/webhook.proto
+  - type: Documentation
+    url: https://cloud.google.com/dialogflow/es/docs
+  - type: APIReference
+    url: https://cloud.google.com/dialogflow/es/docs/reference/rest/v2-overview
+  - type: GettingStarted
+    url: https://cloud.google.com/dialogflow/es/docs/quick/setup
+  - type: Quickstart
+    url: https://cloud.google.com/dialogflow/es/docs/quick/build-agent
+  - type: Authentication
+    url: https://cloud.google.com/dialogflow/es/docs/access-control
+  - type: Console
+    url: https://dialogflow.cloud.google.com/
+  - type: Webhooks
+    url: https://cloud.google.com/dialogflow/es/docs/fulfillment-webhook
+- aid: google-dialogflow:google-dialogflow-securitysettings-api
+  name: Google Dialogflow Security Settings API
+  description: The securitySettings API from Google Dialogflow — 2 operation(s) for securitysettings.
+  humanURL: https://cloud.google.com/dialogflow/cx/docs
+  baseURL: https://dialogflow.googleapis.com
+  tags:
+  - securitySettings
+  properties:
+  - type: OpenAPI
+    url: openapi/google-dialogflow-securitysettings-api-openapi.yml
+  - type: Discovery
+    url: discovery/google-dialogflow-v3.json
+  - type: Discovery
+    url: discovery/google-dialogflow-v3beta1.json
+  - type: Protobuf
+    url: grpc/cx-v3/session.proto
+  - type: Protobuf
+    url: grpc/cx-v3/agent.proto
+  - type: Protobuf
+    url: grpc/cx-v3/webhook.proto
+  - type: Protobuf
+    url: grpc/cx-v3/tool.proto
+  - type: Documentation
+    url: https://cloud.google.com/dialogflow/cx/docs
+  - type: APIReference
+    url: https://cloud.google.com/dialogflow/cx/docs/reference/rest
+  - type: GettingStarted
+    url: https://cloud.google.com/dialogflow/cx/docs/quick/setup
+  - type: Quickstart
+    url: https://cloud.google.com/dialogflow/cx/docs/quick/build-agent
+  - type: Authentication
+    url: https://cloud.google.com/dialogflow/cx/docs/concept/access-control
+  - type: Pricing
+    url: https://cloud.google.com/dialogflow/pricing
+  - type: Console
+    url: https://dialogflow.cloud.google.com/cx
+  - type: Webhooks
+    url: https://cloud.google.com/dialogflow/cx/docs/concept/webhook
+  - type: Discovery
+    url: discovery/google-dialogflow-v2.json
+  - type: Discovery
+    url: discovery/google-dialogflow-v2beta1.json
+  - type: Protobuf
+    url: grpc/v2/session.proto
+  - type: Protobuf
+    url: grpc/v2/agent.proto
+  - type: Protobuf
+    url: grpc/v2/intent.proto
+  - type: Protobuf
+    url: grpc/v2/webhook.proto
+  - type: Documentation
+    url: https://cloud.google.com/dialogflow/es/docs
+  - type: APIReference
+    url: https://cloud.google.com/dialogflow/es/docs/reference/rest/v2-overview
+  - type: GettingStarted
+    url: https://cloud.google.com/dialogflow/es/docs/quick/setup
+  - type: Quickstart
+    url: https://cloud.google.com/dialogflow/es/docs/quick/build-agent
+  - type: Authentication
+    url: https://cloud.google.com/dialogflow/es/docs/access-control
+  - type: Console
+    url: https://dialogflow.cloud.google.com/
+  - type: Webhooks
+    url: https://cloud.google.com/dialogflow/es/docs/fulfillment-webhook
+- aid: google-dialogflow:google-dialogflow-sessions-api
+  name: Google Dialogflow Sessions API
+  description: The sessions API from Google Dialogflow — 17 operation(s) for sessions.
+  humanURL: https://cloud.google.com/dialogflow/cx/docs
+  baseURL: https://dialogflow.googleapis.com
+  tags:
+  - sessions
+  properties:
+  - type: OpenAPI
+    url: openapi/google-dialogflow-sessions-api-openapi.yml
+  - type: Discovery
+    url: discovery/google-dialogflow-v3.json
+  - type: Discovery
+    url: discovery/google-dialogflow-v3beta1.json
+  - type: Protobuf
+    url: grpc/cx-v3/session.proto
+  - type: Protobuf
+    url: grpc/cx-v3/agent.proto
+  - type: Protobuf
+    url: grpc/cx-v3/webhook.proto
+  - type: Protobuf
+    url: grpc/cx-v3/tool.proto
+  - type: Documentation
+    url: https://cloud.google.com/dialogflow/cx/docs
+  - type: APIReference
+    url: https://cloud.google.com/dialogflow/cx/docs/reference/rest
+  - type: GettingStarted
+    url: https://cloud.google.com/dialogflow/cx/docs/quick/setup
+  - type: Quickstart
+    url: https://cloud.google.com/dialogflow/cx/docs/quick/build-agent
+  - type: Authentication
+    url: https://cloud.google.com/dialogflow/cx/docs/concept/access-control
+  - type: Pricing
+    url: https://cloud.google.com/dialogflow/pricing
+  - type: Console
+    url: https://dialogflow.cloud.google.com/cx
+  - type: Webhooks
+    url: https://cloud.google.com/dialogflow/cx/docs/concept/webhook
+  - type: Discovery
+    url: discovery/google-dialogflow-v2.json
+  - type: Discovery
+    url: discovery/google-dialogflow-v2beta1.json
+  - type: Protobuf
+    url: grpc/v2/session.proto
+  - type: Protobuf
+    url: grpc/v2/agent.proto
+  - type: Protobuf
+    url: grpc/v2/intent.proto
+  - type: Protobuf
+    url: grpc/v2/webhook.proto
+  - type: Documentation
+    url: https://cloud.google.com/dialogflow/es/docs
+  - type: APIReference
+    url: https://cloud.google.com/dialogflow/es/docs/reference/rest/v2-overview
+  - type: GettingStarted
+    url: https://cloud.google.com/dialogflow/es/docs/quick/setup
+  - type: Quickstart
+    url: https://cloud.google.com/dialogflow/es/docs/quick/build-agent
+  - type: Authentication
+    url: https://cloud.google.com/dialogflow/es/docs/access-control
+  - type: Console
+    url: https://dialogflow.cloud.google.com/
+  - type: Webhooks
+    url: https://cloud.google.com/dialogflow/es/docs/fulfillment-webhook
+- aid: google-dialogflow:google-dialogflow-siptrunks-api
+  name: Google Dialogflow Sip Trunks API
+  description: The sipTrunks API from Google Dialogflow — 2 operation(s) for siptrunks.
+  humanURL: https://cloud.google.com/dialogflow/cx/docs
+  baseURL: https://dialogflow.googleapis.com
+  tags:
+  - sipTrunks
+  properties:
+  - type: OpenAPI
+    url: openapi/google-dialogflow-siptrunks-api-openapi.yml
+  - type: Discovery
+    url: discovery/google-dialogflow-v3.json
+  - type: Discovery
+    url: discovery/google-dialogflow-v3beta1.json
+  - type: Protobuf
+    url: grpc/cx-v3/session.proto
+  - type: Protobuf
+    url: grpc/cx-v3/agent.proto
+  - type: Protobuf
+    url: grpc/cx-v3/webhook.proto
+  - type: Protobuf
+    url: grpc/cx-v3/tool.proto
+  - type: Documentation
+    url: https://cloud.google.com/dialogflow/cx/docs
+  - type: APIReference
+    url: https://cloud.google.com/dialogflow/cx/docs/reference/rest
+  - type: GettingStarted
+    url: https://cloud.google.com/dialogflow/cx/docs/quick/setup
+  - type: Quickstart
+    url: https://cloud.google.com/dialogflow/cx/docs/quick/build-agent
+  - type: Authentication
+    url: https://cloud.google.com/dialogflow/cx/docs/concept/access-control
+  - type: Pricing
+    url: https://cloud.google.com/dialogflow/pricing
+  - type: Console
+    url: https://dialogflow.cloud.google.com/cx
+  - type: Webhooks
+    url: https://cloud.google.com/dialogflow/cx/docs/concept/webhook
+  - type: Discovery
+    url: discovery/google-dialogflow-v2.json
+  - type: Discovery
+    url: discovery/google-dialogflow-v2beta1.json
+  - type: Protobuf
+    url: grpc/v2/session.proto
+  - type: Protobuf
+    url: grpc/v2/agent.proto
+  - type: Protobuf
+    url: grpc/v2/intent.proto
+  - type: Protobuf
+    url: grpc/v2/webhook.proto
+  - type: Documentation
+    url: https://cloud.google.com/dialogflow/es/docs
+  - type: APIReference
+    url: https://cloud.google.com/dialogflow/es/docs/reference/rest/v2-overview
+  - type: GettingStarted
+    url: https://cloud.google.com/dialogflow/es/docs/quick/setup
+  - type: Quickstart
+    url: https://cloud.google.com/dialogflow/es/docs/quick/build-agent
+  - type: Authentication
+    url: https://cloud.google.com/dialogflow/es/docs/access-control
+  - type: Console
+    url: https://dialogflow.cloud.google.com/
+  - type: Webhooks
+    url: https://cloud.google.com/dialogflow/es/docs/fulfillment-webhook
+- aid: google-dialogflow:google-dialogflow-statelesssuggestion-api
+  name: Google Dialogflow Stateless Suggestion API
+  description: >-
+    The statelessSuggestion API from Google Dialogflow — 1 operation(s) for statelesssuggestion.
+  humanURL: https://cloud.google.com/dialogflow/cx/docs
+  baseURL: https://dialogflow.googleapis.com
+  tags:
+  - statelessSuggestion
+  properties:
+  - type: OpenAPI
+    url: openapi/google-dialogflow-statelesssuggestion-api-openapi.yml
+  - type: Discovery
+    url: discovery/google-dialogflow-v3.json
+  - type: Discovery
+    url: discovery/google-dialogflow-v3beta1.json
+  - type: Protobuf
+    url: grpc/cx-v3/session.proto
+  - type: Protobuf
+    url: grpc/cx-v3/agent.proto
+  - type: Protobuf
+    url: grpc/cx-v3/webhook.proto
+  - type: Protobuf
+    url: grpc/cx-v3/tool.proto
+  - type: Documentation
+    url: https://cloud.google.com/dialogflow/cx/docs
+  - type: APIReference
+    url: https://cloud.google.com/dialogflow/cx/docs/reference/rest
+  - type: GettingStarted
+    url: https://cloud.google.com/dialogflow/cx/docs/quick/setup
+  - type: Quickstart
+    url: https://cloud.google.com/dialogflow/cx/docs/quick/build-agent
+  - type: Authentication
+    url: https://cloud.google.com/dialogflow/cx/docs/concept/access-control
+  - type: Pricing
+    url: https://cloud.google.com/dialogflow/pricing
+  - type: Console
+    url: https://dialogflow.cloud.google.com/cx
+  - type: Webhooks
+    url: https://cloud.google.com/dialogflow/cx/docs/concept/webhook
+  - type: Discovery
+    url: discovery/google-dialogflow-v2.json
+  - type: Discovery
+    url: discovery/google-dialogflow-v2beta1.json
+  - type: Protobuf
+    url: grpc/v2/session.proto
+  - type: Protobuf
+    url: grpc/v2/agent.proto
+  - type: Protobuf
+    url: grpc/v2/intent.proto
+  - type: Protobuf
+    url: grpc/v2/webhook.proto
+  - type: Documentation
+    url: https://cloud.google.com/dialogflow/es/docs
+  - type: APIReference
+    url: https://cloud.google.com/dialogflow/es/docs/reference/rest/v2-overview
+  - type: GettingStarted
+    url: https://cloud.google.com/dialogflow/es/docs/quick/setup
+  - type: Quickstart
+    url: https://cloud.google.com/dialogflow/es/docs/quick/build-agent
+  - type: Authentication
+    url: https://cloud.google.com/dialogflow/es/docs/access-control
+  - type: Console
+    url: https://dialogflow.cloud.google.com/
+  - type: Webhooks
+    url: https://cloud.google.com/dialogflow/es/docs/fulfillment-webhook
+- aid: google-dialogflow:google-dialogflow-suggestions-api
+  name: Google Dialogflow Suggestions API
+  description: The suggestions API from Google Dialogflow — 18 operation(s) for suggestions.
+  humanURL: https://cloud.google.com/dialogflow/cx/docs
+  baseURL: https://dialogflow.googleapis.com
+  tags:
+  - suggestions
+  properties:
+  - type: OpenAPI
+    url: openapi/google-dialogflow-suggestions-api-openapi.yml
+  - type: Discovery
+    url: discovery/google-dialogflow-v3.json
+  - type: Discovery
+    url: discovery/google-dialogflow-v3beta1.json
+  - type: Protobuf
+    url: grpc/cx-v3/session.proto
+  - type: Protobuf
+    url: grpc/cx-v3/agent.proto
+  - type: Protobuf
+    url: grpc/cx-v3/webhook.proto
+  - type: Protobuf
+    url: grpc/cx-v3/tool.proto
+  - type: Documentation
+    url: https://cloud.google.com/dialogflow/cx/docs
+  - type: APIReference
+    url: https://cloud.google.com/dialogflow/cx/docs/reference/rest
+  - type: GettingStarted
+    url: https://cloud.google.com/dialogflow/cx/docs/quick/setup
+  - type: Quickstart
+    url: https://cloud.google.com/dialogflow/cx/docs/quick/build-agent
+  - type: Authentication
+    url: https://cloud.google.com/dialogflow/cx/docs/concept/access-control
+  - type: Pricing
+    url: https://cloud.google.com/dialogflow/pricing
+  - type: Console
+    url: https://dialogflow.cloud.google.com/cx
+  - type: Webhooks
+    url: https://cloud.google.com/dialogflow/cx/docs/concept/webhook
+  - type: Discovery
+    url: discovery/google-dialogflow-v2.json
+  - type: Discovery
+    url: discovery/google-dialogflow-v2beta1.json
+  - type: Protobuf
+    url: grpc/v2/session.proto
+  - type: Protobuf
+    url: grpc/v2/agent.proto
+  - type: Protobuf
+    url: grpc/v2/intent.proto
+  - type: Protobuf
+    url: grpc/v2/webhook.proto
+  - type: Documentation
+    url: https://cloud.google.com/dialogflow/es/docs
+  - type: APIReference
+    url: https://cloud.google.com/dialogflow/es/docs/reference/rest/v2-overview
+  - type: GettingStarted
+    url: https://cloud.google.com/dialogflow/es/docs/quick/setup
+  - type: Quickstart
+    url: https://cloud.google.com/dialogflow/es/docs/quick/build-agent
+  - type: Authentication
+    url: https://cloud.google.com/dialogflow/es/docs/access-control
+  - type: Console
+    url: https://dialogflow.cloud.google.com/
+  - type: Webhooks
+    url: https://cloud.google.com/dialogflow/es/docs/fulfillment-webhook
+- aid: google-dialogflow:google-dialogflow-testcases-api
+  name: Google Dialogflow Test Cases API
+  description: The testCases API from Google Dialogflow — 8 operation(s) for testcases.
+  humanURL: https://cloud.google.com/dialogflow/cx/docs
+  baseURL: https://dialogflow.googleapis.com
+  tags:
+  - testCases
+  properties:
+  - type: OpenAPI
+    url: openapi/google-dialogflow-testcases-api-openapi.yml
+  - type: Discovery
+    url: discovery/google-dialogflow-v3.json
+  - type: Discovery
+    url: discovery/google-dialogflow-v3beta1.json
+  - type: Protobuf
+    url: grpc/cx-v3/session.proto
+  - type: Protobuf
+    url: grpc/cx-v3/agent.proto
+  - type: Protobuf
+    url: grpc/cx-v3/webhook.proto
+  - type: Protobuf
+    url: grpc/cx-v3/tool.proto
+  - type: Documentation
+    url: https://cloud.google.com/dialogflow/cx/docs
+  - type: APIReference
+    url: https://cloud.google.com/dialogflow/cx/docs/reference/rest
+  - type: GettingStarted
+    url: https://cloud.google.com/dialogflow/cx/docs/quick/setup
+  - type: Quickstart
+    url: https://cloud.google.com/dialogflow/cx/docs/quick/build-agent
+  - type: Authentication
+    url: https://cloud.google.com/dialogflow/cx/docs/concept/access-control
+  - type: Pricing
+    url: https://cloud.google.com/dialogflow/pricing
+  - type: Console
+    url: https://dialogflow.cloud.google.com/cx
+  - type: Webhooks
+    url: https://cloud.google.com/dialogflow/cx/docs/concept/webhook
+  - type: Discovery
+    url: discovery/google-dialogflow-v2.json
+  - type: Discovery
+    url: discovery/google-dialogflow-v2beta1.json
+  - type: Protobuf
+    url: grpc/v2/session.proto
+  - type: Protobuf
+    url: grpc/v2/agent.proto
+  - type: Protobuf
+    url: grpc/v2/intent.proto
+  - type: Protobuf
+    url: grpc/v2/webhook.proto
+  - type: Documentation
+    url: https://cloud.google.com/dialogflow/es/docs
+  - type: APIReference
+    url: https://cloud.google.com/dialogflow/es/docs/reference/rest/v2-overview
+  - type: GettingStarted
+    url: https://cloud.google.com/dialogflow/es/docs/quick/setup
+  - type: Quickstart
+    url: https://cloud.google.com/dialogflow/es/docs/quick/build-agent
+  - type: Authentication
+    url: https://cloud.google.com/dialogflow/es/docs/access-control
+  - type: Console
+    url: https://dialogflow.cloud.google.com/
+  - type: Webhooks
+    url: https://cloud.google.com/dialogflow/es/docs/fulfillment-webhook
+- aid: google-dialogflow:google-dialogflow-tools-api
+  name: Google Dialogflow Tools API
+  description: The tools API from Google Dialogflow — 4 operation(s) for tools.
+  humanURL: https://cloud.google.com/dialogflow/cx/docs
+  baseURL: https://dialogflow.googleapis.com
+  tags:
+  - tools
+  properties:
+  - type: OpenAPI
+    url: openapi/google-dialogflow-tools-api-openapi.yml
+  - type: Discovery
+    url: discovery/google-dialogflow-v3.json
+  - type: Discovery
+    url: discovery/google-dialogflow-v3beta1.json
+  - type: Protobuf
+    url: grpc/cx-v3/session.proto
+  - type: Protobuf
+    url: grpc/cx-v3/agent.proto
+  - type: Protobuf
+    url: grpc/cx-v3/webhook.proto
+  - type: Protobuf
+    url: grpc/cx-v3/tool.proto
+  - type: Documentation
+    url: https://cloud.google.com/dialogflow/cx/docs
+  - type: APIReference
+    url: https://cloud.google.com/dialogflow/cx/docs/reference/rest
+  - type: GettingStarted
+    url: https://cloud.google.com/dialogflow/cx/docs/quick/setup
+  - type: Quickstart
+    url: https://cloud.google.com/dialogflow/cx/docs/quick/build-agent
+  - type: Authentication
+    url: https://cloud.google.com/dialogflow/cx/docs/concept/access-control
+  - type: Pricing
+    url: https://cloud.google.com/dialogflow/pricing
+  - type: Console
+    url: https://dialogflow.cloud.google.com/cx
+  - type: Webhooks
+    url: https://cloud.google.com/dialogflow/cx/docs/concept/webhook
+  - type: Discovery
+    url: discovery/google-dialogflow-v2.json
+  - type: Discovery
+    url: discovery/google-dialogflow-v2beta1.json
+  - type: Protobuf
+    url: grpc/v2/session.proto
+  - type: Protobuf
+    url: grpc/v2/agent.proto
+  - type: Protobuf
+    url: grpc/v2/intent.proto
+  - type: Protobuf
+    url: grpc/v2/webhook.proto
+  - type: Documentation
+    url: https://cloud.google.com/dialogflow/es/docs
+  - type: APIReference
+    url: https://cloud.google.com/dialogflow/es/docs/reference/rest/v2-overview
+  - type: GettingStarted
+    url: https://cloud.google.com/dialogflow/es/docs/quick/setup
+  - type: Quickstart
+    url: https://cloud.google.com/dialogflow/es/docs/quick/build-agent
+  - type: Authentication
+    url: https://cloud.google.com/dialogflow/es/docs/access-control
+  - type: Console
+    url: https://dialogflow.cloud.google.com/
+  - type: Webhooks
+    url: https://cloud.google.com/dialogflow/es/docs/fulfillment-webhook
+- aid: google-dialogflow:google-dialogflow-transitionroutegroups-api
+  name: Google Dialogflow Transition Route Groups API
+  description: >-
+    The transitionRouteGroups API from Google Dialogflow — 4 operation(s) for transitionroutegroups.
+  humanURL: https://cloud.google.com/dialogflow/cx/docs
+  baseURL: https://dialogflow.googleapis.com
+  tags:
+  - transitionRouteGroups
+  properties:
+  - type: OpenAPI
+    url: openapi/google-dialogflow-transitionroutegroups-api-openapi.yml
+  - type: Discovery
+    url: discovery/google-dialogflow-v3.json
+  - type: Discovery
+    url: discovery/google-dialogflow-v3beta1.json
+  - type: Protobuf
+    url: grpc/cx-v3/session.proto
+  - type: Protobuf
+    url: grpc/cx-v3/agent.proto
+  - type: Protobuf
+    url: grpc/cx-v3/webhook.proto
+  - type: Protobuf
+    url: grpc/cx-v3/tool.proto
+  - type: Documentation
+    url: https://cloud.google.com/dialogflow/cx/docs
+  - type: APIReference
+    url: https://cloud.google.com/dialogflow/cx/docs/reference/rest
+  - type: GettingStarted
+    url: https://cloud.google.com/dialogflow/cx/docs/quick/setup
+  - type: Quickstart
+    url: https://cloud.google.com/dialogflow/cx/docs/quick/build-agent
+  - type: Authentication
+    url: https://cloud.google.com/dialogflow/cx/docs/concept/access-control
+  - type: Pricing
+    url: https://cloud.google.com/dialogflow/pricing
+  - type: Console
+    url: https://dialogflow.cloud.google.com/cx
+  - type: Webhooks
+    url: https://cloud.google.com/dialogflow/cx/docs/concept/webhook
+  - type: Discovery
+    url: discovery/google-dialogflow-v2.json
+  - type: Discovery
+    url: discovery/google-dialogflow-v2beta1.json
+  - type: Protobuf
+    url: grpc/v2/session.proto
+  - type: Protobuf
+    url: grpc/v2/agent.proto
+  - type: Protobuf
+    url: grpc/v2/intent.proto
+  - type: Protobuf
+    url: grpc/v2/webhook.proto
+  - type: Documentation
+    url: https://cloud.google.com/dialogflow/es/docs
+  - type: APIReference
+    url: https://cloud.google.com/dialogflow/es/docs/reference/rest/v2-overview
+  - type: GettingStarted
+    url: https://cloud.google.com/dialogflow/es/docs/quick/setup
+  - type: Quickstart
+    url: https://cloud.google.com/dialogflow/es/docs/quick/build-agent
+  - type: Authentication
+    url: https://cloud.google.com/dialogflow/es/docs/access-control
+  - type: Console
+    url: https://dialogflow.cloud.google.com/
+  - type: Webhooks
+    url: https://cloud.google.com/dialogflow/es/docs/fulfillment-webhook
+- aid: google-dialogflow:google-dialogflow-versions-api
+  name: Google Dialogflow Versions API
+  description: The versions API from Google Dialogflow — 14 operation(s) for versions.
+  humanURL: https://cloud.google.com/dialogflow/cx/docs
+  baseURL: https://dialogflow.googleapis.com
+  tags:
+  - versions
+  properties:
+  - type: OpenAPI
+    url: openapi/google-dialogflow-versions-api-openapi.yml
+  - type: Discovery
+    url: discovery/google-dialogflow-v3.json
+  - type: Discovery
+    url: discovery/google-dialogflow-v3beta1.json
+  - type: Protobuf
+    url: grpc/cx-v3/session.proto
+  - type: Protobuf
+    url: grpc/cx-v3/agent.proto
+  - type: Protobuf
+    url: grpc/cx-v3/webhook.proto
+  - type: Protobuf
+    url: grpc/cx-v3/tool.proto
+  - type: Documentation
+    url: https://cloud.google.com/dialogflow/cx/docs
+  - type: APIReference
+    url: https://cloud.google.com/dialogflow/cx/docs/reference/rest
+  - type: GettingStarted
+    url: https://cloud.google.com/dialogflow/cx/docs/quick/setup
+  - type: Quickstart
+    url: https://cloud.google.com/dialogflow/cx/docs/quick/build-agent
+  - type: Authentication
+    url: https://cloud.google.com/dialogflow/cx/docs/concept/access-control
+  - type: Pricing
+    url: https://cloud.google.com/dialogflow/pricing
+  - type: Console
+    url: https://dialogflow.cloud.google.com/cx
+  - type: Webhooks
+    url: https://cloud.google.com/dialogflow/cx/docs/concept/webhook
+  - type: Discovery
+    url: discovery/google-dialogflow-v2.json
+  - type: Discovery
+    url: discovery/google-dialogflow-v2beta1.json
+  - type: Protobuf
+    url: grpc/v2/session.proto
+  - type: Protobuf
+    url: grpc/v2/agent.proto
+  - type: Protobuf
+    url: grpc/v2/intent.proto
+  - type: Protobuf
+    url: grpc/v2/webhook.proto
+  - type: Documentation
+    url: https://cloud.google.com/dialogflow/es/docs
+  - type: APIReference
+    url: https://cloud.google.com/dialogflow/es/docs/reference/rest/v2-overview
+  - type: GettingStarted
+    url: https://cloud.google.com/dialogflow/es/docs/quick/setup
+  - type: Quickstart
+    url: https://cloud.google.com/dialogflow/es/docs/quick/build-agent
+  - type: Authentication
+    url: https://cloud.google.com/dialogflow/es/docs/access-control
+  - type: Console
+    url: https://dialogflow.cloud.google.com/
+  - type: Webhooks
+    url: https://cloud.google.com/dialogflow/es/docs/fulfillment-webhook
+- aid: google-dialogflow:google-dialogflow-webhooks-api
+  name: Google Dialogflow Webhooks API
+  description: The webhooks API from Google Dialogflow — 2 operation(s) for webhooks.
+  humanURL: https://cloud.google.com/dialogflow/cx/docs
+  baseURL: https://dialogflow.googleapis.com
+  tags:
+  - webhooks
+  properties:
+  - type: OpenAPI
+    url: openapi/google-dialogflow-webhooks-api-openapi.yml
+  - type: Discovery
+    url: discovery/google-dialogflow-v3.json
+  - type: Discovery
+    url: discovery/google-dialogflow-v3beta1.json
+  - type: Protobuf
+    url: grpc/cx-v3/session.proto
+  - type: Protobuf
+    url: grpc/cx-v3/agent.proto
+  - type: Protobuf
+    url: grpc/cx-v3/webhook.proto
+  - type: Protobuf
+    url: grpc/cx-v3/tool.proto
+  - type: Documentation
+    url: https://cloud.google.com/dialogflow/cx/docs
+  - type: APIReference
+    url: https://cloud.google.com/dialogflow/cx/docs/reference/rest
+  - type: GettingStarted
+    url: https://cloud.google.com/dialogflow/cx/docs/quick/setup
+  - type: Quickstart
+    url: https://cloud.google.com/dialogflow/cx/docs/quick/build-agent
+  - type: Authentication
+    url: https://cloud.google.com/dialogflow/cx/docs/concept/access-control
+  - type: Pricing
+    url: https://cloud.google.com/dialogflow/pricing
+  - type: Console
+    url: https://dialogflow.cloud.google.com/cx
+  - type: Webhooks
+    url: https://cloud.google.com/dialogflow/cx/docs/concept/webhook
+  - type: Discovery
+    url: discovery/google-dialogflow-v2.json
+  - type: Discovery
+    url: discovery/google-dialogflow-v2beta1.json
+  - type: Protobuf
+    url: grpc/v2/session.proto
+  - type: Protobuf
+    url: grpc/v2/agent.proto
+  - type: Protobuf
+    url: grpc/v2/intent.proto
+  - type: Protobuf
+    url: grpc/v2/webhook.proto
+  - type: Documentation
+    url: https://cloud.google.com/dialogflow/es/docs
+  - type: APIReference
+    url: https://cloud.google.com/dialogflow/es/docs/reference/rest/v2-overview
+  - type: GettingStarted
+    url: https://cloud.google.com/dialogflow/es/docs/quick/setup
+  - type: Quickstart
+    url: https://cloud.google.com/dialogflow/es/docs/quick/build-agent
+  - type: Authentication
+    url: https://cloud.google.com/dialogflow/es/docs/access-control
+  - type: Console
+    url: https://dialogflow.cloud.google.com/
+  - type: Webhooks
+    url: https://cloud.google.com/dialogflow/es/docs/fulfillment-webhook
 common:
+- type: Overlay
+  url: overlays/google-dialogflow-cx-v3-overlay.yaml
+- type: Overlay
+  url: overlays/google-dialogflow-es-v2-overlay.yaml
 - type: PublicAPIsListing
   url: https://github.com/public-apis/public-apis
 - type: Website

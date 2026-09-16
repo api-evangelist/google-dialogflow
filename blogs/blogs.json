@@ -2,12 +2,15 @@
   "repo": "google-dialogflow",
   "feeds": [
     {
-      "source": "https://cloud.google.com/dialogflow/docs/authentication",
-      "error": "HTTPError"
+      "source": "https://cloud.google.com/dialogflow/docs/support",
+      "feed_url": "https://cloud.google.com/dialogflow/docs/support",
+      "title": "",
+      "saved": 0,
+      "method": "none"
     }
   ],
   "post_count": 4,
-  "fetched": "2026-09-06T19:17:18Z",
+  "fetched": "2026-09-13T13:00:00Z",
   "agent_pulled": "2026-06-27",
   "feed_nature": "vendor-blog",
   "feed_nature_basis": "path_blog",
