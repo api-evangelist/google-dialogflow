@@ -44,7 +44,7 @@ tags:
 - Natural Language Processing
 - Speech Recognition
 - Virtual Agents
-- Voice Assistants
+- Voice Assistant
 tags_raw:
 - Agents
 - Artificial Intelligence
@@ -74,6 +74,8 @@ apis:
   humanURL: https://cloud.google.com/dialogflow/cx/docs
   baseURL: https://dialogflow.googleapis.com
   tags:
+  - Agents
+  tags_raw:
   - agent
   properties:
   - type: OpenAPI
@@ -138,6 +140,8 @@ apis:
   humanURL: https://cloud.google.com/dialogflow/cx/docs
   baseURL: https://dialogflow.googleapis.com
   tags:
+  - Agents
+  tags_raw:
   - agents
   properties:
   - type: OpenAPI
@@ -201,7 +205,8 @@ apis:
   description: The answerRecords API from Google Dialogflow — 4 operation(s) for answerrecords.
   humanURL: https://cloud.google.com/dialogflow/cx/docs
   baseURL: https://dialogflow.googleapis.com
-  tags:
+  tags: []
+  tags_raw:
   - answerRecords
   properties:
   - type: OpenAPI
@@ -266,6 +271,8 @@ apis:
   humanURL: https://cloud.google.com/dialogflow/cx/docs
   baseURL: https://dialogflow.googleapis.com
   tags:
+  - Changelog
+  tags_raw:
   - changelogs
   properties:
   - type: OpenAPI
@@ -330,6 +337,8 @@ apis:
   humanURL: https://cloud.google.com/dialogflow/cx/docs
   baseURL: https://dialogflow.googleapis.com
   tags:
+  - Context
+  tags_raw:
   - contexts
   properties:
   - type: OpenAPI
@@ -394,7 +403,8 @@ apis:
     The continuousTestResults API from Google Dialogflow — 1 operation(s) for continuoustestresults.
   humanURL: https://cloud.google.com/dialogflow/cx/docs
   baseURL: https://dialogflow.googleapis.com
-  tags:
+  tags: []
+  tags_raw:
   - continuousTestResults
   properties:
   - type: OpenAPI
@@ -459,7 +469,8 @@ apis:
     The conversationDatasets API from Google Dialogflow — 6 operation(s) for conversationdatasets.
   humanURL: https://cloud.google.com/dialogflow/cx/docs
   baseURL: https://dialogflow.googleapis.com
-  tags:
+  tags: []
+  tags_raw:
   - conversationDatasets
   properties:
   - type: OpenAPI
@@ -524,7 +535,8 @@ apis:
     The conversationModels API from Google Dialogflow — 8 operation(s) for conversationmodels.
   humanURL: https://cloud.google.com/dialogflow/cx/docs
   baseURL: https://dialogflow.googleapis.com
-  tags:
+  tags: []
+  tags_raw:
   - conversationModels
   properties:
   - type: OpenAPI
@@ -589,7 +601,8 @@ apis:
     The conversationProfiles API from Google Dialogflow — 8 operation(s) for conversationprofiles.
   humanURL: https://cloud.google.com/dialogflow/cx/docs
   baseURL: https://dialogflow.googleapis.com
-  tags:
+  tags: []
+  tags_raw:
   - conversationProfiles
   properties:
   - type: OpenAPI
@@ -654,6 +667,8 @@ apis:
   humanURL: https://cloud.google.com/dialogflow/cx/docs
   baseURL: https://dialogflow.googleapis.com
   tags:
+  - Conversations
+  tags_raw:
   - conversations
   properties:
   - type: OpenAPI
@@ -718,6 +733,8 @@ apis:
   humanURL: https://cloud.google.com/dialogflow/cx/docs
   baseURL: https://dialogflow.googleapis.com
   tags:
+  - Deployment
+  tags_raw:
   - deployments
   properties:
   - type: OpenAPI
@@ -782,6 +799,8 @@ apis:
   humanURL: https://cloud.google.com/dialogflow/cx/docs
   baseURL: https://dialogflow.googleapis.com
   tags:
+  - Documents
+  tags_raw:
   - documents
   properties:
   - type: OpenAPI
@@ -845,7 +864,8 @@ apis:
   description: The encryptionSpec API from Google Dialogflow — 1 operation(s) for encryptionspec.
   humanURL: https://cloud.google.com/dialogflow/cx/docs
   baseURL: https://dialogflow.googleapis.com
-  tags:
+  tags: []
+  tags_raw:
   - encryptionSpec
   properties:
   - type: OpenAPI
@@ -910,6 +930,8 @@ apis:
   humanURL: https://cloud.google.com/dialogflow/cx/docs
   baseURL: https://dialogflow.googleapis.com
   tags:
+  - Entities
+  tags_raw:
   - entities
   properties:
   - type: OpenAPI
@@ -974,6 +996,8 @@ apis:
   humanURL: https://cloud.google.com/dialogflow/cx/docs
   baseURL: https://dialogflow.googleapis.com
   tags:
+  - Environment
+  tags_raw:
   - environments
   properties:
   - type: OpenAPI
@@ -1038,6 +1062,8 @@ apis:
   humanURL: https://cloud.google.com/dialogflow/cx/docs
   baseURL: https://dialogflow.googleapis.com
   tags:
+  - Evaluation
+  tags_raw:
   - evaluations
   properties:
   - type: OpenAPI
@@ -1102,6 +1128,8 @@ apis:
   humanURL: https://cloud.google.com/dialogflow/cx/docs
   baseURL: https://dialogflow.googleapis.com
   tags:
+  - Example
+  tags_raw:
   - examples
   properties:
   - type: OpenAPI
@@ -1166,6 +1194,8 @@ apis:
   humanURL: https://cloud.google.com/dialogflow/cx/docs
   baseURL: https://dialogflow.googleapis.com
   tags:
+  - Experiments
+  tags_raw:
   - experiments
   properties:
   - type: OpenAPI
@@ -1230,6 +1260,8 @@ apis:
   humanURL: https://cloud.google.com/dialogflow/cx/docs
   baseURL: https://dialogflow.googleapis.com
   tags:
+  - Flow
+  tags_raw:
   - flows
   properties:
   - type: OpenAPI
@@ -1294,6 +1326,8 @@ apis:
   humanURL: https://cloud.google.com/dialogflow/cx/docs
   baseURL: https://dialogflow.googleapis.com
   tags:
+  - Generators
+  tags_raw:
   - generators
   properties:
   - type: OpenAPI
@@ -1358,6 +1392,8 @@ apis:
   humanURL: https://cloud.google.com/dialogflow/cx/docs
   baseURL: https://dialogflow.googleapis.com
   tags:
+  - Intents
+  tags_raw:
   - intents
   properties:
   - type: OpenAPI
@@ -1422,6 +1458,8 @@ apis:
   humanURL: https://cloud.google.com/dialogflow/cx/docs
   baseURL: https://dialogflow.googleapis.com
   tags:
+  - Location
+  tags_raw:
   - locations
   properties:
   - type: OpenAPI
@@ -1486,6 +1524,8 @@ apis:
   humanURL: https://cloud.google.com/dialogflow/cx/docs
   baseURL: https://dialogflow.googleapis.com
   tags:
+  - Message
+  tags_raw:
   - messages
   properties:
   - type: OpenAPI
@@ -1549,7 +1589,8 @@ apis:
   description: The operations API from Google Dialogflow — 12 operation(s) for operations.
   humanURL: https://cloud.google.com/dialogflow/cx/docs
   baseURL: https://dialogflow.googleapis.com
-  tags:
+  tags: []
+  tags_raw:
   - operations
   properties:
   - type: OpenAPI
@@ -1614,6 +1655,8 @@ apis:
   humanURL: https://cloud.google.com/dialogflow/cx/docs
   baseURL: https://dialogflow.googleapis.com
   tags:
+  - Pages
+  tags_raw:
   - pages
   properties:
   - type: OpenAPI
@@ -1678,6 +1721,8 @@ apis:
   humanURL: https://cloud.google.com/dialogflow/cx/docs
   baseURL: https://dialogflow.googleapis.com
   tags:
+  - Participants
+  tags_raw:
   - participants
   properties:
   - type: OpenAPI
@@ -1742,6 +1787,8 @@ apis:
   humanURL: https://cloud.google.com/dialogflow/cx/docs
   baseURL: https://dialogflow.googleapis.com
   tags:
+  - Playbooks
+  tags_raw:
   - playbooks
   properties:
   - type: OpenAPI
@@ -1806,6 +1853,8 @@ apis:
   humanURL: https://cloud.google.com/dialogflow/cx/docs
   baseURL: https://dialogflow.googleapis.com
   tags:
+  - Project
+  tags_raw:
   - projects
   properties:
   - type: OpenAPI
@@ -1870,6 +1919,8 @@ apis:
   humanURL: https://cloud.google.com/dialogflow/cx/docs
   baseURL: https://dialogflow.googleapis.com
   tags:
+  - Results
+  tags_raw:
   - results
   properties:
   - type: OpenAPI
@@ -1934,6 +1985,8 @@ apis:
   humanURL: https://cloud.google.com/dialogflow/cx/docs
   baseURL: https://dialogflow.googleapis.com
   tags:
+  - Sessions
+  tags_raw:
   - sessions
   properties:
   - type: OpenAPI
@@ -1998,7 +2051,8 @@ apis:
     The statelessSuggestion API from Google Dialogflow — 1 operation(s) for statelesssuggestion.
   humanURL: https://cloud.google.com/dialogflow/cx/docs
   baseURL: https://dialogflow.googleapis.com
-  tags:
+  tags: []
+  tags_raw:
   - statelessSuggestion
   properties:
   - type: OpenAPI
@@ -2063,6 +2117,8 @@ apis:
   humanURL: https://cloud.google.com/dialogflow/cx/docs
   baseURL: https://dialogflow.googleapis.com
   tags:
+  - Suggestions
+  tags_raw:
   - suggestions
   properties:
   - type: OpenAPI
@@ -2127,6 +2183,8 @@ apis:
   humanURL: https://cloud.google.com/dialogflow/cx/docs
   baseURL: https://dialogflow.googleapis.com
   tags:
+  - Tools
+  tags_raw:
   - tools
   properties:
   - type: OpenAPI
@@ -2191,7 +2249,8 @@ apis:
     The transitionRouteGroups API from Google Dialogflow — 4 operation(s) for transitionroutegroups.
   humanURL: https://cloud.google.com/dialogflow/cx/docs
   baseURL: https://dialogflow.googleapis.com
-  tags:
+  tags: []
+  tags_raw:
   - transitionRouteGroups
   properties:
   - type: OpenAPI
@@ -2256,6 +2315,8 @@ apis:
   humanURL: https://cloud.google.com/dialogflow/cx/docs
   baseURL: https://dialogflow.googleapis.com
   tags:
+  - Versions
+  tags_raw:
   - versions
   properties:
   - type: OpenAPI
@@ -2320,6 +2381,8 @@ apis:
   humanURL: https://cloud.google.com/dialogflow/cx/docs
   baseURL: https://dialogflow.googleapis.com
   tags:
+  - Webhook
+  tags_raw:
   - webhooks
   properties:
   - type: OpenAPI
