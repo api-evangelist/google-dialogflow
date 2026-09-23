@@ -1,0 +1,1612 @@
+openapi: 3.2.0
+info:
+  title: Dialogflow CX API (v3) - Conversational Agents Test Cases…
+  version: v3
+  description: Dialogflow CX (Conversational Agents) builds flow- and playbook-based agents with pages, routes, webhooks, tools, test cases, environments, experiments and data stores. This OpenAPI is a mechanical conversion of the first-party Google Discovery Document served by dialogflow.googleapis.com.
+  contact:
+    name: Google Cloud
+    url: https://cloud.google.com/dialogflow/
+  termsOfService: https://cloud.google.com/terms
+  license:
+    name: Google APIs Terms of Service
+    url: https://developers.google.com/terms
+  x-discovery-source: https://dialogflow.googleapis.com/$discovery/rest?version=v3
+  x-discovery-revision: '20260825'
+  x-discovery-id: dialogflow:v3
+servers:
+- url: https://dialogflow.googleapis.com
+  description: Dialogflow API
+security:
+- OAuth2:
+  - https://www.googleapis.com/auth/cloud-platform
+  - https://www.googleapis.com/auth/dialogflow
+- BearerAuth: []
+tags:
+- name: Test Cases
+paths:
+  /v3/projects/{projectsId}/locations/{locationsId}/agents/{agentsId}/testCases:import:
+    post:
+      operationId: dialogflow_projects_locations_agents_testCases_import
+      tags:
+      - Test Cases
+      parameters:
+      - name: projectsId
+        in: path
+        description: 'Part of `parent`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: locationsId
+        in: path
+        description: 'Part of `parent`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: agentsId
+        in: path
+        description: 'Part of `parent`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      x-discovery-path-template: v3/{parent}/testCases:import
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GoogleCloudDialogflowCxV3ImportTestCasesRequest'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleLongrunningOperation'
+        default:
+          description: Error response (google.rpc.Status)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleRpcStatus'
+      security:
+      - OAuth2:
+        - https://www.googleapis.com/auth/cloud-platform
+        - https://www.googleapis.com/auth/dialogflow
+      - BearerAuth: []
+      summary: Dialogflow projects locations agents test cases import
+      x-summary-source: derived
+  /v3/projects/{projectsId}/locations/{locationsId}/agents/{agentsId}/testCases/{testCasesId}:
+    patch:
+      operationId: dialogflow_projects_locations_agents_testCases_patch
+      tags:
+      - Test Cases
+      parameters:
+      - name: projectsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+/testCases/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: locationsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+/testCases/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: agentsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+/testCases/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: testCasesId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+/testCases/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: updateMask
+        in: query
+        schema:
+          type: string
+      x-discovery-path-template: v3/{name}
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GoogleCloudDialogflowCxV3TestCase'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleCloudDialogflowCxV3TestCase'
+        default:
+          description: Error response (google.rpc.Status)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleRpcStatus'
+      security:
+      - OAuth2:
+        - https://www.googleapis.com/auth/cloud-platform
+        - https://www.googleapis.com/auth/dialogflow
+      - BearerAuth: []
+      summary: Dialogflow projects locations agents test cases patch
+      x-summary-source: derived
+    get:
+      operationId: dialogflow_projects_locations_agents_testCases_get
+      tags:
+      - Test Cases
+      parameters:
+      - name: projectsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+/testCases/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: locationsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+/testCases/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: agentsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+/testCases/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: testCasesId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+/testCases/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      x-discovery-path-template: v3/{name}
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleCloudDialogflowCxV3TestCase'
+        default:
+          description: Error response (google.rpc.Status)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleRpcStatus'
+      security:
+      - OAuth2:
+        - https://www.googleapis.com/auth/cloud-platform
+        - https://www.googleapis.com/auth/dialogflow
+      - BearerAuth: []
+      summary: Dialogflow projects locations agents test cases get
+      x-summary-source: derived
+  /v3/projects/{projectsId}/locations/{locationsId}/agents/{agentsId}/testCases/{testCasesId}:run:
+    post:
+      operationId: dialogflow_projects_locations_agents_testCases_run
+      tags:
+      - Test Cases
+      parameters:
+      - name: projectsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+/testCases/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: locationsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+/testCases/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: agentsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+/testCases/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: testCasesId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+/testCases/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      x-discovery-path-template: v3/{name}:run
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GoogleCloudDialogflowCxV3RunTestCaseRequest'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleLongrunningOperation'
+        default:
+          description: Error response (google.rpc.Status)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleRpcStatus'
+      security:
+      - OAuth2:
+        - https://www.googleapis.com/auth/cloud-platform
+        - https://www.googleapis.com/auth/dialogflow
+      - BearerAuth: []
+      summary: Dialogflow projects locations agents test cases run
+      x-summary-source: derived
+  /v3/projects/{projectsId}/locations/{locationsId}/agents/{agentsId}/testCases:
+    get:
+      operationId: dialogflow_projects_locations_agents_testCases_list
+      tags:
+      - Test Cases
+      parameters:
+      - name: projectsId
+        in: path
+        description: 'Part of `parent`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: locationsId
+        in: path
+        description: 'Part of `parent`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: agentsId
+        in: path
+        description: 'Part of `parent`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: pageToken
+        in: query
+        schema:
+          type: string
+      - name: view
+        in: query
+        schema:
+          type: string
+          enum:
+          - TEST_CASE_VIEW_UNSPECIFIED
+          - BASIC
+          - FULL
+          x-enumDescriptions:
+          - ''
+          - ''
+          - ''
+      - name: pageSize
+        in: query
+        schema:
+          type: integer
+          format: int32
+      x-discovery-path-template: v3/{parent}/testCases
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleCloudDialogflowCxV3ListTestCasesResponse'
+        default:
+          description: Error response (google.rpc.Status)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleRpcStatus'
+      security:
+      - OAuth2:
+        - https://www.googleapis.com/auth/cloud-platform
+        - https://www.googleapis.com/auth/dialogflow
+      - BearerAuth: []
+      summary: Dialogflow projects locations agents test cases list
+      x-summary-source: derived
+    post:
+      operationId: dialogflow_projects_locations_agents_testCases_create
+      tags:
+      - Test Cases
+      parameters:
+      - name: projectsId
+        in: path
+        description: 'Part of `parent`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: locationsId
+        in: path
+        description: 'Part of `parent`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: agentsId
+        in: path
+        description: 'Part of `parent`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      x-discovery-path-template: v3/{parent}/testCases
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GoogleCloudDialogflowCxV3TestCase'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleCloudDialogflowCxV3TestCase'
+        default:
+          description: Error response (google.rpc.Status)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleRpcStatus'
+      security:
+      - OAuth2:
+        - https://www.googleapis.com/auth/cloud-platform
+        - https://www.googleapis.com/auth/dialogflow
+      - BearerAuth: []
+      summary: Dialogflow projects locations agents test cases create
+      x-summary-source: derived
+  /v3/projects/{projectsId}/locations/{locationsId}/agents/{agentsId}/testCases:calculateCoverage:
+    get:
+      operationId: dialogflow_projects_locations_agents_testCases_calculateCoverage
+      tags:
+      - Test Cases
+      parameters:
+      - name: projectsId
+        in: path
+        description: 'Part of `agent`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: locationsId
+        in: path
+        description: 'Part of `agent`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: agentsId
+        in: path
+        description: 'Part of `agent`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: type
+        in: query
+        schema:
+          type: string
+          enum:
+          - COVERAGE_TYPE_UNSPECIFIED
+          - INTENT
+          - PAGE_TRANSITION
+          - TRANSITION_ROUTE_GROUP
+          x-enumDescriptions:
+          - ''
+          - ''
+          - ''
+          - ''
+      x-discovery-path-template: v3/{agent}/testCases:calculateCoverage
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleCloudDialogflowCxV3CalculateCoverageResponse'
+        default:
+          description: Error response (google.rpc.Status)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleRpcStatus'
+      security:
+      - OAuth2:
+        - https://www.googleapis.com/auth/cloud-platform
+        - https://www.googleapis.com/auth/dialogflow
+      - BearerAuth: []
+      summary: Dialogflow projects locations agents test cases calculate coverage
+      x-summary-source: derived
+  /v3/projects/{projectsId}/locations/{locationsId}/agents/{agentsId}/testCases:batchRun:
+    post:
+      operationId: dialogflow_projects_locations_agents_testCases_batchRun
+      tags:
+      - Test Cases
+      parameters:
+      - name: projectsId
+        in: path
+        description: 'Part of `parent`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: locationsId
+        in: path
+        description: 'Part of `parent`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: agentsId
+        in: path
+        description: 'Part of `parent`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      x-discovery-path-template: v3/{parent}/testCases:batchRun
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GoogleCloudDialogflowCxV3BatchRunTestCasesRequest'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleLongrunningOperation'
+        default:
+          description: Error response (google.rpc.Status)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleRpcStatus'
+      security:
+      - OAuth2:
+        - https://www.googleapis.com/auth/cloud-platform
+        - https://www.googleapis.com/auth/dialogflow
+      - BearerAuth: []
+      summary: Dialogflow projects locations agents test cases batch run
+      x-summary-source: derived
+  /v3/projects/{projectsId}/locations/{locationsId}/agents/{agentsId}/testCases:batchDelete:
+    post:
+      operationId: dialogflow_projects_locations_agents_testCases_batchDelete
+      tags:
+      - Test Cases
+      parameters:
+      - name: projectsId
+        in: path
+        description: 'Part of `parent`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: locationsId
+        in: path
+        description: 'Part of `parent`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: agentsId
+        in: path
+        description: 'Part of `parent`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      x-discovery-path-template: v3/{parent}/testCases:batchDelete
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GoogleCloudDialogflowCxV3BatchDeleteTestCasesRequest'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleProtobufEmpty'
+        default:
+          description: Error response (google.rpc.Status)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleRpcStatus'
+      security:
+      - OAuth2:
+        - https://www.googleapis.com/auth/cloud-platform
+        - https://www.googleapis.com/auth/dialogflow
+      - BearerAuth: []
+      summary: Dialogflow projects locations agents test cases batch delete
+      x-summary-source: derived
+  /v3/projects/{projectsId}/locations/{locationsId}/agents/{agentsId}/testCases:export:
+    post:
+      operationId: dialogflow_projects_locations_agents_testCases_export
+      tags:
+      - Test Cases
+      parameters:
+      - name: projectsId
+        in: path
+        description: 'Part of `parent`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: locationsId
+        in: path
+        description: 'Part of `parent`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: agentsId
+        in: path
+        description: 'Part of `parent`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      x-discovery-path-template: v3/{parent}/testCases:export
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GoogleCloudDialogflowCxV3ExportTestCasesRequest'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleLongrunningOperation'
+        default:
+          description: Error response (google.rpc.Status)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleRpcStatus'
+      security:
+      - OAuth2:
+        - https://www.googleapis.com/auth/cloud-platform
+        - https://www.googleapis.com/auth/dialogflow
+      - BearerAuth: []
+      summary: Dialogflow projects locations agents test cases export
+      x-summary-source: derived
+components:
+  schemas:
+    GoogleCloudDialogflowCxV3EventInput:
+      type: object
+      properties:
+        event:
+          type: string
+    GoogleCloudDialogflowCxV3InputAudioConfig:
+      type: object
+      properties:
+        enableWordInfo:
+          type: boolean
+        optOutConformerModelMigration:
+          type: boolean
+        modelVariant:
+          type: string
+          enum:
+          - SPEECH_MODEL_VARIANT_UNSPECIFIED
+          - USE_BEST_AVAILABLE
+          - USE_STANDARD
+          - USE_ENHANCED
+          x-enumDescriptions:
+          - ''
+          - ''
+          - ''
+          - ''
+        sampleRateHertz:
+          type: integer
+          format: int32
+        model:
+          type: string
+        singleUtterance:
+          type: boolean
+        bargeInConfig:
+          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3BargeInConfig'
+        audioEncoding:
+          type: string
+          enum:
+          - AUDIO_ENCODING_UNSPECIFIED
+          - AUDIO_ENCODING_LINEAR_16
+          - AUDIO_ENCODING_FLAC
+          - AUDIO_ENCODING_MULAW
+          - AUDIO_ENCODING_AMR
+          - AUDIO_ENCODING_AMR_WB
+          - AUDIO_ENCODING_OGG_OPUS
+          - AUDIO_ENCODING_SPEEX_WITH_HEADER_BYTE
+          - AUDIO_ENCODING_ALAW
+          x-enumDescriptions:
+          - ''
+          - ''
+          - ''
+          - ''
+          - ''
+          - ''
+          - ''
+          - ''
+          - ''
+        phraseHints:
+          type: array
+          items:
+            type: string
+    GoogleCloudDialogflowCxV3InlineSchema:
+      type: object
+      properties:
+        type:
+          type: string
+          enum:
+          - DATA_TYPE_UNSPECIFIED
+          - STRING
+          - NUMBER
+          - BOOLEAN
+          - ARRAY
+          x-enumDescriptions:
+          - ''
+          - ''
+          - ''
+          - ''
+          - ''
+        items:
+          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3TypeSchema'
+    GoogleCloudDialogflowCxV3DtmfInput:
+      type: object
+      properties:
+        digits:
+          type: string
+        finishDigit:
+          type: string
+    GoogleCloudDialogflowCxV3FulfillmentConditionalCasesCaseCaseContent:
+      type: object
+      properties:
+        additionalCases:
+          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3FulfillmentConditionalCases'
+        message:
+          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3ResponseMessage'
+    GoogleCloudDialogflowCxV3AdvancedSettings:
+      type: object
+      properties:
+        speechSettings:
+          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3AdvancedSettingsSpeechSettings'
+        audioExportGcsDestination:
+          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3GcsDestination'
+        loggingSettings:
+          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3AdvancedSettingsLoggingSettings'
+        dtmfSettings:
+          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3AdvancedSettingsDtmfSettings'
+    GoogleCloudDialogflowCxV3CalculateCoverageResponse:
+      type: object
+      properties:
+        routeGroupCoverage:
+          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3TransitionRouteGroupCoverage'
+        intentCoverage:
+          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3IntentCoverage'
+        transitionCoverage:
+          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3TransitionCoverage'
+        agent:
+          type: string
+    GoogleCloudDialogflowCxV3TypeSchema:
+      type: object
+      properties:
+        inlineSchema:
+          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3InlineSchema'
+        schemaReference:
+          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3TypeSchemaSchemaReference'
+    GoogleCloudDialogflowCxV3ConversationTurn:
+      type: object
+      properties:
+        userInput:
+          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3ConversationTurnUserInput'
+        virtualAgentOutput:
+          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3ConversationTurnVirtualAgentOutput'
+    GoogleCloudDialogflowCxV3ToolCall:
+      type: object
+      properties:
+        inputParameters:
+          type: object
+          additionalProperties:
+            description: Properties of the object.
+        action:
+          type: string
+        tool:
+          type: string
+    GoogleCloudDialogflowCxV3ResponseMessageText:
+      type: object
+      properties:
+        allowPlaybackInterruption:
+          type: boolean
+          readOnly: true
+        text:
+          type: array
+          items:
+            type: string
+    GoogleCloudDialogflowCxV3RunTestCaseRequest:
+      type: object
+      properties:
+        environment:
+          type: string
+    GoogleCloudDialogflowCxV3AdvancedSettingsDtmfSettings:
+      type: object
+      properties:
+        enabled:
+          type: boolean
+        finishDigit:
+          type: string
+        interdigitTimeoutDuration:
+          type: string
+        maxDigits:
+          type: integer
+          format: int32
+        endpointingTimeoutDuration:
+          type: string
+    GoogleCloudDialogflowCxV3Intent:
+      type: object
+      properties:
+        trainingPhrases:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowCxV3IntentTrainingPhrase'
+        name:
+          type: string
+        parameters:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowCxV3IntentParameter'
+        description:
+          type: string
+        priority:
+          type: integer
+          format: int32
+        labels:
+          type: object
+          additionalProperties:
+            type: string
+        displayName:
+          type: string
+        dtmfPattern:
+          type: string
+        isFallback:
+          type: boolean
+    GoogleCloudDialogflowCxV3TransitionCoverageTransition:
+      type: object
+      properties:
+        transitionRoute:
+          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3TransitionRoute'
+        covered:
+          type: boolean
+        source:
+          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3TransitionCoverageTransitionNode'
+        index:
+          type: integer
+          format: int32
+        target:
+          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3TransitionCoverageTransitionNode'
+        eventHandler:
+          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3EventHandler'
+    GoogleCloudDialogflowCxV3ToolCallResult:
+      type: object
+      properties:
+        tool:
+          type: string
+        action:
+          type: string
+        error:
+          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3ToolCallResultError'
+        outputParameters:
+          type: object
+          additionalProperties:
+            description: Properties of the object.
+    GoogleCloudDialogflowCxV3NluSettings:
+      type: object
+      properties:
+        classificationThreshold:
+          type: number
+          format: float
+        modelTrainingMode:
+          type: string
+          enum:
+          - MODEL_TRAINING_MODE_UNSPECIFIED
+          - MODEL_TRAINING_MODE_AUTOMATIC
+          - MODEL_TRAINING_MODE_MANUAL
+          x-enumDescriptions:
+          - ''
+          - ''
+          - ''
+        modelType:
+          type: string
+          enum:
+          - MODEL_TYPE_UNSPECIFIED
+          - MODEL_TYPE_STANDARD
+          - MODEL_TYPE_ADVANCED
+          x-enumDescriptions:
+          - ''
+          - ''
+          - ''
+    GoogleCloudDialogflowCxV3FulfillmentGeneratorSettings:
+      type: object
+      properties:
+        generator:
+          type: string
+        outputParameter:
+          type: string
+        inputParameters:
+          type: object
+          additionalProperties:
+            type: string
+    GoogleCloudDialogflowCxV3ConversationTurnVirtualAgentOutput:
+      type: object
+      properties:
+        sessionParameters:
+          type: object
+          additionalProperties:
+            description: Properties of the object.
+        differences:
+          type: array
+          readOnly: true
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowCxV3TestRunDifference'
+        currentPage:
+          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3Page'
+        status:
+          $ref: '#/components/schemas/GoogleRpcStatus'
+        triggeredIntent:
+          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3Intent'
+        textResponses:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowCxV3ResponseMessageText'
+        diagnosticInfo:
+          type: object
+          additionalProperties:
+            description: Properties of the object.
+    GoogleCloudDialogflowCxV3GcsDestination:
+      type: object
+      properties:
+        uri:
+          type: string
+    GoogleCloudDialogflowCxV3TransitionRouteGroupCoverageCoverageTransition:
+      type: object
+      properties:
+        transitionRoute:
+          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3TransitionRoute'
+        covered:
+          type: boolean
+    GoogleRpcStatus:
+      type: object
+      properties:
+        message:
+          type: string
+        code:
+          type: integer
+          format: int32
+        details:
+          type: array
+          items:
+            type: object
+            additionalProperties:
+              description: Properties of the object. Contains field @type with type URL.
+    GoogleCloudDialogflowCxV3TransitionCoverage:
+      type: object
+      properties:
+        transitions:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowCxV3TransitionCoverageTransition'
+        coverageScore:
+          type: number
+          format: float
+    GoogleCloudDialogflowCxV3ResponseMessageTelephonyTransferCall:
+      type: object
+      properties:
+        phoneNumber:
+          type: string
+    GoogleCloudDialogflowCxV3TestRunDifference:
+      type: object
+      properties:
+        description:
+          type: string
+        type:
+          type: string
+          enum:
+          - DIFF_TYPE_UNSPECIFIED
+          - INTENT
+          - PAGE
+          - PARAMETERS
+          - UTTERANCE
+          - FLOW
+          x-enumDescriptions:
+          - ''
+          - ''
+          - ''
+          - ''
+          - ''
+          - ''
+    GoogleCloudDialogflowCxV3ConversationTurnUserInput:
+      type: object
+      properties:
+        injectedParameters:
+          type: object
+          additionalProperties:
+            description: Properties of the object.
+        enableSentimentAnalysis:
+          type: boolean
+        isWebhookEnabled:
+          type: boolean
+        input:
+          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3QueryInput'
+    GoogleCloudDialogflowCxV3TestCase:
+      type: object
+      properties:
+        displayName:
+          type: string
+        creationTime:
+          type: string
+          format: date-time
+          readOnly: true
+        testCaseConversationTurns:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowCxV3ConversationTurn'
+        lastTestResult:
+          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3TestCaseResult'
+        notes:
+          type: string
+        name:
+          type: string
+        tags:
+          type: array
+          items:
+            type: string
+        testConfig:
+          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3TestConfig'
+    GoogleCloudDialogflowCxV3ImportTestCasesRequest:
+      type: object
+      properties:
+        gcsUri:
+          type: string
+        content:
+          type: string
+          format: byte
+    GoogleCloudDialogflowCxV3ResponseMessageMixedAudioSegment:
+      type: object
+      properties:
+        audio:
+          type: string
+          format: byte
+        allowPlaybackInterruption:
+          type: boolean
+          readOnly: true
+        uri:
+          type: string
+    GoogleCloudDialogflowCxV3ResponseMessageLiveAgentHandoff:
+      type: object
+      properties:
+        metadata:
+          type: object
+          additionalProperties:
+            description: Properties of the object.
+    GoogleCloudDialogflowCxV3ResponseMessageConversationSuccess:
+      type: object
+      properties:
+        metadata:
+          type: object
+          additionalProperties:
+            description: Properties of the object.
+    GoogleCloudDialogflowCxV3ResponseMessageKnowledgeInfoCard:
+      type: object
+    GoogleCloudDialogflowCxV3IntentInput:
+      type: object
+      properties:
+        intent:
+          type: string
+    GoogleCloudDialogflowCxV3IntentCoverage:
+      type: object
+      properties:
+        intents:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowCxV3IntentCoverageIntent'
+        coverageScore:
+          type: number
+          format: float
+    GoogleCloudDialogflowCxV3Page:
+      type: object
+      properties:
+        displayName:
+          type: string
+        knowledgeConnectorSettings:
+          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3KnowledgeConnectorSettings'
+        transitionRoutes:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowCxV3TransitionRoute'
+        name:
+          type: string
+        entryFulfillment:
+          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3Fulfillment'
+        transitionRouteGroups:
+          type: array
+          items:
+            type: string
+        eventHandlers:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowCxV3EventHandler'
+        advancedSettings:
+          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3AdvancedSettings'
+        description:
+          type: string
+        form:
+          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3Form'
+    GoogleProtobufEmpty:
+      type: object
+    GoogleCloudDialogflowCxV3ListTestCasesResponse:
+      type: object
+      properties:
+        nextPageToken:
+          type: string
+        testCases:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowCxV3TestCase'
+    GoogleCloudDialogflowCxV3IntentTrainingPhrase:
+      type: object
+      properties:
+        parts:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowCxV3IntentTrainingPhrasePart'
+        repeatCount:
+          type: integer
+          format: int32
+        id:
+          type: string
+          readOnly: true
+    GoogleCloudDialogflowCxV3FulfillmentConditionalCasesCase:
+      type: object
+      properties:
+        caseContent:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowCxV3FulfillmentConditionalCasesCaseCaseContent'
+        condition:
+          type: string
+    GoogleCloudDialogflowCxV3Form:
+      type: object
+      properties:
+        parameters:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowCxV3FormParameter'
+    GoogleCloudDialogflowCxV3FormParameterFillBehavior:
+      type: object
+      properties:
+        repromptEventHandlers:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowCxV3EventHandler'
+        initialPromptFulfillment:
+          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3Fulfillment'
+    GoogleCloudDialogflowCxV3FulfillmentSetParameterAction:
+      type: object
+      properties:
+        parameter:
+          type: string
+        value: {}
+    GoogleCloudDialogflowCxV3QueryInput:
+      type: object
+      properties:
+        intent:
+          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3IntentInput'
+        dtmf:
+          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3DtmfInput'
+        text:
+          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3TextInput'
+        audio:
+          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3AudioInput'
+        languageCode:
+          type: string
+        event:
+          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3EventInput'
+        toolCallResult:
+          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3ToolCallResult'
+    GoogleCloudDialogflowCxV3TestConfig:
+      type: object
+      properties:
+        trackingParameters:
+          type: array
+          items:
+            type: string
+        flow:
+          type: string
+        page:
+          type: string
+    GoogleCloudDialogflowCxV3TransitionRoute:
+      type: object
+      properties:
+        name:
+          type: string
+          readOnly: true
+        targetPage:
+          type: string
+        description:
+          type: string
+        triggerFulfillment:
+          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3Fulfillment'
+        targetFlow:
+          type: string
+        intent:
+          type: string
+        condition:
+          type: string
+    GoogleCloudDialogflowCxV3ParameterDefinition:
+      type: object
+      properties:
+        type:
+          type: string
+          enum:
+          - PARAMETER_TYPE_UNSPECIFIED
+          - STRING
+          - NUMBER
+          - BOOLEAN
+          - 'NULL'
+          - OBJECT
+          - LIST
+          x-enumDescriptions:
+          - ''
+          - ''
+          - ''
+          - ''
+          - ''
+          - ''
+          - ''
+        description:
+          type: string
+        typeSchema:
+          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3TypeSchema'
+        name:
+          type: string
+    GoogleCloudDialogflowCxV3AdvancedSettingsLoggingSettings:
+      type: object
+      properties:
+        enableConsentBasedRedaction:
+          type: boolean
+        enableStackdriverLogging:
+          type: boolean
+        enableInteractionLogging:
+          type: boolean
+    GoogleCloudDialogflowCxV3ResponseMessagePlayAudio:
+      type: object
+      properties:
+        allowPlaybackInterruption:
+          type: boolean
+          readOnly: true
+        audioUri:
+          type: string
+    GoogleCloudDialogflowCxV3BatchRunTestCasesRequest:
+      type: object
+      properties:
+        environment:
+          type: string
+        testCases:
+          type: array
+          items:
+            type: string
+    GoogleCloudDialogflowCxV3ResponseMessage:
+      type: object
+      properties:
+        outputAudioText:
+          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3ResponseMessageOutputAudioText'
+        endInteraction:
+          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3ResponseMessageEndInteraction'
+        toolCall:
+          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3ToolCall'
+        responseType:
+          type: string
+          enum:
+          - RESPONSE_TYPE_UNSPECIFIED
+          - ENTRY_PROMPT
+          - PARAMETER_PROMPT
+          - HANDLER_PROMPT
+          x-enumDescriptions:
+          - ''
+          - ''
+          - ''
+          - ''
+        text:
+          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3ResponseMessageText'
+        channel:
+          type: string
+        payload:
+          type: object
+          additionalProperties:
+            description: Properties of the object.
+        telephonyTransferCall:
+          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3ResponseMessageTelephonyTransferCall'
+        mixedAudio:
+          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3ResponseMessageMixedAudio'
+        playAudio:
+          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3ResponseMessagePlayAudio'
+        conversationSuccess:
+          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3ResponseMessageConversationSuccess'
+        knowledgeInfoCard:
+          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3ResponseMessageKnowledgeInfoCard'
+        liveAgentHandoff:
+          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3ResponseMessageLiveAgentHandoff'
+    GoogleCloudDialogflowCxV3DataStoreConnection:
+      type: object
+      properties:
+        dataStoreType:
+          type: string
+          enum:
+          - DATA_STORE_TYPE_UNSPECIFIED
+          - PUBLIC_WEB
+          - UNSTRUCTURED
+          - STRUCTURED
+          x-enumDescriptions:
+          - ''
+          - ''
+          - ''
+          - ''
+        dataStore:
+          type: string
+        documentProcessingMode:
+          type: string
+          enum:
+          - DOCUMENT_PROCESSING_MODE_UNSPECIFIED
+          - DOCUMENTS
+          - CHUNKS
+          x-enumDescriptions:
+          - ''
+          - ''
+          - ''
+    GoogleCloudDialogflowCxV3TextInput:
+      type: object
+      properties:
+        text:
+          type: string
+    GoogleCloudDialogflowCxV3FormParameter:
+      type: object
+      properties:
+        defaultValue: {}
+        fillBehavior:
+          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3FormParameterFillBehavior'
+        advancedSettings:
+          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3AdvancedSettings'
+        isList:
+          type: boolean
+        displayName:
+          type: string
+        redact:
+          type: boolean
+        entityType:
+          type: string
+        required:
+          type: boolean
+    GoogleCloudDialogflowCxV3TransitionCoverageTransitionNode:
+      type: object
+      properties:
+        page:
+          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3Page'
+        flow:
+          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3Flow'
+    GoogleCloudDialogflowCxV3TypeSchemaSchemaReference:
+      type: object
+      properties:
+        schema:
+          type: string
+        tool:
+          type: string
+    GoogleCloudDialogflowCxV3TransitionRouteGroupCoverage:
+      type: object
+      properties:
+        coverages:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowCxV3TransitionRouteGroupCoverageCoverage'
+        coverageScore:
+          type: number
+          format: float
+    GoogleCloudDialogflowCxV3ExportTestCasesRequest:
+      type: object
+      properties:
+        dataFormat:
+          type: string
+          enum:
+          - DATA_FORMAT_UNSPECIFIED
+          - BLOB
+          - JSON
+          x-enumDescriptions:
+          - ''
+          - ''
+          - ''
+        gcsUri:
+          type: string
+        filter:
+          type: string
+    GoogleCloudDialogflowCxV3TransitionRouteGroup:
+      type: object
+      properties:
+        displayName:
+          type: string
+        transitionRoutes:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowCxV3TransitionRoute'
+        name:
+          type: string
+    GoogleCloudDialogflowCxV3Flow:
+      type: object
+      properties:
+        locked:
+          type: boolean
+        eventHandlers:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowCxV3EventHandler'
+        transitionRoutes:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowCxV3TransitionRoute'
+        knowledgeConnectorSettings:
+          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3KnowledgeConnectorSettings'
+        inputParameterDefinitions:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowCxV3ParameterDefinition'
+        outputParameterDefinitions:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowCxV3ParameterDefinition'
+        description:
+          type: string
+        nluSettings:
+          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3NluSettings'
+        displayName:
+          type: string
+        multiLanguageSettings:
+          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3FlowMultiLanguageSettings'
+        advancedSettings:
+          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3AdvancedSettings'
+        transitionRouteGroups:
+          type: array
+          items:
+            type: string
+        name:
+          type: string
+    GoogleCloudDialogflowCxV3IntentTrainingPhrasePart:
+      type: object
+      properties:
+        text:
+          type: string
+        parameterId:
+          type: string
+    GoogleCloudDialogflowCxV3Fulfillment:
+      type: object
+      properties:
+        setParameterActions:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowCxV3FulfillmentSetParameterAction'
+        tag:
+          type: string
+        messages:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowCxV3ResponseMessage'
+        conditionalCases:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowCxV3FulfillmentConditionalCases'
+        returnPartialResponses:
+          type: boolean
+        advancedSettings:
+          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3AdvancedSettings'
+        generators:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowCxV3FulfillmentGeneratorSettings'
+        enableGenerativeFallback:
+          type: boolean
+        webhook:
+          type: string
+        codeBlockFunction:
+          type: string
+    GoogleCloudDialogflowCxV3KnowledgeConnectorSettings:
+      type: object
+      properties:
+        targetPage:
+          type: string
+        triggerFulfillment:
+          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3Fulfillment'
+        dataStoreConnections:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowCxV3DataStoreConnection'
+        targetFlow:
+          type: string
+        enabled:
+          type: boolean
+    GoogleCloudDialogflowCxV3ResponseMessageMixedAudio:
+      type: object
+      properties:
+        segments:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowCxV3ResponseMessageMixedAudioSegment'
+    GoogleCloudDialogflowCxV3IntentParameter:
+      type: object
+      properties:
+        redact:
+          type: boolean
+        entityType:
+          type: string
+        id:
+          type: string
+        isList:
+          type: boolean
+    GoogleCloudDialogflowCxV3BatchDeleteTestCasesRequest:
+      type: object
+      properties:
+        names:
+          type: array
+          items:
+            type: string
+    GoogleCloudDialogflowCxV3FulfillmentConditionalCases:
+      type: object
+      properties:
+        cases:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowCxV3FulfillmentConditionalCasesCase'
+    GoogleCloudDialogflowCxV3IntentCoverageIntent:
+      type: object
+      properties:
+        intent:
+          type: string
+        covered:
+          type: boolean
+    GoogleCloudDialogflowCxV3BargeInConfig:
+      type: object
+      properties:
+        noBargeInDuration:
+          type: string
+        totalDuration:
+          type: string
+    GoogleCloudDialogflowCxV3ToolCallResultError:
+      type: object
+      properties:
+        message:
+          type: string
+    GoogleCloudDialogflowCxV3TransitionRouteGroupCoverageCoverage:
+      type: object
+      properties:
+        routeGroup:
+          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3TransitionRouteGroup'
+        coverageScore:
+          type: number
+          format: float
+        transitions:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowCxV3TransitionRouteGroupCoverageCoverageTransition'
+    GoogleCloudDialogflowCxV3TestCaseResult:
+      type: object
+      properties:
+        environment:
+          type: string
+        name:
+          type: string
+        testTime:
+          type: string
+          format: date-time
+        testResult:
+          type: string
+          enum:
+          - TEST_RESULT_UNSPECIFIED
+          - PASSED
+          - FAILED
+          x-enumDescriptions:
+          - ''
+          - ''
+          - ''
+        conversationTurns:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowCxV3ConversationTurn'
+    GoogleCloudDialogflowCxV3FlowMultiLanguageSettings:
+      type: object
+      properties:
+        supportedResponseLanguageCodes:
+          type: array
+          items:
+            type: string
+        enableMultiLanguageDetection:
+          type: boolean
+    GoogleCloudDialogflowCxV3AudioInput:
+      type: object
+      properties:
+        config:
+          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3InputAudioConfig'
+        audio:
+          type: string
+          format: byte
+    GoogleCloudDialogflowCxV3ResponseMessageOutputAudioText:
+      type: object
+      properties:
+        allowPlaybackInterruption:
+          type: boolean
+          readOnly: true
+        ssml:
+          type: string
+        text:
+          type: string
+    GoogleLongrunningOperation:
+      type: object
+      properties:
+        metadata:
+          type: object
+          additionalProperties:
+            description: Properties of the object. Contains field @type with type URL.
+        name:
+          type: string
+        done:
+          type: boolean
+        response:
+          type: object
+          additionalProperties:
+            description: Properties of the object. Contains field @type with type URL.
+        error:
+          $ref: '#/components/schemas/GoogleRpcStatus'
+    GoogleCloudDialogflowCxV3ResponseMessageEndInteraction:
+      type: object
+    GoogleCloudDialogflowCxV3EventHandler:
+      type: object
+      properties:
+        targetFlow:
+          type: string
+        triggerFulfillment:
+          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3Fulfillment'
+        targetPlaybook:
+          type: string
+        name:
+          type: string
+          readOnly: true
+        event:
+          type: string
+        targetPage:
+          type: string
+    GoogleCloudDialogflowCxV3AdvancedSettingsSpeechSettings:
+      type: object
+      properties:
+        noSpeechTimeout:
+          type: string
+        models:
+          type: object
+          additionalProperties:
+            type: string
+        useTimeoutBasedEndpointing:
+          type: boolean
+        endpointerSensitivity:
+          type: integer
+          format: int32
+  securitySchemes:
+    OAuth2:
+      type: oauth2
+      description: Google OAuth 2.0. Scopes are declared per operation in the Discovery Document.
+      flows:
+        authorizationCode:
+          authorizationUrl: https://accounts.google.com/o/oauth2/v2/auth
+          tokenUrl: https://oauth2.googleapis.com/token
+          scopes:
+            https://www.googleapis.com/auth/cloud-platform: See, edit, configure, and delete your Google Cloud data and see the email address for your Google Account.
+            https://www.googleapis.com/auth/dialogflow: View, manage and query your Dialogflow agents
+    BearerAuth:
+      type: http
+      scheme: bearer
+      description: 'Google OAuth 2.0 access token or service-account-minted bearer token, sent as Authorization: Bearer <token>.'
+externalDocs:
+  description: Dialogflow CX documentation
+  url: https://cloud.google.com/dialogflow/cx/docs

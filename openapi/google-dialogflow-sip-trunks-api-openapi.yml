@@ -1,0 +1,472 @@
+openapi: 3.2.0
+info:
+  title: Dialogflow ES API (v2) Sip Trunks API
+  version: v2
+  description: Dialogflow ES (Essentials) builds conversational interfaces with intents, entity types, contexts, sessions, knowledge bases, conversation profiles and Agent Assist. This OpenAPI is a mechanical conversion of the first-party Google Discovery Document served by dialogflow.googleapis.com.
+  contact:
+    name: Google Cloud
+    url: https://cloud.google.com/dialogflow/
+  termsOfService: https://cloud.google.com/terms
+  license:
+    name: Google APIs Terms of Service
+    url: https://developers.google.com/terms
+  x-discovery-source: https://dialogflow.googleapis.com/$discovery/rest?version=v2
+  x-discovery-revision: '20260825'
+  x-discovery-id: dialogflow:v2
+servers:
+- url: https://dialogflow.googleapis.com
+  description: Dialogflow API
+security:
+- OAuth2:
+  - https://www.googleapis.com/auth/dialogflow
+  - https://www.googleapis.com/auth/cloud-platform
+- BearerAuth: []
+tags:
+- name: SIP Trunks
+paths:
+  /v2/projects/{projectsId}/locations/{locationsId}/sipTrunks/{sipTrunksId}:
+    patch:
+      operationId: dialogflow_projects_locations_sipTrunks_patch
+      tags:
+      - SIP Trunks
+      parameters:
+      - name: projectsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/sipTrunks/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: locationsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/sipTrunks/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: sipTrunksId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/sipTrunks/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: updateMask
+        in: query
+        schema:
+          type: string
+      x-discovery-path-template: v2/{name}
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GoogleCloudDialogflowV2SipTrunk'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleCloudDialogflowV2SipTrunk'
+        default:
+          description: Error response (google.rpc.Status)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleRpcStatus'
+      security:
+      - OAuth2:
+        - https://www.googleapis.com/auth/cloud-platform
+        - https://www.googleapis.com/auth/dialogflow
+      - BearerAuth: []
+      summary: Dialogflow projects locations sip trunks patch
+      x-summary-source: derived
+    get:
+      operationId: dialogflow_projects_locations_sipTrunks_get
+      tags:
+      - SIP Trunks
+      parameters:
+      - name: projectsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/sipTrunks/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: locationsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/sipTrunks/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: sipTrunksId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/sipTrunks/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      x-discovery-path-template: v2/{name}
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleCloudDialogflowV2SipTrunk'
+        default:
+          description: Error response (google.rpc.Status)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleRpcStatus'
+      security:
+      - OAuth2:
+        - https://www.googleapis.com/auth/cloud-platform
+        - https://www.googleapis.com/auth/dialogflow
+      - BearerAuth: []
+      summary: Dialogflow projects locations sip trunks get
+      x-summary-source: derived
+    delete:
+      operationId: dialogflow_projects_locations_sipTrunks_delete
+      tags:
+      - SIP Trunks
+      parameters:
+      - name: projectsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/sipTrunks/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: locationsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/sipTrunks/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: sipTrunksId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/sipTrunks/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      x-discovery-path-template: v2/{name}
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleProtobufEmpty'
+        default:
+          description: Error response (google.rpc.Status)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleRpcStatus'
+      security:
+      - OAuth2:
+        - https://www.googleapis.com/auth/cloud-platform
+        - https://www.googleapis.com/auth/dialogflow
+      - BearerAuth: []
+      summary: Dialogflow projects locations sip trunks delete
+      x-summary-source: derived
+  /v2/projects/{projectsId}/locations/{locationsId}/sipTrunks:
+    get:
+      operationId: dialogflow_projects_locations_sipTrunks_list
+      tags:
+      - SIP Trunks
+      parameters:
+      - name: projectsId
+        in: path
+        description: 'Part of `parent`. Resource name pattern: `^projects/[^/]+/locations/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: locationsId
+        in: path
+        description: 'Part of `parent`. Resource name pattern: `^projects/[^/]+/locations/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        schema:
+          type: integer
+          format: int32
+      - name: pageToken
+        in: query
+        schema:
+          type: string
+      x-discovery-path-template: v2/{parent}/sipTrunks
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleCloudDialogflowV2ListSipTrunksResponse'
+        default:
+          description: Error response (google.rpc.Status)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleRpcStatus'
+      security:
+      - OAuth2:
+        - https://www.googleapis.com/auth/cloud-platform
+        - https://www.googleapis.com/auth/dialogflow
+      - BearerAuth: []
+      summary: Dialogflow projects locations sip trunks list
+      x-summary-source: derived
+    post:
+      operationId: dialogflow_projects_locations_sipTrunks_create
+      tags:
+      - SIP Trunks
+      parameters:
+      - name: projectsId
+        in: path
+        description: 'Part of `parent`. Resource name pattern: `^projects/[^/]+/locations/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: locationsId
+        in: path
+        description: 'Part of `parent`. Resource name pattern: `^projects/[^/]+/locations/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      x-discovery-path-template: v2/{parent}/sipTrunks
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GoogleCloudDialogflowV2SipTrunk'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleCloudDialogflowV2SipTrunk'
+        default:
+          description: Error response (google.rpc.Status)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleRpcStatus'
+      security:
+      - OAuth2:
+        - https://www.googleapis.com/auth/cloud-platform
+        - https://www.googleapis.com/auth/dialogflow
+      - BearerAuth: []
+      summary: Dialogflow projects locations sip trunks create
+      x-summary-source: derived
+components:
+  schemas:
+    GoogleCloudDialogflowV2SipHostnameHostnameErrorDetails:
+      type: object
+      properties:
+        errorMessage:
+          type: string
+          readOnly: true
+        certificateState:
+          type: string
+          enum:
+          - HOSTNAME_CERTIFICATE_STATE_UNSPECIFIED
+          - VALID
+          - INVALID
+          - EXPIRED
+          - HOSTNAME_NOT_FOUND
+          - UNAUTHENTICATED
+          - TRUST_STORE_NOT_FOUND
+          - HOSTNAME_INVALID_FORMAT
+          - QUOTA_EXCEEDED
+          x-enumDescriptions:
+          - ''
+          - ''
+          - ''
+          - ''
+          - ''
+          - ''
+          - ''
+          - ''
+          - ''
+          readOnly: true
+    GoogleCloudDialogflowV2ConnectionErrorDetails:
+      type: object
+      properties:
+        errorMessage:
+          type: string
+        certificateState:
+          type: string
+          enum:
+          - CERTIFICATE_STATE_UNSPECIFIED
+          - CERTIFICATE_VALID
+          - CERTIFICATE_INVALID
+          - CERTIFICATE_EXPIRED
+          - CERTIFICATE_HOSTNAME_NOT_FOUND
+          - CERTIFICATE_UNAUTHENTICATED
+          - CERTIFICATE_TRUST_STORE_NOT_FOUND
+          - CERTIFICATE_HOSTNAME_INVALID_FORMAT
+          - CERTIFICATE_QUOTA_EXCEEDED
+          x-enumDescriptions:
+          - ''
+          - ''
+          - ''
+          - ''
+          - ''
+          - ''
+          - ''
+          - ''
+          - ''
+          readOnly: true
+    GoogleRpcStatus:
+      type: object
+      properties:
+        message:
+          type: string
+        code:
+          type: integer
+          format: int32
+        details:
+          type: array
+          items:
+            type: object
+            additionalProperties:
+              description: Properties of the object. Contains field @type with type URL.
+    GoogleCloudDialogflowV2ProbeDetails:
+      type: object
+      properties:
+        initTime:
+          type: string
+          format: date-time
+          readOnly: true
+        optionsLatency:
+          type: string
+          readOnly: true
+        probeStatus:
+          type: string
+          enum:
+          - PROBE_STATUS_UNSPECIFIED
+          - PROBE_STATUS_SUCCESS
+          - PROBE_STATUS_FAILED
+          x-enumDescriptions:
+          - ''
+          - ''
+          - ''
+          readOnly: true
+    GoogleProtobufEmpty:
+      type: object
+    GoogleCloudDialogflowV2SipHostname:
+      type: object
+      properties:
+        peerHostname:
+          type: string
+        pingInterval:
+          type: string
+          readOnly: true
+        probeDetails:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2ProbeDetails'
+        peerSocketAddress:
+          type: string
+          readOnly: true
+        enabledSipPing:
+          type: boolean
+          readOnly: true
+        connectionState:
+          type: string
+          enum:
+          - CONNECTION_STATE_UNSPECIFIED
+          - CONNECTED
+          - DISCONNECTED
+          - AUTHENTICATION_FAILED
+          - KEEPALIVE
+          x-enumDescriptions:
+          - ''
+          - ''
+          - ''
+          - ''
+          - ''
+          readOnly: true
+        errorDetails:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2SipHostnameHostnameErrorDetails'
+    GoogleCloudDialogflowV2Connection:
+      type: object
+      properties:
+        connectionId:
+          type: string
+          readOnly: true
+        errorDetails:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2ConnectionErrorDetails'
+        state:
+          type: string
+          enum:
+          - STATE_UNSPECIFIED
+          - CONNECTED
+          - DISCONNECTED
+          - AUTHENTICATION_FAILED
+          - KEEPALIVE
+          x-enumDescriptions:
+          - ''
+          - ''
+          - ''
+          - ''
+          - ''
+          readOnly: true
+        updateTime:
+          type: string
+          format: date-time
+          readOnly: true
+    GoogleCloudDialogflowV2SipTrunk:
+      type: object
+      properties:
+        peerHostnames:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowV2SipHostname'
+        connections:
+          type: array
+          readOnly: true
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowV2Connection'
+        googleRootCertFile:
+          type: string
+          enum:
+          - CERT_FILE_UNSPECIFIED
+          - EXTERNAL_PRIVATE_CA
+          x-enumDescriptions:
+          - ''
+          - ''
+        displayName:
+          type: string
+        expectedHostname:
+          type: array
+          items:
+            type: string
+        name:
+          type: string
+    GoogleCloudDialogflowV2ListSipTrunksResponse:
+      type: object
+      properties:
+        sipTrunks:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowV2SipTrunk'
+        nextPageToken:
+          type: string
+  securitySchemes:
+    OAuth2:
+      type: oauth2
+      description: Google OAuth 2.0. Scopes are declared per operation in the Discovery Document.
+      flows:
+        authorizationCode:
+          authorizationUrl: https://accounts.google.com/o/oauth2/v2/auth
+          tokenUrl: https://oauth2.googleapis.com/token
+          scopes:
+            https://www.googleapis.com/auth/dialogflow: View, manage and query your Dialogflow agents
+            https://www.googleapis.com/auth/cloud-platform: See, edit, configure, and delete your Google Cloud data and see the email address for your Google Account.
+    BearerAuth:
+      type: http
+      scheme: bearer
+      description: 'Google OAuth 2.0 access token or service-account-minted bearer token, sent as Authorization: Bearer <token>.'
+externalDocs:
+  description: Dialogflow ES documentation
+  url: https://cloud.google.com/dialogflow/es/docs

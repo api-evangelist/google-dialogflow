@@ -1,0 +1,2540 @@
+openapi: 3.2.0
+info:
+  title: Google Dialogflow Versions API
+  contact:
+    name: Google Cloud
+    url: https://cloud.google.com/dialogflow/
+  license:
+    name: Google APIs Terms of Service
+    url: https://developers.google.com/terms
+  termsOfService: https://cloud.google.com/terms
+  x-refined-note:
+  - x-discovery-id differs across the merged source definitions and was not carried
+  - x-discovery-source differs across the merged source definitions and was not carried
+  x-discovery-revision: '20260825'
+  version: '1.0'
+  description: 'Operations tagged versions across 2 of this provider''s published API definitions: google-dialogflow-cx-v3-openapi.yml, google-dialogflow-es-v2-openapi.yml. Each path carries the servers of the definition it was published in.'
+servers:
+- url: https://dialogflow.googleapis.com
+  description: Dialogflow API
+tags:
+- name: Versions
+paths:
+  /v3/projects/{projectsId}/locations/{locationsId}/agents/{agentsId}/playbooks/{playbooksId}/versions/{versionsId}:restore:
+    post:
+      operationId: dialogflow_projects_locations_agents_playbooks_versions_restore
+      tags:
+      - Versions
+      parameters:
+      - name: projectsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+/playbooks/[^/]+/versions/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: locationsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+/playbooks/[^/]+/versions/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: agentsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+/playbooks/[^/]+/versions/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: playbooksId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+/playbooks/[^/]+/versions/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: versionsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+/playbooks/[^/]+/versions/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      x-discovery-path-template: v3/{name}:restore
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GoogleCloudDialogflowCxV3RestorePlaybookVersionRequest'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleCloudDialogflowCxV3RestorePlaybookVersionResponse'
+        default:
+          description: Error response (google.rpc.Status)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleRpcStatus'
+      security:
+      - OAuth2:
+        - https://www.googleapis.com/auth/cloud-platform
+        - https://www.googleapis.com/auth/dialogflow
+      - BearerAuth: []
+      summary: Dialogflow projects locations agents playbooks versions restore
+      x-summary-source: derived
+    servers:
+    - url: https://dialogflow.googleapis.com
+      description: Dialogflow API
+  /v3/projects/{projectsId}/locations/{locationsId}/agents/{agentsId}/playbooks/{playbooksId}/versions/{versionsId}:
+    get:
+      operationId: dialogflow_projects_locations_agents_playbooks_versions_get
+      tags:
+      - Versions
+      parameters:
+      - name: projectsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+/playbooks/[^/]+/versions/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: locationsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+/playbooks/[^/]+/versions/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: agentsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+/playbooks/[^/]+/versions/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: playbooksId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+/playbooks/[^/]+/versions/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: versionsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+/playbooks/[^/]+/versions/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      x-discovery-path-template: v3/{name}
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleCloudDialogflowCxV3PlaybookVersion'
+        default:
+          description: Error response (google.rpc.Status)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleRpcStatus'
+      security:
+      - OAuth2:
+        - https://www.googleapis.com/auth/cloud-platform
+        - https://www.googleapis.com/auth/dialogflow
+      - BearerAuth: []
+      summary: Dialogflow projects locations agents playbooks versions get
+      x-summary-source: derived
+    delete:
+      operationId: dialogflow_projects_locations_agents_playbooks_versions_delete
+      tags:
+      - Versions
+      parameters:
+      - name: projectsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+/playbooks/[^/]+/versions/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: locationsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+/playbooks/[^/]+/versions/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: agentsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+/playbooks/[^/]+/versions/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: playbooksId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+/playbooks/[^/]+/versions/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: versionsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+/playbooks/[^/]+/versions/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      x-discovery-path-template: v3/{name}
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleProtobufEmpty'
+        default:
+          description: Error response (google.rpc.Status)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleRpcStatus'
+      security:
+      - OAuth2:
+        - https://www.googleapis.com/auth/cloud-platform
+        - https://www.googleapis.com/auth/dialogflow
+      - BearerAuth: []
+      summary: Dialogflow projects locations agents playbooks versions delete
+      x-summary-source: derived
+    servers:
+    - url: https://dialogflow.googleapis.com
+      description: Dialogflow API
+  /v3/projects/{projectsId}/locations/{locationsId}/agents/{agentsId}/playbooks/{playbooksId}/versions:
+    post:
+      operationId: dialogflow_projects_locations_agents_playbooks_versions_create
+      tags:
+      - Versions
+      parameters:
+      - name: projectsId
+        in: path
+        description: 'Part of `parent`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+/playbooks/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: locationsId
+        in: path
+        description: 'Part of `parent`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+/playbooks/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: agentsId
+        in: path
+        description: 'Part of `parent`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+/playbooks/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: playbooksId
+        in: path
+        description: 'Part of `parent`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+/playbooks/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      x-discovery-path-template: v3/{parent}/versions
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GoogleCloudDialogflowCxV3PlaybookVersion'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleCloudDialogflowCxV3PlaybookVersion'
+        default:
+          description: Error response (google.rpc.Status)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleRpcStatus'
+      security:
+      - OAuth2:
+        - https://www.googleapis.com/auth/cloud-platform
+        - https://www.googleapis.com/auth/dialogflow
+      - BearerAuth: []
+      summary: Dialogflow projects locations agents playbooks versions create
+      x-summary-source: derived
+    get:
+      operationId: dialogflow_projects_locations_agents_playbooks_versions_list
+      tags:
+      - Versions
+      parameters:
+      - name: projectsId
+        in: path
+        description: 'Part of `parent`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+/playbooks/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: locationsId
+        in: path
+        description: 'Part of `parent`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+/playbooks/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: agentsId
+        in: path
+        description: 'Part of `parent`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+/playbooks/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: playbooksId
+        in: path
+        description: 'Part of `parent`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+/playbooks/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        schema:
+          type: integer
+          format: int32
+      - name: pageToken
+        in: query
+        schema:
+          type: string
+      x-discovery-path-template: v3/{parent}/versions
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleCloudDialogflowCxV3ListPlaybookVersionsResponse'
+        default:
+          description: Error response (google.rpc.Status)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleRpcStatus'
+      security:
+      - OAuth2:
+        - https://www.googleapis.com/auth/cloud-platform
+        - https://www.googleapis.com/auth/dialogflow
+      - BearerAuth: []
+      summary: Dialogflow projects locations agents playbooks versions list
+      x-summary-source: derived
+    servers:
+    - url: https://dialogflow.googleapis.com
+      description: Dialogflow API
+  /v3/projects/{projectsId}/locations/{locationsId}/agents/{agentsId}/tools/{toolsId}/versions/{versionsId}:
+    delete:
+      operationId: dialogflow_projects_locations_agents_tools_versions_delete
+      tags:
+      - Versions
+      parameters:
+      - name: projectsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+/tools/[^/]+/versions/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: locationsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+/tools/[^/]+/versions/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: agentsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+/tools/[^/]+/versions/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: toolsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+/tools/[^/]+/versions/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: versionsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+/tools/[^/]+/versions/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: force
+        in: query
+        schema:
+          type: boolean
+      x-discovery-path-template: v3/{name}
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleProtobufEmpty'
+        default:
+          description: Error response (google.rpc.Status)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleRpcStatus'
+      security:
+      - OAuth2:
+        - https://www.googleapis.com/auth/cloud-platform
+        - https://www.googleapis.com/auth/dialogflow
+      - BearerAuth: []
+      summary: Dialogflow projects locations agents tools versions delete
+      x-summary-source: derived
+    get:
+      operationId: dialogflow_projects_locations_agents_tools_versions_get
+      tags:
+      - Versions
+      parameters:
+      - name: projectsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+/tools/[^/]+/versions/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: locationsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+/tools/[^/]+/versions/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: agentsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+/tools/[^/]+/versions/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: toolsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+/tools/[^/]+/versions/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: versionsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+/tools/[^/]+/versions/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      x-discovery-path-template: v3/{name}
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleCloudDialogflowCxV3ToolVersion'
+        default:
+          description: Error response (google.rpc.Status)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleRpcStatus'
+      security:
+      - OAuth2:
+        - https://www.googleapis.com/auth/cloud-platform
+        - https://www.googleapis.com/auth/dialogflow
+      - BearerAuth: []
+      summary: Dialogflow projects locations agents tools versions get
+      x-summary-source: derived
+    servers:
+    - url: https://dialogflow.googleapis.com
+      description: Dialogflow API
+  /v3/projects/{projectsId}/locations/{locationsId}/agents/{agentsId}/tools/{toolsId}/versions:
+    get:
+      operationId: dialogflow_projects_locations_agents_tools_versions_list
+      tags:
+      - Versions
+      parameters:
+      - name: projectsId
+        in: path
+        description: 'Part of `parent`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+/tools/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: locationsId
+        in: path
+        description: 'Part of `parent`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+/tools/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: agentsId
+        in: path
+        description: 'Part of `parent`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+/tools/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: toolsId
+        in: path
+        description: 'Part of `parent`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+/tools/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        schema:
+          type: integer
+          format: int32
+      - name: pageToken
+        in: query
+        schema:
+          type: string
+      x-discovery-path-template: v3/{parent}/versions
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleCloudDialogflowCxV3ListToolVersionsResponse'
+        default:
+          description: Error response (google.rpc.Status)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleRpcStatus'
+      security:
+      - OAuth2:
+        - https://www.googleapis.com/auth/cloud-platform
+        - https://www.googleapis.com/auth/dialogflow
+      - BearerAuth: []
+      summary: Dialogflow projects locations agents tools versions list
+      x-summary-source: derived
+    post:
+      operationId: dialogflow_projects_locations_agents_tools_versions_create
+      tags:
+      - Versions
+      parameters:
+      - name: projectsId
+        in: path
+        description: 'Part of `parent`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+/tools/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: locationsId
+        in: path
+        description: 'Part of `parent`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+/tools/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: agentsId
+        in: path
+        description: 'Part of `parent`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+/tools/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: toolsId
+        in: path
+        description: 'Part of `parent`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+/tools/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      x-discovery-path-template: v3/{parent}/versions
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GoogleCloudDialogflowCxV3ToolVersion'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleCloudDialogflowCxV3ToolVersion'
+        default:
+          description: Error response (google.rpc.Status)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleRpcStatus'
+      security:
+      - OAuth2:
+        - https://www.googleapis.com/auth/cloud-platform
+        - https://www.googleapis.com/auth/dialogflow
+      - BearerAuth: []
+      summary: Dialogflow projects locations agents tools versions create
+      x-summary-source: derived
+    servers:
+    - url: https://dialogflow.googleapis.com
+      description: Dialogflow API
+  /v3/projects/{projectsId}/locations/{locationsId}/agents/{agentsId}/tools/{toolsId}/versions/{versionsId}:restore:
+    post:
+      operationId: dialogflow_projects_locations_agents_tools_versions_restore
+      tags:
+      - Versions
+      parameters:
+      - name: projectsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+/tools/[^/]+/versions/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: locationsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+/tools/[^/]+/versions/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: agentsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+/tools/[^/]+/versions/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: toolsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+/tools/[^/]+/versions/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: versionsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+/tools/[^/]+/versions/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      x-discovery-path-template: v3/{name}:restore
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GoogleCloudDialogflowCxV3RestoreToolVersionRequest'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleCloudDialogflowCxV3RestoreToolVersionResponse'
+        default:
+          description: Error response (google.rpc.Status)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleRpcStatus'
+      security:
+      - OAuth2:
+        - https://www.googleapis.com/auth/cloud-platform
+        - https://www.googleapis.com/auth/dialogflow
+      - BearerAuth: []
+      summary: Dialogflow projects locations agents tools versions restore
+      x-summary-source: derived
+    servers:
+    - url: https://dialogflow.googleapis.com
+      description: Dialogflow API
+  /v3/projects/{projectsId}/locations/{locationsId}/agents/{agentsId}/flows/{flowsId}/versions/{versionsId}:
+    patch:
+      operationId: dialogflow_projects_locations_agents_flows_versions_patch
+      tags:
+      - Versions
+      parameters:
+      - name: projectsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+/flows/[^/]+/versions/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: locationsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+/flows/[^/]+/versions/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: agentsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+/flows/[^/]+/versions/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: flowsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+/flows/[^/]+/versions/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: versionsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+/flows/[^/]+/versions/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: updateMask
+        in: query
+        schema:
+          type: string
+      x-discovery-path-template: v3/{name}
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GoogleCloudDialogflowCxV3Version'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleCloudDialogflowCxV3Version'
+        default:
+          description: Error response (google.rpc.Status)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleRpcStatus'
+      security:
+      - OAuth2:
+        - https://www.googleapis.com/auth/cloud-platform
+        - https://www.googleapis.com/auth/dialogflow
+      - BearerAuth: []
+      summary: Dialogflow projects locations agents flows versions patch
+      x-summary-source: derived
+    get:
+      operationId: dialogflow_projects_locations_agents_flows_versions_get
+      tags:
+      - Versions
+      parameters:
+      - name: projectsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+/flows/[^/]+/versions/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: locationsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+/flows/[^/]+/versions/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: agentsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+/flows/[^/]+/versions/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: flowsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+/flows/[^/]+/versions/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: versionsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+/flows/[^/]+/versions/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      x-discovery-path-template: v3/{name}
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleCloudDialogflowCxV3Version'
+        default:
+          description: Error response (google.rpc.Status)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleRpcStatus'
+      security:
+      - OAuth2:
+        - https://www.googleapis.com/auth/cloud-platform
+        - https://www.googleapis.com/auth/dialogflow
+      - BearerAuth: []
+      summary: Dialogflow projects locations agents flows versions get
+      x-summary-source: derived
+    delete:
+      operationId: dialogflow_projects_locations_agents_flows_versions_delete
+      tags:
+      - Versions
+      parameters:
+      - name: projectsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+/flows/[^/]+/versions/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: locationsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+/flows/[^/]+/versions/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: agentsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+/flows/[^/]+/versions/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: flowsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+/flows/[^/]+/versions/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: versionsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+/flows/[^/]+/versions/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      x-discovery-path-template: v3/{name}
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleProtobufEmpty'
+        default:
+          description: Error response (google.rpc.Status)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleRpcStatus'
+      security:
+      - OAuth2:
+        - https://www.googleapis.com/auth/cloud-platform
+        - https://www.googleapis.com/auth/dialogflow
+      - BearerAuth: []
+      summary: Dialogflow projects locations agents flows versions delete
+      x-summary-source: derived
+    servers:
+    - url: https://dialogflow.googleapis.com
+      description: Dialogflow API
+  /v3/projects/{projectsId}/locations/{locationsId}/agents/{agentsId}/flows/{flowsId}/versions:
+    post:
+      operationId: dialogflow_projects_locations_agents_flows_versions_create
+      tags:
+      - Versions
+      parameters:
+      - name: projectsId
+        in: path
+        description: 'Part of `parent`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+/flows/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: locationsId
+        in: path
+        description: 'Part of `parent`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+/flows/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: agentsId
+        in: path
+        description: 'Part of `parent`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+/flows/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: flowsId
+        in: path
+        description: 'Part of `parent`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+/flows/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      x-discovery-path-template: v3/{parent}/versions
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GoogleCloudDialogflowCxV3Version'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleLongrunningOperation'
+        default:
+          description: Error response (google.rpc.Status)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleRpcStatus'
+      security:
+      - OAuth2:
+        - https://www.googleapis.com/auth/cloud-platform
+        - https://www.googleapis.com/auth/dialogflow
+      - BearerAuth: []
+      summary: Dialogflow projects locations agents flows versions create
+      x-summary-source: derived
+    get:
+      operationId: dialogflow_projects_locations_agents_flows_versions_list
+      tags:
+      - Versions
+      parameters:
+      - name: projectsId
+        in: path
+        description: 'Part of `parent`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+/flows/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: locationsId
+        in: path
+        description: 'Part of `parent`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+/flows/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: agentsId
+        in: path
+        description: 'Part of `parent`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+/flows/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: flowsId
+        in: path
+        description: 'Part of `parent`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+/flows/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: pageToken
+        in: query
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        schema:
+          type: integer
+          format: int32
+      x-discovery-path-template: v3/{parent}/versions
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleCloudDialogflowCxV3ListVersionsResponse'
+        default:
+          description: Error response (google.rpc.Status)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleRpcStatus'
+      security:
+      - OAuth2:
+        - https://www.googleapis.com/auth/cloud-platform
+        - https://www.googleapis.com/auth/dialogflow
+      - BearerAuth: []
+      summary: Dialogflow projects locations agents flows versions list
+      x-summary-source: derived
+    servers:
+    - url: https://dialogflow.googleapis.com
+      description: Dialogflow API
+  /v3/projects/{projectsId}/locations/{locationsId}/agents/{agentsId}/flows/{flowsId}/versions/{versionsId}:load:
+    post:
+      operationId: dialogflow_projects_locations_agents_flows_versions_load
+      tags:
+      - Versions
+      parameters:
+      - name: projectsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+/flows/[^/]+/versions/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: locationsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+/flows/[^/]+/versions/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: agentsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+/flows/[^/]+/versions/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: flowsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+/flows/[^/]+/versions/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: versionsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+/flows/[^/]+/versions/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      x-discovery-path-template: v3/{name}:load
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GoogleCloudDialogflowCxV3LoadVersionRequest'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleLongrunningOperation'
+        default:
+          description: Error response (google.rpc.Status)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleRpcStatus'
+      security:
+      - OAuth2:
+        - https://www.googleapis.com/auth/cloud-platform
+        - https://www.googleapis.com/auth/dialogflow
+      - BearerAuth: []
+      summary: Dialogflow projects locations agents flows versions load
+      x-summary-source: derived
+    servers:
+    - url: https://dialogflow.googleapis.com
+      description: Dialogflow API
+  /v3/projects/{projectsId}/locations/{locationsId}/agents/{agentsId}/flows/{flowsId}/versions/{versionsId}:compareVersions:
+    post:
+      operationId: dialogflow_projects_locations_agents_flows_versions_compareVersions
+      tags:
+      - Versions
+      parameters:
+      - name: projectsId
+        in: path
+        description: 'Part of `baseVersion`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+/flows/[^/]+/versions/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: locationsId
+        in: path
+        description: 'Part of `baseVersion`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+/flows/[^/]+/versions/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: agentsId
+        in: path
+        description: 'Part of `baseVersion`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+/flows/[^/]+/versions/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: flowsId
+        in: path
+        description: 'Part of `baseVersion`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+/flows/[^/]+/versions/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: versionsId
+        in: path
+        description: 'Part of `baseVersion`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+/flows/[^/]+/versions/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      x-discovery-path-template: v3/{baseVersion}:compareVersions
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GoogleCloudDialogflowCxV3CompareVersionsRequest'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleCloudDialogflowCxV3CompareVersionsResponse'
+        default:
+          description: Error response (google.rpc.Status)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleRpcStatus'
+      security:
+      - OAuth2:
+        - https://www.googleapis.com/auth/cloud-platform
+        - https://www.googleapis.com/auth/dialogflow
+      - BearerAuth: []
+      summary: Dialogflow projects locations agents flows versions compare versions
+      x-summary-source: derived
+    servers:
+    - url: https://dialogflow.googleapis.com
+      description: Dialogflow API
+  /v2/projects/{projectsId}/locations/{locationsId}/agent/versions/{versionsId}:
+    delete:
+      operationId: dialogflow_projects_locations_agent_versions_delete
+      tags:
+      - Versions
+      parameters:
+      - name: projectsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agent/versions/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: locationsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agent/versions/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: versionsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agent/versions/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      x-discovery-path-template: v2/{name}
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleProtobufEmpty'
+        default:
+          description: Error response (google.rpc.Status)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleRpcStatus'
+      security:
+      - OAuth2:
+        - https://www.googleapis.com/auth/cloud-platform
+        - https://www.googleapis.com/auth/dialogflow
+      - BearerAuth: []
+      summary: Dialogflow projects locations agent versions delete
+      x-summary-source: derived
+    get:
+      operationId: dialogflow_projects_locations_agent_versions_get
+      tags:
+      - Versions
+      parameters:
+      - name: projectsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agent/versions/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: locationsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agent/versions/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: versionsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agent/versions/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      x-discovery-path-template: v2/{name}
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleCloudDialogflowV2Version'
+        default:
+          description: Error response (google.rpc.Status)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleRpcStatus'
+      security:
+      - OAuth2:
+        - https://www.googleapis.com/auth/cloud-platform
+        - https://www.googleapis.com/auth/dialogflow
+      - BearerAuth: []
+      summary: Dialogflow projects locations agent versions get
+      x-summary-source: derived
+    patch:
+      operationId: dialogflow_projects_locations_agent_versions_patch
+      tags:
+      - Versions
+      parameters:
+      - name: projectsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agent/versions/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: locationsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agent/versions/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: versionsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agent/versions/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: updateMask
+        in: query
+        schema:
+          type: string
+      x-discovery-path-template: v2/{name}
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GoogleCloudDialogflowV2Version'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleCloudDialogflowV2Version'
+        default:
+          description: Error response (google.rpc.Status)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleRpcStatus'
+      security:
+      - OAuth2:
+        - https://www.googleapis.com/auth/cloud-platform
+        - https://www.googleapis.com/auth/dialogflow
+      - BearerAuth: []
+      summary: Dialogflow projects locations agent versions patch
+      x-summary-source: derived
+    servers:
+    - url: https://dialogflow.googleapis.com
+      description: Dialogflow API
+  /v2/projects/{projectsId}/locations/{locationsId}/agent/versions:
+    post:
+      operationId: dialogflow_projects_locations_agent_versions_create
+      tags:
+      - Versions
+      parameters:
+      - name: projectsId
+        in: path
+        description: 'Part of `parent`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agent$`.'
+        required: true
+        schema:
+          type: string
+      - name: locationsId
+        in: path
+        description: 'Part of `parent`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agent$`.'
+        required: true
+        schema:
+          type: string
+      x-discovery-path-template: v2/{parent}/versions
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GoogleCloudDialogflowV2Version'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleCloudDialogflowV2Version'
+        default:
+          description: Error response (google.rpc.Status)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleRpcStatus'
+      security:
+      - OAuth2:
+        - https://www.googleapis.com/auth/cloud-platform
+        - https://www.googleapis.com/auth/dialogflow
+      - BearerAuth: []
+      summary: Dialogflow projects locations agent versions create
+      x-summary-source: derived
+    get:
+      operationId: dialogflow_projects_locations_agent_versions_list
+      tags:
+      - Versions
+      parameters:
+      - name: projectsId
+        in: path
+        description: 'Part of `parent`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agent$`.'
+        required: true
+        schema:
+          type: string
+      - name: locationsId
+        in: path
+        description: 'Part of `parent`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agent$`.'
+        required: true
+        schema:
+          type: string
+      - name: pageToken
+        in: query
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        schema:
+          type: integer
+          format: int32
+      x-discovery-path-template: v2/{parent}/versions
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleCloudDialogflowV2ListVersionsResponse'
+        default:
+          description: Error response (google.rpc.Status)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleRpcStatus'
+      security:
+      - OAuth2:
+        - https://www.googleapis.com/auth/cloud-platform
+        - https://www.googleapis.com/auth/dialogflow
+      - BearerAuth: []
+      summary: Dialogflow projects locations agent versions list
+      x-summary-source: derived
+    servers:
+    - url: https://dialogflow.googleapis.com
+      description: Dialogflow API
+  /v2/projects/{projectsId}/agent/versions/{versionsId}:
+    patch:
+      operationId: dialogflow_projects_agent_versions_patch
+      tags:
+      - Versions
+      parameters:
+      - name: projectsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/agent/versions/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: versionsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/agent/versions/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: updateMask
+        in: query
+        schema:
+          type: string
+      x-discovery-path-template: v2/{name}
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GoogleCloudDialogflowV2Version'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleCloudDialogflowV2Version'
+        default:
+          description: Error response (google.rpc.Status)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleRpcStatus'
+      security:
+      - OAuth2:
+        - https://www.googleapis.com/auth/cloud-platform
+        - https://www.googleapis.com/auth/dialogflow
+      - BearerAuth: []
+      summary: Dialogflow projects agent versions patch
+      x-summary-source: derived
+    get:
+      operationId: dialogflow_projects_agent_versions_get
+      tags:
+      - Versions
+      parameters:
+      - name: projectsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/agent/versions/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: versionsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/agent/versions/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      x-discovery-path-template: v2/{name}
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleCloudDialogflowV2Version'
+        default:
+          description: Error response (google.rpc.Status)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleRpcStatus'
+      security:
+      - OAuth2:
+        - https://www.googleapis.com/auth/cloud-platform
+        - https://www.googleapis.com/auth/dialogflow
+      - BearerAuth: []
+      summary: Dialogflow projects agent versions get
+      x-summary-source: derived
+    delete:
+      operationId: dialogflow_projects_agent_versions_delete
+      tags:
+      - Versions
+      parameters:
+      - name: projectsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/agent/versions/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: versionsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/agent/versions/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      x-discovery-path-template: v2/{name}
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleProtobufEmpty'
+        default:
+          description: Error response (google.rpc.Status)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleRpcStatus'
+      security:
+      - OAuth2:
+        - https://www.googleapis.com/auth/cloud-platform
+        - https://www.googleapis.com/auth/dialogflow
+      - BearerAuth: []
+      summary: Dialogflow projects agent versions delete
+      x-summary-source: derived
+    servers:
+    - url: https://dialogflow.googleapis.com
+      description: Dialogflow API
+  /v2/projects/{projectsId}/agent/versions:
+    get:
+      operationId: dialogflow_projects_agent_versions_list
+      tags:
+      - Versions
+      parameters:
+      - name: projectsId
+        in: path
+        description: 'Part of `parent`. Resource name pattern: `^projects/[^/]+/agent$`.'
+        required: true
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        schema:
+          type: integer
+          format: int32
+      - name: pageToken
+        in: query
+        schema:
+          type: string
+      x-discovery-path-template: v2/{parent}/versions
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleCloudDialogflowV2ListVersionsResponse'
+        default:
+          description: Error response (google.rpc.Status)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleRpcStatus'
+      security:
+      - OAuth2:
+        - https://www.googleapis.com/auth/cloud-platform
+        - https://www.googleapis.com/auth/dialogflow
+      - BearerAuth: []
+      summary: Dialogflow projects agent versions list
+      x-summary-source: derived
+    post:
+      operationId: dialogflow_projects_agent_versions_create
+      tags:
+      - Versions
+      parameters:
+      - name: projectsId
+        in: path
+        description: 'Part of `parent`. Resource name pattern: `^projects/[^/]+/agent$`.'
+        required: true
+        schema:
+          type: string
+      x-discovery-path-template: v2/{parent}/versions
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GoogleCloudDialogflowV2Version'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleCloudDialogflowV2Version'
+        default:
+          description: Error response (google.rpc.Status)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleRpcStatus'
+      security:
+      - OAuth2:
+        - https://www.googleapis.com/auth/cloud-platform
+        - https://www.googleapis.com/auth/dialogflow
+      - BearerAuth: []
+      summary: Dialogflow projects agent versions create
+      x-summary-source: derived
+    servers:
+    - url: https://dialogflow.googleapis.com
+      description: Dialogflow API
+components:
+  schemas:
+    GoogleCloudDialogflowCxV3CompareVersionsResponse:
+      type: object
+      properties:
+        targetVersionContentJson:
+          type: string
+        compareTime:
+          type: string
+          format: date-time
+        baseVersionContentJson:
+          type: string
+    GoogleCloudDialogflowCxV3FlowTransition:
+      type: object
+      properties:
+        flow:
+          type: string
+        displayName:
+          type: string
+          readOnly: true
+    GoogleCloudDialogflowCxV3InlineSchema:
+      type: object
+      properties:
+        type:
+          type: string
+          enum:
+          - DATA_TYPE_UNSPECIFIED
+          - STRING
+          - NUMBER
+          - BOOLEAN
+          - ARRAY
+          x-enumDescriptions:
+          - ''
+          - ''
+          - ''
+          - ''
+          - ''
+        items:
+          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3TypeSchema'
+    GoogleCloudDialogflowCxV3FulfillmentConditionalCasesCaseCaseContent:
+      type: object
+      properties:
+        additionalCases:
+          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3FulfillmentConditionalCases'
+        message:
+          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3ResponseMessage'
+    GoogleCloudDialogflowCxV3AdvancedSettings:
+      type: object
+      properties:
+        speechSettings:
+          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3AdvancedSettingsSpeechSettings'
+        audioExportGcsDestination:
+          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3GcsDestination'
+        loggingSettings:
+          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3AdvancedSettingsLoggingSettings'
+        dtmfSettings:
+          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3AdvancedSettingsDtmfSettings'
+    GoogleCloudDialogflowCxV3Action:
+      type: object
+      properties:
+        userUtterance:
+          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3UserUtterance'
+        flowTransition:
+          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3FlowTransition'
+        flowInvocation:
+          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3FlowInvocation'
+        agentUtterance:
+          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3AgentUtterance'
+        playbookInvocation:
+          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3PlaybookInvocation'
+        toolUse:
+          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3ToolUse'
+        playbookTransition:
+          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3PlaybookTransition'
+    GoogleCloudDialogflowCxV3TypeSchema:
+      type: object
+      properties:
+        inlineSchema:
+          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3InlineSchema'
+        schemaReference:
+          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3TypeSchemaSchemaReference'
+    GoogleCloudDialogflowCxV3ToolAuthenticationServiceAgentAuthConfig:
+      type: object
+      properties:
+        serviceAgentAuth:
+          type: string
+          enum:
+          - SERVICE_AGENT_AUTH_UNSPECIFIED
+          - ID_TOKEN
+          - ACCESS_TOKEN
+          x-enumDescriptions:
+          - ''
+          - ''
+          - ''
+    GoogleCloudDialogflowCxV3ToolCall:
+      type: object
+      properties:
+        inputParameters:
+          type: object
+          additionalProperties:
+            description: Properties of the object.
+        action:
+          type: string
+        tool:
+          type: string
+    GoogleCloudDialogflowCxV3ResponseMessageText:
+      type: object
+      properties:
+        allowPlaybackInterruption:
+          type: boolean
+          readOnly: true
+        text:
+          type: array
+          items:
+            type: string
+    GoogleCloudDialogflowCxV3PlaybookStep:
+      type: object
+      properties:
+        steps:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowCxV3PlaybookStep'
+        text:
+          type: string
+    GoogleCloudDialogflowCxV3AdvancedSettingsDtmfSettings:
+      type: object
+      properties:
+        enabled:
+          type: boolean
+        finishDigit:
+          type: string
+        interdigitTimeoutDuration:
+          type: string
+        maxDigits:
+          type: integer
+          format: int32
+        endpointingTimeoutDuration:
+          type: string
+    GoogleCloudDialogflowCxV3PlaybookInvocation:
+      type: object
+      properties:
+        playbook:
+          type: string
+        displayName:
+          type: string
+          readOnly: true
+        playbookState:
+          type: string
+          enum:
+          - OUTPUT_STATE_UNSPECIFIED
+          - OUTPUT_STATE_OK
+          - OUTPUT_STATE_CANCELLED
+          - OUTPUT_STATE_FAILED
+          - OUTPUT_STATE_ESCALATED
+          - OUTPUT_STATE_PENDING
+          x-enumDescriptions:
+          - ''
+          - ''
+          - ''
+          - ''
+          - ''
+          - ''
+        playbookOutput:
+          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3PlaybookOutput'
+        playbookInput:
+          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3PlaybookInput'
+    GoogleCloudDialogflowCxV3UserUtterance:
+      type: object
+      properties:
+        text:
+          type: string
+    GoogleCloudDialogflowCxV3Handler:
+      type: object
+      properties:
+        eventHandler:
+          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3HandlerEventHandler'
+        lifecycleHandler:
+          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3HandlerLifecycleHandler'
+    GoogleCloudDialogflowCxV3LlmModelSettings:
+      type: object
+      properties:
+        model:
+          type: string
+        promptText:
+          type: string
+    GoogleCloudDialogflowCxV3RestoreToolVersionResponse:
+      type: object
+      properties:
+        tool:
+          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3Tool'
+    GoogleCloudDialogflowCxV3ToolFunctionTool:
+      type: object
+      properties:
+        outputSchema:
+          type: object
+          additionalProperties:
+            description: Properties of the object.
+        inputSchema:
+          type: object
+          additionalProperties:
+            description: Properties of the object.
+    GoogleCloudDialogflowCxV3NluSettings:
+      type: object
+      properties:
+        classificationThreshold:
+          type: number
+          format: float
+        modelTrainingMode:
+          type: string
+          enum:
+          - MODEL_TRAINING_MODE_UNSPECIFIED
+          - MODEL_TRAINING_MODE_AUTOMATIC
+          - MODEL_TRAINING_MODE_MANUAL
+          x-enumDescriptions:
+          - ''
+          - ''
+          - ''
+        modelType:
+          type: string
+          enum:
+          - MODEL_TYPE_UNSPECIFIED
+          - MODEL_TYPE_STANDARD
+          - MODEL_TYPE_ADVANCED
+          x-enumDescriptions:
+          - ''
+          - ''
+          - ''
+    GoogleCloudDialogflowCxV3FulfillmentGeneratorSettings:
+      type: object
+      properties:
+        generator:
+          type: string
+        outputParameter:
+          type: string
+        inputParameters:
+          type: object
+          additionalProperties:
+            type: string
+    GoogleCloudDialogflowCxV3ListVersionsResponse:
+      type: object
+      properties:
+        versions:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowCxV3Version'
+        nextPageToken:
+          type: string
+    GoogleCloudDialogflowCxV3GcsDestination:
+      type: object
+      properties:
+        uri:
+          type: string
+    GoogleCloudDialogflowCxV3RestoreToolVersionRequest:
+      type: object
+    GoogleCloudDialogflowCxV3Playbook:
+      type: object
+      properties:
+        inputParameterDefinitions:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowCxV3ParameterDefinition'
+        codeBlock:
+          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3CodeBlock'
+        referencedPlaybooks:
+          type: array
+          readOnly: true
+          items:
+            type: string
+        playbookType:
+          type: string
+          enum:
+          - PLAYBOOK_TYPE_UNSPECIFIED
+          - TASK
+          - ROUTINE
+          x-enumDescriptions:
+          - ''
+          - ''
+          - ''
+        handlers:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowCxV3Handler'
+        referencedFlows:
+          type: array
+          readOnly: true
+          items:
+            type: string
+        referencedTools:
+          type: array
+          items:
+            type: string
+        displayName:
+          type: string
+        goal:
+          type: string
+        name:
+          type: string
+        llmModelSettings:
+          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3LlmModelSettings'
+        createTime:
+          type: string
+          format: date-time
+          readOnly: true
+        instruction:
+          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3PlaybookInstruction'
+        inlineActions:
+          type: array
+          readOnly: true
+          items:
+            type: string
+        tokenCount:
+          type: string
+          format: int64
+          readOnly: true
+        updateTime:
+          type: string
+          format: date-time
+          readOnly: true
+        outputParameterDefinitions:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowCxV3ParameterDefinition'
+    GoogleRpcStatus:
+      type: object
+      properties:
+        message:
+          type: string
+        code:
+          type: integer
+          format: int32
+        details:
+          type: array
+          items:
+            type: object
+            additionalProperties:
+              description: Properties of the object. Contains field @type with type URL.
+    GoogleCloudDialogflowCxV3ResponseMessageTelephonyTransferCall:
+      type: object
+      properties:
+        phoneNumber:
+          type: string
+    GoogleCloudDialogflowCxV3ToolServiceDirectoryConfig:
+      type: object
+      properties:
+        service:
+          type: string
+    GoogleCloudDialogflowCxV3CodeBlock:
+      type: object
+      properties:
+        code:
+          type: string
+    GoogleCloudDialogflowCxV3RestorePlaybookVersionResponse:
+      type: object
+      properties:
+        playbook:
+          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3Playbook'
+    GoogleCloudDialogflowCxV3ToolAuthenticationServiceAccountAuthConfig:
+      type: object
+      properties:
+        serviceAccount:
+          type: string
+    GoogleCloudDialogflowCxV3ToolDataStoreToolFallbackPrompt:
+      type: object
+    GoogleCloudDialogflowCxV3PlaybookInstruction:
+      type: object
+      properties:
+        guidelines:
+          type: string
+        steps:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowCxV3PlaybookStep'
+    GoogleCloudDialogflowCxV3ResponseMessageMixedAudioSegment:
+      type: object
+      properties:
+        audio:
+          type: string
+          format: byte
+        allowPlaybackInterruption:
+          type: boolean
+          readOnly: true
+        uri:
+          type: string
+    GoogleCloudDialogflowCxV3ResponseMessageLiveAgentHandoff:
+      type: object
+      properties:
+        metadata:
+          type: object
+          additionalProperties:
+            description: Properties of the object.
+    GoogleCloudDialogflowCxV3ResponseMessageConversationSuccess:
+      type: object
+      properties:
+        metadata:
+          type: object
+          additionalProperties:
+            description: Properties of the object.
+    GoogleCloudDialogflowCxV3CompareVersionsRequest:
+      type: object
+      properties:
+        languageCode:
+          type: string
+        targetVersion:
+          type: string
+    GoogleCloudDialogflowCxV3ResponseMessageKnowledgeInfoCard:
+      type: object
+    GoogleCloudDialogflowCxV3PlaybookTransition:
+      type: object
+      properties:
+        playbook:
+          type: string
+        displayName:
+          type: string
+          readOnly: true
+    GoogleProtobufEmpty:
+      type: object
+    GoogleCloudDialogflowCxV3FulfillmentConditionalCasesCase:
+      type: object
+      properties:
+        caseContent:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowCxV3FulfillmentConditionalCasesCaseCaseContent'
+        condition:
+          type: string
+    GoogleCloudDialogflowCxV3ToolDataStoreTool:
+      type: object
+      properties:
+        dataStoreConnections:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowCxV3DataStoreConnection'
+        fallbackPrompt:
+          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3ToolDataStoreToolFallbackPrompt'
+    GoogleCloudDialogflowCxV3ListPlaybookVersionsResponse:
+      type: object
+      properties:
+        nextPageToken:
+          type: string
+        playbookVersions:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowCxV3PlaybookVersion'
+    GoogleCloudDialogflowCxV3HandlerLifecycleHandler:
+      type: object
+      properties:
+        condition:
+          type: string
+        fulfillment:
+          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3Fulfillment'
+        lifecycleStage:
+          type: string
+    GoogleCloudDialogflowCxV3FulfillmentSetParameterAction:
+      type: object
+      properties:
+        parameter:
+          type: string
+        value: {}
+    GoogleCloudDialogflowCxV3Version:
+      type: object
+      properties:
+        displayName:
+          type: string
+        name:
+          type: string
+        state:
+          type: string
+          enum:
+          - STATE_UNSPECIFIED
+          - RUNNING
+          - SUCCEEDED
+          - FAILED
+          x-enumDescriptions:
+          - ''
+          - ''
+          - ''
+          - ''
+          readOnly: true
+        createTime:
+          type: string
+          format: date-time
+          readOnly: true
+        description:
+          type: string
+        nluSettings:
+          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3NluSettings'
+    GoogleCloudDialogflowCxV3PlaybookOutput:
+      type: object
+      properties:
+        executionSummary:
+          type: string
+    GoogleCloudDialogflowCxV3LoadVersionRequest:
+      type: object
+      properties:
+        allowOverrideAgentResources:
+          type: boolean
+    GoogleCloudDialogflowCxV3ParameterDefinition:
+      type: object
+      properties:
+        type:
+          type: string
+          enum:
+          - PARAMETER_TYPE_UNSPECIFIED
+          - STRING
+          - NUMBER
+          - BOOLEAN
+          - 'NULL'
+          - OBJECT
+          - LIST
+          x-enumDescriptions:
+          - ''
+          - ''
+          - ''
+          - ''
+          - ''
+          - ''
+          - ''
+        description:
+          type: string
+        typeSchema:
+          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3TypeSchema'
+        name:
+          type: string
+    GoogleCloudDialogflowCxV3PlaybookInput:
+      type: object
+      properties:
+        precedingConversationSummary:
+          type: string
+    GoogleCloudDialogflowCxV3AdvancedSettingsLoggingSettings:
+      type: object
+      properties:
+        enableConsentBasedRedaction:
+          type: boolean
+        enableStackdriverLogging:
+          type: boolean
+        enableInteractionLogging:
+          type: boolean
+    GoogleCloudDialogflowCxV3ResponseMessagePlayAudio:
+      type: object
+      properties:
+        allowPlaybackInterruption:
+          type: boolean
+          readOnly: true
+        audioUri:
+          type: string
+    GoogleCloudDialogflowCxV3AgentUtterance:
+      type: object
+      properties:
+        text:
+          type: string
+    GoogleCloudDialogflowCxV3ResponseMessage:
+      type: object
+      properties:
+        outputAudioText:
+          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3ResponseMessageOutputAudioText'
+        endInteraction:
+          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3ResponseMessageEndInteraction'
+        toolCall:
+          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3ToolCall'
+        responseType:
+          type: string
+          enum:
+          - RESPONSE_TYPE_UNSPECIFIED
+          - ENTRY_PROMPT
+          - PARAMETER_PROMPT
+          - HANDLER_PROMPT
+          x-enumDescriptions:
+          - ''
+          - ''
+          - ''
+          - ''
+        text:
+          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3ResponseMessageText'
+        channel:
+          type: string
+        payload:
+          type: object
+          additionalProperties:
+            description: Properties of the object.
+        telephonyTransferCall:
+          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3ResponseMessageTelephonyTransferCall'
+        mixedAudio:
+          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3ResponseMessageMixedAudio'
+        playAudio:
+          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3ResponseMessagePlayAudio'
+        conversationSuccess:
+          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3ResponseMessageConversationSuccess'
+        knowledgeInfoCard:
+          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3ResponseMessageKnowledgeInfoCard'
+        liveAgentHandoff:
+          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3ResponseMessageLiveAgentHandoff'
+    GoogleCloudDialogflowCxV3DataStoreConnection:
+      type: object
+      properties:
+        dataStoreType:
+          type: string
+          enum:
+          - DATA_STORE_TYPE_UNSPECIFIED
+          - PUBLIC_WEB
+          - UNSTRUCTURED
+          - STRUCTURED
+          x-enumDescriptions:
+          - ''
+          - ''
+          - ''
+          - ''
+        dataStore:
+          type: string
+        documentProcessingMode:
+          type: string
+          enum:
+          - DOCUMENT_PROCESSING_MODE_UNSPECIFIED
+          - DOCUMENTS
+          - CHUNKS
+          x-enumDescriptions:
+          - ''
+          - ''
+          - ''
+    GoogleCloudDialogflowCxV3ToolVersion:
+      type: object
+      properties:
+        createTime:
+          type: string
+          format: date-time
+          readOnly: true
+        tool:
+          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3Tool'
+        displayName:
+          type: string
+        name:
+          type: string
+        updateTime:
+          type: string
+          format: date-time
+          readOnly: true
+    GoogleCloudDialogflowCxV3ToolAuthenticationBearerTokenConfig:
+      type: object
+      properties:
+        secretVersionForToken:
+          type: string
+        token:
+          type: string
+    GoogleCloudDialogflowCxV3TypeSchemaSchemaReference:
+      type: object
+      properties:
+        schema:
+          type: string
+        tool:
+          type: string
+    GoogleCloudDialogflowCxV3ToolAuthenticationApiKeyConfig:
+      type: object
+      properties:
+        apiKey:
+          type: string
+        requestLocation:
+          type: string
+          enum:
+          - REQUEST_LOCATION_UNSPECIFIED
+          - HEADER
+          - QUERY_STRING
+          x-enumDescriptions:
+          - ''
+          - ''
+          - ''
+        keyName:
+          type: string
+        secretVersionForApiKey:
+          type: string
+    GoogleCloudDialogflowCxV3ListToolVersionsResponse:
+      type: object
+      properties:
+        toolVersions:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowCxV3ToolVersion'
+        nextPageToken:
+          type: string
+    GoogleCloudDialogflowCxV3RestorePlaybookVersionRequest:
+      type: object
+    GoogleCloudDialogflowCxV3Tool:
+      type: object
+      properties:
+        functionSpec:
+          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3ToolFunctionTool'
+        description:
+          type: string
+        name:
+          type: string
+        dataStoreSpec:
+          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3ToolDataStoreTool'
+        displayName:
+          type: string
+        openApiSpec:
+          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3ToolOpenApiTool'
+        toolType:
+          type: string
+          enum:
+          - TOOL_TYPE_UNSPECIFIED
+          - CUSTOMIZED_TOOL
+          - BUILTIN_TOOL
+          x-enumDescriptions:
+          - ''
+          - ''
+          - ''
+          readOnly: true
+    GoogleCloudDialogflowCxV3FlowInvocation:
+      type: object
+      properties:
+        flow:
+          type: string
+        displayName:
+          type: string
+          readOnly: true
+        flowState:
+          type: string
+          enum:
+          - OUTPUT_STATE_UNSPECIFIED
+          - OUTPUT_STATE_OK
+          - OUTPUT_STATE_CANCELLED
+          - OUTPUT_STATE_FAILED
+          - OUTPUT_STATE_ESCALATED
+          - OUTPUT_STATE_PENDING
+          x-enumDescriptions:
+          - ''
+          - ''
+          - ''
+          - ''
+          - ''
+          - ''
+    GoogleCloudDialogflowCxV3ToolAuthentication:
+      type: object
+      properties:
+        serviceAccountAuthConfig:
+          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3ToolAuthenticationServiceAccountAuthConfig'
+        oauthConfig:
+          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3ToolAuthenticationOAuthConfig'
+        serviceAgentAuthConfig:
+          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3ToolAuthenticationServiceAgentAuthConfig'
+        bearerTokenConfig:
+          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3ToolAuthenticationBearerTokenConfig'
+        apiKeyConfig:
+          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3ToolAuthenticationApiKeyConfig'
+    GoogleCloudDialogflowCxV3Fulfillment:
+      type: object
+      properties:
+        setParameterActions:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowCxV3FulfillmentSetParameterAction'
+        tag:
+          type: string
+        messages:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowCxV3ResponseMessage'
+        conditionalCases:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowCxV3FulfillmentConditionalCases'
+        returnPartialResponses:
+          type: boolean
+        advancedSettings:
+          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3AdvancedSettings'
+        generators:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowCxV3FulfillmentGeneratorSettings'
+        enableGenerativeFallback:
+          type: boolean
+        webhook:
+          type: string
+        codeBlockFunction:
+          type: string
+    GoogleCloudDialogflowCxV3ResponseMessageMixedAudio:
+      type: object
+      properties:
+        segments:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowCxV3ResponseMessageMixedAudioSegment'
+    GoogleCloudDialogflowCxV3ToolAuthenticationOAuthConfig:
+      type: object
+      properties:
+        clientId:
+          type: string
+        tokenEndpoint:
+          type: string
+        secretVersionForClientSecret:
+          type: string
+        scopes:
+          type: array
+          items:
+            type: string
+        clientSecret:
+          type: string
+        oauthGrantType:
+          type: string
+          enum:
+          - OAUTH_GRANT_TYPE_UNSPECIFIED
+          - CLIENT_CREDENTIAL
+          x-enumDescriptions:
+          - ''
+          - ''
+    GoogleCloudDialogflowCxV3Example:
+      type: object
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+        playbookInput:
+          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3PlaybookInput'
+        playbookOutput:
+          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3PlaybookOutput'
+        tokenCount:
+          type: string
+          format: int64
+          readOnly: true
+        updateTime:
+          type: string
+          format: date-time
+          readOnly: true
+        conversationState:
+          type: string
+          enum:
+          - OUTPUT_STATE_UNSPECIFIED
+          - OUTPUT_STATE_OK
+          - OUTPUT_STATE_CANCELLED
+          - OUTPUT_STATE_FAILED
+          - OUTPUT_STATE_ESCALATED
+          - OUTPUT_STATE_PENDING
+          x-enumDescriptions:
+          - ''
+          - ''
+          - ''
+          - ''
+          - ''
+          - ''
+        actions:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowCxV3Action'
+        languageCode:
+          type: string
+        createTime:
+          type: string
+          format: date-time
+          readOnly: true
+        displayName:
+          type: string
+    GoogleCloudDialogflowCxV3ToolTLSConfigCACert:
+      type: object
+      properties:
+        cert:
+          type: string
+          format: byte
+        displayName:
+          type: string
+    GoogleCloudDialogflowCxV3FulfillmentConditionalCases:
+      type: object
+      properties:
+        cases:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowCxV3FulfillmentConditionalCasesCase'
+    GoogleCloudDialogflowCxV3PlaybookVersion:
+      type: object
+      properties:
+        updateTime:
+          type: string
+          format: date-time
+          readOnly: true
+        name:
+          type: string
+        playbook:
+          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3Playbook'
+        description:
+          type: string
+        examples:
+          type: array
+          readOnly: true
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowCxV3Example'
+    GoogleCloudDialogflowCxV3ToolUse:
+      type: object
+      properties:
+        inputActionParameters:
+          type: object
+          additionalProperties:
+            description: Properties of the object.
+        tool:
+          type: string
+        outputActionParameters:
+          type: object
+          additionalProperties:
+            description: Properties of the object.
+        displayName:
+          type: string
+          readOnly: true
+        action:
+          type: string
+    GoogleCloudDialogflowCxV3HandlerEventHandler:
+      type: object
+      properties:
+        condition:
+          type: string
+        event:
+          type: string
+        fulfillment:
+          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3Fulfillment'
+    GoogleCloudDialogflowCxV3ToolTLSConfig:
+      type: object
+      properties:
+        caCerts:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowCxV3ToolTLSConfigCACert'
+    GoogleCloudDialogflowCxV3ResponseMessageOutputAudioText:
+      type: object
+      properties:
+        allowPlaybackInterruption:
+          type: boolean
+          readOnly: true
+        ssml:
+          type: string
+        text:
+          type: string
+    GoogleLongrunningOperation:
+      type: object
+      properties:
+        metadata:
+          type: object
+          additionalProperties:
+            description: Properties of the object. Contains field @type with type URL.
+        name:
+          type: string
+        done:
+          type: boolean
+        response:
+          type: object
+          additionalProperties:
+            description: Properties of the object. Contains field @type with type URL.
+        error:
+          $ref: '#/components/schemas/GoogleRpcStatus'
+    GoogleCloudDialogflowCxV3ResponseMessageEndInteraction:
+      type: object
+    GoogleCloudDialogflowCxV3ToolOpenApiTool:
+      type: object
+      properties:
+        tlsConfig:
+          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3ToolTLSConfig'
+        authentication:
+          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3ToolAuthentication'
+        textSchema:
+          type: string
+        serviceDirectoryConfig:
+          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3ToolServiceDirectoryConfig'
+    GoogleCloudDialogflowCxV3AdvancedSettingsSpeechSettings:
+      type: object
+      properties:
+        noSpeechTimeout:
+          type: string
+        models:
+          type: object
+          additionalProperties:
+            type: string
+        useTimeoutBasedEndpointing:
+          type: boolean
+        endpointerSensitivity:
+          type: integer
+          format: int32
+    GoogleCloudDialogflowV2ListVersionsResponse:
+      type: object
+      properties:
+        nextPageToken:
+          type: string
+        versions:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowV2Version'
+    GoogleCloudDialogflowV2Version:
+      type: object
+      properties:
+        createTime:
+          type: string
+          format: date-time
+          readOnly: true
+        name:
+          type: string
+          readOnly: true
+        versionNumber:
+          type: integer
+          format: int32
+          readOnly: true
+        status:
+          type: string
+          enum:
+          - VERSION_STATUS_UNSPECIFIED
+          - IN_PROGRESS
+          - READY
+          - FAILED
+          x-enumDescriptions:
+          - ''
+          - ''
+          - ''
+          - ''
+          readOnly: true
+        description:
+          type: string
+  securitySchemes:
+    OAuth2:
+      type: oauth2
+      description: Google OAuth 2.0. Scopes are declared per operation in the Discovery Document.
+      flows:
+        authorizationCode:
+          authorizationUrl: https://accounts.google.com/o/oauth2/v2/auth
+          tokenUrl: https://oauth2.googleapis.com/token
+          scopes:
+            https://www.googleapis.com/auth/cloud-platform: See, edit, configure, and delete your Google Cloud data and see the email address for your Google Account.
+            https://www.googleapis.com/auth/dialogflow: View, manage and query your Dialogflow agents
+    BearerAuth:
+      type: http
+      scheme: bearer
+      description: 'Google OAuth 2.0 access token or service-account-minted bearer token, sent as Authorization: Bearer <token>.'
+x-refined-from:
+- google-dialogflow-cx-v3-openapi.yml
+- google-dialogflow-es-v2-openapi.yml

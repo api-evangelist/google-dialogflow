@@ -1,0 +1,1009 @@
+openapi: 3.2.0
+info:
+  title: Google Dialogflow Tools API
+  contact:
+    name: Google Cloud
+    url: https://cloud.google.com/dialogflow/
+  license:
+    name: Google APIs Terms of Service
+    url: https://developers.google.com/terms
+  termsOfService: https://cloud.google.com/terms
+  x-refined-note:
+  - x-discovery-id differs across the merged source definitions and was not carried
+  - x-discovery-source differs across the merged source definitions and was not carried
+  x-discovery-revision: '20260825'
+  version: '1.0'
+  description: 'Operations tagged tools across 2 of this provider''s published API definitions: google-dialogflow-cx-v3-openapi.yml, google-dialogflow-es-v2-openapi.yml. Each path carries the servers of the definition it was published in.'
+servers:
+- url: https://dialogflow.googleapis.com
+  description: Dialogflow API
+tags:
+- name: Tools
+paths:
+  /v3/projects/{projectsId}/locations/{locationsId}/agents/{agentsId}/tools/{toolsId}:
+    get:
+      operationId: dialogflow_projects_locations_agents_tools_get
+      tags:
+      - Tools
+      parameters:
+      - name: projectsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+/tools/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: locationsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+/tools/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: agentsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+/tools/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: toolsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+/tools/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      x-discovery-path-template: v3/{name}
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleCloudDialogflowCxV3Tool'
+        default:
+          description: Error response (google.rpc.Status)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleRpcStatus'
+      security:
+      - OAuth2:
+        - https://www.googleapis.com/auth/cloud-platform
+        - https://www.googleapis.com/auth/dialogflow
+      - BearerAuth: []
+      summary: Dialogflow projects locations agents tools get
+      x-summary-source: derived
+    patch:
+      operationId: dialogflow_projects_locations_agents_tools_patch
+      tags:
+      - Tools
+      parameters:
+      - name: projectsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+/tools/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: locationsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+/tools/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: agentsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+/tools/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: toolsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+/tools/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: updateMask
+        in: query
+        schema:
+          type: string
+      x-discovery-path-template: v3/{name}
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GoogleCloudDialogflowCxV3Tool'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleCloudDialogflowCxV3Tool'
+        default:
+          description: Error response (google.rpc.Status)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleRpcStatus'
+      security:
+      - OAuth2:
+        - https://www.googleapis.com/auth/cloud-platform
+        - https://www.googleapis.com/auth/dialogflow
+      - BearerAuth: []
+      summary: Dialogflow projects locations agents tools patch
+      x-summary-source: derived
+    delete:
+      operationId: dialogflow_projects_locations_agents_tools_delete
+      tags:
+      - Tools
+      parameters:
+      - name: projectsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+/tools/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: locationsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+/tools/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: agentsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+/tools/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: toolsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+/tools/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: force
+        in: query
+        schema:
+          type: boolean
+      x-discovery-path-template: v3/{name}
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleProtobufEmpty'
+        default:
+          description: Error response (google.rpc.Status)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleRpcStatus'
+      security:
+      - OAuth2:
+        - https://www.googleapis.com/auth/cloud-platform
+        - https://www.googleapis.com/auth/dialogflow
+      - BearerAuth: []
+      summary: Dialogflow projects locations agents tools delete
+      x-summary-source: derived
+    servers:
+    - url: https://dialogflow.googleapis.com
+      description: Dialogflow API
+  /v3/projects/{projectsId}/locations/{locationsId}/agents/{agentsId}/tools:
+    post:
+      operationId: dialogflow_projects_locations_agents_tools_create
+      tags:
+      - Tools
+      parameters:
+      - name: projectsId
+        in: path
+        description: 'Part of `parent`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: locationsId
+        in: path
+        description: 'Part of `parent`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: agentsId
+        in: path
+        description: 'Part of `parent`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      x-discovery-path-template: v3/{parent}/tools
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GoogleCloudDialogflowCxV3Tool'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleCloudDialogflowCxV3Tool'
+        default:
+          description: Error response (google.rpc.Status)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleRpcStatus'
+      security:
+      - OAuth2:
+        - https://www.googleapis.com/auth/cloud-platform
+        - https://www.googleapis.com/auth/dialogflow
+      - BearerAuth: []
+      summary: Dialogflow projects locations agents tools create
+      x-summary-source: derived
+    get:
+      operationId: dialogflow_projects_locations_agents_tools_list
+      tags:
+      - Tools
+      parameters:
+      - name: projectsId
+        in: path
+        description: 'Part of `parent`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: locationsId
+        in: path
+        description: 'Part of `parent`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: agentsId
+        in: path
+        description: 'Part of `parent`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: pageToken
+        in: query
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        schema:
+          type: integer
+          format: int32
+      x-discovery-path-template: v3/{parent}/tools
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleCloudDialogflowCxV3ListToolsResponse'
+        default:
+          description: Error response (google.rpc.Status)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleRpcStatus'
+      security:
+      - OAuth2:
+        - https://www.googleapis.com/auth/cloud-platform
+        - https://www.googleapis.com/auth/dialogflow
+      - BearerAuth: []
+      summary: Dialogflow projects locations agents tools list
+      x-summary-source: derived
+    servers:
+    - url: https://dialogflow.googleapis.com
+      description: Dialogflow API
+  /v2/projects/{projectsId}/locations/{locationsId}/tools:
+    post:
+      operationId: dialogflow_projects_locations_tools_create
+      tags:
+      - Tools
+      parameters:
+      - name: projectsId
+        in: path
+        description: 'Part of `parent`. Resource name pattern: `^projects/[^/]+/locations/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: locationsId
+        in: path
+        description: 'Part of `parent`. Resource name pattern: `^projects/[^/]+/locations/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: toolId
+        in: query
+        schema:
+          type: string
+      x-discovery-path-template: v2/{parent}/tools
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GoogleCloudDialogflowV2Tool'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleCloudDialogflowV2Tool'
+        default:
+          description: Error response (google.rpc.Status)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleRpcStatus'
+      security:
+      - OAuth2:
+        - https://www.googleapis.com/auth/cloud-platform
+        - https://www.googleapis.com/auth/dialogflow
+      - BearerAuth: []
+      summary: Dialogflow projects locations tools create
+      x-summary-source: derived
+    get:
+      operationId: dialogflow_projects_locations_tools_list
+      tags:
+      - Tools
+      parameters:
+      - name: projectsId
+        in: path
+        description: 'Part of `parent`. Resource name pattern: `^projects/[^/]+/locations/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: locationsId
+        in: path
+        description: 'Part of `parent`. Resource name pattern: `^projects/[^/]+/locations/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        schema:
+          type: integer
+          format: int32
+      - name: pageToken
+        in: query
+        schema:
+          type: string
+      x-discovery-path-template: v2/{parent}/tools
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleCloudDialogflowV2ListToolsResponse'
+        default:
+          description: Error response (google.rpc.Status)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleRpcStatus'
+      security:
+      - OAuth2:
+        - https://www.googleapis.com/auth/cloud-platform
+        - https://www.googleapis.com/auth/dialogflow
+      - BearerAuth: []
+      summary: Dialogflow projects locations tools list
+      x-summary-source: derived
+    servers:
+    - url: https://dialogflow.googleapis.com
+      description: Dialogflow API
+  /v2/projects/{projectsId}/locations/{locationsId}/tools/{toolsId}:
+    delete:
+      operationId: dialogflow_projects_locations_tools_delete
+      tags:
+      - Tools
+      parameters:
+      - name: projectsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/tools/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: locationsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/tools/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: toolsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/tools/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      x-discovery-path-template: v2/{name}
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleProtobufEmpty'
+        default:
+          description: Error response (google.rpc.Status)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleRpcStatus'
+      security:
+      - OAuth2:
+        - https://www.googleapis.com/auth/cloud-platform
+        - https://www.googleapis.com/auth/dialogflow
+      - BearerAuth: []
+      summary: Dialogflow projects locations tools delete
+      x-summary-source: derived
+    get:
+      operationId: dialogflow_projects_locations_tools_get
+      tags:
+      - Tools
+      parameters:
+      - name: projectsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/tools/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: locationsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/tools/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: toolsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/tools/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      x-discovery-path-template: v2/{name}
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleCloudDialogflowV2Tool'
+        default:
+          description: Error response (google.rpc.Status)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleRpcStatus'
+      security:
+      - OAuth2:
+        - https://www.googleapis.com/auth/cloud-platform
+        - https://www.googleapis.com/auth/dialogflow
+      - BearerAuth: []
+      summary: Dialogflow projects locations tools get
+      x-summary-source: derived
+    patch:
+      operationId: dialogflow_projects_locations_tools_patch
+      tags:
+      - Tools
+      parameters:
+      - name: projectsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/tools/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: locationsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/tools/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: toolsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/tools/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: updateMask
+        in: query
+        schema:
+          type: string
+      x-discovery-path-template: v2/{name}
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GoogleCloudDialogflowV2Tool'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleCloudDialogflowV2Tool'
+        default:
+          description: Error response (google.rpc.Status)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleRpcStatus'
+      security:
+      - OAuth2:
+        - https://www.googleapis.com/auth/cloud-platform
+        - https://www.googleapis.com/auth/dialogflow
+      - BearerAuth: []
+      summary: Dialogflow projects locations tools patch
+      x-summary-source: derived
+    servers:
+    - url: https://dialogflow.googleapis.com
+      description: Dialogflow API
+components:
+  schemas:
+    GoogleCloudDialogflowCxV3ToolDataStoreTool:
+      type: object
+      properties:
+        dataStoreConnections:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowCxV3DataStoreConnection'
+        fallbackPrompt:
+          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3ToolDataStoreToolFallbackPrompt'
+    GoogleCloudDialogflowCxV3ToolAuthenticationApiKeyConfig:
+      type: object
+      properties:
+        apiKey:
+          type: string
+        requestLocation:
+          type: string
+          enum:
+          - REQUEST_LOCATION_UNSPECIFIED
+          - HEADER
+          - QUERY_STRING
+          x-enumDescriptions:
+          - ''
+          - ''
+          - ''
+        keyName:
+          type: string
+        secretVersionForApiKey:
+          type: string
+    GoogleCloudDialogflowCxV3ListToolsResponse:
+      type: object
+      properties:
+        nextPageToken:
+          type: string
+        tools:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowCxV3Tool'
+    GoogleCloudDialogflowCxV3ToolAuthenticationServiceAccountAuthConfig:
+      type: object
+      properties:
+        serviceAccount:
+          type: string
+    GoogleCloudDialogflowCxV3ToolDataStoreToolFallbackPrompt:
+      type: object
+    GoogleCloudDialogflowCxV3Tool:
+      type: object
+      properties:
+        functionSpec:
+          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3ToolFunctionTool'
+        description:
+          type: string
+        name:
+          type: string
+        dataStoreSpec:
+          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3ToolDataStoreTool'
+        displayName:
+          type: string
+        openApiSpec:
+          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3ToolOpenApiTool'
+        toolType:
+          type: string
+          enum:
+          - TOOL_TYPE_UNSPECIFIED
+          - CUSTOMIZED_TOOL
+          - BUILTIN_TOOL
+          x-enumDescriptions:
+          - ''
+          - ''
+          - ''
+          readOnly: true
+    GoogleCloudDialogflowCxV3DataStoreConnection:
+      type: object
+      properties:
+        dataStoreType:
+          type: string
+          enum:
+          - DATA_STORE_TYPE_UNSPECIFIED
+          - PUBLIC_WEB
+          - UNSTRUCTURED
+          - STRUCTURED
+          x-enumDescriptions:
+          - ''
+          - ''
+          - ''
+          - ''
+        dataStore:
+          type: string
+        documentProcessingMode:
+          type: string
+          enum:
+          - DOCUMENT_PROCESSING_MODE_UNSPECIFIED
+          - DOCUMENTS
+          - CHUNKS
+          x-enumDescriptions:
+          - ''
+          - ''
+          - ''
+    GoogleCloudDialogflowCxV3ToolAuthenticationOAuthConfig:
+      type: object
+      properties:
+        clientId:
+          type: string
+        tokenEndpoint:
+          type: string
+        secretVersionForClientSecret:
+          type: string
+        scopes:
+          type: array
+          items:
+            type: string
+        clientSecret:
+          type: string
+        oauthGrantType:
+          type: string
+          enum:
+          - OAUTH_GRANT_TYPE_UNSPECIFIED
+          - CLIENT_CREDENTIAL
+          x-enumDescriptions:
+          - ''
+          - ''
+    GoogleRpcStatus:
+      type: object
+      properties:
+        message:
+          type: string
+        code:
+          type: integer
+          format: int32
+        details:
+          type: array
+          items:
+            type: object
+            additionalProperties:
+              description: Properties of the object. Contains field @type with type URL.
+    GoogleCloudDialogflowCxV3ToolAuthenticationServiceAgentAuthConfig:
+      type: object
+      properties:
+        serviceAgentAuth:
+          type: string
+          enum:
+          - SERVICE_AGENT_AUTH_UNSPECIFIED
+          - ID_TOKEN
+          - ACCESS_TOKEN
+          x-enumDescriptions:
+          - ''
+          - ''
+          - ''
+    GoogleProtobufEmpty:
+      type: object
+    GoogleCloudDialogflowCxV3ToolAuthentication:
+      type: object
+      properties:
+        serviceAccountAuthConfig:
+          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3ToolAuthenticationServiceAccountAuthConfig'
+        oauthConfig:
+          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3ToolAuthenticationOAuthConfig'
+        serviceAgentAuthConfig:
+          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3ToolAuthenticationServiceAgentAuthConfig'
+        bearerTokenConfig:
+          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3ToolAuthenticationBearerTokenConfig'
+        apiKeyConfig:
+          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3ToolAuthenticationApiKeyConfig'
+    GoogleCloudDialogflowCxV3ToolTLSConfig:
+      type: object
+      properties:
+        caCerts:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowCxV3ToolTLSConfigCACert'
+    GoogleCloudDialogflowCxV3ToolTLSConfigCACert:
+      type: object
+      properties:
+        cert:
+          type: string
+          format: byte
+        displayName:
+          type: string
+    GoogleCloudDialogflowCxV3ToolFunctionTool:
+      type: object
+      properties:
+        outputSchema:
+          type: object
+          additionalProperties:
+            description: Properties of the object.
+        inputSchema:
+          type: object
+          additionalProperties:
+            description: Properties of the object.
+    GoogleCloudDialogflowCxV3ToolAuthenticationBearerTokenConfig:
+      type: object
+      properties:
+        secretVersionForToken:
+          type: string
+        token:
+          type: string
+    GoogleCloudDialogflowCxV3ToolServiceDirectoryConfig:
+      type: object
+      properties:
+        service:
+          type: string
+    GoogleCloudDialogflowCxV3ToolOpenApiTool:
+      type: object
+      properties:
+        tlsConfig:
+          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3ToolTLSConfig'
+        authentication:
+          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3ToolAuthentication'
+        textSchema:
+          type: string
+        serviceDirectoryConfig:
+          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3ToolServiceDirectoryConfig'
+    GoogleCloudDialogflowV2ToolConnectorToolActionEntityOperation:
+      type: object
+      properties:
+        operation:
+          type: string
+          enum:
+          - OPERATION_TYPE_UNSPECIFIED
+          - LIST
+          - GET
+          - CREATE
+          - UPDATE
+          - DELETE
+          x-enumDescriptions:
+          - ''
+          - ''
+          - ''
+          - ''
+          - ''
+          - ''
+        entityId:
+          type: string
+    GoogleCloudDialogflowV2ListToolsResponse:
+      type: object
+      properties:
+        tools:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowV2Tool'
+        nextPageToken:
+          type: string
+    GoogleCloudDialogflowV2Tool:
+      type: object
+      properties:
+        satisfiesPzs:
+          type: boolean
+          readOnly: true
+        functionSpec:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2ToolFunctionTool'
+        createTime:
+          type: string
+          format: date-time
+          readOnly: true
+        connectorSpec:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2ToolConnectorTool'
+        displayName:
+          type: string
+        satisfiesPzi:
+          type: boolean
+          readOnly: true
+        name:
+          type: string
+          readOnly: true
+        openApiSpec:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2ToolOpenApiTool'
+        description:
+          type: string
+        actionConfirmationRequirement:
+          type: object
+          additionalProperties:
+            type: string
+            enum:
+            - CONFIRMATION_REQUIREMENT_UNSPECIFIED
+            - REQUIRED
+            - NOT_REQUIRED
+            x-enumDescriptions:
+            - ''
+            - ''
+            - ''
+        toolKey:
+          type: string
+        extensionSpec:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2ToolExtensionTool'
+        updateTime:
+          type: string
+          format: date-time
+          readOnly: true
+    GoogleCloudDialogflowV2ToolConnectorTool:
+      type: object
+      properties:
+        name:
+          type: string
+        actions:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowV2ToolConnectorToolAction'
+    GoogleCloudDialogflowV2ToolConnectorToolAction:
+      type: object
+      properties:
+        outputFields:
+          type: array
+          items:
+            type: string
+        entityOperation:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2ToolConnectorToolActionEntityOperation'
+        connectionActionId:
+          type: string
+        inputFields:
+          type: array
+          items:
+            type: string
+    GoogleCloudDialogflowV2ToolExtensionTool:
+      type: object
+      properties:
+        name:
+          type: string
+    GoogleCloudDialogflowV2ToolAuthenticationApiKeyConfig:
+      type: object
+      properties:
+        secretVersionForApiKey:
+          type: string
+        keyName:
+          type: string
+        requestLocation:
+          type: string
+          enum:
+          - REQUEST_LOCATION_UNSPECIFIED
+          - HEADER
+          - QUERY_STRING
+          x-enumDescriptions:
+          - ''
+          - ''
+          - ''
+        apiKey:
+          type: string
+    GoogleCloudDialogflowV2ToolAuthenticationServiceAgentAuthConfig:
+      type: object
+      properties:
+        serviceAgentAuth:
+          type: string
+          enum:
+          - SERVICE_AGENT_AUTH_UNSPECIFIED
+          - ID_TOKEN
+          - ACCESS_TOKEN
+          x-enumDescriptions:
+          - ''
+          - ''
+          - ''
+    GoogleCloudDialogflowV2ToolAuthenticationOAuthConfig:
+      type: object
+      properties:
+        oauthGrantType:
+          type: string
+          enum:
+          - OAUTH_GRANT_TYPE_UNSPECIFIED
+          - CLIENT_CREDENTIAL
+          x-enumDescriptions:
+          - ''
+          - ''
+        clientSecret:
+          type: string
+        clientId:
+          type: string
+        secretVersionForClientSecret:
+          type: string
+        tokenEndpoint:
+          type: string
+        scopes:
+          type: array
+          items:
+            type: string
+    GoogleCloudDialogflowV2ToolTLSConfig:
+      type: object
+      properties:
+        caCerts:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowV2ToolTLSConfigCACert'
+    GoogleCloudDialogflowV2ToolServiceDirectoryConfig:
+      type: object
+      properties:
+        service:
+          type: string
+    GoogleCloudDialogflowV2ToolFunctionTool:
+      type: object
+      properties:
+        outputSchema:
+          type: object
+          additionalProperties:
+            description: Properties of the object.
+        methodType:
+          type: string
+          enum:
+          - METHOD_TYPE_UNSPECIFIED
+          - GET
+          - POST
+          - PUT
+          - DELETE
+          - PATCH
+          x-enumDescriptions:
+          - ''
+          - ''
+          - ''
+          - ''
+          - ''
+          - ''
+        inputSchema:
+          type: object
+          additionalProperties:
+            description: Properties of the object.
+    GoogleCloudDialogflowV2ToolAuthentication:
+      type: object
+      properties:
+        apiKeyConfig:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2ToolAuthenticationApiKeyConfig'
+        oauthConfig:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2ToolAuthenticationOAuthConfig'
+        serviceAgentAuthConfig:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2ToolAuthenticationServiceAgentAuthConfig'
+        bearerTokenConfig:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2ToolAuthenticationBearerTokenConfig'
+    GoogleCloudDialogflowV2ToolAuthenticationBearerTokenConfig:
+      type: object
+      properties:
+        token:
+          type: string
+        secretVersionForToken:
+          type: string
+    GoogleCloudDialogflowV2ToolTLSConfigCACert:
+      type: object
+      properties:
+        cert:
+          type: string
+          format: byte
+        displayName:
+          type: string
+    GoogleCloudDialogflowV2ToolOpenApiTool:
+      type: object
+      properties:
+        serviceDirectoryConfig:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2ToolServiceDirectoryConfig'
+        textSchema:
+          type: string
+        authentication:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2ToolAuthentication'
+        tlsConfig:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2ToolTLSConfig'
+  securitySchemes:
+    OAuth2:
+      type: oauth2
+      description: Google OAuth 2.0. Scopes are declared per operation in the Discovery Document.
+      flows:
+        authorizationCode:
+          authorizationUrl: https://accounts.google.com/o/oauth2/v2/auth
+          tokenUrl: https://oauth2.googleapis.com/token
+          scopes:
+            https://www.googleapis.com/auth/cloud-platform: See, edit, configure, and delete your Google Cloud data and see the email address for your Google Account.
+            https://www.googleapis.com/auth/dialogflow: View, manage and query your Dialogflow agents
+    BearerAuth:
+      type: http
+      scheme: bearer
+      description: 'Google OAuth 2.0 access token or service-account-minted bearer token, sent as Authorization: Bearer <token>.'
+x-refined-from:
+- google-dialogflow-cx-v3-openapi.yml
+- google-dialogflow-es-v2-openapi.yml

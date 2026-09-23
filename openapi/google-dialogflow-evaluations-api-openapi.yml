@@ -1,0 +1,1403 @@
+openapi: 3.2.0
+info:
+  title: Dialogflow ES API (v2) Evaluations API
+  version: v2
+  description: Dialogflow ES (Essentials) builds conversational interfaces with intents, entity types, contexts, sessions, knowledge bases, conversation profiles and Agent Assist. This OpenAPI is a mechanical conversion of the first-party Google Discovery Document served by dialogflow.googleapis.com.
+  contact:
+    name: Google Cloud
+    url: https://cloud.google.com/dialogflow/
+  termsOfService: https://cloud.google.com/terms
+  license:
+    name: Google APIs Terms of Service
+    url: https://developers.google.com/terms
+  x-discovery-source: https://dialogflow.googleapis.com/$discovery/rest?version=v2
+  x-discovery-revision: '20260825'
+  x-discovery-id: dialogflow:v2
+servers:
+- url: https://dialogflow.googleapis.com
+  description: Dialogflow API
+security:
+- OAuth2:
+  - https://www.googleapis.com/auth/dialogflow
+  - https://www.googleapis.com/auth/cloud-platform
+- BearerAuth: []
+tags:
+- name: Evaluations
+paths:
+  /v2/projects/{projectsId}/locations/{locationsId}/conversationModels/{conversationModelsId}/evaluations:
+    get:
+      operationId: dialogflow_projects_locations_conversationModels_evaluations_list
+      tags:
+      - Evaluations
+      parameters:
+      - name: projectsId
+        in: path
+        description: 'Part of `parent`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/conversationModels/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: locationsId
+        in: path
+        description: 'Part of `parent`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/conversationModels/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: conversationModelsId
+        in: path
+        description: 'Part of `parent`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/conversationModels/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: pageToken
+        in: query
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        schema:
+          type: integer
+          format: int32
+      x-discovery-path-template: v2/{parent}/evaluations
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleCloudDialogflowV2ListConversationModelEvaluationsResponse'
+        default:
+          description: Error response (google.rpc.Status)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleRpcStatus'
+      security:
+      - OAuth2:
+        - https://www.googleapis.com/auth/cloud-platform
+        - https://www.googleapis.com/auth/dialogflow
+      - BearerAuth: []
+      summary: Dialogflow projects locations conversation models evaluations list
+      x-summary-source: derived
+    post:
+      operationId: dialogflow_projects_locations_conversationModels_evaluations_create
+      tags:
+      - Evaluations
+      parameters:
+      - name: projectsId
+        in: path
+        description: 'Part of `parent`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/conversationModels/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: locationsId
+        in: path
+        description: 'Part of `parent`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/conversationModels/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: conversationModelsId
+        in: path
+        description: 'Part of `parent`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/conversationModels/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      x-discovery-path-template: v2/{parent}/evaluations
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GoogleCloudDialogflowV2CreateConversationModelEvaluationRequest'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleLongrunningOperation'
+        default:
+          description: Error response (google.rpc.Status)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleRpcStatus'
+      security:
+      - OAuth2:
+        - https://www.googleapis.com/auth/cloud-platform
+        - https://www.googleapis.com/auth/dialogflow
+      - BearerAuth: []
+      summary: Dialogflow projects locations conversation models evaluations create
+      x-summary-source: derived
+  /v2/projects/{projectsId}/locations/{locationsId}/conversationModels/{conversationModelsId}/evaluations/{evaluationsId}:
+    get:
+      operationId: dialogflow_projects_locations_conversationModels_evaluations_get
+      tags:
+      - Evaluations
+      parameters:
+      - name: projectsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/conversationModels/[^/]+/evaluations/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: locationsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/conversationModels/[^/]+/evaluations/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: conversationModelsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/conversationModels/[^/]+/evaluations/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: evaluationsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/conversationModels/[^/]+/evaluations/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      x-discovery-path-template: v2/{name}
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleCloudDialogflowV2ConversationModelEvaluation'
+        default:
+          description: Error response (google.rpc.Status)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleRpcStatus'
+      security:
+      - OAuth2:
+        - https://www.googleapis.com/auth/cloud-platform
+        - https://www.googleapis.com/auth/dialogflow
+      - BearerAuth: []
+      summary: Dialogflow projects locations conversation models evaluations get
+      x-summary-source: derived
+  /v2/projects/{projectsId}/locations/{locationsId}/generators/{generatorsId}/evaluations/{evaluationsId}:
+    get:
+      operationId: dialogflow_projects_locations_generators_evaluations_get
+      tags:
+      - Evaluations
+      parameters:
+      - name: projectsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/generators/[^/]+/evaluations/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: locationsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/generators/[^/]+/evaluations/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: generatorsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/generators/[^/]+/evaluations/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: evaluationsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/generators/[^/]+/evaluations/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      x-discovery-path-template: v2/{name}
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleCloudDialogflowV2GeneratorEvaluation'
+        default:
+          description: Error response (google.rpc.Status)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleRpcStatus'
+      security:
+      - OAuth2:
+        - https://www.googleapis.com/auth/cloud-platform
+        - https://www.googleapis.com/auth/dialogflow
+      - BearerAuth: []
+      summary: Dialogflow projects locations generators evaluations get
+      x-summary-source: derived
+    delete:
+      operationId: dialogflow_projects_locations_generators_evaluations_delete
+      tags:
+      - Evaluations
+      parameters:
+      - name: projectsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/generators/[^/]+/evaluations/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: locationsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/generators/[^/]+/evaluations/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: generatorsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/generators/[^/]+/evaluations/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: evaluationsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/generators/[^/]+/evaluations/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      x-discovery-path-template: v2/{name}
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleProtobufEmpty'
+        default:
+          description: Error response (google.rpc.Status)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleRpcStatus'
+      security:
+      - OAuth2:
+        - https://www.googleapis.com/auth/cloud-platform
+        - https://www.googleapis.com/auth/dialogflow
+      - BearerAuth: []
+      summary: Dialogflow projects locations generators evaluations delete
+      x-summary-source: derived
+  /v2/projects/{projectsId}/locations/{locationsId}/generators/{generatorsId}/evaluations:
+    get:
+      operationId: dialogflow_projects_locations_generators_evaluations_list
+      tags:
+      - Evaluations
+      parameters:
+      - name: projectsId
+        in: path
+        description: 'Part of `parent`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/generators/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: locationsId
+        in: path
+        description: 'Part of `parent`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/generators/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: generatorsId
+        in: path
+        description: 'Part of `parent`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/generators/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: pageToken
+        in: query
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        schema:
+          type: integer
+          format: int32
+      x-discovery-path-template: v2/{parent}/evaluations
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleCloudDialogflowV2ListGeneratorEvaluationsResponse'
+        default:
+          description: Error response (google.rpc.Status)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleRpcStatus'
+      security:
+      - OAuth2:
+        - https://www.googleapis.com/auth/cloud-platform
+        - https://www.googleapis.com/auth/dialogflow
+      - BearerAuth: []
+      summary: Dialogflow projects locations generators evaluations list
+      x-summary-source: derived
+    post:
+      operationId: dialogflow_projects_locations_generators_evaluations_create
+      tags:
+      - Evaluations
+      parameters:
+      - name: projectsId
+        in: path
+        description: 'Part of `parent`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/generators/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: locationsId
+        in: path
+        description: 'Part of `parent`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/generators/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: generatorsId
+        in: path
+        description: 'Part of `parent`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/generators/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      x-discovery-path-template: v2/{parent}/evaluations
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GoogleCloudDialogflowV2GeneratorEvaluation'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleLongrunningOperation'
+        default:
+          description: Error response (google.rpc.Status)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleRpcStatus'
+      security:
+      - OAuth2:
+        - https://www.googleapis.com/auth/cloud-platform
+        - https://www.googleapis.com/auth/dialogflow
+      - BearerAuth: []
+      summary: Dialogflow projects locations generators evaluations create
+      x-summary-source: derived
+  /v2/projects/{projectsId}/conversationModels/{conversationModelsId}/evaluations:
+    get:
+      operationId: dialogflow_projects_conversationModels_evaluations_list
+      tags:
+      - Evaluations
+      parameters:
+      - name: projectsId
+        in: path
+        description: 'Part of `parent`. Resource name pattern: `^projects/[^/]+/conversationModels/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: conversationModelsId
+        in: path
+        description: 'Part of `parent`. Resource name pattern: `^projects/[^/]+/conversationModels/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: pageToken
+        in: query
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        schema:
+          type: integer
+          format: int32
+      x-discovery-path-template: v2/{parent}/evaluations
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleCloudDialogflowV2ListConversationModelEvaluationsResponse'
+        default:
+          description: Error response (google.rpc.Status)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleRpcStatus'
+      security:
+      - OAuth2:
+        - https://www.googleapis.com/auth/cloud-platform
+        - https://www.googleapis.com/auth/dialogflow
+      - BearerAuth: []
+      summary: Dialogflow projects conversation models evaluations list
+      x-summary-source: derived
+  /v2/projects/{projectsId}/conversationModels/{conversationModelsId}/evaluations/{evaluationsId}:
+    get:
+      operationId: dialogflow_projects_conversationModels_evaluations_get
+      tags:
+      - Evaluations
+      parameters:
+      - name: projectsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/conversationModels/[^/]+/evaluations/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: conversationModelsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/conversationModels/[^/]+/evaluations/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: evaluationsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/conversationModels/[^/]+/evaluations/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      x-discovery-path-template: v2/{name}
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleCloudDialogflowV2ConversationModelEvaluation'
+        default:
+          description: Error response (google.rpc.Status)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleRpcStatus'
+      security:
+      - OAuth2:
+        - https://www.googleapis.com/auth/cloud-platform
+        - https://www.googleapis.com/auth/dialogflow
+      - BearerAuth: []
+      summary: Dialogflow projects conversation models evaluations get
+      x-summary-source: derived
+components:
+  schemas:
+    GoogleCloudDialogflowV2InputDataset:
+      type: object
+      properties:
+        dataset:
+          type: string
+    GoogleCloudDialogflowV2GeneratorEvaluation:
+      type: object
+      properties:
+        evaluationStatus:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2EvaluationStatus'
+        satisfiesPzs:
+          type: boolean
+          readOnly: true
+        satisfiesPzi:
+          type: boolean
+          readOnly: true
+        name:
+          type: string
+          readOnly: true
+        completeTime:
+          type: string
+          format: date-time
+          readOnly: true
+        summarizationMetrics:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2SummarizationEvaluationMetrics'
+        displayName:
+          type: string
+        generatorEvaluationConfig:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2GeneratorEvaluationConfig'
+        createTime:
+          type: string
+          format: date-time
+          readOnly: true
+        initialGenerator:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2Generator'
+    GoogleCloudDialogflowV2AgentCoachingSuggestionDuplicateCheckResult:
+      type: object
+      properties:
+        duplicateSuggestions:
+          type: array
+          readOnly: true
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowV2AgentCoachingSuggestionDuplicateCheckResultDuplicateSuggestion'
+    GoogleCloudDialogflowV2InferenceParameter:
+      type: object
+      properties:
+        topK:
+          type: integer
+          format: int32
+        maxOutputTokens:
+          type: integer
+          format: int32
+        temperature:
+          type: number
+          format: double
+        topP:
+          type: number
+          format: double
+    GoogleCloudDialogflowV2EvaluationStatus:
+      type: object
+      properties:
+        done:
+          type: boolean
+          readOnly: true
+        pipelineStatus:
+          $ref: '#/components/schemas/GoogleRpcStatus'
+    GoogleCloudDialogflowV2SummarySuggestionSummarySection:
+      type: object
+      properties:
+        section:
+          type: string
+        summary:
+          type: string
+    GoogleCloudDialogflowV2SuggestionDedupingConfig:
+      type: object
+      properties:
+        similarityThreshold:
+          type: number
+          format: float
+        enableDeduping:
+          type: boolean
+    GoogleCloudDialogflowV2SummarizationEvaluationMetricsOverallScoresByMetric:
+      type: object
+      properties:
+        metric:
+          type: string
+          readOnly: true
+    GoogleCloudDialogflowV2AgentCoachingSuggestionDuplicateCheckResultDuplicateSuggestion:
+      type: object
+      properties:
+        answerRecord:
+          type: string
+          readOnly: true
+        similarityScore:
+          type: number
+          format: float
+          readOnly: true
+        suggestionIndex:
+          type: integer
+          format: int32
+          readOnly: true
+        sources:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2AgentCoachingSuggestionSources'
+    GoogleCloudDialogflowV2GeneratorEvaluationConfig:
+      type: object
+      properties:
+        summarizationConfig:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2GeneratorEvaluationConfigSummarizationConfig'
+        outputGcsBucketPath:
+          type: string
+        inputDataConfig:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2GeneratorEvaluationConfigInputDataConfig'
+    GoogleCloudDialogflowV2ListConversationModelEvaluationsResponse:
+      type: object
+      properties:
+        conversationModelEvaluations:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowV2ConversationModelEvaluation'
+        nextPageToken:
+          type: string
+    GoogleCloudDialogflowV2AgentCoachingSuggestion:
+      type: object
+      properties:
+        agentActionSuggestions:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowV2AgentCoachingSuggestionAgentActionSuggestion'
+        sampleResponses:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowV2AgentCoachingSuggestionSampleResponse'
+        applicableInstructions:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowV2AgentCoachingInstruction'
+    GoogleCloudDialogflowV2ListGeneratorEvaluationsResponse:
+      type: object
+      properties:
+        generatorEvaluations:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowV2GeneratorEvaluation'
+        nextPageToken:
+          type: string
+    GoogleCloudDialogflowV2SummarizationEvaluationMetricsSummarizationEvaluationResult:
+      type: object
+      properties:
+        score:
+          type: number
+          format: float
+          readOnly: true
+        metric:
+          type: string
+          readOnly: true
+        section:
+          type: string
+          readOnly: true
+        evaluationResults:
+          type: array
+          readOnly: true
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowV2SummarizationEvaluationMetricsEvaluationResult'
+        sessionId:
+          type: string
+          readOnly: true
+        sectionSummary:
+          type: string
+          readOnly: true
+        decompositions:
+          type: array
+          readOnly: true
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowV2SummarizationEvaluationMetricsDecomposition'
+    GoogleCloudDialogflowV2SummarizationEvaluationMetricsEvaluationResult:
+      type: object
+      properties:
+        accuracyDecomposition:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2SummarizationEvaluationMetricsAccuracyDecomposition'
+        adherenceRubric:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2SummarizationEvaluationMetricsAdherenceRubric'
+        completenessRubric:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2SummarizationEvaluationMetricsCompletenessRubric'
+    GoogleCloudDialogflowV2MessageEntry:
+      type: object
+      properties:
+        role:
+          type: string
+          enum:
+          - ROLE_UNSPECIFIED
+          - HUMAN_AGENT
+          - AUTOMATED_AGENT
+          - END_USER
+          x-enumDescriptions:
+          - ''
+          - ''
+          - ''
+          - ''
+        languageCode:
+          type: string
+        createTime:
+          type: string
+          format: date-time
+        text:
+          type: string
+    GoogleCloudDialogflowV2SummarizationEvaluationMetrics:
+      type: object
+      properties:
+        overallSectionTokens:
+          type: array
+          readOnly: true
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowV2SummarizationEvaluationMetricsSectionToken'
+        summarizationEvaluationMergedResultsUri:
+          type: string
+          readOnly: true
+        conversationDetails:
+          type: array
+          readOnly: true
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowV2SummarizationEvaluationMetricsConversationDetail'
+        summarizationEvaluationResults:
+          type: array
+          readOnly: true
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowV2SummarizationEvaluationMetricsSummarizationEvaluationResult'
+        overallMetrics:
+          type: array
+          readOnly: true
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowV2SummarizationEvaluationMetricsOverallScoresByMetric'
+    GoogleCloudDialogflowV2SummarizationEvaluationMetricsCompletenessRubric:
+      type: object
+      properties:
+        question:
+          type: string
+          readOnly: true
+        isAddressed:
+          type: boolean
+          readOnly: true
+    GoogleCloudDialogflowV2FreeFormContext:
+      type: object
+      properties:
+        text:
+          type: string
+    GoogleCloudDialogflowV2SummarizationEvaluationMetricsAdherenceRubric:
+      type: object
+      properties:
+        question:
+          type: string
+          readOnly: true
+        reasoning:
+          type: string
+          readOnly: true
+        isAddressed:
+          type: boolean
+          readOnly: true
+    GoogleCloudDialogflowV2SummarizationEvaluationMetricsConversationDetail:
+      type: object
+      properties:
+        summarySections:
+          type: array
+          readOnly: true
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowV2SummarySuggestionSummarySection'
+        metricDetails:
+          type: array
+          readOnly: true
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowV2SummarizationEvaluationMetricsConversationDetailMetricDetail'
+        messageEntries:
+          type: array
+          readOnly: true
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowV2MessageEntry'
+        sectionTokens:
+          type: array
+          readOnly: true
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowV2SummarizationEvaluationMetricsSectionToken'
+    GoogleCloudDialogflowV2CreateConversationModelEvaluationRequest:
+      type: object
+      properties:
+        conversationModelEvaluation:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2ConversationModelEvaluation'
+    GoogleCloudDialogflowV2AgentCoachingSuggestionAgentActionSuggestion:
+      type: object
+      properties:
+        agentAction:
+          type: string
+        duplicateCheckResult:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2AgentCoachingSuggestionDuplicateCheckResult'
+        sources:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2AgentCoachingSuggestionSources'
+    GoogleCloudDialogflowV2GeneratorEvaluationConfigAgentAssistInputDataConfig:
+      type: object
+      properties:
+        startTime:
+          type: string
+          format: date-time
+        endTime:
+          type: string
+          format: date-time
+    GoogleCloudDialogflowV2AgentCoachingSuggestionSampleResponse:
+      type: object
+      properties:
+        duplicateCheckResult:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2AgentCoachingSuggestionDuplicateCheckResult'
+        sources:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2AgentCoachingSuggestionSources'
+        responseText:
+          type: string
+    GoogleCloudDialogflowV2SummarizationSectionList:
+      type: object
+      properties:
+        summarizationSections:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowV2SummarizationSection'
+    GoogleCloudDialogflowV2ToolCall:
+      type: object
+      properties:
+        action:
+          type: string
+        createTime:
+          type: string
+          format: date-time
+          readOnly: true
+        cesApp:
+          type: string
+        cesToolset:
+          type: string
+        answerRecord:
+          type: string
+        toolDisplayDetails:
+          type: string
+        inputParameters:
+          type: object
+          additionalProperties:
+            description: Properties of the object.
+        tool:
+          type: string
+        toolDisplayName:
+          type: string
+        state:
+          type: string
+          enum:
+          - STATE_UNSPECIFIED
+          - TRIGGERED
+          - NEEDS_CONFIRMATION
+          x-enumDescriptions:
+          - ''
+          - ''
+          - ''
+          readOnly: true
+        cesTool:
+          type: string
+    GoogleCloudDialogflowV2CesToolSpec:
+      type: object
+      properties:
+        confirmationRequirement:
+          type: string
+          enum:
+          - CONFIRMATION_REQUIREMENT_UNSPECIFIED
+          - REQUIRED
+          - NOT_REQUIRED
+          x-enumDescriptions:
+          - ''
+          - ''
+          - ''
+        cesTool:
+          type: string
+    GoogleCloudDialogflowV2EvaluationConfig:
+      type: object
+      properties:
+        smartComposeConfig:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2EvaluationConfigSmartComposeConfig'
+        datasets:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowV2InputDataset'
+        smartReplyConfig:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2EvaluationConfigSmartReplyConfig'
+    GoogleCloudDialogflowV2ToolCallResultError:
+      type: object
+      properties:
+        retryable:
+          type: boolean
+        message:
+          type: string
+    GoogleCloudDialogflowV2ToolsetTool:
+      type: object
+      properties:
+        toolset:
+          type: string
+        operationId:
+          type: string
+        confirmationRequirement:
+          type: string
+          enum:
+          - CONFIRMATION_REQUIREMENT_UNSPECIFIED
+          - REQUIRED
+          - NOT_REQUIRED
+          x-enumDescriptions:
+          - ''
+          - ''
+          - ''
+    GoogleRpcStatus:
+      type: object
+      properties:
+        message:
+          type: string
+        code:
+          type: integer
+          format: int32
+        details:
+          type: array
+          items:
+            type: object
+            additionalProperties:
+              description: Properties of the object. Contains field @type with type URL.
+    GoogleCloudDialogflowV2AgentCoachingInstructionDuplicateCheckResult:
+      type: object
+      properties:
+        duplicateSuggestions:
+          type: array
+          readOnly: true
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowV2AgentCoachingInstructionDuplicateCheckResultDuplicateSuggestion'
+    GoogleCloudDialogflowV2FreeFormSuggestion:
+      type: object
+      properties:
+        response:
+          type: string
+    GoogleCloudDialogflowV2AgentCoachingContext:
+      type: object
+      properties:
+        version:
+          type: string
+        instructions:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowV2AgentCoachingInstruction'
+        outputLanguageCode:
+          type: string
+        overarchingGuidance:
+          type: string
+    GoogleCloudDialogflowV2GeneratorEvaluationConfigDatasetInputDataConfig:
+      type: object
+      properties:
+        dataset:
+          type: string
+    GoogleCloudDialogflowV2SummarizationEvaluationMetricsConversationDetailMetricDetailSectionDetail:
+      type: object
+      properties:
+        section:
+          type: string
+          readOnly: true
+        sectionSummary:
+          type: string
+          readOnly: true
+        score:
+          type: number
+          format: float
+          readOnly: true
+        evaluationResults:
+          type: array
+          readOnly: true
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowV2SummarizationEvaluationMetricsEvaluationResult'
+    GoogleCloudDialogflowV2SummarizationEvaluationMetricsDecomposition:
+      type: object
+      properties:
+        accuracyDecomposition:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2SummarizationEvaluationMetricsAccuracyDecomposition'
+        adherenceDecomposition:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2SummarizationEvaluationMetricsAdherenceDecomposition'
+    GoogleCloudDialogflowV2AgentCoachingInstructionDuplicateCheckResultDuplicateSuggestion:
+      type: object
+      properties:
+        similarityScore:
+          type: number
+          format: float
+          readOnly: true
+        answerRecord:
+          type: string
+          readOnly: true
+        suggestionIndex:
+          type: integer
+          format: int32
+          readOnly: true
+    GoogleCloudDialogflowV2SummarizationEvaluationMetricsAdherenceDecomposition:
+      type: object
+      properties:
+        isAdherent:
+          type: boolean
+          readOnly: true
+        adherenceReasoning:
+          type: string
+          readOnly: true
+        point:
+          type: string
+          readOnly: true
+    GoogleCloudDialogflowV2SummarizationEvaluationMetricsAccuracyDecomposition:
+      type: object
+      properties:
+        accuracyReasoning:
+          type: string
+          readOnly: true
+        point:
+          type: string
+          readOnly: true
+        isAccurate:
+          type: boolean
+          readOnly: true
+    GoogleCloudDialogflowV2GeneratorEvaluationConfigInputDataConfig:
+      type: object
+      properties:
+        agentAssistInputDataConfig:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2GeneratorEvaluationConfigAgentAssistInputDataConfig'
+        sampleSize:
+          type: integer
+          format: int32
+        summaryGenerationOption:
+          type: string
+          enum:
+          - SUMMARY_GENERATION_OPTION_UNSPECIFIED
+          - ALWAYS_GENERATE
+          - GENERATE_IF_MISSING
+          - DO_NOT_GENERATE
+          x-enumDescriptions:
+          - ''
+          - ''
+          - ''
+          - ''
+        isSummaryGenerationAllowed:
+          type: boolean
+        startTime:
+          type: string
+          format: date-time
+        endTime:
+          type: string
+          format: date-time
+        datasetInputDataConfig:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2GeneratorEvaluationConfigDatasetInputDataConfig'
+        inputDataSourceType:
+          type: string
+          enum:
+          - INPUT_DATA_SOURCE_TYPE_UNSPECIFIED
+          - AGENT_ASSIST_CONVERSATIONS
+          - INSIGHTS_CONVERSATIONS
+          x-enumDescriptions:
+          - ''
+          - ''
+          - ''
+    GoogleCloudDialogflowV2ConversationModelEvaluation:
+      type: object
+      properties:
+        smartReplyMetrics:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2SmartReplyMetrics'
+        displayName:
+          type: string
+        rawHumanEvalTemplateCsv:
+          type: string
+          readOnly: true
+        evaluationConfig:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2EvaluationConfig'
+        name:
+          type: string
+        createTime:
+          type: string
+          format: date-time
+          readOnly: true
+    GoogleCloudDialogflowV2CesAppSpec:
+      type: object
+      properties:
+        proactiveEnabled:
+          type: boolean
+        cesApp:
+          type: string
+        confirmationRequirement:
+          type: string
+          enum:
+          - CONFIRMATION_REQUIREMENT_UNSPECIFIED
+          - REQUIRED
+          - NOT_REQUIRED
+          x-enumDescriptions:
+          - ''
+          - ''
+          - ''
+        reactiveEnabled:
+          type: boolean
+    GoogleCloudDialogflowV2Generator:
+      type: object
+      properties:
+        triggerEvent:
+          type: string
+          enum:
+          - TRIGGER_EVENT_UNSPECIFIED
+          - END_OF_UTTERANCE
+          - MANUAL_CALL
+          - CUSTOMER_MESSAGE
+          - AGENT_MESSAGE
+          x-enumDescriptions:
+          - ''
+          - ''
+          - ''
+          - ''
+          - ''
+        createTime:
+          type: string
+          format: date-time
+          readOnly: true
+        toolsetTools:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowV2ToolsetTool'
+        inferenceParameter:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2InferenceParameter'
+        updateTime:
+          type: string
+          format: date-time
+          readOnly: true
+        tools:
+          type: array
+          items:
+            type: string
+        freeFormContext:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2FreeFormContext'
+        agentCoachingContext:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2AgentCoachingContext'
+        description:
+          type: string
+        summarizationContext:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2SummarizationContext'
+        suggestionDedupingConfig:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2SuggestionDedupingConfig'
+        cesToolSpecs:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowV2CesToolSpec'
+        cesAppSpecs:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowV2CesAppSpec'
+        publishedModel:
+          type: string
+        name:
+          type: string
+          readOnly: true
+    GoogleCloudDialogflowV2AgentCoachingInstruction:
+      type: object
+      properties:
+        duplicateCheckResult:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2AgentCoachingInstructionDuplicateCheckResult'
+        displayName:
+          type: string
+        agentAction:
+          type: string
+        systemAction:
+          type: string
+        displayDetails:
+          type: string
+        condition:
+          type: string
+        triggeringEvent:
+          type: string
+          enum:
+          - TRIGGER_EVENT_UNSPECIFIED
+          - END_OF_UTTERANCE
+          - MANUAL_CALL
+          - CUSTOMER_MESSAGE
+          - AGENT_MESSAGE
+          - TOOL_CALL_COMPLETION
+          x-enumDescriptions:
+          - ''
+          - ''
+          - ''
+          - ''
+          - ''
+          - ''
+    GoogleCloudDialogflowV2GeneratorSuggestion:
+      type: object
+      properties:
+        freeFormSuggestion:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2FreeFormSuggestion'
+        summarySuggestion:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2SummarySuggestion'
+        toolCallInfo:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowV2GeneratorSuggestionToolCallInfo'
+        agentCoachingSuggestion:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2AgentCoachingSuggestion'
+    GoogleCloudDialogflowV2SummarizationEvaluationMetricsSectionToken:
+      type: object
+      properties:
+        tokenCount:
+          type: string
+          format: int64
+          readOnly: true
+        section:
+          type: string
+          readOnly: true
+    GoogleCloudDialogflowV2SummarizationContext:
+      type: object
+      properties:
+        version:
+          type: string
+        fewShotExamples:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowV2FewShotExample'
+        summarizationSections:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowV2SummarizationSection'
+        outputLanguageCode:
+          type: string
+    GoogleCloudDialogflowV2FewShotExample:
+      type: object
+      properties:
+        summarizationSectionList:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2SummarizationSectionList'
+        conversationContext:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2ConversationContext'
+        extraInfo:
+          type: object
+          additionalProperties:
+            type: string
+        output:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2GeneratorSuggestion'
+    GoogleCloudDialogflowV2ConversationContext:
+      type: object
+      properties:
+        messageEntries:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowV2MessageEntry'
+    GoogleCloudDialogflowV2GeneratorEvaluationConfigSummarizationConfig:
+      type: object
+      properties:
+        evaluatorVersion:
+          type: string
+        enableAccuracyEvaluation:
+          type: boolean
+        completenessEvaluationVersion:
+          type: string
+        enableCompletenessEvaluation:
+          type: boolean
+        accuracyEvaluationVersion:
+          type: string
+    GoogleLongrunningOperation:
+      type: object
+      properties:
+        name:
+          type: string
+        metadata:
+          type: object
+          additionalProperties:
+            description: Properties of the object. Contains field @type with type URL.
+        done:
+          type: boolean
+        response:
+          type: object
+          additionalProperties:
+            description: Properties of the object. Contains field @type with type URL.
+        error:
+          $ref: '#/components/schemas/GoogleRpcStatus'
+    GoogleCloudDialogflowV2SmartReplyMetricsTopNMetrics:
+      type: object
+      properties:
+        n:
+          type: integer
+          format: int32
+        recall:
+          type: number
+          format: float
+    GoogleCloudDialogflowV2SmartReplyMetrics:
+      type: object
+      properties:
+        allowlistCoverage:
+          type: number
+          format: float
+        conversationCount:
+          type: string
+          format: int64
+        topNMetrics:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowV2SmartReplyMetricsTopNMetrics'
+    GoogleCloudDialogflowV2ToolCallResult:
+      type: object
+      properties:
+        answerRecord:
+          type: string
+        error:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2ToolCallResultError'
+        cesTool:
+          type: string
+        action:
+          type: string
+        content:
+          type: string
+        cesApp:
+          type: string
+        rawContent:
+          type: string
+          format: byte
+        tool:
+          type: string
+        cesToolset:
+          type: string
+        createTime:
+          type: string
+          format: date-time
+          readOnly: true
+    GoogleCloudDialogflowV2EvaluationConfigSmartComposeConfig:
+      type: object
+      properties:
+        maxResultCount:
+          type: integer
+          format: int32
+        allowlistDocument:
+          type: string
+    GoogleCloudDialogflowV2GeneratorSuggestionToolCallInfo:
+      type: object
+      properties:
+        toolCall:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2ToolCall'
+        toolCallResult:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2ToolCallResult'
+    GoogleProtobufEmpty:
+      type: object
+    GoogleCloudDialogflowV2SummarizationEvaluationMetricsConversationDetailMetricDetail:
+      type: object
+      properties:
+        sectionDetails:
+          type: array
+          readOnly: true
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowV2SummarizationEvaluationMetricsConversationDetailMetricDetailSectionDetail'
+        metric:
+          type: string
+          readOnly: true
+        score:
+          type: number
+          format: float
+          readOnly: true
+    GoogleCloudDialogflowV2EvaluationConfigSmartReplyConfig:
+      type: object
+      properties:
+        allowlistDocument:
+          type: string
+        maxResultCount:
+          type: integer
+          format: int32
+    GoogleCloudDialogflowV2SummarizationSection:
+      type: object
+      properties:
+        key:
+          type: string
+        type:
+          type: string
+          enum:
+          - TYPE_UNSPECIFIED
+          - SITUATION
+          - ACTION
+          - RESOLUTION
+          - REASON_FOR_CANCELLATION
+          - CUSTOMER_SATISFACTION
+          - ENTITIES
+          - CUSTOMER_DEFINED
+          - SITUATION_CONCISE
+          - ACTION_CONCISE
+          x-enumDescriptions:
+          - ''
+          - ''
+          - ''
+          - ''
+          - ''
+          - ''
+          - ''
+          - ''
+          - ''
+          - ''
+        definition:
+          type: string
+    GoogleCloudDialogflowV2SummarySuggestion:
+      type: object
+      properties:
+        summarySections:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowV2SummarySuggestionSummarySection'
+    GoogleCloudDialogflowV2AgentCoachingSuggestionSources:
+      type: object
+      properties:
+        instructionIndexes:
+          type: array
+          readOnly: true
+          items:
+            type: integer
+            format: int32
+  securitySchemes:
+    OAuth2:
+      type: oauth2
+      description: Google OAuth 2.0. Scopes are declared per operation in the Discovery Document.
+      flows:
+        authorizationCode:
+          authorizationUrl: https://accounts.google.com/o/oauth2/v2/auth
+          tokenUrl: https://oauth2.googleapis.com/token
+          scopes:
+            https://www.googleapis.com/auth/dialogflow: View, manage and query your Dialogflow agents
+            https://www.googleapis.com/auth/cloud-platform: See, edit, configure, and delete your Google Cloud data and see the email address for your Google Account.
+    BearerAuth:
+      type: http
+      scheme: bearer
+      description: 'Google OAuth 2.0 access token or service-account-minted bearer token, sent as Authorization: Bearer <token>.'
+externalDocs:
+  description: Dialogflow ES documentation
+  url: https://cloud.google.com/dialogflow/es/docs

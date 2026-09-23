@@ -1,0 +1,945 @@
+openapi: 3.2.0
+info:
+  title: Dialogflow CX API (v3) - Conversational Agents Transition…
+  version: v3
+  description: Dialogflow CX (Conversational Agents) builds flow- and playbook-based agents with pages, routes, webhooks, tools, test cases, environments, experiments and data stores. This OpenAPI is a mechanical conversion of the first-party Google Discovery Document served by dialogflow.googleapis.com.
+  contact:
+    name: Google Cloud
+    url: https://cloud.google.com/dialogflow/
+  termsOfService: https://cloud.google.com/terms
+  license:
+    name: Google APIs Terms of Service
+    url: https://developers.google.com/terms
+  x-discovery-source: https://dialogflow.googleapis.com/$discovery/rest?version=v3
+  x-discovery-revision: '20260825'
+  x-discovery-id: dialogflow:v3
+servers:
+- url: https://dialogflow.googleapis.com
+  description: Dialogflow API
+security:
+- OAuth2:
+  - https://www.googleapis.com/auth/cloud-platform
+  - https://www.googleapis.com/auth/dialogflow
+- BearerAuth: []
+tags:
+- name: transitionRouteGroups
+paths:
+  /v3/projects/{projectsId}/locations/{locationsId}/agents/{agentsId}/transitionRouteGroups/{transitionRouteGroupsId}:
+    get:
+      operationId: dialogflow_projects_locations_agents_transitionRouteGroups_get
+      tags:
+      - transitionRouteGroups
+      parameters:
+      - name: projectsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+/transitionRouteGroups/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: locationsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+/transitionRouteGroups/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: agentsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+/transitionRouteGroups/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: transitionRouteGroupsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+/transitionRouteGroups/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: languageCode
+        in: query
+        schema:
+          type: string
+      x-discovery-path-template: v3/{name}
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleCloudDialogflowCxV3TransitionRouteGroup'
+        default:
+          description: Error response (google.rpc.Status)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleRpcStatus'
+      security:
+      - OAuth2:
+        - https://www.googleapis.com/auth/cloud-platform
+        - https://www.googleapis.com/auth/dialogflow
+      - BearerAuth: []
+      summary: Dialogflow projects locations agents transition route groups get
+      x-summary-source: derived
+    delete:
+      operationId: dialogflow_projects_locations_agents_transitionRouteGroups_delete
+      tags:
+      - transitionRouteGroups
+      parameters:
+      - name: projectsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+/transitionRouteGroups/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: locationsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+/transitionRouteGroups/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: agentsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+/transitionRouteGroups/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: transitionRouteGroupsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+/transitionRouteGroups/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: force
+        in: query
+        schema:
+          type: boolean
+      x-discovery-path-template: v3/{name}
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleProtobufEmpty'
+        default:
+          description: Error response (google.rpc.Status)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleRpcStatus'
+      security:
+      - OAuth2:
+        - https://www.googleapis.com/auth/cloud-platform
+        - https://www.googleapis.com/auth/dialogflow
+      - BearerAuth: []
+      summary: Dialogflow projects locations agents transition route groups delete
+      x-summary-source: derived
+    patch:
+      operationId: dialogflow_projects_locations_agents_transitionRouteGroups_patch
+      tags:
+      - transitionRouteGroups
+      parameters:
+      - name: projectsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+/transitionRouteGroups/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: locationsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+/transitionRouteGroups/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: agentsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+/transitionRouteGroups/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: transitionRouteGroupsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+/transitionRouteGroups/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: languageCode
+        in: query
+        schema:
+          type: string
+      - name: updateMask
+        in: query
+        schema:
+          type: string
+      x-discovery-path-template: v3/{name}
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GoogleCloudDialogflowCxV3TransitionRouteGroup'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleCloudDialogflowCxV3TransitionRouteGroup'
+        default:
+          description: Error response (google.rpc.Status)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleRpcStatus'
+      security:
+      - OAuth2:
+        - https://www.googleapis.com/auth/cloud-platform
+        - https://www.googleapis.com/auth/dialogflow
+      - BearerAuth: []
+      summary: Dialogflow projects locations agents transition route groups patch
+      x-summary-source: derived
+  /v3/projects/{projectsId}/locations/{locationsId}/agents/{agentsId}/transitionRouteGroups:
+    get:
+      operationId: dialogflow_projects_locations_agents_transitionRouteGroups_list
+      tags:
+      - transitionRouteGroups
+      parameters:
+      - name: projectsId
+        in: path
+        description: 'Part of `parent`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: locationsId
+        in: path
+        description: 'Part of `parent`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: agentsId
+        in: path
+        description: 'Part of `parent`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        schema:
+          type: integer
+          format: int32
+      - name: pageToken
+        in: query
+        schema:
+          type: string
+      - name: languageCode
+        in: query
+        schema:
+          type: string
+      x-discovery-path-template: v3/{parent}/transitionRouteGroups
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleCloudDialogflowCxV3ListTransitionRouteGroupsResponse'
+        default:
+          description: Error response (google.rpc.Status)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleRpcStatus'
+      security:
+      - OAuth2:
+        - https://www.googleapis.com/auth/cloud-platform
+        - https://www.googleapis.com/auth/dialogflow
+      - BearerAuth: []
+      summary: Dialogflow projects locations agents transition route groups list
+      x-summary-source: derived
+    post:
+      operationId: dialogflow_projects_locations_agents_transitionRouteGroups_create
+      tags:
+      - transitionRouteGroups
+      parameters:
+      - name: projectsId
+        in: path
+        description: 'Part of `parent`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: locationsId
+        in: path
+        description: 'Part of `parent`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: agentsId
+        in: path
+        description: 'Part of `parent`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: languageCode
+        in: query
+        schema:
+          type: string
+      x-discovery-path-template: v3/{parent}/transitionRouteGroups
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GoogleCloudDialogflowCxV3TransitionRouteGroup'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleCloudDialogflowCxV3TransitionRouteGroup'
+        default:
+          description: Error response (google.rpc.Status)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleRpcStatus'
+      security:
+      - OAuth2:
+        - https://www.googleapis.com/auth/cloud-platform
+        - https://www.googleapis.com/auth/dialogflow
+      - BearerAuth: []
+      summary: Dialogflow projects locations agents transition route groups create
+      x-summary-source: derived
+  ? /v3/projects/{projectsId}/locations/{locationsId}/agents/{agentsId}/flows/{flowsId}/transitionRouteGroups/{transitionRouteGroupsId}
+  : get:
+      operationId: dialogflow_projects_locations_agents_flows_transitionRouteGroups_get
+      tags:
+      - transitionRouteGroups
+      parameters:
+      - name: projectsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+/flows/[^/]+/transitionRouteGroups/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: locationsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+/flows/[^/]+/transitionRouteGroups/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: agentsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+/flows/[^/]+/transitionRouteGroups/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: flowsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+/flows/[^/]+/transitionRouteGroups/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: transitionRouteGroupsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+/flows/[^/]+/transitionRouteGroups/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: languageCode
+        in: query
+        schema:
+          type: string
+      x-discovery-path-template: v3/{name}
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleCloudDialogflowCxV3TransitionRouteGroup'
+        default:
+          description: Error response (google.rpc.Status)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleRpcStatus'
+      security:
+      - OAuth2:
+        - https://www.googleapis.com/auth/cloud-platform
+        - https://www.googleapis.com/auth/dialogflow
+      - BearerAuth: []
+      summary: Dialogflow projects locations agents flows transition route groups get
+      x-summary-source: derived
+    delete:
+      operationId: dialogflow_projects_locations_agents_flows_transitionRouteGroups_delete
+      tags:
+      - transitionRouteGroups
+      parameters:
+      - name: projectsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+/flows/[^/]+/transitionRouteGroups/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: locationsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+/flows/[^/]+/transitionRouteGroups/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: agentsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+/flows/[^/]+/transitionRouteGroups/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: flowsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+/flows/[^/]+/transitionRouteGroups/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: transitionRouteGroupsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+/flows/[^/]+/transitionRouteGroups/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: force
+        in: query
+        schema:
+          type: boolean
+      x-discovery-path-template: v3/{name}
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleProtobufEmpty'
+        default:
+          description: Error response (google.rpc.Status)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleRpcStatus'
+      security:
+      - OAuth2:
+        - https://www.googleapis.com/auth/cloud-platform
+        - https://www.googleapis.com/auth/dialogflow
+      - BearerAuth: []
+      summary: Dialogflow projects locations agents flows transition route groups delete
+      x-summary-source: derived
+    patch:
+      operationId: dialogflow_projects_locations_agents_flows_transitionRouteGroups_patch
+      tags:
+      - transitionRouteGroups
+      parameters:
+      - name: projectsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+/flows/[^/]+/transitionRouteGroups/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: locationsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+/flows/[^/]+/transitionRouteGroups/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: agentsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+/flows/[^/]+/transitionRouteGroups/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: flowsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+/flows/[^/]+/transitionRouteGroups/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: transitionRouteGroupsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+/flows/[^/]+/transitionRouteGroups/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: updateMask
+        in: query
+        schema:
+          type: string
+      - name: languageCode
+        in: query
+        schema:
+          type: string
+      x-discovery-path-template: v3/{name}
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GoogleCloudDialogflowCxV3TransitionRouteGroup'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleCloudDialogflowCxV3TransitionRouteGroup'
+        default:
+          description: Error response (google.rpc.Status)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleRpcStatus'
+      security:
+      - OAuth2:
+        - https://www.googleapis.com/auth/cloud-platform
+        - https://www.googleapis.com/auth/dialogflow
+      - BearerAuth: []
+      summary: Dialogflow projects locations agents flows transition route groups patch
+      x-summary-source: derived
+  /v3/projects/{projectsId}/locations/{locationsId}/agents/{agentsId}/flows/{flowsId}/transitionRouteGroups:
+    get:
+      operationId: dialogflow_projects_locations_agents_flows_transitionRouteGroups_list
+      tags:
+      - transitionRouteGroups
+      parameters:
+      - name: projectsId
+        in: path
+        description: 'Part of `parent`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+/flows/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: locationsId
+        in: path
+        description: 'Part of `parent`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+/flows/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: agentsId
+        in: path
+        description: 'Part of `parent`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+/flows/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: flowsId
+        in: path
+        description: 'Part of `parent`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+/flows/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        schema:
+          type: integer
+          format: int32
+      - name: pageToken
+        in: query
+        schema:
+          type: string
+      - name: languageCode
+        in: query
+        schema:
+          type: string
+      x-discovery-path-template: v3/{parent}/transitionRouteGroups
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleCloudDialogflowCxV3ListTransitionRouteGroupsResponse'
+        default:
+          description: Error response (google.rpc.Status)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleRpcStatus'
+      security:
+      - OAuth2:
+        - https://www.googleapis.com/auth/cloud-platform
+        - https://www.googleapis.com/auth/dialogflow
+      - BearerAuth: []
+      summary: Dialogflow projects locations agents flows transition route groups list
+      x-summary-source: derived
+    post:
+      operationId: dialogflow_projects_locations_agents_flows_transitionRouteGroups_create
+      tags:
+      - transitionRouteGroups
+      parameters:
+      - name: projectsId
+        in: path
+        description: 'Part of `parent`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+/flows/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: locationsId
+        in: path
+        description: 'Part of `parent`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+/flows/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: agentsId
+        in: path
+        description: 'Part of `parent`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+/flows/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: flowsId
+        in: path
+        description: 'Part of `parent`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+/flows/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: languageCode
+        in: query
+        schema:
+          type: string
+      x-discovery-path-template: v3/{parent}/transitionRouteGroups
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GoogleCloudDialogflowCxV3TransitionRouteGroup'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleCloudDialogflowCxV3TransitionRouteGroup'
+        default:
+          description: Error response (google.rpc.Status)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleRpcStatus'
+      security:
+      - OAuth2:
+        - https://www.googleapis.com/auth/cloud-platform
+        - https://www.googleapis.com/auth/dialogflow
+      - BearerAuth: []
+      summary: Dialogflow projects locations agents flows transition route groups create
+      x-summary-source: derived
+components:
+  schemas:
+    GoogleCloudDialogflowCxV3FulfillmentConditionalCasesCase:
+      type: object
+      properties:
+        caseContent:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowCxV3FulfillmentConditionalCasesCaseCaseContent'
+        condition:
+          type: string
+    GoogleCloudDialogflowCxV3ResponseMessageMixedAudio:
+      type: object
+      properties:
+        segments:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowCxV3ResponseMessageMixedAudioSegment'
+    GoogleCloudDialogflowCxV3FulfillmentGeneratorSettings:
+      type: object
+      properties:
+        generator:
+          type: string
+        outputParameter:
+          type: string
+        inputParameters:
+          type: object
+          additionalProperties:
+            type: string
+    GoogleCloudDialogflowCxV3FulfillmentConditionalCases:
+      type: object
+      properties:
+        cases:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowCxV3FulfillmentConditionalCasesCase'
+    GoogleCloudDialogflowCxV3FulfillmentConditionalCasesCaseCaseContent:
+      type: object
+      properties:
+        additionalCases:
+          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3FulfillmentConditionalCases'
+        message:
+          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3ResponseMessage'
+    GoogleCloudDialogflowCxV3GcsDestination:
+      type: object
+      properties:
+        uri:
+          type: string
+    GoogleCloudDialogflowCxV3FulfillmentSetParameterAction:
+      type: object
+      properties:
+        parameter:
+          type: string
+        value: {}
+    GoogleCloudDialogflowCxV3AdvancedSettings:
+      type: object
+      properties:
+        speechSettings:
+          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3AdvancedSettingsSpeechSettings'
+        audioExportGcsDestination:
+          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3GcsDestination'
+        loggingSettings:
+          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3AdvancedSettingsLoggingSettings'
+        dtmfSettings:
+          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3AdvancedSettingsDtmfSettings'
+    GoogleCloudDialogflowCxV3ListTransitionRouteGroupsResponse:
+      type: object
+      properties:
+        nextPageToken:
+          type: string
+        transitionRouteGroups:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowCxV3TransitionRouteGroup'
+    GoogleRpcStatus:
+      type: object
+      properties:
+        message:
+          type: string
+        code:
+          type: integer
+          format: int32
+        details:
+          type: array
+          items:
+            type: object
+            additionalProperties:
+              description: Properties of the object. Contains field @type with type URL.
+    GoogleCloudDialogflowCxV3TransitionRoute:
+      type: object
+      properties:
+        name:
+          type: string
+          readOnly: true
+        targetPage:
+          type: string
+        description:
+          type: string
+        triggerFulfillment:
+          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3Fulfillment'
+        targetFlow:
+          type: string
+        intent:
+          type: string
+        condition:
+          type: string
+    GoogleCloudDialogflowCxV3ResponseMessageTelephonyTransferCall:
+      type: object
+      properties:
+        phoneNumber:
+          type: string
+    GoogleCloudDialogflowCxV3ToolCall:
+      type: object
+      properties:
+        inputParameters:
+          type: object
+          additionalProperties:
+            description: Properties of the object.
+        action:
+          type: string
+        tool:
+          type: string
+    GoogleCloudDialogflowCxV3ResponseMessageText:
+      type: object
+      properties:
+        allowPlaybackInterruption:
+          type: boolean
+          readOnly: true
+        text:
+          type: array
+          items:
+            type: string
+    GoogleCloudDialogflowCxV3AdvancedSettingsLoggingSettings:
+      type: object
+      properties:
+        enableConsentBasedRedaction:
+          type: boolean
+        enableStackdriverLogging:
+          type: boolean
+        enableInteractionLogging:
+          type: boolean
+    GoogleCloudDialogflowCxV3ResponseMessagePlayAudio:
+      type: object
+      properties:
+        allowPlaybackInterruption:
+          type: boolean
+          readOnly: true
+        audioUri:
+          type: string
+    GoogleCloudDialogflowCxV3AdvancedSettingsDtmfSettings:
+      type: object
+      properties:
+        enabled:
+          type: boolean
+        finishDigit:
+          type: string
+        interdigitTimeoutDuration:
+          type: string
+        maxDigits:
+          type: integer
+          format: int32
+        endpointingTimeoutDuration:
+          type: string
+    GoogleCloudDialogflowCxV3ResponseMessage:
+      type: object
+      properties:
+        outputAudioText:
+          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3ResponseMessageOutputAudioText'
+        endInteraction:
+          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3ResponseMessageEndInteraction'
+        toolCall:
+          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3ToolCall'
+        responseType:
+          type: string
+          enum:
+          - RESPONSE_TYPE_UNSPECIFIED
+          - ENTRY_PROMPT
+          - PARAMETER_PROMPT
+          - HANDLER_PROMPT
+          x-enumDescriptions:
+          - ''
+          - ''
+          - ''
+          - ''
+        text:
+          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3ResponseMessageText'
+        channel:
+          type: string
+        payload:
+          type: object
+          additionalProperties:
+            description: Properties of the object.
+        telephonyTransferCall:
+          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3ResponseMessageTelephonyTransferCall'
+        mixedAudio:
+          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3ResponseMessageMixedAudio'
+        playAudio:
+          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3ResponseMessagePlayAudio'
+        conversationSuccess:
+          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3ResponseMessageConversationSuccess'
+        knowledgeInfoCard:
+          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3ResponseMessageKnowledgeInfoCard'
+        liveAgentHandoff:
+          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3ResponseMessageLiveAgentHandoff'
+    GoogleCloudDialogflowCxV3ResponseMessageMixedAudioSegment:
+      type: object
+      properties:
+        audio:
+          type: string
+          format: byte
+        allowPlaybackInterruption:
+          type: boolean
+          readOnly: true
+        uri:
+          type: string
+    GoogleCloudDialogflowCxV3ResponseMessageLiveAgentHandoff:
+      type: object
+      properties:
+        metadata:
+          type: object
+          additionalProperties:
+            description: Properties of the object.
+    GoogleCloudDialogflowCxV3ResponseMessageConversationSuccess:
+      type: object
+      properties:
+        metadata:
+          type: object
+          additionalProperties:
+            description: Properties of the object.
+    GoogleCloudDialogflowCxV3ResponseMessageKnowledgeInfoCard:
+      type: object
+    GoogleCloudDialogflowCxV3ResponseMessageOutputAudioText:
+      type: object
+      properties:
+        allowPlaybackInterruption:
+          type: boolean
+          readOnly: true
+        ssml:
+          type: string
+        text:
+          type: string
+    GoogleCloudDialogflowCxV3TransitionRouteGroup:
+      type: object
+      properties:
+        displayName:
+          type: string
+        transitionRoutes:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowCxV3TransitionRoute'
+        name:
+          type: string
+    GoogleProtobufEmpty:
+      type: object
+    GoogleCloudDialogflowCxV3ResponseMessageEndInteraction:
+      type: object
+    GoogleCloudDialogflowCxV3Fulfillment:
+      type: object
+      properties:
+        setParameterActions:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowCxV3FulfillmentSetParameterAction'
+        tag:
+          type: string
+        messages:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowCxV3ResponseMessage'
+        conditionalCases:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowCxV3FulfillmentConditionalCases'
+        returnPartialResponses:
+          type: boolean
+        advancedSettings:
+          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3AdvancedSettings'
+        generators:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowCxV3FulfillmentGeneratorSettings'
+        enableGenerativeFallback:
+          type: boolean
+        webhook:
+          type: string
+        codeBlockFunction:
+          type: string
+    GoogleCloudDialogflowCxV3AdvancedSettingsSpeechSettings:
+      type: object
+      properties:
+        noSpeechTimeout:
+          type: string
+        models:
+          type: object
+          additionalProperties:
+            type: string
+        useTimeoutBasedEndpointing:
+          type: boolean
+        endpointerSensitivity:
+          type: integer
+          format: int32
+  securitySchemes:
+    OAuth2:
+      type: oauth2
+      description: Google OAuth 2.0. Scopes are declared per operation in the Discovery Document.
+      flows:
+        authorizationCode:
+          authorizationUrl: https://accounts.google.com/o/oauth2/v2/auth
+          tokenUrl: https://oauth2.googleapis.com/token
+          scopes:
+            https://www.googleapis.com/auth/cloud-platform: See, edit, configure, and delete your Google Cloud data and see the email address for your Google Account.
+            https://www.googleapis.com/auth/dialogflow: View, manage and query your Dialogflow agents
+    BearerAuth:
+      type: http
+      scheme: bearer
+      description: 'Google OAuth 2.0 access token or service-account-minted bearer token, sent as Authorization: Bearer <token>.'
+externalDocs:
+  description: Dialogflow CX documentation
+  url: https://cloud.google.com/dialogflow/cx/docs

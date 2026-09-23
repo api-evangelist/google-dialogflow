@@ -1,0 +1,1162 @@
+openapi: 3.2.0
+info:
+  title: Dialogflow ES API (v2) Conversations API
+  version: v2
+  description: Dialogflow ES (Essentials) builds conversational interfaces with intents, entity types, contexts, sessions, knowledge bases, conversation profiles and Agent Assist. This OpenAPI is a mechanical conversion of the first-party Google Discovery Document served by dialogflow.googleapis.com.
+  contact:
+    name: Google Cloud
+    url: https://cloud.google.com/dialogflow/
+  termsOfService: https://cloud.google.com/terms
+  license:
+    name: Google APIs Terms of Service
+    url: https://developers.google.com/terms
+  x-discovery-source: https://dialogflow.googleapis.com/$discovery/rest?version=v2
+  x-discovery-revision: '20260825'
+  x-discovery-id: dialogflow:v2
+servers:
+- url: https://dialogflow.googleapis.com
+  description: Dialogflow API
+security:
+- OAuth2:
+  - https://www.googleapis.com/auth/dialogflow
+  - https://www.googleapis.com/auth/cloud-platform
+- BearerAuth: []
+tags:
+- name: Conversations
+paths:
+  /v2/projects/{projectsId}/locations/{locationsId}/conversations/{conversationsId}:
+    get:
+      operationId: dialogflow_projects_locations_conversations_get
+      tags:
+      - Conversations
+      parameters:
+      - name: projectsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/conversations/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: locationsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/conversations/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: conversationsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/conversations/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      x-discovery-path-template: v2/{name}
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleCloudDialogflowV2Conversation'
+        default:
+          description: Error response (google.rpc.Status)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleRpcStatus'
+      security:
+      - OAuth2:
+        - https://www.googleapis.com/auth/cloud-platform
+        - https://www.googleapis.com/auth/dialogflow
+      - BearerAuth: []
+      summary: Dialogflow projects locations conversations get
+      x-summary-source: derived
+  /v2/projects/{projectsId}/locations/{locationsId}/conversations/{conversationsId}:complete:
+    post:
+      operationId: dialogflow_projects_locations_conversations_complete
+      tags:
+      - Conversations
+      parameters:
+      - name: projectsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/conversations/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: locationsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/conversations/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: conversationsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/conversations/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      x-discovery-path-template: v2/{name}:complete
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GoogleCloudDialogflowV2CompleteConversationRequest'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleCloudDialogflowV2Conversation'
+        default:
+          description: Error response (google.rpc.Status)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleRpcStatus'
+      security:
+      - OAuth2:
+        - https://www.googleapis.com/auth/cloud-platform
+        - https://www.googleapis.com/auth/dialogflow
+      - BearerAuth: []
+      summary: Dialogflow projects locations conversations complete
+      x-summary-source: derived
+  /v2/projects/{projectsId}/locations/{locationsId}/conversations:
+    post:
+      operationId: dialogflow_projects_locations_conversations_create
+      tags:
+      - Conversations
+      parameters:
+      - name: projectsId
+        in: path
+        description: 'Part of `parent`. Resource name pattern: `^projects/[^/]+/locations/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: locationsId
+        in: path
+        description: 'Part of `parent`. Resource name pattern: `^projects/[^/]+/locations/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: conversationId
+        in: query
+        schema:
+          type: string
+      x-discovery-path-template: v2/{parent}/conversations
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GoogleCloudDialogflowV2Conversation'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleCloudDialogflowV2Conversation'
+        default:
+          description: Error response (google.rpc.Status)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleRpcStatus'
+      security:
+      - OAuth2:
+        - https://www.googleapis.com/auth/cloud-platform
+        - https://www.googleapis.com/auth/dialogflow
+      - BearerAuth: []
+      summary: Dialogflow projects locations conversations create
+      x-summary-source: derived
+    get:
+      operationId: dialogflow_projects_locations_conversations_list
+      tags:
+      - Conversations
+      parameters:
+      - name: projectsId
+        in: path
+        description: 'Part of `parent`. Resource name pattern: `^projects/[^/]+/locations/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: locationsId
+        in: path
+        description: 'Part of `parent`. Resource name pattern: `^projects/[^/]+/locations/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        schema:
+          type: integer
+          format: int32
+      - name: pageToken
+        in: query
+        schema:
+          type: string
+      - name: filter
+        in: query
+        schema:
+          type: string
+      x-discovery-path-template: v2/{parent}/conversations
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleCloudDialogflowV2ListConversationsResponse'
+        default:
+          description: Error response (google.rpc.Status)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleRpcStatus'
+      security:
+      - OAuth2:
+        - https://www.googleapis.com/auth/cloud-platform
+        - https://www.googleapis.com/auth/dialogflow
+      - BearerAuth: []
+      summary: Dialogflow projects locations conversations list
+      x-summary-source: derived
+  /v2/projects/{projectsId}/locations/{locationsId}/conversations/{conversationsId}:ingestContextReferences:
+    post:
+      operationId: dialogflow_projects_locations_conversations_ingestContextReferences
+      tags:
+      - Conversations
+      parameters:
+      - name: projectsId
+        in: path
+        description: 'Part of `conversation`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/conversations/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: locationsId
+        in: path
+        description: 'Part of `conversation`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/conversations/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: conversationsId
+        in: path
+        description: 'Part of `conversation`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/conversations/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      x-discovery-path-template: v2/{conversation}:ingestContextReferences
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GoogleCloudDialogflowV2IngestContextReferencesRequest'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleCloudDialogflowV2IngestContextReferencesResponse'
+        default:
+          description: Error response (google.rpc.Status)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleRpcStatus'
+      security:
+      - OAuth2:
+        - https://www.googleapis.com/auth/cloud-platform
+        - https://www.googleapis.com/auth/dialogflow
+      - BearerAuth: []
+      summary: Dialogflow projects locations conversations ingest context references
+      x-summary-source: derived
+  /v2/projects/{projectsId}/conversations/{conversationsId}:complete:
+    post:
+      operationId: dialogflow_projects_conversations_complete
+      tags:
+      - Conversations
+      parameters:
+      - name: projectsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/conversations/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: conversationsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/conversations/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      x-discovery-path-template: v2/{name}:complete
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GoogleCloudDialogflowV2CompleteConversationRequest'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleCloudDialogflowV2Conversation'
+        default:
+          description: Error response (google.rpc.Status)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleRpcStatus'
+      security:
+      - OAuth2:
+        - https://www.googleapis.com/auth/cloud-platform
+        - https://www.googleapis.com/auth/dialogflow
+      - BearerAuth: []
+      summary: Dialogflow projects conversations complete
+      x-summary-source: derived
+  /v2/projects/{projectsId}/conversations:
+    get:
+      operationId: dialogflow_projects_conversations_list
+      tags:
+      - Conversations
+      parameters:
+      - name: projectsId
+        in: path
+        description: 'Part of `parent`. Resource name pattern: `^projects/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: filter
+        in: query
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        schema:
+          type: integer
+          format: int32
+      - name: pageToken
+        in: query
+        schema:
+          type: string
+      x-discovery-path-template: v2/{parent}/conversations
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleCloudDialogflowV2ListConversationsResponse'
+        default:
+          description: Error response (google.rpc.Status)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleRpcStatus'
+      security:
+      - OAuth2:
+        - https://www.googleapis.com/auth/cloud-platform
+        - https://www.googleapis.com/auth/dialogflow
+      - BearerAuth: []
+      summary: Dialogflow projects conversations list
+      x-summary-source: derived
+    post:
+      operationId: dialogflow_projects_conversations_create
+      tags:
+      - Conversations
+      parameters:
+      - name: projectsId
+        in: path
+        description: 'Part of `parent`. Resource name pattern: `^projects/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: conversationId
+        in: query
+        schema:
+          type: string
+      x-discovery-path-template: v2/{parent}/conversations
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GoogleCloudDialogflowV2Conversation'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleCloudDialogflowV2Conversation'
+        default:
+          description: Error response (google.rpc.Status)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleRpcStatus'
+      security:
+      - OAuth2:
+        - https://www.googleapis.com/auth/cloud-platform
+        - https://www.googleapis.com/auth/dialogflow
+      - BearerAuth: []
+      summary: Dialogflow projects conversations create
+      x-summary-source: derived
+  /v2/projects/{projectsId}/conversations/{conversationsId}:
+    get:
+      operationId: dialogflow_projects_conversations_get
+      tags:
+      - Conversations
+      parameters:
+      - name: projectsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/conversations/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: conversationsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/conversations/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      x-discovery-path-template: v2/{name}
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleCloudDialogflowV2Conversation'
+        default:
+          description: Error response (google.rpc.Status)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleRpcStatus'
+      security:
+      - OAuth2:
+        - https://www.googleapis.com/auth/cloud-platform
+        - https://www.googleapis.com/auth/dialogflow
+      - BearerAuth: []
+      summary: Dialogflow projects conversations get
+      x-summary-source: derived
+components:
+  schemas:
+    GoogleCloudDialogflowV2IngestContextReferencesRequest:
+      type: object
+      properties:
+        contextReferences:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/GoogleCloudDialogflowV2ConversationContextReference'
+    GoogleCloudDialogflowV2SpeechToTextConfigGeminiAsrConfig:
+      type: object
+      properties:
+        startOfSpeechSensitivity:
+          type: string
+          enum:
+          - START_SENSITIVITY_UNSPECIFIED
+          - START_SENSITIVITY_HIGH
+          - START_SENSITIVITY_LOW
+          x-enumDescriptions:
+          - ''
+          - ''
+          - ''
+        prefixPaddingMs:
+          type: integer
+          format: int32
+        endOfSpeechSensitivity:
+          type: string
+          enum:
+          - END_SENSITIVITY_UNSPECIFIED
+          - END_SENSITIVITY_HIGH
+          - END_SENSITIVITY_LOW
+          x-enumDescriptions:
+          - ''
+          - ''
+          - ''
+        silenceDurationMs:
+          type: integer
+          format: int32
+        modelId:
+          type: string
+    GoogleCloudDialogflowV2HumanAgentAssistantConfigSuggestionFeatureConfig:
+      type: object
+      properties:
+        conversationProcessConfig:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2HumanAgentAssistantConfigConversationProcessConfig'
+        disableQuerySearchContext:
+          type: boolean
+        enableResponseDebugInfo:
+          type: boolean
+        enableEventBasedSuggestion:
+          type: boolean
+        queryConfig:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2HumanAgentAssistantConfigSuggestionQueryConfig'
+        enableQuerySuggestionWhenNoAnswer:
+          type: boolean
+        conversationModelConfig:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2HumanAgentAssistantConfigConversationModelConfig'
+        disableAgentQueryLogging:
+          type: boolean
+        raiSettings:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2RaiSettings'
+        suggestionTriggerSettings:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2HumanAgentAssistantConfigSuggestionTriggerSettings'
+        suggestionFeature:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2SuggestionFeature'
+        suggestionTriggerEvent:
+          type: string
+          enum:
+          - TRIGGER_EVENT_UNSPECIFIED
+          - END_OF_UTTERANCE
+          - MANUAL_CALL
+          - CUSTOMER_MESSAGE
+          - AGENT_MESSAGE
+          x-enumDescriptions:
+          - ''
+          - ''
+          - ''
+          - ''
+          - ''
+        enableConversationAugmentedQuery:
+          type: boolean
+        enableQuerySuggestionOnly:
+          type: boolean
+    GoogleCloudDialogflowV2CompleteConversationRequest:
+      type: object
+    GoogleCloudDialogflowV2HumanAgentHandoffConfigLivePersonConfig:
+      type: object
+      properties:
+        accountNumber:
+          type: string
+    GoogleCloudDialogflowV2NotificationConfig:
+      type: object
+      properties:
+        topic:
+          type: string
+        messageFormat:
+          type: string
+          enum:
+          - MESSAGE_FORMAT_UNSPECIFIED
+          - PROTO
+          - JSON
+          x-enumDescriptions:
+          - ''
+          - ''
+          - ''
+    GoogleCloudDialogflowV2HumanAgentAssistantConfigSuggestionConfig:
+      type: object
+      properties:
+        generators:
+          type: array
+          items:
+            type: string
+        enableAsyncToolCall:
+          type: boolean
+        useUnredactedConversationData:
+          type: boolean
+        featureConfigs:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowV2HumanAgentAssistantConfigSuggestionFeatureConfig'
+        skipEmptyEventBasedSuggestion:
+          type: boolean
+        disableHighLatencyFeaturesSyncDelivery:
+          type: boolean
+        groupSuggestionResponses:
+          type: boolean
+    GoogleCloudDialogflowV2SuggestionFeature:
+      type: object
+      properties:
+        type:
+          type: string
+          enum:
+          - TYPE_UNSPECIFIED
+          - ARTICLE_SUGGESTION
+          - FAQ
+          - SMART_REPLY
+          - CONVERSATION_SUMMARIZATION
+          - KNOWLEDGE_SEARCH
+          - KNOWLEDGE_ASSIST
+          x-enumDescriptions:
+          - ''
+          - ''
+          - ''
+          - ''
+          - ''
+          - ''
+          - ''
+    GoogleCloudDialogflowV2ConversationPhoneNumber:
+      type: object
+      properties:
+        countryCode:
+          type: integer
+          format: int32
+          readOnly: true
+        phoneNumber:
+          type: string
+          readOnly: true
+    GoogleCloudDialogflowV2VoiceSelectionParams:
+      type: object
+      properties:
+        ssmlGender:
+          type: string
+          enum:
+          - SSML_VOICE_GENDER_UNSPECIFIED
+          - SSML_VOICE_GENDER_MALE
+          - SSML_VOICE_GENDER_FEMALE
+          - SSML_VOICE_GENDER_NEUTRAL
+          x-enumDescriptions:
+          - ''
+          - ''
+          - ''
+          - ''
+        name:
+          type: string
+    GoogleCloudDialogflowV2RaiSettingsRaiCategoryConfig:
+      type: object
+      properties:
+        sensitivityLevel:
+          type: string
+          enum:
+          - SENSITIVITY_LEVEL_UNSPECIFIED
+          - BLOCK_MOST
+          - BLOCK_SOME
+          - BLOCK_FEW
+          - BLOCK_NONE
+          x-enumDescriptions:
+          - ''
+          - ''
+          - ''
+          - ''
+          - ''
+        category:
+          type: string
+          enum:
+          - RAI_CATEGORY_UNSPECIFIED
+          - DANGEROUS_CONTENT
+          - SEXUALLY_EXPLICIT
+          - HARASSMENT
+          - HATE_SPEECH
+          x-enumDescriptions:
+          - ''
+          - ''
+          - ''
+          - ''
+          - ''
+    GoogleCloudDialogflowV2LoggingConfig:
+      type: object
+      properties:
+        enableStackdriverLogging:
+          type: boolean
+    GoogleCloudDialogflowV2CustomPronunciationParams:
+      type: object
+      properties:
+        phoneticEncoding:
+          type: string
+          enum:
+          - PHONETIC_ENCODING_UNSPECIFIED
+          - PHONETIC_ENCODING_IPA
+          - PHONETIC_ENCODING_X_SAMPA
+          x-enumDescriptions:
+          - ''
+          - ''
+          - ''
+        phrase:
+          type: string
+        pronunciation:
+          type: string
+    GoogleCloudDialogflowV2ListConversationsResponse:
+      type: object
+      properties:
+        nextPageToken:
+          type: string
+        conversations:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowV2Conversation'
+    GoogleCloudDialogflowV2HumanAgentAssistantConfigSuggestionQueryConfigContextFilterSettings:
+      type: object
+      properties:
+        dropIvrMessages:
+          type: boolean
+        dropHandoffMessages:
+          type: boolean
+        dropVirtualAgentMessages:
+          type: boolean
+    GoogleCloudDialogflowV2ConversationTelephonyConnectionInfoSipHeader:
+      type: object
+      properties:
+        value:
+          type: string
+        name:
+          type: string
+    GoogleCloudDialogflowV2IngestContextReferencesResponse:
+      type: object
+      properties:
+        ingestedContextReferences:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/GoogleCloudDialogflowV2ConversationContextReference'
+    GoogleRpcStatus:
+      type: object
+      properties:
+        message:
+          type: string
+        code:
+          type: integer
+          format: int32
+        details:
+          type: array
+          items:
+            type: object
+            additionalProperties:
+              description: Properties of the object. Contains field @type with type URL.
+    GoogleCloudDialogflowV2HumanAgentAssistantConfigSuggestionQueryConfigDialogflowQuerySourceHumanAgentSideConfig:
+      type: object
+      properties:
+        agent:
+          type: string
+    GoogleCloudDialogflowV2HumanAgentHandoffConfig:
+      type: object
+      properties:
+        salesforceLiveAgentConfig:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2HumanAgentHandoffConfigSalesforceLiveAgentConfig'
+        livePersonConfig:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2HumanAgentHandoffConfigLivePersonConfig'
+    GoogleCloudDialogflowV2Conversation:
+      type: object
+      properties:
+        phoneNumber:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2ConversationPhoneNumber'
+        name:
+          type: string
+          readOnly: true
+        initialGeneratorContexts:
+          type: object
+          readOnly: true
+          additionalProperties:
+            $ref: '#/components/schemas/GoogleCloudDialogflowV2ConversationGeneratorContext'
+        initialConversationProfile:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2ConversationProfile'
+        endTime:
+          type: string
+          format: date-time
+          readOnly: true
+        conversationStage:
+          type: string
+          enum:
+          - CONVERSATION_STAGE_UNSPECIFIED
+          - VIRTUAL_AGENT_STAGE
+          - HUMAN_ASSIST_STAGE
+          x-enumDescriptions:
+          - ''
+          - ''
+          - ''
+        ingestedContextReferences:
+          type: object
+          readOnly: true
+          additionalProperties:
+            $ref: '#/components/schemas/GoogleCloudDialogflowV2ConversationContextReference'
+        startTime:
+          type: string
+          format: date-time
+          readOnly: true
+        lifecycleState:
+          type: string
+          enum:
+          - LIFECYCLE_STATE_UNSPECIFIED
+          - IN_PROGRESS
+          - COMPLETED
+          x-enumDescriptions:
+          - ''
+          - ''
+          - ''
+          readOnly: true
+        telephonyConnectionInfo:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2ConversationTelephonyConnectionInfo'
+        conversationProfile:
+          type: string
+    GoogleCloudDialogflowV2HumanAgentHandoffConfigSalesforceLiveAgentConfig:
+      type: object
+      properties:
+        organizationId:
+          type: string
+        deploymentId:
+          type: string
+        buttonId:
+          type: string
+        endpointDomain:
+          type: string
+    GoogleCloudDialogflowV2HumanAgentAssistantConfigSuggestionQueryConfigDialogflowQuerySource:
+      type: object
+      properties:
+        agent:
+          type: string
+        humanAgentSideConfig:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2HumanAgentAssistantConfigSuggestionQueryConfigDialogflowQuerySourceHumanAgentSideConfig'
+    GoogleCloudDialogflowV2HumanAgentAssistantConfigSuggestionTriggerSettings:
+      type: object
+      properties:
+        onlyEndUser:
+          type: boolean
+        noSmalltalk:
+          type: boolean
+    GoogleCloudDialogflowV2ConversationProfile:
+      type: object
+      properties:
+        loggingConfig:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2LoggingConfig'
+        humanAgentHandoffConfig:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2HumanAgentHandoffConfig'
+        sttConfig:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2SpeechToTextConfig'
+        displayName:
+          type: string
+        newRecognitionResultNotificationConfig:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2NotificationConfig'
+        updateTime:
+          type: string
+          format: date-time
+          readOnly: true
+        securitySettings:
+          type: string
+        timeZone:
+          type: string
+        languageCode:
+          type: string
+        ttsConfig:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2SynthesizeSpeechConfig'
+        automatedAgentConfig:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2AutomatedAgentConfig'
+        createTime:
+          type: string
+          format: date-time
+          readOnly: true
+        humanAgentAssistantConfig:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2HumanAgentAssistantConfig'
+        newMessageEventNotificationConfig:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2NotificationConfig'
+        sipConfig:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2SipConfig'
+        notificationConfig:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2NotificationConfig'
+        name:
+          type: string
+    GoogleCloudDialogflowV2ConversationGeneratorContext:
+      type: object
+      properties:
+        generatorType:
+          type: string
+          enum:
+          - GENERATOR_TYPE_UNSPECIFIED
+          - FREE_FORM
+          - AGENT_COACHING
+          - SUMMARIZATION
+          - TRANSLATION
+          - AGENT_FEEDBACK
+          - CUSTOMER_MESSAGE_GENERATION
+          x-enumDescriptions:
+          - ''
+          - ''
+          - ''
+          - ''
+          - ''
+          - ''
+          - ''
+          readOnly: true
+    GoogleCloudDialogflowV2HumanAgentAssistantConfigConversationProcessConfig:
+      type: object
+      properties:
+        recentSentencesCount:
+          type: integer
+          format: int32
+    GoogleCloudDialogflowV2ConversationContextReference:
+      type: object
+      properties:
+        createTime:
+          type: string
+          format: date-time
+          readOnly: true
+        languageCode:
+          type: string
+        updateMode:
+          type: string
+          enum:
+          - UPDATE_MODE_UNSPECIFIED
+          - APPEND
+          - OVERWRITE
+          x-enumDescriptions:
+          - ''
+          - ''
+          - ''
+        contextContents:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowV2ConversationContextReferenceContextContent'
+    GoogleCloudDialogflowV2ConversationTelephonyConnectionInfo:
+      type: object
+      properties:
+        dialedNumber:
+          type: string
+          readOnly: true
+        sipHeaders:
+          type: array
+          readOnly: true
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowV2ConversationTelephonyConnectionInfoSipHeader'
+        sdp:
+          type: string
+        extraMimeContents:
+          type: array
+          readOnly: true
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowV2ConversationTelephonyConnectionInfoMimeContent'
+    GoogleCloudDialogflowV2HumanAgentAssistantConfigConversationModelConfig:
+      type: object
+      properties:
+        baselineModelVersion:
+          type: string
+        model:
+          type: string
+    GoogleCloudDialogflowV2HumanAgentAssistantConfigSuggestionQueryConfigSections:
+      type: object
+      properties:
+        sectionTypes:
+          type: array
+          items:
+            type: string
+            enum:
+            - SECTION_TYPE_UNSPECIFIED
+            - SITUATION
+            - ACTION
+            - RESOLUTION
+            - REASON_FOR_CANCELLATION
+            - CUSTOMER_SATISFACTION
+            - ENTITIES
+            x-enumDescriptions:
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+    GoogleCloudDialogflowV2HumanAgentAssistantConfig:
+      type: object
+      properties:
+        humanAgentSuggestionConfig:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2HumanAgentAssistantConfigSuggestionConfig'
+        notificationConfig:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2NotificationConfig'
+        messageAnalysisConfig:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2HumanAgentAssistantConfigMessageAnalysisConfig'
+        endUserSuggestionConfig:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2HumanAgentAssistantConfigSuggestionConfig'
+    GoogleCloudDialogflowV2ConversationTelephonyConnectionInfoMimeContent:
+      type: object
+      properties:
+        content:
+          type: string
+          format: byte
+        mimeType:
+          type: string
+    GoogleCloudDialogflowV2HumanAgentAssistantConfigSuggestionQueryConfigKnowledgeBaseQuerySource:
+      type: object
+      properties:
+        knowledgeBases:
+          type: array
+          items:
+            type: string
+    GoogleCloudDialogflowV2ConversationContextReferenceContextContent:
+      type: object
+      properties:
+        contentFormat:
+          type: string
+          enum:
+          - CONTENT_FORMAT_UNSPECIFIED
+          - JSON
+          - PLAIN_TEXT
+          x-enumDescriptions:
+          - ''
+          - ''
+          - ''
+        ingestionTime:
+          type: string
+          format: date-time
+          readOnly: true
+        content:
+          type: string
+        answerRecord:
+          type: string
+    GoogleCloudDialogflowV2SynthesizeSpeechConfig:
+      type: object
+      properties:
+        pitch:
+          type: number
+          format: double
+        effectsProfileId:
+          type: array
+          items:
+            type: string
+        volumeGainDb:
+          type: number
+          format: double
+        pronunciations:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowV2CustomPronunciationParams'
+        voice:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2VoiceSelectionParams'
+        speakingRate:
+          type: number
+          format: double
+    GoogleCloudDialogflowV2AutomatedAgentConfig:
+      type: object
+      properties:
+        agent:
+          type: string
+        sessionTtl:
+          type: string
+    GoogleCloudDialogflowV2HumanAgentAssistantConfigSuggestionQueryConfig:
+      type: object
+      properties:
+        dialogflowQuerySource:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2HumanAgentAssistantConfigSuggestionQueryConfigDialogflowQuerySource'
+        maxResults:
+          type: integer
+          format: int32
+        contextSize:
+          type: integer
+          format: int32
+        documentQuerySource:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2HumanAgentAssistantConfigSuggestionQueryConfigDocumentQuerySource'
+        sections:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2HumanAgentAssistantConfigSuggestionQueryConfigSections'
+        confidenceThreshold:
+          type: number
+          format: float
+        contextFilterSettings:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2HumanAgentAssistantConfigSuggestionQueryConfigContextFilterSettings'
+        knowledgeBaseQuerySource:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2HumanAgentAssistantConfigSuggestionQueryConfigKnowledgeBaseQuerySource'
+    GoogleCloudDialogflowV2SipConfig:
+      type: object
+      properties:
+        keepConversationRunning:
+          type: boolean
+        copyInboundCallLegHeaders:
+          type: array
+          items:
+            type: string
+        allowVirtualAgentInteraction:
+          type: boolean
+        maxAudioRecordingDuration:
+          type: string
+        inactiveStart:
+          type: boolean
+        createConversationOnTheFly:
+          type: boolean
+        ignoreReinviteMediaDirection:
+          type: boolean
+    GoogleCloudDialogflowV2HumanAgentAssistantConfigSuggestionQueryConfigDocumentQuerySource:
+      type: object
+      properties:
+        documents:
+          type: array
+          items:
+            type: string
+    GoogleCloudDialogflowV2RaiSettings:
+      type: object
+      properties:
+        raiCategoryConfigs:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowV2RaiSettingsRaiCategoryConfig'
+    GoogleCloudDialogflowV2SpeechToTextConfig:
+      type: object
+      properties:
+        useTimeoutBasedEndpointing:
+          type: boolean
+        audioEncoding:
+          type: string
+          enum:
+          - AUDIO_ENCODING_UNSPECIFIED
+          - AUDIO_ENCODING_LINEAR_16
+          - AUDIO_ENCODING_FLAC
+          - AUDIO_ENCODING_MULAW
+          - AUDIO_ENCODING_AMR
+          - AUDIO_ENCODING_AMR_WB
+          - AUDIO_ENCODING_OGG_OPUS
+          - AUDIO_ENCODING_SPEEX_WITH_HEADER_BYTE
+          - AUDIO_ENCODING_ALAW
+          x-enumDescriptions:
+          - ''
+          - ''
+          - ''
+          - ''
+          - ''
+          - ''
+          - ''
+          - ''
+          - ''
+        model:
+          type: string
+        geminiAsrConfig:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2SpeechToTextConfigGeminiAsrConfig'
+        speechModelVariant:
+          type: string
+          enum:
+          - SPEECH_MODEL_VARIANT_UNSPECIFIED
+          - USE_BEST_AVAILABLE
+          - USE_STANDARD
+          - USE_ENHANCED
+          x-enumDescriptions:
+          - ''
+          - ''
+          - ''
+          - ''
+        enableWordInfo:
+          type: boolean
+        sampleRateHertz:
+          type: integer
+          format: int32
+        languageCode:
+          type: string
+        phraseSets:
+          type: array
+          items:
+            type: string
+        useGeminiAsr:
+          type: boolean
+    GoogleCloudDialogflowV2HumanAgentAssistantConfigMessageAnalysisConfig:
+      type: object
+      properties:
+        enableSentimentAnalysis:
+          type: boolean
+        enableSentimentAnalysisV3:
+          type: boolean
+        enableEntityExtraction:
+          type: boolean
+  securitySchemes:
+    OAuth2:
+      type: oauth2
+      description: Google OAuth 2.0. Scopes are declared per operation in the Discovery Document.
+      flows:
+        authorizationCode:
+          authorizationUrl: https://accounts.google.com/o/oauth2/v2/auth
+          tokenUrl: https://oauth2.googleapis.com/token
+          scopes:
+            https://www.googleapis.com/auth/dialogflow: View, manage and query your Dialogflow agents
+            https://www.googleapis.com/auth/cloud-platform: See, edit, configure, and delete your Google Cloud data and see the email address for your Google Account.
+    BearerAuth:
+      type: http
+      scheme: bearer
+      description: 'Google OAuth 2.0 access token or service-account-minted bearer token, sent as Authorization: Bearer <token>.'
+externalDocs:
+  description: Dialogflow ES documentation
+  url: https://cloud.google.com/dialogflow/es/docs

@@ -1,0 +1,3162 @@
+openapi: 3.2.0
+info:
+  title: Google Dialogflow Entity Types API
+  contact:
+    name: Google Cloud
+    url: https://cloud.google.com/dialogflow/
+  license:
+    name: Google APIs Terms of Service
+    url: https://developers.google.com/terms
+  termsOfService: https://cloud.google.com/terms
+  x-refined-note:
+  - x-discovery-id differs across the merged source definitions and was not carried
+  - x-discovery-source differs across the merged source definitions and was not carried
+  x-discovery-revision: '20260825'
+  version: '1.0'
+  description: 'Operations tagged entityTypes across 2 of this provider''s published API definitions: google-dialogflow-cx-v3-openapi.yml, google-dialogflow-es-v2-openapi.yml. Each path carries the servers of the definition it was published in.'
+servers:
+- url: https://dialogflow.googleapis.com
+  description: Dialogflow API
+tags:
+- name: Entity Types
+paths:
+  /v3/projects/{projectsId}/locations/{locationsId}/agents/{agentsId}/sessions/{sessionsId}/entityTypes:
+    get:
+      operationId: dialogflow_projects_locations_agents_sessions_entityTypes_list
+      tags:
+      - Entity Types
+      parameters:
+      - name: projectsId
+        in: path
+        description: 'Part of `parent`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+/sessions/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: locationsId
+        in: path
+        description: 'Part of `parent`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+/sessions/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: agentsId
+        in: path
+        description: 'Part of `parent`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+/sessions/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: sessionsId
+        in: path
+        description: 'Part of `parent`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+/sessions/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        schema:
+          type: integer
+          format: int32
+      - name: pageToken
+        in: query
+        schema:
+          type: string
+      x-discovery-path-template: v3/{parent}/entityTypes
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleCloudDialogflowCxV3ListSessionEntityTypesResponse'
+        default:
+          description: Error response (google.rpc.Status)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleRpcStatus'
+      security:
+      - OAuth2:
+        - https://www.googleapis.com/auth/cloud-platform
+        - https://www.googleapis.com/auth/dialogflow
+      - BearerAuth: []
+      summary: Dialogflow projects locations agents sessions entity types list
+      x-summary-source: derived
+    post:
+      operationId: dialogflow_projects_locations_agents_sessions_entityTypes_create
+      tags:
+      - Entity Types
+      parameters:
+      - name: projectsId
+        in: path
+        description: 'Part of `parent`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+/sessions/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: locationsId
+        in: path
+        description: 'Part of `parent`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+/sessions/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: agentsId
+        in: path
+        description: 'Part of `parent`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+/sessions/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: sessionsId
+        in: path
+        description: 'Part of `parent`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+/sessions/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      x-discovery-path-template: v3/{parent}/entityTypes
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GoogleCloudDialogflowCxV3SessionEntityType'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleCloudDialogflowCxV3SessionEntityType'
+        default:
+          description: Error response (google.rpc.Status)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleRpcStatus'
+      security:
+      - OAuth2:
+        - https://www.googleapis.com/auth/cloud-platform
+        - https://www.googleapis.com/auth/dialogflow
+      - BearerAuth: []
+      summary: Dialogflow projects locations agents sessions entity types create
+      x-summary-source: derived
+    servers:
+    - url: https://dialogflow.googleapis.com
+      description: Dialogflow API
+  /v3/projects/{projectsId}/locations/{locationsId}/agents/{agentsId}/sessions/{sessionsId}/entityTypes/{entityTypesId}:
+    get:
+      operationId: dialogflow_projects_locations_agents_sessions_entityTypes_get
+      tags:
+      - Entity Types
+      parameters:
+      - name: projectsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+/sessions/[^/]+/entityTypes/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: locationsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+/sessions/[^/]+/entityTypes/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: agentsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+/sessions/[^/]+/entityTypes/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: sessionsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+/sessions/[^/]+/entityTypes/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: entityTypesId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+/sessions/[^/]+/entityTypes/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      x-discovery-path-template: v3/{name}
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleCloudDialogflowCxV3SessionEntityType'
+        default:
+          description: Error response (google.rpc.Status)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleRpcStatus'
+      security:
+      - OAuth2:
+        - https://www.googleapis.com/auth/cloud-platform
+        - https://www.googleapis.com/auth/dialogflow
+      - BearerAuth: []
+      summary: Dialogflow projects locations agents sessions entity types get
+      x-summary-source: derived
+    delete:
+      operationId: dialogflow_projects_locations_agents_sessions_entityTypes_delete
+      tags:
+      - Entity Types
+      parameters:
+      - name: projectsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+/sessions/[^/]+/entityTypes/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: locationsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+/sessions/[^/]+/entityTypes/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: agentsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+/sessions/[^/]+/entityTypes/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: sessionsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+/sessions/[^/]+/entityTypes/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: entityTypesId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+/sessions/[^/]+/entityTypes/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      x-discovery-path-template: v3/{name}
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleProtobufEmpty'
+        default:
+          description: Error response (google.rpc.Status)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleRpcStatus'
+      security:
+      - OAuth2:
+        - https://www.googleapis.com/auth/cloud-platform
+        - https://www.googleapis.com/auth/dialogflow
+      - BearerAuth: []
+      summary: Dialogflow projects locations agents sessions entity types delete
+      x-summary-source: derived
+    patch:
+      operationId: dialogflow_projects_locations_agents_sessions_entityTypes_patch
+      tags:
+      - Entity Types
+      parameters:
+      - name: projectsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+/sessions/[^/]+/entityTypes/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: locationsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+/sessions/[^/]+/entityTypes/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: agentsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+/sessions/[^/]+/entityTypes/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: sessionsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+/sessions/[^/]+/entityTypes/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: entityTypesId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+/sessions/[^/]+/entityTypes/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: updateMask
+        in: query
+        schema:
+          type: string
+      x-discovery-path-template: v3/{name}
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GoogleCloudDialogflowCxV3SessionEntityType'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleCloudDialogflowCxV3SessionEntityType'
+        default:
+          description: Error response (google.rpc.Status)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleRpcStatus'
+      security:
+      - OAuth2:
+        - https://www.googleapis.com/auth/cloud-platform
+        - https://www.googleapis.com/auth/dialogflow
+      - BearerAuth: []
+      summary: Dialogflow projects locations agents sessions entity types patch
+      x-summary-source: derived
+    servers:
+    - url: https://dialogflow.googleapis.com
+      description: Dialogflow API
+  /v3/projects/{projectsId}/locations/{locationsId}/agents/{agentsId}/entityTypes/{entityTypesId}:
+    delete:
+      operationId: dialogflow_projects_locations_agents_entityTypes_delete
+      tags:
+      - Entity Types
+      parameters:
+      - name: projectsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+/entityTypes/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: locationsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+/entityTypes/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: agentsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+/entityTypes/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: entityTypesId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+/entityTypes/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: force
+        in: query
+        schema:
+          type: boolean
+      x-discovery-path-template: v3/{name}
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleProtobufEmpty'
+        default:
+          description: Error response (google.rpc.Status)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleRpcStatus'
+      security:
+      - OAuth2:
+        - https://www.googleapis.com/auth/cloud-platform
+        - https://www.googleapis.com/auth/dialogflow
+      - BearerAuth: []
+      summary: Dialogflow projects locations agents entity types delete
+      x-summary-source: derived
+    patch:
+      operationId: dialogflow_projects_locations_agents_entityTypes_patch
+      tags:
+      - Entity Types
+      parameters:
+      - name: projectsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+/entityTypes/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: locationsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+/entityTypes/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: agentsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+/entityTypes/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: entityTypesId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+/entityTypes/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: languageCode
+        in: query
+        schema:
+          type: string
+      - name: updateMask
+        in: query
+        schema:
+          type: string
+      x-discovery-path-template: v3/{name}
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GoogleCloudDialogflowCxV3EntityType'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleCloudDialogflowCxV3EntityType'
+        default:
+          description: Error response (google.rpc.Status)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleRpcStatus'
+      security:
+      - OAuth2:
+        - https://www.googleapis.com/auth/cloud-platform
+        - https://www.googleapis.com/auth/dialogflow
+      - BearerAuth: []
+      summary: Dialogflow projects locations agents entity types patch
+      x-summary-source: derived
+    get:
+      operationId: dialogflow_projects_locations_agents_entityTypes_get
+      tags:
+      - Entity Types
+      parameters:
+      - name: projectsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+/entityTypes/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: locationsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+/entityTypes/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: agentsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+/entityTypes/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: entityTypesId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+/entityTypes/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: languageCode
+        in: query
+        schema:
+          type: string
+      x-discovery-path-template: v3/{name}
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleCloudDialogflowCxV3EntityType'
+        default:
+          description: Error response (google.rpc.Status)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleRpcStatus'
+      security:
+      - OAuth2:
+        - https://www.googleapis.com/auth/cloud-platform
+        - https://www.googleapis.com/auth/dialogflow
+      - BearerAuth: []
+      summary: Dialogflow projects locations agents entity types get
+      x-summary-source: derived
+    servers:
+    - url: https://dialogflow.googleapis.com
+      description: Dialogflow API
+  /v3/projects/{projectsId}/locations/{locationsId}/agents/{agentsId}/entityTypes:import:
+    post:
+      operationId: dialogflow_projects_locations_agents_entityTypes_import
+      tags:
+      - Entity Types
+      parameters:
+      - name: projectsId
+        in: path
+        description: 'Part of `parent`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: locationsId
+        in: path
+        description: 'Part of `parent`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: agentsId
+        in: path
+        description: 'Part of `parent`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      x-discovery-path-template: v3/{parent}/entityTypes:import
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GoogleCloudDialogflowCxV3ImportEntityTypesRequest'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleLongrunningOperation'
+        default:
+          description: Error response (google.rpc.Status)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleRpcStatus'
+      security:
+      - OAuth2:
+        - https://www.googleapis.com/auth/cloud-platform
+        - https://www.googleapis.com/auth/dialogflow
+      - BearerAuth: []
+      summary: Dialogflow projects locations agents entity types import
+      x-summary-source: derived
+    servers:
+    - url: https://dialogflow.googleapis.com
+      description: Dialogflow API
+  /v3/projects/{projectsId}/locations/{locationsId}/agents/{agentsId}/entityTypes:
+    post:
+      operationId: dialogflow_projects_locations_agents_entityTypes_create
+      tags:
+      - Entity Types
+      parameters:
+      - name: projectsId
+        in: path
+        description: 'Part of `parent`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: locationsId
+        in: path
+        description: 'Part of `parent`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: agentsId
+        in: path
+        description: 'Part of `parent`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: languageCode
+        in: query
+        schema:
+          type: string
+      x-discovery-path-template: v3/{parent}/entityTypes
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GoogleCloudDialogflowCxV3EntityType'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleCloudDialogflowCxV3EntityType'
+        default:
+          description: Error response (google.rpc.Status)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleRpcStatus'
+      security:
+      - OAuth2:
+        - https://www.googleapis.com/auth/cloud-platform
+        - https://www.googleapis.com/auth/dialogflow
+      - BearerAuth: []
+      summary: Dialogflow projects locations agents entity types create
+      x-summary-source: derived
+    get:
+      operationId: dialogflow_projects_locations_agents_entityTypes_list
+      tags:
+      - Entity Types
+      parameters:
+      - name: projectsId
+        in: path
+        description: 'Part of `parent`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: locationsId
+        in: path
+        description: 'Part of `parent`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: agentsId
+        in: path
+        description: 'Part of `parent`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: languageCode
+        in: query
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        schema:
+          type: integer
+          format: int32
+      - name: pageToken
+        in: query
+        schema:
+          type: string
+      x-discovery-path-template: v3/{parent}/entityTypes
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleCloudDialogflowCxV3ListEntityTypesResponse'
+        default:
+          description: Error response (google.rpc.Status)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleRpcStatus'
+      security:
+      - OAuth2:
+        - https://www.googleapis.com/auth/cloud-platform
+        - https://www.googleapis.com/auth/dialogflow
+      - BearerAuth: []
+      summary: Dialogflow projects locations agents entity types list
+      x-summary-source: derived
+    servers:
+    - url: https://dialogflow.googleapis.com
+      description: Dialogflow API
+  /v3/projects/{projectsId}/locations/{locationsId}/agents/{agentsId}/entityTypes:export:
+    post:
+      operationId: dialogflow_projects_locations_agents_entityTypes_export
+      tags:
+      - Entity Types
+      parameters:
+      - name: projectsId
+        in: path
+        description: 'Part of `parent`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: locationsId
+        in: path
+        description: 'Part of `parent`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: agentsId
+        in: path
+        description: 'Part of `parent`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      x-discovery-path-template: v3/{parent}/entityTypes:export
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GoogleCloudDialogflowCxV3ExportEntityTypesRequest'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleLongrunningOperation'
+        default:
+          description: Error response (google.rpc.Status)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleRpcStatus'
+      security:
+      - OAuth2:
+        - https://www.googleapis.com/auth/cloud-platform
+        - https://www.googleapis.com/auth/dialogflow
+      - BearerAuth: []
+      summary: Dialogflow projects locations agents entity types export
+      x-summary-source: derived
+    servers:
+    - url: https://dialogflow.googleapis.com
+      description: Dialogflow API
+  ? /v3/projects/{projectsId}/locations/{locationsId}/agents/{agentsId}/environments/{environmentsId}/sessions/{sessionsId}/entityTypes
+  : get:
+      operationId: dialogflow_projects_locations_agents_environments_sessions_entityTypes_list
+      tags:
+      - Entity Types
+      parameters:
+      - name: projectsId
+        in: path
+        description: 'Part of `parent`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+/environments/[^/]+/sessions/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: locationsId
+        in: path
+        description: 'Part of `parent`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+/environments/[^/]+/sessions/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: agentsId
+        in: path
+        description: 'Part of `parent`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+/environments/[^/]+/sessions/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: environmentsId
+        in: path
+        description: 'Part of `parent`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+/environments/[^/]+/sessions/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: sessionsId
+        in: path
+        description: 'Part of `parent`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+/environments/[^/]+/sessions/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        schema:
+          type: integer
+          format: int32
+      - name: pageToken
+        in: query
+        schema:
+          type: string
+      x-discovery-path-template: v3/{parent}/entityTypes
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleCloudDialogflowCxV3ListSessionEntityTypesResponse'
+        default:
+          description: Error response (google.rpc.Status)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleRpcStatus'
+      security:
+      - OAuth2:
+        - https://www.googleapis.com/auth/cloud-platform
+        - https://www.googleapis.com/auth/dialogflow
+      - BearerAuth: []
+      summary: Dialogflow projects locations agents environments sessions entity types list
+      x-summary-source: derived
+    post:
+      operationId: dialogflow_projects_locations_agents_environments_sessions_entityTypes_create
+      tags:
+      - Entity Types
+      parameters:
+      - name: projectsId
+        in: path
+        description: 'Part of `parent`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+/environments/[^/]+/sessions/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: locationsId
+        in: path
+        description: 'Part of `parent`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+/environments/[^/]+/sessions/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: agentsId
+        in: path
+        description: 'Part of `parent`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+/environments/[^/]+/sessions/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: environmentsId
+        in: path
+        description: 'Part of `parent`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+/environments/[^/]+/sessions/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: sessionsId
+        in: path
+        description: 'Part of `parent`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+/environments/[^/]+/sessions/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      x-discovery-path-template: v3/{parent}/entityTypes
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GoogleCloudDialogflowCxV3SessionEntityType'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleCloudDialogflowCxV3SessionEntityType'
+        default:
+          description: Error response (google.rpc.Status)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleRpcStatus'
+      security:
+      - OAuth2:
+        - https://www.googleapis.com/auth/cloud-platform
+        - https://www.googleapis.com/auth/dialogflow
+      - BearerAuth: []
+      summary: Dialogflow projects locations agents environments sessions entity types create
+      x-summary-source: derived
+    servers:
+    - url: https://dialogflow.googleapis.com
+      description: Dialogflow API
+  ? /v3/projects/{projectsId}/locations/{locationsId}/agents/{agentsId}/environments/{environmentsId}/sessions/{sessionsId}/entityTypes/{entityTypesId}
+  : delete:
+      operationId: dialogflow_projects_locations_agents_environments_sessions_entityTypes_delete
+      tags:
+      - Entity Types
+      parameters:
+      - name: projectsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+/environments/[^/]+/sessions/[^/]+/entityTypes/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: locationsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+/environments/[^/]+/sessions/[^/]+/entityTypes/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: agentsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+/environments/[^/]+/sessions/[^/]+/entityTypes/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: environmentsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+/environments/[^/]+/sessions/[^/]+/entityTypes/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: sessionsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+/environments/[^/]+/sessions/[^/]+/entityTypes/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: entityTypesId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+/environments/[^/]+/sessions/[^/]+/entityTypes/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      x-discovery-path-template: v3/{name}
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleProtobufEmpty'
+        default:
+          description: Error response (google.rpc.Status)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleRpcStatus'
+      security:
+      - OAuth2:
+        - https://www.googleapis.com/auth/cloud-platform
+        - https://www.googleapis.com/auth/dialogflow
+      - BearerAuth: []
+      summary: Dialogflow projects locations agents environments sessions entity types delete
+      x-summary-source: derived
+    get:
+      operationId: dialogflow_projects_locations_agents_environments_sessions_entityTypes_get
+      tags:
+      - Entity Types
+      parameters:
+      - name: projectsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+/environments/[^/]+/sessions/[^/]+/entityTypes/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: locationsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+/environments/[^/]+/sessions/[^/]+/entityTypes/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: agentsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+/environments/[^/]+/sessions/[^/]+/entityTypes/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: environmentsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+/environments/[^/]+/sessions/[^/]+/entityTypes/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: sessionsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+/environments/[^/]+/sessions/[^/]+/entityTypes/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: entityTypesId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+/environments/[^/]+/sessions/[^/]+/entityTypes/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      x-discovery-path-template: v3/{name}
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleCloudDialogflowCxV3SessionEntityType'
+        default:
+          description: Error response (google.rpc.Status)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleRpcStatus'
+      security:
+      - OAuth2:
+        - https://www.googleapis.com/auth/cloud-platform
+        - https://www.googleapis.com/auth/dialogflow
+      - BearerAuth: []
+      summary: Dialogflow projects locations agents environments sessions entity types get
+      x-summary-source: derived
+    patch:
+      operationId: dialogflow_projects_locations_agents_environments_sessions_entityTypes_patch
+      tags:
+      - Entity Types
+      parameters:
+      - name: projectsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+/environments/[^/]+/sessions/[^/]+/entityTypes/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: locationsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+/environments/[^/]+/sessions/[^/]+/entityTypes/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: agentsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+/environments/[^/]+/sessions/[^/]+/entityTypes/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: environmentsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+/environments/[^/]+/sessions/[^/]+/entityTypes/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: sessionsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+/environments/[^/]+/sessions/[^/]+/entityTypes/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: entityTypesId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+/environments/[^/]+/sessions/[^/]+/entityTypes/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: updateMask
+        in: query
+        schema:
+          type: string
+      x-discovery-path-template: v3/{name}
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GoogleCloudDialogflowCxV3SessionEntityType'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleCloudDialogflowCxV3SessionEntityType'
+        default:
+          description: Error response (google.rpc.Status)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleRpcStatus'
+      security:
+      - OAuth2:
+        - https://www.googleapis.com/auth/cloud-platform
+        - https://www.googleapis.com/auth/dialogflow
+      - BearerAuth: []
+      summary: Dialogflow projects locations agents environments sessions entity types patch
+      x-summary-source: derived
+    servers:
+    - url: https://dialogflow.googleapis.com
+      description: Dialogflow API
+  /v2/projects/{projectsId}/locations/{locationsId}/agent/sessions/{sessionsId}/entityTypes/{entityTypesId}:
+    patch:
+      operationId: dialogflow_projects_locations_agent_sessions_entityTypes_patch
+      tags:
+      - Entity Types
+      parameters:
+      - name: projectsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agent/sessions/[^/]+/entityTypes/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: locationsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agent/sessions/[^/]+/entityTypes/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: sessionsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agent/sessions/[^/]+/entityTypes/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: entityTypesId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agent/sessions/[^/]+/entityTypes/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: updateMask
+        in: query
+        schema:
+          type: string
+      x-discovery-path-template: v2/{name}
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GoogleCloudDialogflowV2SessionEntityType'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleCloudDialogflowV2SessionEntityType'
+        default:
+          description: Error response (google.rpc.Status)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleRpcStatus'
+      security:
+      - OAuth2:
+        - https://www.googleapis.com/auth/cloud-platform
+        - https://www.googleapis.com/auth/dialogflow
+      - BearerAuth: []
+      summary: Dialogflow projects locations agent sessions entity types patch
+      x-summary-source: derived
+    delete:
+      operationId: dialogflow_projects_locations_agent_sessions_entityTypes_delete
+      tags:
+      - Entity Types
+      parameters:
+      - name: projectsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agent/sessions/[^/]+/entityTypes/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: locationsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agent/sessions/[^/]+/entityTypes/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: sessionsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agent/sessions/[^/]+/entityTypes/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: entityTypesId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agent/sessions/[^/]+/entityTypes/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      x-discovery-path-template: v2/{name}
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleProtobufEmpty'
+        default:
+          description: Error response (google.rpc.Status)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleRpcStatus'
+      security:
+      - OAuth2:
+        - https://www.googleapis.com/auth/cloud-platform
+        - https://www.googleapis.com/auth/dialogflow
+      - BearerAuth: []
+      summary: Dialogflow projects locations agent sessions entity types delete
+      x-summary-source: derived
+    get:
+      operationId: dialogflow_projects_locations_agent_sessions_entityTypes_get
+      tags:
+      - Entity Types
+      parameters:
+      - name: projectsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agent/sessions/[^/]+/entityTypes/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: locationsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agent/sessions/[^/]+/entityTypes/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: sessionsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agent/sessions/[^/]+/entityTypes/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: entityTypesId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agent/sessions/[^/]+/entityTypes/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      x-discovery-path-template: v2/{name}
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleCloudDialogflowV2SessionEntityType'
+        default:
+          description: Error response (google.rpc.Status)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleRpcStatus'
+      security:
+      - OAuth2:
+        - https://www.googleapis.com/auth/cloud-platform
+        - https://www.googleapis.com/auth/dialogflow
+      - BearerAuth: []
+      summary: Dialogflow projects locations agent sessions entity types get
+      x-summary-source: derived
+    servers:
+    - url: https://dialogflow.googleapis.com
+      description: Dialogflow API
+  /v2/projects/{projectsId}/locations/{locationsId}/agent/sessions/{sessionsId}/entityTypes:
+    get:
+      operationId: dialogflow_projects_locations_agent_sessions_entityTypes_list
+      tags:
+      - Entity Types
+      parameters:
+      - name: projectsId
+        in: path
+        description: 'Part of `parent`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agent/sessions/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: locationsId
+        in: path
+        description: 'Part of `parent`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agent/sessions/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: sessionsId
+        in: path
+        description: 'Part of `parent`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agent/sessions/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: pageToken
+        in: query
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        schema:
+          type: integer
+          format: int32
+      x-discovery-path-template: v2/{parent}/entityTypes
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleCloudDialogflowV2ListSessionEntityTypesResponse'
+        default:
+          description: Error response (google.rpc.Status)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleRpcStatus'
+      security:
+      - OAuth2:
+        - https://www.googleapis.com/auth/cloud-platform
+        - https://www.googleapis.com/auth/dialogflow
+      - BearerAuth: []
+      summary: Dialogflow projects locations agent sessions entity types list
+      x-summary-source: derived
+    post:
+      operationId: dialogflow_projects_locations_agent_sessions_entityTypes_create
+      tags:
+      - Entity Types
+      parameters:
+      - name: projectsId
+        in: path
+        description: 'Part of `parent`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agent/sessions/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: locationsId
+        in: path
+        description: 'Part of `parent`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agent/sessions/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: sessionsId
+        in: path
+        description: 'Part of `parent`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agent/sessions/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      x-discovery-path-template: v2/{parent}/entityTypes
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GoogleCloudDialogflowV2SessionEntityType'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleCloudDialogflowV2SessionEntityType'
+        default:
+          description: Error response (google.rpc.Status)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleRpcStatus'
+      security:
+      - OAuth2:
+        - https://www.googleapis.com/auth/cloud-platform
+        - https://www.googleapis.com/auth/dialogflow
+      - BearerAuth: []
+      summary: Dialogflow projects locations agent sessions entity types create
+      x-summary-source: derived
+    servers:
+    - url: https://dialogflow.googleapis.com
+      description: Dialogflow API
+  /v2/projects/{projectsId}/locations/{locationsId}/agent/entityTypes:
+    get:
+      operationId: dialogflow_projects_locations_agent_entityTypes_list
+      tags:
+      - Entity Types
+      parameters:
+      - name: projectsId
+        in: path
+        description: 'Part of `parent`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agent$`.'
+        required: true
+        schema:
+          type: string
+      - name: locationsId
+        in: path
+        description: 'Part of `parent`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agent$`.'
+        required: true
+        schema:
+          type: string
+      - name: languageCode
+        in: query
+        schema:
+          type: string
+      - name: pageToken
+        in: query
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        schema:
+          type: integer
+          format: int32
+      x-discovery-path-template: v2/{parent}/entityTypes
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleCloudDialogflowV2ListEntityTypesResponse'
+        default:
+          description: Error response (google.rpc.Status)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleRpcStatus'
+      security:
+      - OAuth2:
+        - https://www.googleapis.com/auth/cloud-platform
+        - https://www.googleapis.com/auth/dialogflow
+      - BearerAuth: []
+      summary: Dialogflow projects locations agent entity types list
+      x-summary-source: derived
+    post:
+      operationId: dialogflow_projects_locations_agent_entityTypes_create
+      tags:
+      - Entity Types
+      parameters:
+      - name: projectsId
+        in: path
+        description: 'Part of `parent`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agent$`.'
+        required: true
+        schema:
+          type: string
+      - name: locationsId
+        in: path
+        description: 'Part of `parent`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agent$`.'
+        required: true
+        schema:
+          type: string
+      - name: languageCode
+        in: query
+        schema:
+          type: string
+      x-discovery-path-template: v2/{parent}/entityTypes
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GoogleCloudDialogflowV2EntityType'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleCloudDialogflowV2EntityType'
+        default:
+          description: Error response (google.rpc.Status)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleRpcStatus'
+      security:
+      - OAuth2:
+        - https://www.googleapis.com/auth/cloud-platform
+        - https://www.googleapis.com/auth/dialogflow
+      - BearerAuth: []
+      summary: Dialogflow projects locations agent entity types create
+      x-summary-source: derived
+    servers:
+    - url: https://dialogflow.googleapis.com
+      description: Dialogflow API
+  /v2/projects/{projectsId}/locations/{locationsId}/agent/entityTypes:batchDelete:
+    post:
+      operationId: dialogflow_projects_locations_agent_entityTypes_batchDelete
+      tags:
+      - Entity Types
+      parameters:
+      - name: projectsId
+        in: path
+        description: 'Part of `parent`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agent$`.'
+        required: true
+        schema:
+          type: string
+      - name: locationsId
+        in: path
+        description: 'Part of `parent`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agent$`.'
+        required: true
+        schema:
+          type: string
+      x-discovery-path-template: v2/{parent}/entityTypes:batchDelete
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GoogleCloudDialogflowV2BatchDeleteEntityTypesRequest'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleLongrunningOperation'
+        default:
+          description: Error response (google.rpc.Status)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleRpcStatus'
+      security:
+      - OAuth2:
+        - https://www.googleapis.com/auth/cloud-platform
+        - https://www.googleapis.com/auth/dialogflow
+      - BearerAuth: []
+      summary: Dialogflow projects locations agent entity types batch delete
+      x-summary-source: derived
+    servers:
+    - url: https://dialogflow.googleapis.com
+      description: Dialogflow API
+  /v2/projects/{projectsId}/locations/{locationsId}/agent/entityTypes/{entityTypesId}:
+    patch:
+      operationId: dialogflow_projects_locations_agent_entityTypes_patch
+      tags:
+      - Entity Types
+      parameters:
+      - name: projectsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agent/entityTypes/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: locationsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agent/entityTypes/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: entityTypesId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agent/entityTypes/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: languageCode
+        in: query
+        schema:
+          type: string
+      - name: updateMask
+        in: query
+        schema:
+          type: string
+      x-discovery-path-template: v2/{name}
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GoogleCloudDialogflowV2EntityType'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleCloudDialogflowV2EntityType'
+        default:
+          description: Error response (google.rpc.Status)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleRpcStatus'
+      security:
+      - OAuth2:
+        - https://www.googleapis.com/auth/cloud-platform
+        - https://www.googleapis.com/auth/dialogflow
+      - BearerAuth: []
+      summary: Dialogflow projects locations agent entity types patch
+      x-summary-source: derived
+    delete:
+      operationId: dialogflow_projects_locations_agent_entityTypes_delete
+      tags:
+      - Entity Types
+      parameters:
+      - name: projectsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agent/entityTypes/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: locationsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agent/entityTypes/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: entityTypesId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agent/entityTypes/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      x-discovery-path-template: v2/{name}
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleProtobufEmpty'
+        default:
+          description: Error response (google.rpc.Status)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleRpcStatus'
+      security:
+      - OAuth2:
+        - https://www.googleapis.com/auth/cloud-platform
+        - https://www.googleapis.com/auth/dialogflow
+      - BearerAuth: []
+      summary: Dialogflow projects locations agent entity types delete
+      x-summary-source: derived
+    get:
+      operationId: dialogflow_projects_locations_agent_entityTypes_get
+      tags:
+      - Entity Types
+      parameters:
+      - name: projectsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agent/entityTypes/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: locationsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agent/entityTypes/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: entityTypesId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agent/entityTypes/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: languageCode
+        in: query
+        schema:
+          type: string
+      x-discovery-path-template: v2/{name}
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleCloudDialogflowV2EntityType'
+        default:
+          description: Error response (google.rpc.Status)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleRpcStatus'
+      security:
+      - OAuth2:
+        - https://www.googleapis.com/auth/cloud-platform
+        - https://www.googleapis.com/auth/dialogflow
+      - BearerAuth: []
+      summary: Dialogflow projects locations agent entity types get
+      x-summary-source: derived
+    servers:
+    - url: https://dialogflow.googleapis.com
+      description: Dialogflow API
+  /v2/projects/{projectsId}/locations/{locationsId}/agent/entityTypes:batchUpdate:
+    post:
+      operationId: dialogflow_projects_locations_agent_entityTypes_batchUpdate
+      tags:
+      - Entity Types
+      parameters:
+      - name: projectsId
+        in: path
+        description: 'Part of `parent`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agent$`.'
+        required: true
+        schema:
+          type: string
+      - name: locationsId
+        in: path
+        description: 'Part of `parent`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agent$`.'
+        required: true
+        schema:
+          type: string
+      x-discovery-path-template: v2/{parent}/entityTypes:batchUpdate
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GoogleCloudDialogflowV2BatchUpdateEntityTypesRequest'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleLongrunningOperation'
+        default:
+          description: Error response (google.rpc.Status)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleRpcStatus'
+      security:
+      - OAuth2:
+        - https://www.googleapis.com/auth/cloud-platform
+        - https://www.googleapis.com/auth/dialogflow
+      - BearerAuth: []
+      summary: Dialogflow projects locations agent entity types batch update
+      x-summary-source: derived
+    servers:
+    - url: https://dialogflow.googleapis.com
+      description: Dialogflow API
+  ? /v2/projects/{projectsId}/locations/{locationsId}/agent/environments/{environmentsId}/users/{usersId}/sessions/{sessionsId}/entityTypes
+  : get:
+      operationId: dialogflow_projects_locations_agent_environments_users_sessions_entityTypes_list
+      tags:
+      - Entity Types
+      parameters:
+      - name: projectsId
+        in: path
+        description: 'Part of `parent`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agent/environments/[^/]+/users/[^/]+/sessions/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: locationsId
+        in: path
+        description: 'Part of `parent`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agent/environments/[^/]+/users/[^/]+/sessions/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: environmentsId
+        in: path
+        description: 'Part of `parent`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agent/environments/[^/]+/users/[^/]+/sessions/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: usersId
+        in: path
+        description: 'Part of `parent`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agent/environments/[^/]+/users/[^/]+/sessions/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: sessionsId
+        in: path
+        description: 'Part of `parent`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agent/environments/[^/]+/users/[^/]+/sessions/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        schema:
+          type: integer
+          format: int32
+      - name: pageToken
+        in: query
+        schema:
+          type: string
+      x-discovery-path-template: v2/{parent}/entityTypes
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleCloudDialogflowV2ListSessionEntityTypesResponse'
+        default:
+          description: Error response (google.rpc.Status)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleRpcStatus'
+      security:
+      - OAuth2:
+        - https://www.googleapis.com/auth/cloud-platform
+        - https://www.googleapis.com/auth/dialogflow
+      - BearerAuth: []
+      summary: Dialogflow projects locations agent environments users sessions entity types…
+      x-summary-source: derived
+    post:
+      operationId: dialogflow_projects_locations_agent_environments_users_sessions_entityTypes_create
+      tags:
+      - Entity Types
+      parameters:
+      - name: projectsId
+        in: path
+        description: 'Part of `parent`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agent/environments/[^/]+/users/[^/]+/sessions/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: locationsId
+        in: path
+        description: 'Part of `parent`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agent/environments/[^/]+/users/[^/]+/sessions/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: environmentsId
+        in: path
+        description: 'Part of `parent`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agent/environments/[^/]+/users/[^/]+/sessions/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: usersId
+        in: path
+        description: 'Part of `parent`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agent/environments/[^/]+/users/[^/]+/sessions/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: sessionsId
+        in: path
+        description: 'Part of `parent`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agent/environments/[^/]+/users/[^/]+/sessions/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      x-discovery-path-template: v2/{parent}/entityTypes
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GoogleCloudDialogflowV2SessionEntityType'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleCloudDialogflowV2SessionEntityType'
+        default:
+          description: Error response (google.rpc.Status)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleRpcStatus'
+      security:
+      - OAuth2:
+        - https://www.googleapis.com/auth/cloud-platform
+        - https://www.googleapis.com/auth/dialogflow
+      - BearerAuth: []
+      summary: Dialogflow projects locations agent environments users sessions entity types…
+      x-summary-source: derived
+    servers:
+    - url: https://dialogflow.googleapis.com
+      description: Dialogflow API
+  ? /v2/projects/{projectsId}/locations/{locationsId}/agent/environments/{environmentsId}/users/{usersId}/sessions/{sessionsId}/entityTypes/{entityTypesId}
+  : patch:
+      operationId: dialogflow_projects_locations_agent_environments_users_sessions_entityTypes_patch
+      tags:
+      - Entity Types
+      parameters:
+      - name: projectsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agent/environments/[^/]+/users/[^/]+/sessions/[^/]+/entityTypes/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: locationsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agent/environments/[^/]+/users/[^/]+/sessions/[^/]+/entityTypes/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: environmentsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agent/environments/[^/]+/users/[^/]+/sessions/[^/]+/entityTypes/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: usersId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agent/environments/[^/]+/users/[^/]+/sessions/[^/]+/entityTypes/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: sessionsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agent/environments/[^/]+/users/[^/]+/sessions/[^/]+/entityTypes/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: entityTypesId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agent/environments/[^/]+/users/[^/]+/sessions/[^/]+/entityTypes/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: updateMask
+        in: query
+        schema:
+          type: string
+      x-discovery-path-template: v2/{name}
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GoogleCloudDialogflowV2SessionEntityType'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleCloudDialogflowV2SessionEntityType'
+        default:
+          description: Error response (google.rpc.Status)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleRpcStatus'
+      security:
+      - OAuth2:
+        - https://www.googleapis.com/auth/cloud-platform
+        - https://www.googleapis.com/auth/dialogflow
+      - BearerAuth: []
+      summary: Dialogflow projects locations agent environments users sessions entity types…
+      x-summary-source: derived
+    get:
+      operationId: dialogflow_projects_locations_agent_environments_users_sessions_entityTypes_get
+      tags:
+      - Entity Types
+      parameters:
+      - name: projectsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agent/environments/[^/]+/users/[^/]+/sessions/[^/]+/entityTypes/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: locationsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agent/environments/[^/]+/users/[^/]+/sessions/[^/]+/entityTypes/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: environmentsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agent/environments/[^/]+/users/[^/]+/sessions/[^/]+/entityTypes/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: usersId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agent/environments/[^/]+/users/[^/]+/sessions/[^/]+/entityTypes/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: sessionsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agent/environments/[^/]+/users/[^/]+/sessions/[^/]+/entityTypes/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: entityTypesId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agent/environments/[^/]+/users/[^/]+/sessions/[^/]+/entityTypes/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      x-discovery-path-template: v2/{name}
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleCloudDialogflowV2SessionEntityType'
+        default:
+          description: Error response (google.rpc.Status)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleRpcStatus'
+      security:
+      - OAuth2:
+        - https://www.googleapis.com/auth/cloud-platform
+        - https://www.googleapis.com/auth/dialogflow
+      - BearerAuth: []
+      summary: Dialogflow projects locations agent environments users sessions entity types get
+      x-summary-source: derived
+    delete:
+      operationId: dialogflow_projects_locations_agent_environments_users_sessions_entityTypes_delete
+      tags:
+      - Entity Types
+      parameters:
+      - name: projectsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agent/environments/[^/]+/users/[^/]+/sessions/[^/]+/entityTypes/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: locationsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agent/environments/[^/]+/users/[^/]+/sessions/[^/]+/entityTypes/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: environmentsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agent/environments/[^/]+/users/[^/]+/sessions/[^/]+/entityTypes/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: usersId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agent/environments/[^/]+/users/[^/]+/sessions/[^/]+/entityTypes/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: sessionsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agent/environments/[^/]+/users/[^/]+/sessions/[^/]+/entityTypes/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: entityTypesId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agent/environments/[^/]+/users/[^/]+/sessions/[^/]+/entityTypes/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      x-discovery-path-template: v2/{name}
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleProtobufEmpty'
+        default:
+          description: Error response (google.rpc.Status)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleRpcStatus'
+      security:
+      - OAuth2:
+        - https://www.googleapis.com/auth/cloud-platform
+        - https://www.googleapis.com/auth/dialogflow
+      - BearerAuth: []
+      summary: Dialogflow projects locations agent environments users sessions entity types…
+      x-summary-source: derived
+    servers:
+    - url: https://dialogflow.googleapis.com
+      description: Dialogflow API
+  /v2/projects/{projectsId}/agent/entityTypes:batchDelete:
+    post:
+      operationId: dialogflow_projects_agent_entityTypes_batchDelete
+      tags:
+      - Entity Types
+      parameters:
+      - name: projectsId
+        in: path
+        description: 'Part of `parent`. Resource name pattern: `^projects/[^/]+/agent$`.'
+        required: true
+        schema:
+          type: string
+      x-discovery-path-template: v2/{parent}/entityTypes:batchDelete
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GoogleCloudDialogflowV2BatchDeleteEntityTypesRequest'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleLongrunningOperation'
+        default:
+          description: Error response (google.rpc.Status)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleRpcStatus'
+      security:
+      - OAuth2:
+        - https://www.googleapis.com/auth/cloud-platform
+        - https://www.googleapis.com/auth/dialogflow
+      - BearerAuth: []
+      summary: Dialogflow projects agent entity types batch delete
+      x-summary-source: derived
+    servers:
+    - url: https://dialogflow.googleapis.com
+      description: Dialogflow API
+  /v2/projects/{projectsId}/agent/entityTypes:
+    post:
+      operationId: dialogflow_projects_agent_entityTypes_create
+      tags:
+      - Entity Types
+      parameters:
+      - name: projectsId
+        in: path
+        description: 'Part of `parent`. Resource name pattern: `^projects/[^/]+/agent$`.'
+        required: true
+        schema:
+          type: string
+      - name: languageCode
+        in: query
+        schema:
+          type: string
+      x-discovery-path-template: v2/{parent}/entityTypes
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GoogleCloudDialogflowV2EntityType'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleCloudDialogflowV2EntityType'
+        default:
+          description: Error response (google.rpc.Status)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleRpcStatus'
+      security:
+      - OAuth2:
+        - https://www.googleapis.com/auth/cloud-platform
+        - https://www.googleapis.com/auth/dialogflow
+      - BearerAuth: []
+      summary: Dialogflow projects agent entity types create
+      x-summary-source: derived
+    get:
+      operationId: dialogflow_projects_agent_entityTypes_list
+      tags:
+      - Entity Types
+      parameters:
+      - name: projectsId
+        in: path
+        description: 'Part of `parent`. Resource name pattern: `^projects/[^/]+/agent$`.'
+        required: true
+        schema:
+          type: string
+      - name: languageCode
+        in: query
+        schema:
+          type: string
+      - name: pageToken
+        in: query
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        schema:
+          type: integer
+          format: int32
+      x-discovery-path-template: v2/{parent}/entityTypes
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleCloudDialogflowV2ListEntityTypesResponse'
+        default:
+          description: Error response (google.rpc.Status)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleRpcStatus'
+      security:
+      - OAuth2:
+        - https://www.googleapis.com/auth/cloud-platform
+        - https://www.googleapis.com/auth/dialogflow
+      - BearerAuth: []
+      summary: Dialogflow projects agent entity types list
+      x-summary-source: derived
+    servers:
+    - url: https://dialogflow.googleapis.com
+      description: Dialogflow API
+  /v2/projects/{projectsId}/agent/entityTypes/{entityTypesId}:
+    patch:
+      operationId: dialogflow_projects_agent_entityTypes_patch
+      tags:
+      - Entity Types
+      parameters:
+      - name: projectsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/agent/entityTypes/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: entityTypesId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/agent/entityTypes/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: updateMask
+        in: query
+        schema:
+          type: string
+      - name: languageCode
+        in: query
+        schema:
+          type: string
+      x-discovery-path-template: v2/{name}
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GoogleCloudDialogflowV2EntityType'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleCloudDialogflowV2EntityType'
+        default:
+          description: Error response (google.rpc.Status)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleRpcStatus'
+      security:
+      - OAuth2:
+        - https://www.googleapis.com/auth/cloud-platform
+        - https://www.googleapis.com/auth/dialogflow
+      - BearerAuth: []
+      summary: Dialogflow projects agent entity types patch
+      x-summary-source: derived
+    get:
+      operationId: dialogflow_projects_agent_entityTypes_get
+      tags:
+      - Entity Types
+      parameters:
+      - name: projectsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/agent/entityTypes/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: entityTypesId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/agent/entityTypes/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: languageCode
+        in: query
+        schema:
+          type: string
+      x-discovery-path-template: v2/{name}
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleCloudDialogflowV2EntityType'
+        default:
+          description: Error response (google.rpc.Status)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleRpcStatus'
+      security:
+      - OAuth2:
+        - https://www.googleapis.com/auth/cloud-platform
+        - https://www.googleapis.com/auth/dialogflow
+      - BearerAuth: []
+      summary: Dialogflow projects agent entity types get
+      x-summary-source: derived
+    delete:
+      operationId: dialogflow_projects_agent_entityTypes_delete
+      tags:
+      - Entity Types
+      parameters:
+      - name: projectsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/agent/entityTypes/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: entityTypesId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/agent/entityTypes/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      x-discovery-path-template: v2/{name}
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleProtobufEmpty'
+        default:
+          description: Error response (google.rpc.Status)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleRpcStatus'
+      security:
+      - OAuth2:
+        - https://www.googleapis.com/auth/cloud-platform
+        - https://www.googleapis.com/auth/dialogflow
+      - BearerAuth: []
+      summary: Dialogflow projects agent entity types delete
+      x-summary-source: derived
+    servers:
+    - url: https://dialogflow.googleapis.com
+      description: Dialogflow API
+  /v2/projects/{projectsId}/agent/entityTypes:batchUpdate:
+    post:
+      operationId: dialogflow_projects_agent_entityTypes_batchUpdate
+      tags:
+      - Entity Types
+      parameters:
+      - name: projectsId
+        in: path
+        description: 'Part of `parent`. Resource name pattern: `^projects/[^/]+/agent$`.'
+        required: true
+        schema:
+          type: string
+      x-discovery-path-template: v2/{parent}/entityTypes:batchUpdate
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GoogleCloudDialogflowV2BatchUpdateEntityTypesRequest'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleLongrunningOperation'
+        default:
+          description: Error response (google.rpc.Status)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleRpcStatus'
+      security:
+      - OAuth2:
+        - https://www.googleapis.com/auth/cloud-platform
+        - https://www.googleapis.com/auth/dialogflow
+      - BearerAuth: []
+      summary: Dialogflow projects agent entity types batch update
+      x-summary-source: derived
+    servers:
+    - url: https://dialogflow.googleapis.com
+      description: Dialogflow API
+  /v2/projects/{projectsId}/agent/environments/{environmentsId}/users/{usersId}/sessions/{sessionsId}/entityTypes:
+    post:
+      operationId: dialogflow_projects_agent_environments_users_sessions_entityTypes_create
+      tags:
+      - Entity Types
+      parameters:
+      - name: projectsId
+        in: path
+        description: 'Part of `parent`. Resource name pattern: `^projects/[^/]+/agent/environments/[^/]+/users/[^/]+/sessions/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: environmentsId
+        in: path
+        description: 'Part of `parent`. Resource name pattern: `^projects/[^/]+/agent/environments/[^/]+/users/[^/]+/sessions/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: usersId
+        in: path
+        description: 'Part of `parent`. Resource name pattern: `^projects/[^/]+/agent/environments/[^/]+/users/[^/]+/sessions/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: sessionsId
+        in: path
+        description: 'Part of `parent`. Resource name pattern: `^projects/[^/]+/agent/environments/[^/]+/users/[^/]+/sessions/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      x-discovery-path-template: v2/{parent}/entityTypes
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GoogleCloudDialogflowV2SessionEntityType'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleCloudDialogflowV2SessionEntityType'
+        default:
+          description: Error response (google.rpc.Status)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleRpcStatus'
+      security:
+      - OAuth2:
+        - https://www.googleapis.com/auth/cloud-platform
+        - https://www.googleapis.com/auth/dialogflow
+      - BearerAuth: []
+      summary: Dialogflow projects agent environments users sessions entity types create
+      x-summary-source: derived
+    get:
+      operationId: dialogflow_projects_agent_environments_users_sessions_entityTypes_list
+      tags:
+      - Entity Types
+      parameters:
+      - name: projectsId
+        in: path
+        description: 'Part of `parent`. Resource name pattern: `^projects/[^/]+/agent/environments/[^/]+/users/[^/]+/sessions/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: environmentsId
+        in: path
+        description: 'Part of `parent`. Resource name pattern: `^projects/[^/]+/agent/environments/[^/]+/users/[^/]+/sessions/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: usersId
+        in: path
+        description: 'Part of `parent`. Resource name pattern: `^projects/[^/]+/agent/environments/[^/]+/users/[^/]+/sessions/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: sessionsId
+        in: path
+        description: 'Part of `parent`. Resource name pattern: `^projects/[^/]+/agent/environments/[^/]+/users/[^/]+/sessions/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: pageToken
+        in: query
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        schema:
+          type: integer
+          format: int32
+      x-discovery-path-template: v2/{parent}/entityTypes
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleCloudDialogflowV2ListSessionEntityTypesResponse'
+        default:
+          description: Error response (google.rpc.Status)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleRpcStatus'
+      security:
+      - OAuth2:
+        - https://www.googleapis.com/auth/cloud-platform
+        - https://www.googleapis.com/auth/dialogflow
+      - BearerAuth: []
+      summary: Dialogflow projects agent environments users sessions entity types list
+      x-summary-source: derived
+    servers:
+    - url: https://dialogflow.googleapis.com
+      description: Dialogflow API
+  ? /v2/projects/{projectsId}/agent/environments/{environmentsId}/users/{usersId}/sessions/{sessionsId}/entityTypes/{entityTypesId}
+  : get:
+      operationId: dialogflow_projects_agent_environments_users_sessions_entityTypes_get
+      tags:
+      - Entity Types
+      parameters:
+      - name: projectsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/agent/environments/[^/]+/users/[^/]+/sessions/[^/]+/entityTypes/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: environmentsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/agent/environments/[^/]+/users/[^/]+/sessions/[^/]+/entityTypes/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: usersId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/agent/environments/[^/]+/users/[^/]+/sessions/[^/]+/entityTypes/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: sessionsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/agent/environments/[^/]+/users/[^/]+/sessions/[^/]+/entityTypes/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: entityTypesId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/agent/environments/[^/]+/users/[^/]+/sessions/[^/]+/entityTypes/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      x-discovery-path-template: v2/{name}
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleCloudDialogflowV2SessionEntityType'
+        default:
+          description: Error response (google.rpc.Status)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleRpcStatus'
+      security:
+      - OAuth2:
+        - https://www.googleapis.com/auth/cloud-platform
+        - https://www.googleapis.com/auth/dialogflow
+      - BearerAuth: []
+      summary: Dialogflow projects agent environments users sessions entity types get
+      x-summary-source: derived
+    delete:
+      operationId: dialogflow_projects_agent_environments_users_sessions_entityTypes_delete
+      tags:
+      - Entity Types
+      parameters:
+      - name: projectsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/agent/environments/[^/]+/users/[^/]+/sessions/[^/]+/entityTypes/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: environmentsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/agent/environments/[^/]+/users/[^/]+/sessions/[^/]+/entityTypes/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: usersId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/agent/environments/[^/]+/users/[^/]+/sessions/[^/]+/entityTypes/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: sessionsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/agent/environments/[^/]+/users/[^/]+/sessions/[^/]+/entityTypes/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: entityTypesId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/agent/environments/[^/]+/users/[^/]+/sessions/[^/]+/entityTypes/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      x-discovery-path-template: v2/{name}
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleProtobufEmpty'
+        default:
+          description: Error response (google.rpc.Status)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleRpcStatus'
+      security:
+      - OAuth2:
+        - https://www.googleapis.com/auth/cloud-platform
+        - https://www.googleapis.com/auth/dialogflow
+      - BearerAuth: []
+      summary: Dialogflow projects agent environments users sessions entity types delete
+      x-summary-source: derived
+    patch:
+      operationId: dialogflow_projects_agent_environments_users_sessions_entityTypes_patch
+      tags:
+      - Entity Types
+      parameters:
+      - name: projectsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/agent/environments/[^/]+/users/[^/]+/sessions/[^/]+/entityTypes/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: environmentsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/agent/environments/[^/]+/users/[^/]+/sessions/[^/]+/entityTypes/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: usersId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/agent/environments/[^/]+/users/[^/]+/sessions/[^/]+/entityTypes/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: sessionsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/agent/environments/[^/]+/users/[^/]+/sessions/[^/]+/entityTypes/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: entityTypesId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/agent/environments/[^/]+/users/[^/]+/sessions/[^/]+/entityTypes/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: updateMask
+        in: query
+        schema:
+          type: string
+      x-discovery-path-template: v2/{name}
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GoogleCloudDialogflowV2SessionEntityType'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleCloudDialogflowV2SessionEntityType'
+        default:
+          description: Error response (google.rpc.Status)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleRpcStatus'
+      security:
+      - OAuth2:
+        - https://www.googleapis.com/auth/cloud-platform
+        - https://www.googleapis.com/auth/dialogflow
+      - BearerAuth: []
+      summary: Dialogflow projects agent environments users sessions entity types patch
+      x-summary-source: derived
+    servers:
+    - url: https://dialogflow.googleapis.com
+      description: Dialogflow API
+  /v2/projects/{projectsId}/agent/sessions/{sessionsId}/entityTypes/{entityTypesId}:
+    patch:
+      operationId: dialogflow_projects_agent_sessions_entityTypes_patch
+      tags:
+      - Entity Types
+      parameters:
+      - name: projectsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/agent/sessions/[^/]+/entityTypes/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: sessionsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/agent/sessions/[^/]+/entityTypes/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: entityTypesId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/agent/sessions/[^/]+/entityTypes/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: updateMask
+        in: query
+        schema:
+          type: string
+      x-discovery-path-template: v2/{name}
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GoogleCloudDialogflowV2SessionEntityType'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleCloudDialogflowV2SessionEntityType'
+        default:
+          description: Error response (google.rpc.Status)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleRpcStatus'
+      security:
+      - OAuth2:
+        - https://www.googleapis.com/auth/cloud-platform
+        - https://www.googleapis.com/auth/dialogflow
+      - BearerAuth: []
+      summary: Dialogflow projects agent sessions entity types patch
+      x-summary-source: derived
+    get:
+      operationId: dialogflow_projects_agent_sessions_entityTypes_get
+      tags:
+      - Entity Types
+      parameters:
+      - name: projectsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/agent/sessions/[^/]+/entityTypes/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: sessionsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/agent/sessions/[^/]+/entityTypes/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: entityTypesId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/agent/sessions/[^/]+/entityTypes/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      x-discovery-path-template: v2/{name}
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleCloudDialogflowV2SessionEntityType'
+        default:
+          description: Error response (google.rpc.Status)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleRpcStatus'
+      security:
+      - OAuth2:
+        - https://www.googleapis.com/auth/cloud-platform
+        - https://www.googleapis.com/auth/dialogflow
+      - BearerAuth: []
+      summary: Dialogflow projects agent sessions entity types get
+      x-summary-source: derived
+    delete:
+      operationId: dialogflow_projects_agent_sessions_entityTypes_delete
+      tags:
+      - Entity Types
+      parameters:
+      - name: projectsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/agent/sessions/[^/]+/entityTypes/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: sessionsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/agent/sessions/[^/]+/entityTypes/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: entityTypesId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/agent/sessions/[^/]+/entityTypes/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      x-discovery-path-template: v2/{name}
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleProtobufEmpty'
+        default:
+          description: Error response (google.rpc.Status)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleRpcStatus'
+      security:
+      - OAuth2:
+        - https://www.googleapis.com/auth/cloud-platform
+        - https://www.googleapis.com/auth/dialogflow
+      - BearerAuth: []
+      summary: Dialogflow projects agent sessions entity types delete
+      x-summary-source: derived
+    servers:
+    - url: https://dialogflow.googleapis.com
+      description: Dialogflow API
+  /v2/projects/{projectsId}/agent/sessions/{sessionsId}/entityTypes:
+    post:
+      operationId: dialogflow_projects_agent_sessions_entityTypes_create
+      tags:
+      - Entity Types
+      parameters:
+      - name: projectsId
+        in: path
+        description: 'Part of `parent`. Resource name pattern: `^projects/[^/]+/agent/sessions/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: sessionsId
+        in: path
+        description: 'Part of `parent`. Resource name pattern: `^projects/[^/]+/agent/sessions/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      x-discovery-path-template: v2/{parent}/entityTypes
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GoogleCloudDialogflowV2SessionEntityType'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleCloudDialogflowV2SessionEntityType'
+        default:
+          description: Error response (google.rpc.Status)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleRpcStatus'
+      security:
+      - OAuth2:
+        - https://www.googleapis.com/auth/cloud-platform
+        - https://www.googleapis.com/auth/dialogflow
+      - BearerAuth: []
+      summary: Dialogflow projects agent sessions entity types create
+      x-summary-source: derived
+    get:
+      operationId: dialogflow_projects_agent_sessions_entityTypes_list
+      tags:
+      - Entity Types
+      parameters:
+      - name: projectsId
+        in: path
+        description: 'Part of `parent`. Resource name pattern: `^projects/[^/]+/agent/sessions/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: sessionsId
+        in: path
+        description: 'Part of `parent`. Resource name pattern: `^projects/[^/]+/agent/sessions/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: pageToken
+        in: query
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        schema:
+          type: integer
+          format: int32
+      x-discovery-path-template: v2/{parent}/entityTypes
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleCloudDialogflowV2ListSessionEntityTypesResponse'
+        default:
+          description: Error response (google.rpc.Status)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleRpcStatus'
+      security:
+      - OAuth2:
+        - https://www.googleapis.com/auth/cloud-platform
+        - https://www.googleapis.com/auth/dialogflow
+      - BearerAuth: []
+      summary: Dialogflow projects agent sessions entity types list
+      x-summary-source: derived
+    servers:
+    - url: https://dialogflow.googleapis.com
+      description: Dialogflow API
+components:
+  schemas:
+    GoogleCloudDialogflowCxV3InlineSource:
+      type: object
+      properties:
+        content:
+          type: string
+          format: byte
+    GoogleLongrunningOperation:
+      type: object
+      properties:
+        metadata:
+          type: object
+          additionalProperties:
+            description: Properties of the object. Contains field @type with type URL.
+        name:
+          type: string
+        done:
+          type: boolean
+        response:
+          type: object
+          additionalProperties:
+            description: Properties of the object. Contains field @type with type URL.
+        error:
+          $ref: '#/components/schemas/GoogleRpcStatus'
+    GoogleCloudDialogflowCxV3ListSessionEntityTypesResponse:
+      type: object
+      properties:
+        sessionEntityTypes:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowCxV3SessionEntityType'
+        nextPageToken:
+          type: string
+    GoogleCloudDialogflowCxV3ListEntityTypesResponse:
+      type: object
+      properties:
+        nextPageToken:
+          type: string
+        entityTypes:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowCxV3EntityType'
+    GoogleRpcStatus:
+      type: object
+      properties:
+        message:
+          type: string
+        code:
+          type: integer
+          format: int32
+        details:
+          type: array
+          items:
+            type: object
+            additionalProperties:
+              description: Properties of the object. Contains field @type with type URL.
+    GoogleCloudDialogflowCxV3ImportEntityTypesRequest:
+      type: object
+      properties:
+        entityTypesUri:
+          type: string
+        mergeOption:
+          type: string
+          enum:
+          - MERGE_OPTION_UNSPECIFIED
+          - REPLACE
+          - MERGE
+          - RENAME
+          - REPORT_CONFLICT
+          - KEEP
+          x-enumDescriptions:
+          - ''
+          - ''
+          - ''
+          - ''
+          - ''
+          - ''
+        targetEntityType:
+          type: string
+        entityTypesContent:
+          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3InlineSource'
+    GoogleCloudDialogflowCxV3ExportEntityTypesRequest:
+      type: object
+      properties:
+        entityTypesContentInline:
+          type: boolean
+        entityTypes:
+          type: array
+          items:
+            type: string
+        entityTypesUri:
+          type: string
+        dataFormat:
+          type: string
+          enum:
+          - DATA_FORMAT_UNSPECIFIED
+          - BLOB
+          - JSON_PACKAGE
+          x-enumDescriptions:
+          - ''
+          - ''
+          - ''
+        languageCode:
+          type: string
+    GoogleProtobufEmpty:
+      type: object
+    GoogleCloudDialogflowCxV3EntityType:
+      type: object
+      properties:
+        name:
+          type: string
+        kind:
+          type: string
+          enum:
+          - KIND_UNSPECIFIED
+          - KIND_MAP
+          - KIND_LIST
+          - KIND_REGEXP
+          x-enumDescriptions:
+          - ''
+          - ''
+          - ''
+          - ''
+        displayName:
+          type: string
+        excludedPhrases:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowCxV3EntityTypeExcludedPhrase'
+        enableFuzzyExtraction:
+          type: boolean
+        redact:
+          type: boolean
+        entities:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowCxV3EntityTypeEntity'
+        autoExpansionMode:
+          type: string
+          enum:
+          - AUTO_EXPANSION_MODE_UNSPECIFIED
+          - AUTO_EXPANSION_MODE_DEFAULT
+          x-enumDescriptions:
+          - ''
+          - ''
+    GoogleCloudDialogflowCxV3SessionEntityType:
+      type: object
+      properties:
+        entities:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowCxV3EntityTypeEntity'
+        name:
+          type: string
+        entityOverrideMode:
+          type: string
+          enum:
+          - ENTITY_OVERRIDE_MODE_UNSPECIFIED
+          - ENTITY_OVERRIDE_MODE_OVERRIDE
+          - ENTITY_OVERRIDE_MODE_SUPPLEMENT
+          x-enumDescriptions:
+          - ''
+          - ''
+          - ''
+    GoogleCloudDialogflowCxV3EntityTypeEntity:
+      type: object
+      properties:
+        value:
+          type: string
+        synonyms:
+          type: array
+          items:
+            type: string
+    GoogleCloudDialogflowCxV3EntityTypeExcludedPhrase:
+      type: object
+      properties:
+        value:
+          type: string
+    GoogleCloudDialogflowV2ListEntityTypesResponse:
+      type: object
+      properties:
+        nextPageToken:
+          type: string
+        entityTypes:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowV2EntityType'
+    GoogleCloudDialogflowV2EntityTypeBatch:
+      type: object
+      properties:
+        entityTypes:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowV2EntityType'
+    GoogleCloudDialogflowV2EntityTypeEntity:
+      type: object
+      properties:
+        value:
+          type: string
+        synonyms:
+          type: array
+          items:
+            type: string
+    GoogleCloudDialogflowV2ListSessionEntityTypesResponse:
+      type: object
+      properties:
+        sessionEntityTypes:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowV2SessionEntityType'
+        nextPageToken:
+          type: string
+    GoogleCloudDialogflowV2EntityType:
+      type: object
+      properties:
+        displayName:
+          type: string
+        name:
+          type: string
+        autoExpansionMode:
+          type: string
+          enum:
+          - AUTO_EXPANSION_MODE_UNSPECIFIED
+          - AUTO_EXPANSION_MODE_DEFAULT
+          x-enumDescriptions:
+          - ''
+          - ''
+        entities:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowV2EntityTypeEntity'
+        enableFuzzyExtraction:
+          type: boolean
+        kind:
+          type: string
+          enum:
+          - KIND_UNSPECIFIED
+          - KIND_MAP
+          - KIND_LIST
+          - KIND_REGEXP
+          x-enumDescriptions:
+          - ''
+          - ''
+          - ''
+          - ''
+    GoogleCloudDialogflowV2BatchDeleteEntityTypesRequest:
+      type: object
+      properties:
+        entityTypeNames:
+          type: array
+          items:
+            type: string
+    GoogleCloudDialogflowV2SessionEntityType:
+      type: object
+      properties:
+        entities:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowV2EntityTypeEntity'
+        entityOverrideMode:
+          type: string
+          enum:
+          - ENTITY_OVERRIDE_MODE_UNSPECIFIED
+          - ENTITY_OVERRIDE_MODE_OVERRIDE
+          - ENTITY_OVERRIDE_MODE_SUPPLEMENT
+          x-enumDescriptions:
+          - ''
+          - ''
+          - ''
+        name:
+          type: string
+    GoogleCloudDialogflowV2BatchUpdateEntityTypesRequest:
+      type: object
+      properties:
+        entityTypeBatchInline:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2EntityTypeBatch'
+        entityTypeBatchUri:
+          type: string
+        languageCode:
+          type: string
+        updateMask:
+          type: string
+  securitySchemes:
+    OAuth2:
+      type: oauth2
+      description: Google OAuth 2.0. Scopes are declared per operation in the Discovery Document.
+      flows:
+        authorizationCode:
+          authorizationUrl: https://accounts.google.com/o/oauth2/v2/auth
+          tokenUrl: https://oauth2.googleapis.com/token
+          scopes:
+            https://www.googleapis.com/auth/cloud-platform: See, edit, configure, and delete your Google Cloud data and see the email address for your Google Account.
+            https://www.googleapis.com/auth/dialogflow: View, manage and query your Dialogflow agents
+    BearerAuth:
+      type: http
+      scheme: bearer
+      description: 'Google OAuth 2.0 access token or service-account-minted bearer token, sent as Authorization: Bearer <token>.'
+x-refined-from:
+- google-dialogflow-cx-v3-openapi.yml
+- google-dialogflow-es-v2-openapi.yml

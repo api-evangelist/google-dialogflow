@@ -1,0 +1,2032 @@
+openapi: 3.2.0
+info:
+  title: Google Dialogflow Intents API
+  contact:
+    name: Google Cloud
+    url: https://cloud.google.com/dialogflow/
+  license:
+    name: Google APIs Terms of Service
+    url: https://developers.google.com/terms
+  termsOfService: https://cloud.google.com/terms
+  x-refined-note:
+  - x-discovery-id differs across the merged source definitions and was not carried
+  - x-discovery-source differs across the merged source definitions and was not carried
+  x-discovery-revision: '20260825'
+  version: '1.0'
+  description: 'Operations tagged intents across 2 of this provider''s published API definitions: google-dialogflow-cx-v3-openapi.yml, google-dialogflow-es-v2-openapi.yml. Each path carries the servers of the definition it was published in.'
+servers:
+- url: https://dialogflow.googleapis.com
+  description: Dialogflow API
+tags:
+- name: Intents
+paths:
+  /v3/projects/{projectsId}/locations/{locationsId}/agents/{agentsId}/intents:export:
+    post:
+      operationId: dialogflow_projects_locations_agents_intents_export
+      tags:
+      - Intents
+      parameters:
+      - name: projectsId
+        in: path
+        description: 'Part of `parent`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: locationsId
+        in: path
+        description: 'Part of `parent`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: agentsId
+        in: path
+        description: 'Part of `parent`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      x-discovery-path-template: v3/{parent}/intents:export
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GoogleCloudDialogflowCxV3ExportIntentsRequest'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleLongrunningOperation'
+        default:
+          description: Error response (google.rpc.Status)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleRpcStatus'
+      security:
+      - OAuth2:
+        - https://www.googleapis.com/auth/cloud-platform
+        - https://www.googleapis.com/auth/dialogflow
+      - BearerAuth: []
+      summary: Dialogflow projects locations agents intents export
+      x-summary-source: derived
+    servers:
+    - url: https://dialogflow.googleapis.com
+      description: Dialogflow API
+  /v3/projects/{projectsId}/locations/{locationsId}/agents/{agentsId}/intents/{intentsId}:
+    patch:
+      operationId: dialogflow_projects_locations_agents_intents_patch
+      tags:
+      - Intents
+      parameters:
+      - name: projectsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+/intents/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: locationsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+/intents/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: agentsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+/intents/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: intentsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+/intents/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: updateMask
+        in: query
+        schema:
+          type: string
+      - name: languageCode
+        in: query
+        schema:
+          type: string
+      x-discovery-path-template: v3/{name}
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GoogleCloudDialogflowCxV3Intent'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleCloudDialogflowCxV3Intent'
+        default:
+          description: Error response (google.rpc.Status)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleRpcStatus'
+      security:
+      - OAuth2:
+        - https://www.googleapis.com/auth/cloud-platform
+        - https://www.googleapis.com/auth/dialogflow
+      - BearerAuth: []
+      summary: Dialogflow projects locations agents intents patch
+      x-summary-source: derived
+    get:
+      operationId: dialogflow_projects_locations_agents_intents_get
+      tags:
+      - Intents
+      parameters:
+      - name: projectsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+/intents/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: locationsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+/intents/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: agentsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+/intents/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: intentsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+/intents/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: languageCode
+        in: query
+        schema:
+          type: string
+      x-discovery-path-template: v3/{name}
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleCloudDialogflowCxV3Intent'
+        default:
+          description: Error response (google.rpc.Status)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleRpcStatus'
+      security:
+      - OAuth2:
+        - https://www.googleapis.com/auth/cloud-platform
+        - https://www.googleapis.com/auth/dialogflow
+      - BearerAuth: []
+      summary: Dialogflow projects locations agents intents get
+      x-summary-source: derived
+    delete:
+      operationId: dialogflow_projects_locations_agents_intents_delete
+      tags:
+      - Intents
+      parameters:
+      - name: projectsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+/intents/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: locationsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+/intents/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: agentsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+/intents/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: intentsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+/intents/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      x-discovery-path-template: v3/{name}
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleProtobufEmpty'
+        default:
+          description: Error response (google.rpc.Status)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleRpcStatus'
+      security:
+      - OAuth2:
+        - https://www.googleapis.com/auth/cloud-platform
+        - https://www.googleapis.com/auth/dialogflow
+      - BearerAuth: []
+      summary: Dialogflow projects locations agents intents delete
+      x-summary-source: derived
+    servers:
+    - url: https://dialogflow.googleapis.com
+      description: Dialogflow API
+  /v3/projects/{projectsId}/locations/{locationsId}/agents/{agentsId}/intents:
+    post:
+      operationId: dialogflow_projects_locations_agents_intents_create
+      tags:
+      - Intents
+      parameters:
+      - name: projectsId
+        in: path
+        description: 'Part of `parent`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: locationsId
+        in: path
+        description: 'Part of `parent`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: agentsId
+        in: path
+        description: 'Part of `parent`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: languageCode
+        in: query
+        schema:
+          type: string
+      x-discovery-path-template: v3/{parent}/intents
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GoogleCloudDialogflowCxV3Intent'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleCloudDialogflowCxV3Intent'
+        default:
+          description: Error response (google.rpc.Status)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleRpcStatus'
+      security:
+      - OAuth2:
+        - https://www.googleapis.com/auth/cloud-platform
+        - https://www.googleapis.com/auth/dialogflow
+      - BearerAuth: []
+      summary: Dialogflow projects locations agents intents create
+      x-summary-source: derived
+    get:
+      operationId: dialogflow_projects_locations_agents_intents_list
+      tags:
+      - Intents
+      parameters:
+      - name: projectsId
+        in: path
+        description: 'Part of `parent`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: locationsId
+        in: path
+        description: 'Part of `parent`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: agentsId
+        in: path
+        description: 'Part of `parent`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        schema:
+          type: integer
+          format: int32
+      - name: intentView
+        in: query
+        schema:
+          type: string
+          enum:
+          - INTENT_VIEW_UNSPECIFIED
+          - INTENT_VIEW_PARTIAL
+          - INTENT_VIEW_FULL
+          x-enumDescriptions:
+          - ''
+          - ''
+          - ''
+      - name: languageCode
+        in: query
+        schema:
+          type: string
+      - name: pageToken
+        in: query
+        schema:
+          type: string
+      x-discovery-path-template: v3/{parent}/intents
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleCloudDialogflowCxV3ListIntentsResponse'
+        default:
+          description: Error response (google.rpc.Status)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleRpcStatus'
+      security:
+      - OAuth2:
+        - https://www.googleapis.com/auth/cloud-platform
+        - https://www.googleapis.com/auth/dialogflow
+      - BearerAuth: []
+      summary: Dialogflow projects locations agents intents list
+      x-summary-source: derived
+    servers:
+    - url: https://dialogflow.googleapis.com
+      description: Dialogflow API
+  /v3/projects/{projectsId}/locations/{locationsId}/agents/{agentsId}/intents:import:
+    post:
+      operationId: dialogflow_projects_locations_agents_intents_import
+      tags:
+      - Intents
+      parameters:
+      - name: projectsId
+        in: path
+        description: 'Part of `parent`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: locationsId
+        in: path
+        description: 'Part of `parent`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: agentsId
+        in: path
+        description: 'Part of `parent`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agents/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      x-discovery-path-template: v3/{parent}/intents:import
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GoogleCloudDialogflowCxV3ImportIntentsRequest'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleLongrunningOperation'
+        default:
+          description: Error response (google.rpc.Status)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleRpcStatus'
+      security:
+      - OAuth2:
+        - https://www.googleapis.com/auth/cloud-platform
+        - https://www.googleapis.com/auth/dialogflow
+      - BearerAuth: []
+      summary: Dialogflow projects locations agents intents import
+      x-summary-source: derived
+    servers:
+    - url: https://dialogflow.googleapis.com
+      description: Dialogflow API
+  /v2/projects/{projectsId}/locations/{locationsId}/agent/intents/{intentsId}:
+    delete:
+      operationId: dialogflow_projects_locations_agent_intents_delete
+      tags:
+      - Intents
+      parameters:
+      - name: projectsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agent/intents/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: locationsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agent/intents/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: intentsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agent/intents/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      x-discovery-path-template: v2/{name}
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleProtobufEmpty'
+        default:
+          description: Error response (google.rpc.Status)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleRpcStatus'
+      security:
+      - OAuth2:
+        - https://www.googleapis.com/auth/cloud-platform
+        - https://www.googleapis.com/auth/dialogflow
+      - BearerAuth: []
+      summary: Dialogflow projects locations agent intents delete
+      x-summary-source: derived
+    patch:
+      operationId: dialogflow_projects_locations_agent_intents_patch
+      tags:
+      - Intents
+      parameters:
+      - name: projectsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agent/intents/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: locationsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agent/intents/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: intentsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agent/intents/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: intentView
+        in: query
+        schema:
+          type: string
+          enum:
+          - INTENT_VIEW_UNSPECIFIED
+          - INTENT_VIEW_FULL
+          x-enumDescriptions:
+          - ''
+          - ''
+      - name: languageCode
+        in: query
+        schema:
+          type: string
+      - name: updateMask
+        in: query
+        schema:
+          type: string
+      x-discovery-path-template: v2/{name}
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GoogleCloudDialogflowV2Intent'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleCloudDialogflowV2Intent'
+        default:
+          description: Error response (google.rpc.Status)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleRpcStatus'
+      security:
+      - OAuth2:
+        - https://www.googleapis.com/auth/cloud-platform
+        - https://www.googleapis.com/auth/dialogflow
+      - BearerAuth: []
+      summary: Dialogflow projects locations agent intents patch
+      x-summary-source: derived
+    get:
+      operationId: dialogflow_projects_locations_agent_intents_get
+      tags:
+      - Intents
+      parameters:
+      - name: projectsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agent/intents/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: locationsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agent/intents/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: intentsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agent/intents/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: intentView
+        in: query
+        schema:
+          type: string
+          enum:
+          - INTENT_VIEW_UNSPECIFIED
+          - INTENT_VIEW_FULL
+          x-enumDescriptions:
+          - ''
+          - ''
+      - name: languageCode
+        in: query
+        schema:
+          type: string
+      x-discovery-path-template: v2/{name}
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleCloudDialogflowV2Intent'
+        default:
+          description: Error response (google.rpc.Status)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleRpcStatus'
+      security:
+      - OAuth2:
+        - https://www.googleapis.com/auth/cloud-platform
+        - https://www.googleapis.com/auth/dialogflow
+      - BearerAuth: []
+      summary: Dialogflow projects locations agent intents get
+      x-summary-source: derived
+    servers:
+    - url: https://dialogflow.googleapis.com
+      description: Dialogflow API
+  /v2/projects/{projectsId}/locations/{locationsId}/agent/intents:batchUpdate:
+    post:
+      operationId: dialogflow_projects_locations_agent_intents_batchUpdate
+      tags:
+      - Intents
+      parameters:
+      - name: projectsId
+        in: path
+        description: 'Part of `parent`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agent$`.'
+        required: true
+        schema:
+          type: string
+      - name: locationsId
+        in: path
+        description: 'Part of `parent`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agent$`.'
+        required: true
+        schema:
+          type: string
+      x-discovery-path-template: v2/{parent}/intents:batchUpdate
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GoogleCloudDialogflowV2BatchUpdateIntentsRequest'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleLongrunningOperation'
+        default:
+          description: Error response (google.rpc.Status)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleRpcStatus'
+      security:
+      - OAuth2:
+        - https://www.googleapis.com/auth/cloud-platform
+        - https://www.googleapis.com/auth/dialogflow
+      - BearerAuth: []
+      summary: Dialogflow projects locations agent intents batch update
+      x-summary-source: derived
+    servers:
+    - url: https://dialogflow.googleapis.com
+      description: Dialogflow API
+  /v2/projects/{projectsId}/locations/{locationsId}/agent/intents:
+    post:
+      operationId: dialogflow_projects_locations_agent_intents_create
+      tags:
+      - Intents
+      parameters:
+      - name: projectsId
+        in: path
+        description: 'Part of `parent`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agent$`.'
+        required: true
+        schema:
+          type: string
+      - name: locationsId
+        in: path
+        description: 'Part of `parent`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agent$`.'
+        required: true
+        schema:
+          type: string
+      - name: intentView
+        in: query
+        schema:
+          type: string
+          enum:
+          - INTENT_VIEW_UNSPECIFIED
+          - INTENT_VIEW_FULL
+          x-enumDescriptions:
+          - ''
+          - ''
+      - name: languageCode
+        in: query
+        schema:
+          type: string
+      x-discovery-path-template: v2/{parent}/intents
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GoogleCloudDialogflowV2Intent'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleCloudDialogflowV2Intent'
+        default:
+          description: Error response (google.rpc.Status)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleRpcStatus'
+      security:
+      - OAuth2:
+        - https://www.googleapis.com/auth/cloud-platform
+        - https://www.googleapis.com/auth/dialogflow
+      - BearerAuth: []
+      summary: Dialogflow projects locations agent intents create
+      x-summary-source: derived
+    get:
+      operationId: dialogflow_projects_locations_agent_intents_list
+      tags:
+      - Intents
+      parameters:
+      - name: projectsId
+        in: path
+        description: 'Part of `parent`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agent$`.'
+        required: true
+        schema:
+          type: string
+      - name: locationsId
+        in: path
+        description: 'Part of `parent`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agent$`.'
+        required: true
+        schema:
+          type: string
+      - name: pageToken
+        in: query
+        schema:
+          type: string
+      - name: intentView
+        in: query
+        schema:
+          type: string
+          enum:
+          - INTENT_VIEW_UNSPECIFIED
+          - INTENT_VIEW_FULL
+          x-enumDescriptions:
+          - ''
+          - ''
+      - name: languageCode
+        in: query
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        schema:
+          type: integer
+          format: int32
+      x-discovery-path-template: v2/{parent}/intents
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleCloudDialogflowV2ListIntentsResponse'
+        default:
+          description: Error response (google.rpc.Status)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleRpcStatus'
+      security:
+      - OAuth2:
+        - https://www.googleapis.com/auth/cloud-platform
+        - https://www.googleapis.com/auth/dialogflow
+      - BearerAuth: []
+      summary: Dialogflow projects locations agent intents list
+      x-summary-source: derived
+    servers:
+    - url: https://dialogflow.googleapis.com
+      description: Dialogflow API
+  /v2/projects/{projectsId}/locations/{locationsId}/agent/intents:batchDelete:
+    post:
+      operationId: dialogflow_projects_locations_agent_intents_batchDelete
+      tags:
+      - Intents
+      parameters:
+      - name: projectsId
+        in: path
+        description: 'Part of `parent`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agent$`.'
+        required: true
+        schema:
+          type: string
+      - name: locationsId
+        in: path
+        description: 'Part of `parent`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agent$`.'
+        required: true
+        schema:
+          type: string
+      x-discovery-path-template: v2/{parent}/intents:batchDelete
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GoogleCloudDialogflowV2BatchDeleteIntentsRequest'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleLongrunningOperation'
+        default:
+          description: Error response (google.rpc.Status)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleRpcStatus'
+      security:
+      - OAuth2:
+        - https://www.googleapis.com/auth/cloud-platform
+        - https://www.googleapis.com/auth/dialogflow
+      - BearerAuth: []
+      summary: Dialogflow projects locations agent intents batch delete
+      x-summary-source: derived
+    servers:
+    - url: https://dialogflow.googleapis.com
+      description: Dialogflow API
+  /v2/projects/{projectsId}/locations/{locationsId}/agent/environments/{environmentsId}/intents:
+    get:
+      operationId: dialogflow_projects_locations_agent_environments_intents_list
+      tags:
+      - Intents
+      parameters:
+      - name: projectsId
+        in: path
+        description: 'Part of `parent`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agent/environments/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: locationsId
+        in: path
+        description: 'Part of `parent`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agent/environments/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: environmentsId
+        in: path
+        description: 'Part of `parent`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/agent/environments/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: languageCode
+        in: query
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        schema:
+          type: integer
+          format: int32
+      - name: pageToken
+        in: query
+        schema:
+          type: string
+      - name: intentView
+        in: query
+        schema:
+          type: string
+          enum:
+          - INTENT_VIEW_UNSPECIFIED
+          - INTENT_VIEW_FULL
+          x-enumDescriptions:
+          - ''
+          - ''
+      x-discovery-path-template: v2/{parent}/intents
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleCloudDialogflowV2ListIntentsResponse'
+        default:
+          description: Error response (google.rpc.Status)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleRpcStatus'
+      security:
+      - OAuth2:
+        - https://www.googleapis.com/auth/cloud-platform
+        - https://www.googleapis.com/auth/dialogflow
+      - BearerAuth: []
+      summary: Dialogflow projects locations agent environments intents list
+      x-summary-source: derived
+    servers:
+    - url: https://dialogflow.googleapis.com
+      description: Dialogflow API
+  /v2/projects/{projectsId}/agent/environments/{environmentsId}/intents:
+    get:
+      operationId: dialogflow_projects_agent_environments_intents_list
+      tags:
+      - Intents
+      parameters:
+      - name: projectsId
+        in: path
+        description: 'Part of `parent`. Resource name pattern: `^projects/[^/]+/agent/environments/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: environmentsId
+        in: path
+        description: 'Part of `parent`. Resource name pattern: `^projects/[^/]+/agent/environments/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: intentView
+        in: query
+        schema:
+          type: string
+          enum:
+          - INTENT_VIEW_UNSPECIFIED
+          - INTENT_VIEW_FULL
+          x-enumDescriptions:
+          - ''
+          - ''
+      - name: languageCode
+        in: query
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        schema:
+          type: integer
+          format: int32
+      - name: pageToken
+        in: query
+        schema:
+          type: string
+      x-discovery-path-template: v2/{parent}/intents
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleCloudDialogflowV2ListIntentsResponse'
+        default:
+          description: Error response (google.rpc.Status)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleRpcStatus'
+      security:
+      - OAuth2:
+        - https://www.googleapis.com/auth/cloud-platform
+        - https://www.googleapis.com/auth/dialogflow
+      - BearerAuth: []
+      summary: Dialogflow projects agent environments intents list
+      x-summary-source: derived
+    servers:
+    - url: https://dialogflow.googleapis.com
+      description: Dialogflow API
+  /v2/projects/{projectsId}/agent/intents/{intentsId}:
+    patch:
+      operationId: dialogflow_projects_agent_intents_patch
+      tags:
+      - Intents
+      parameters:
+      - name: projectsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/agent/intents/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: intentsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/agent/intents/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: updateMask
+        in: query
+        schema:
+          type: string
+      - name: intentView
+        in: query
+        schema:
+          type: string
+          enum:
+          - INTENT_VIEW_UNSPECIFIED
+          - INTENT_VIEW_FULL
+          x-enumDescriptions:
+          - ''
+          - ''
+      - name: languageCode
+        in: query
+        schema:
+          type: string
+      x-discovery-path-template: v2/{name}
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GoogleCloudDialogflowV2Intent'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleCloudDialogflowV2Intent'
+        default:
+          description: Error response (google.rpc.Status)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleRpcStatus'
+      security:
+      - OAuth2:
+        - https://www.googleapis.com/auth/cloud-platform
+        - https://www.googleapis.com/auth/dialogflow
+      - BearerAuth: []
+      summary: Dialogflow projects agent intents patch
+      x-summary-source: derived
+    get:
+      operationId: dialogflow_projects_agent_intents_get
+      tags:
+      - Intents
+      parameters:
+      - name: projectsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/agent/intents/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: intentsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/agent/intents/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: languageCode
+        in: query
+        schema:
+          type: string
+      - name: intentView
+        in: query
+        schema:
+          type: string
+          enum:
+          - INTENT_VIEW_UNSPECIFIED
+          - INTENT_VIEW_FULL
+          x-enumDescriptions:
+          - ''
+          - ''
+      x-discovery-path-template: v2/{name}
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleCloudDialogflowV2Intent'
+        default:
+          description: Error response (google.rpc.Status)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleRpcStatus'
+      security:
+      - OAuth2:
+        - https://www.googleapis.com/auth/cloud-platform
+        - https://www.googleapis.com/auth/dialogflow
+      - BearerAuth: []
+      summary: Dialogflow projects agent intents get
+      x-summary-source: derived
+    delete:
+      operationId: dialogflow_projects_agent_intents_delete
+      tags:
+      - Intents
+      parameters:
+      - name: projectsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/agent/intents/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: intentsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/agent/intents/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      x-discovery-path-template: v2/{name}
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleProtobufEmpty'
+        default:
+          description: Error response (google.rpc.Status)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleRpcStatus'
+      security:
+      - OAuth2:
+        - https://www.googleapis.com/auth/cloud-platform
+        - https://www.googleapis.com/auth/dialogflow
+      - BearerAuth: []
+      summary: Dialogflow projects agent intents delete
+      x-summary-source: derived
+    servers:
+    - url: https://dialogflow.googleapis.com
+      description: Dialogflow API
+  /v2/projects/{projectsId}/agent/intents:batchUpdate:
+    post:
+      operationId: dialogflow_projects_agent_intents_batchUpdate
+      tags:
+      - Intents
+      parameters:
+      - name: projectsId
+        in: path
+        description: 'Part of `parent`. Resource name pattern: `^projects/[^/]+/agent$`.'
+        required: true
+        schema:
+          type: string
+      x-discovery-path-template: v2/{parent}/intents:batchUpdate
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GoogleCloudDialogflowV2BatchUpdateIntentsRequest'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleLongrunningOperation'
+        default:
+          description: Error response (google.rpc.Status)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleRpcStatus'
+      security:
+      - OAuth2:
+        - https://www.googleapis.com/auth/cloud-platform
+        - https://www.googleapis.com/auth/dialogflow
+      - BearerAuth: []
+      summary: Dialogflow projects agent intents batch update
+      x-summary-source: derived
+    servers:
+    - url: https://dialogflow.googleapis.com
+      description: Dialogflow API
+  /v2/projects/{projectsId}/agent/intents:
+    get:
+      operationId: dialogflow_projects_agent_intents_list
+      tags:
+      - Intents
+      parameters:
+      - name: projectsId
+        in: path
+        description: 'Part of `parent`. Resource name pattern: `^projects/[^/]+/agent$`.'
+        required: true
+        schema:
+          type: string
+      - name: pageToken
+        in: query
+        schema:
+          type: string
+      - name: languageCode
+        in: query
+        schema:
+          type: string
+      - name: intentView
+        in: query
+        schema:
+          type: string
+          enum:
+          - INTENT_VIEW_UNSPECIFIED
+          - INTENT_VIEW_FULL
+          x-enumDescriptions:
+          - ''
+          - ''
+      - name: pageSize
+        in: query
+        schema:
+          type: integer
+          format: int32
+      x-discovery-path-template: v2/{parent}/intents
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleCloudDialogflowV2ListIntentsResponse'
+        default:
+          description: Error response (google.rpc.Status)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleRpcStatus'
+      security:
+      - OAuth2:
+        - https://www.googleapis.com/auth/cloud-platform
+        - https://www.googleapis.com/auth/dialogflow
+      - BearerAuth: []
+      summary: Dialogflow projects agent intents list
+      x-summary-source: derived
+    post:
+      operationId: dialogflow_projects_agent_intents_create
+      tags:
+      - Intents
+      parameters:
+      - name: projectsId
+        in: path
+        description: 'Part of `parent`. Resource name pattern: `^projects/[^/]+/agent$`.'
+        required: true
+        schema:
+          type: string
+      - name: languageCode
+        in: query
+        schema:
+          type: string
+      - name: intentView
+        in: query
+        schema:
+          type: string
+          enum:
+          - INTENT_VIEW_UNSPECIFIED
+          - INTENT_VIEW_FULL
+          x-enumDescriptions:
+          - ''
+          - ''
+      x-discovery-path-template: v2/{parent}/intents
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GoogleCloudDialogflowV2Intent'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleCloudDialogflowV2Intent'
+        default:
+          description: Error response (google.rpc.Status)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleRpcStatus'
+      security:
+      - OAuth2:
+        - https://www.googleapis.com/auth/cloud-platform
+        - https://www.googleapis.com/auth/dialogflow
+      - BearerAuth: []
+      summary: Dialogflow projects agent intents create
+      x-summary-source: derived
+    servers:
+    - url: https://dialogflow.googleapis.com
+      description: Dialogflow API
+  /v2/projects/{projectsId}/agent/intents:batchDelete:
+    post:
+      operationId: dialogflow_projects_agent_intents_batchDelete
+      tags:
+      - Intents
+      parameters:
+      - name: projectsId
+        in: path
+        description: 'Part of `parent`. Resource name pattern: `^projects/[^/]+/agent$`.'
+        required: true
+        schema:
+          type: string
+      x-discovery-path-template: v2/{parent}/intents:batchDelete
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GoogleCloudDialogflowV2BatchDeleteIntentsRequest'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleLongrunningOperation'
+        default:
+          description: Error response (google.rpc.Status)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleRpcStatus'
+      security:
+      - OAuth2:
+        - https://www.googleapis.com/auth/cloud-platform
+        - https://www.googleapis.com/auth/dialogflow
+      - BearerAuth: []
+      summary: Dialogflow projects agent intents batch delete
+      x-summary-source: derived
+    servers:
+    - url: https://dialogflow.googleapis.com
+      description: Dialogflow API
+components:
+  schemas:
+    GoogleCloudDialogflowCxV3InlineSource:
+      type: object
+      properties:
+        content:
+          type: string
+          format: byte
+    GoogleCloudDialogflowCxV3Intent:
+      type: object
+      properties:
+        trainingPhrases:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowCxV3IntentTrainingPhrase'
+        name:
+          type: string
+        parameters:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowCxV3IntentParameter'
+        description:
+          type: string
+        priority:
+          type: integer
+          format: int32
+        labels:
+          type: object
+          additionalProperties:
+            type: string
+        displayName:
+          type: string
+        dtmfPattern:
+          type: string
+        isFallback:
+          type: boolean
+    GoogleCloudDialogflowCxV3ListIntentsResponse:
+      type: object
+      properties:
+        nextPageToken:
+          type: string
+        intents:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowCxV3Intent'
+    GoogleLongrunningOperation:
+      type: object
+      properties:
+        metadata:
+          type: object
+          additionalProperties:
+            description: Properties of the object. Contains field @type with type URL.
+        name:
+          type: string
+        done:
+          type: boolean
+        response:
+          type: object
+          additionalProperties:
+            description: Properties of the object. Contains field @type with type URL.
+        error:
+          $ref: '#/components/schemas/GoogleRpcStatus'
+    GoogleCloudDialogflowCxV3ExportIntentsRequest:
+      type: object
+      properties:
+        intents:
+          type: array
+          items:
+            type: string
+        dataFormat:
+          type: string
+          enum:
+          - DATA_FORMAT_UNSPECIFIED
+          - BLOB
+          - JSON
+          - CSV
+          x-enumDescriptions:
+          - ''
+          - ''
+          - ''
+          - ''
+        intentsUri:
+          type: string
+        intentsContentInline:
+          type: boolean
+    GoogleCloudDialogflowCxV3IntentTrainingPhrase:
+      type: object
+      properties:
+        parts:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowCxV3IntentTrainingPhrasePart'
+        repeatCount:
+          type: integer
+          format: int32
+        id:
+          type: string
+          readOnly: true
+    GoogleRpcStatus:
+      type: object
+      properties:
+        message:
+          type: string
+        code:
+          type: integer
+          format: int32
+        details:
+          type: array
+          items:
+            type: object
+            additionalProperties:
+              description: Properties of the object. Contains field @type with type URL.
+    GoogleProtobufEmpty:
+      type: object
+    GoogleCloudDialogflowCxV3IntentTrainingPhrasePart:
+      type: object
+      properties:
+        text:
+          type: string
+        parameterId:
+          type: string
+    GoogleCloudDialogflowCxV3IntentParameter:
+      type: object
+      properties:
+        redact:
+          type: boolean
+        entityType:
+          type: string
+        id:
+          type: string
+        isList:
+          type: boolean
+    GoogleCloudDialogflowCxV3ImportIntentsRequest:
+      type: object
+      properties:
+        intentsContent:
+          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3InlineSource'
+        intentsUri:
+          type: string
+        mergeOption:
+          type: string
+          enum:
+          - MERGE_OPTION_UNSPECIFIED
+          - REJECT
+          - REPLACE
+          - MERGE
+          - RENAME
+          - REPORT_CONFLICT
+          - KEEP
+          x-enumDescriptions:
+          - ''
+          - ''
+          - ''
+          - ''
+          - ''
+          - ''
+          - ''
+    GoogleCloudDialogflowV2Intent:
+      type: object
+      properties:
+        outputContexts:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowV2Context'
+        defaultResponsePlatforms:
+          type: array
+          items:
+            type: string
+            enum:
+            - PLATFORM_UNSPECIFIED
+            - FACEBOOK
+            - SLACK
+            - TELEGRAM
+            - KIK
+            - SKYPE
+            - LINE
+            - VIBER
+            - ACTIONS_ON_GOOGLE
+            - GOOGLE_HANGOUTS
+            x-enumDescriptions:
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+        inputContextNames:
+          type: array
+          items:
+            type: string
+        rootFollowupIntentName:
+          type: string
+          readOnly: true
+        action:
+          type: string
+        messages:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowV2IntentMessage'
+        priority:
+          type: integer
+          format: int32
+        mlDisabled:
+          type: boolean
+        parentFollowupIntentName:
+          type: string
+        displayName:
+          type: string
+        isFallback:
+          type: boolean
+        parameters:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowV2IntentParameter'
+        webhookState:
+          type: string
+          enum:
+          - WEBHOOK_STATE_UNSPECIFIED
+          - WEBHOOK_STATE_ENABLED
+          - WEBHOOK_STATE_ENABLED_FOR_SLOT_FILLING
+          x-enumDescriptions:
+          - ''
+          - ''
+          - ''
+        events:
+          type: array
+          items:
+            type: string
+        trainingPhrases:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowV2IntentTrainingPhrase'
+        endInteraction:
+          type: boolean
+        name:
+          type: string
+        resetContexts:
+          type: boolean
+        followupIntentInfo:
+          type: array
+          readOnly: true
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowV2IntentFollowupIntentInfo'
+        liveAgentHandoff:
+          type: boolean
+    GoogleCloudDialogflowV2IntentMessageListSelect:
+      type: object
+      properties:
+        title:
+          type: string
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowV2IntentMessageListSelectItem'
+        subtitle:
+          type: string
+    GoogleCloudDialogflowV2IntentMessageQuickReplies:
+      type: object
+      properties:
+        quickReplies:
+          type: array
+          items:
+            type: string
+        title:
+          type: string
+    GoogleCloudDialogflowV2IntentMessageBrowseCarouselCard:
+      type: object
+      properties:
+        imageDisplayOptions:
+          type: string
+          enum:
+          - IMAGE_DISPLAY_OPTIONS_UNSPECIFIED
+          - GRAY
+          - WHITE
+          - CROPPED
+          - BLURRED_BACKGROUND
+          x-enumDescriptions:
+          - ''
+          - ''
+          - ''
+          - ''
+          - ''
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowV2IntentMessageBrowseCarouselCardBrowseCarouselCardItem'
+    GoogleCloudDialogflowV2Context:
+      type: object
+      properties:
+        parameters:
+          type: object
+          additionalProperties:
+            description: Properties of the object.
+        name:
+          type: string
+        lifespanCount:
+          type: integer
+          format: int32
+    GoogleCloudDialogflowV2IntentMessageBrowseCarouselCardBrowseCarouselCardItemOpenUrlAction:
+      type: object
+      properties:
+        urlTypeHint:
+          type: string
+          enum:
+          - URL_TYPE_HINT_UNSPECIFIED
+          - AMP_ACTION
+          - AMP_CONTENT
+          x-enumDescriptions:
+          - ''
+          - ''
+          - ''
+        url:
+          type: string
+    GoogleCloudDialogflowV2IntentMessageListSelectItem:
+      type: object
+      properties:
+        info:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2IntentMessageSelectItemInfo'
+        image:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2IntentMessageImage'
+        description:
+          type: string
+        title:
+          type: string
+    GoogleCloudDialogflowV2IntentTrainingPhrase:
+      type: object
+      properties:
+        name:
+          type: string
+          readOnly: true
+        type:
+          type: string
+          enum:
+          - TYPE_UNSPECIFIED
+          - EXAMPLE
+          - TEMPLATE
+          x-enumDescriptions:
+          - ''
+          - ''
+          - ''
+        timesAddedCount:
+          type: integer
+          format: int32
+        parts:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowV2IntentTrainingPhrasePart'
+    GoogleCloudDialogflowV2IntentMessageSimpleResponses:
+      type: object
+      properties:
+        simpleResponses:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowV2IntentMessageSimpleResponse'
+    GoogleCloudDialogflowV2IntentMessageCarouselSelect:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowV2IntentMessageCarouselSelectItem'
+    GoogleCloudDialogflowV2IntentMessageBrowseCarouselCardBrowseCarouselCardItem:
+      type: object
+      properties:
+        description:
+          type: string
+        footer:
+          type: string
+        image:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2IntentMessageImage'
+        openUriAction:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2IntentMessageBrowseCarouselCardBrowseCarouselCardItemOpenUrlAction'
+        title:
+          type: string
+    GoogleCloudDialogflowV2IntentMessageSelectItemInfo:
+      type: object
+      properties:
+        key:
+          type: string
+        synonyms:
+          type: array
+          items:
+            type: string
+    GoogleCloudDialogflowV2IntentMessageCard:
+      type: object
+      properties:
+        imageUri:
+          type: string
+        title:
+          type: string
+        buttons:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowV2IntentMessageCardButton'
+        subtitle:
+          type: string
+    GoogleCloudDialogflowV2IntentFollowupIntentInfo:
+      type: object
+      properties:
+        parentFollowupIntentName:
+          type: string
+        followupIntentName:
+          type: string
+    GoogleCloudDialogflowV2IntentMessageBasicCardButton:
+      type: object
+      properties:
+        openUriAction:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2IntentMessageBasicCardButtonOpenUriAction'
+        title:
+          type: string
+    GoogleCloudDialogflowV2IntentMessageTableCardRow:
+      type: object
+      properties:
+        cells:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowV2IntentMessageTableCardCell'
+        dividerAfter:
+          type: boolean
+    GoogleCloudDialogflowV2IntentBatch:
+      type: object
+      properties:
+        intents:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowV2Intent'
+    GoogleCloudDialogflowV2IntentMessageBasicCard:
+      type: object
+      properties:
+        image:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2IntentMessageImage'
+        title:
+          type: string
+        formattedText:
+          type: string
+        subtitle:
+          type: string
+        buttons:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowV2IntentMessageBasicCardButton'
+    GoogleCloudDialogflowV2BatchDeleteIntentsRequest:
+      type: object
+      properties:
+        intents:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowV2Intent'
+    GoogleCloudDialogflowV2IntentTrainingPhrasePart:
+      type: object
+      properties:
+        text:
+          type: string
+        userDefined:
+          type: boolean
+        entityType:
+          type: string
+        alias:
+          type: string
+    GoogleCloudDialogflowV2IntentMessageMediaContent:
+      type: object
+      properties:
+        mediaObjects:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowV2IntentMessageMediaContentResponseMediaObject'
+        mediaType:
+          type: string
+          enum:
+          - RESPONSE_MEDIA_TYPE_UNSPECIFIED
+          - AUDIO
+          x-enumDescriptions:
+          - ''
+          - ''
+    GoogleCloudDialogflowV2IntentMessageTableCard:
+      type: object
+      properties:
+        buttons:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowV2IntentMessageBasicCardButton'
+        image:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2IntentMessageImage'
+        columnProperties:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowV2IntentMessageColumnProperties'
+        title:
+          type: string
+        rows:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowV2IntentMessageTableCardRow'
+        subtitle:
+          type: string
+    GoogleCloudDialogflowV2IntentMessageMediaContentResponseMediaObject:
+      type: object
+      properties:
+        description:
+          type: string
+        icon:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2IntentMessageImage'
+        contentUrl:
+          type: string
+        largeImage:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2IntentMessageImage'
+        name:
+          type: string
+    GoogleCloudDialogflowV2BatchUpdateIntentsRequest:
+      type: object
+      properties:
+        languageCode:
+          type: string
+        intentView:
+          type: string
+          enum:
+          - INTENT_VIEW_UNSPECIFIED
+          - INTENT_VIEW_FULL
+          x-enumDescriptions:
+          - ''
+          - ''
+        updateMask:
+          type: string
+        intentBatchUri:
+          type: string
+        intentBatchInline:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2IntentBatch'
+    GoogleCloudDialogflowV2IntentMessageLinkOutSuggestion:
+      type: object
+      properties:
+        uri:
+          type: string
+        destinationName:
+          type: string
+    GoogleCloudDialogflowV2IntentMessage:
+      type: object
+      properties:
+        linkOutSuggestion:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2IntentMessageLinkOutSuggestion'
+        payload:
+          type: object
+          additionalProperties:
+            description: Properties of the object.
+        browseCarouselCard:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2IntentMessageBrowseCarouselCard'
+        suggestions:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2IntentMessageSuggestions'
+        text:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2IntentMessageText'
+        mediaContent:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2IntentMessageMediaContent'
+        image:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2IntentMessageImage'
+        carouselSelect:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2IntentMessageCarouselSelect'
+        tableCard:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2IntentMessageTableCard'
+        listSelect:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2IntentMessageListSelect'
+        card:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2IntentMessageCard'
+        basicCard:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2IntentMessageBasicCard'
+        platform:
+          type: string
+          enum:
+          - PLATFORM_UNSPECIFIED
+          - FACEBOOK
+          - SLACK
+          - TELEGRAM
+          - KIK
+          - SKYPE
+          - LINE
+          - VIBER
+          - ACTIONS_ON_GOOGLE
+          - GOOGLE_HANGOUTS
+          x-enumDescriptions:
+          - ''
+          - ''
+          - ''
+          - ''
+          - ''
+          - ''
+          - ''
+          - ''
+          - ''
+          - ''
+        simpleResponses:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2IntentMessageSimpleResponses'
+        quickReplies:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2IntentMessageQuickReplies'
+    GoogleCloudDialogflowV2IntentMessageTableCardCell:
+      type: object
+      properties:
+        text:
+          type: string
+    GoogleCloudDialogflowV2IntentMessageCardButton:
+      type: object
+      properties:
+        text:
+          type: string
+        postback:
+          type: string
+    GoogleCloudDialogflowV2IntentMessageCarouselSelectItem:
+      type: object
+      properties:
+        info:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2IntentMessageSelectItemInfo'
+        title:
+          type: string
+        description:
+          type: string
+        image:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2IntentMessageImage'
+    GoogleCloudDialogflowV2IntentMessageSuggestions:
+      type: object
+      properties:
+        suggestions:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowV2IntentMessageSuggestion'
+    GoogleCloudDialogflowV2IntentMessageSimpleResponse:
+      type: object
+      properties:
+        textToSpeech:
+          type: string
+        displayText:
+          type: string
+        ssml:
+          type: string
+    GoogleCloudDialogflowV2IntentMessageImage:
+      type: object
+      properties:
+        imageUri:
+          type: string
+        accessibilityText:
+          type: string
+    GoogleCloudDialogflowV2IntentParameter:
+      type: object
+      properties:
+        prompts:
+          type: array
+          items:
+            type: string
+        value:
+          type: string
+        isList:
+          type: boolean
+        name:
+          type: string
+        displayName:
+          type: string
+        defaultValue:
+          type: string
+        entityTypeDisplayName:
+          type: string
+        mandatory:
+          type: boolean
+    GoogleCloudDialogflowV2IntentMessageSuggestion:
+      type: object
+      properties:
+        title:
+          type: string
+    GoogleCloudDialogflowV2IntentMessageText:
+      type: object
+      properties:
+        text:
+          type: array
+          items:
+            type: string
+    GoogleCloudDialogflowV2IntentMessageBasicCardButtonOpenUriAction:
+      type: object
+      properties:
+        uri:
+          type: string
+    GoogleCloudDialogflowV2ListIntentsResponse:
+      type: object
+      properties:
+        intents:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowV2Intent'
+        nextPageToken:
+          type: string
+    GoogleCloudDialogflowV2IntentMessageColumnProperties:
+      type: object
+      properties:
+        header:
+          type: string
+        horizontalAlignment:
+          type: string
+          enum:
+          - HORIZONTAL_ALIGNMENT_UNSPECIFIED
+          - LEADING
+          - CENTER
+          - TRAILING
+          x-enumDescriptions:
+          - ''
+          - ''
+          - ''
+          - ''
+  securitySchemes:
+    OAuth2:
+      type: oauth2
+      description: Google OAuth 2.0. Scopes are declared per operation in the Discovery Document.
+      flows:
+        authorizationCode:
+          authorizationUrl: https://accounts.google.com/o/oauth2/v2/auth
+          tokenUrl: https://oauth2.googleapis.com/token
+          scopes:
+            https://www.googleapis.com/auth/cloud-platform: See, edit, configure, and delete your Google Cloud data and see the email address for your Google Account.
+            https://www.googleapis.com/auth/dialogflow: View, manage and query your Dialogflow agents
+    BearerAuth:
+      type: http
+      scheme: bearer
+      description: 'Google OAuth 2.0 access token or service-account-minted bearer token, sent as Authorization: Bearer <token>.'
+x-refined-from:
+- google-dialogflow-cx-v3-openapi.yml
+- google-dialogflow-es-v2-openapi.yml

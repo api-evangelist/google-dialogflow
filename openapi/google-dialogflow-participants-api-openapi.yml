@@ -1,0 +1,2291 @@
+openapi: 3.2.0
+info:
+  title: Dialogflow ES API (v2) Participants API
+  version: v2
+  description: Dialogflow ES (Essentials) builds conversational interfaces with intents, entity types, contexts, sessions, knowledge bases, conversation profiles and Agent Assist. This OpenAPI is a mechanical conversion of the first-party Google Discovery Document served by dialogflow.googleapis.com.
+  contact:
+    name: Google Cloud
+    url: https://cloud.google.com/dialogflow/
+  termsOfService: https://cloud.google.com/terms
+  license:
+    name: Google APIs Terms of Service
+    url: https://developers.google.com/terms
+  x-discovery-source: https://dialogflow.googleapis.com/$discovery/rest?version=v2
+  x-discovery-revision: '20260825'
+  x-discovery-id: dialogflow:v2
+servers:
+- url: https://dialogflow.googleapis.com
+  description: Dialogflow API
+security:
+- OAuth2:
+  - https://www.googleapis.com/auth/dialogflow
+  - https://www.googleapis.com/auth/cloud-platform
+- BearerAuth: []
+tags:
+- name: Participants
+paths:
+  /v2/projects/{projectsId}/locations/{locationsId}/conversations/{conversationsId}/participants:
+    get:
+      operationId: dialogflow_projects_locations_conversations_participants_list
+      tags:
+      - Participants
+      parameters:
+      - name: projectsId
+        in: path
+        description: 'Part of `parent`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/conversations/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: locationsId
+        in: path
+        description: 'Part of `parent`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/conversations/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: conversationsId
+        in: path
+        description: 'Part of `parent`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/conversations/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        schema:
+          type: integer
+          format: int32
+      - name: pageToken
+        in: query
+        schema:
+          type: string
+      x-discovery-path-template: v2/{parent}/participants
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleCloudDialogflowV2ListParticipantsResponse'
+        default:
+          description: Error response (google.rpc.Status)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleRpcStatus'
+      security:
+      - OAuth2:
+        - https://www.googleapis.com/auth/cloud-platform
+        - https://www.googleapis.com/auth/dialogflow
+      - BearerAuth: []
+      summary: Dialogflow projects locations conversations participants list
+      x-summary-source: derived
+    post:
+      operationId: dialogflow_projects_locations_conversations_participants_create
+      tags:
+      - Participants
+      parameters:
+      - name: projectsId
+        in: path
+        description: 'Part of `parent`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/conversations/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: locationsId
+        in: path
+        description: 'Part of `parent`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/conversations/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: conversationsId
+        in: path
+        description: 'Part of `parent`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/conversations/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      x-discovery-path-template: v2/{parent}/participants
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GoogleCloudDialogflowV2Participant'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleCloudDialogflowV2Participant'
+        default:
+          description: Error response (google.rpc.Status)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleRpcStatus'
+      security:
+      - OAuth2:
+        - https://www.googleapis.com/auth/cloud-platform
+        - https://www.googleapis.com/auth/dialogflow
+      - BearerAuth: []
+      summary: Dialogflow projects locations conversations participants create
+      x-summary-source: derived
+  /v2/projects/{projectsId}/locations/{locationsId}/conversations/{conversationsId}/participants/{participantsId}:
+    patch:
+      operationId: dialogflow_projects_locations_conversations_participants_patch
+      tags:
+      - Participants
+      parameters:
+      - name: projectsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/conversations/[^/]+/participants/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: locationsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/conversations/[^/]+/participants/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: conversationsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/conversations/[^/]+/participants/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: participantsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/conversations/[^/]+/participants/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: updateMask
+        in: query
+        schema:
+          type: string
+      x-discovery-path-template: v2/{name}
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GoogleCloudDialogflowV2Participant'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleCloudDialogflowV2Participant'
+        default:
+          description: Error response (google.rpc.Status)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleRpcStatus'
+      security:
+      - OAuth2:
+        - https://www.googleapis.com/auth/cloud-platform
+        - https://www.googleapis.com/auth/dialogflow
+      - BearerAuth: []
+      summary: Dialogflow projects locations conversations participants patch
+      x-summary-source: derived
+    get:
+      operationId: dialogflow_projects_locations_conversations_participants_get
+      tags:
+      - Participants
+      parameters:
+      - name: projectsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/conversations/[^/]+/participants/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: locationsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/conversations/[^/]+/participants/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: conversationsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/conversations/[^/]+/participants/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: participantsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/conversations/[^/]+/participants/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      x-discovery-path-template: v2/{name}
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleCloudDialogflowV2Participant'
+        default:
+          description: Error response (google.rpc.Status)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleRpcStatus'
+      security:
+      - OAuth2:
+        - https://www.googleapis.com/auth/cloud-platform
+        - https://www.googleapis.com/auth/dialogflow
+      - BearerAuth: []
+      summary: Dialogflow projects locations conversations participants get
+      x-summary-source: derived
+  ? /v2/projects/{projectsId}/locations/{locationsId}/conversations/{conversationsId}/participants/{participantsId}:analyzeContent
+  : post:
+      operationId: dialogflow_projects_locations_conversations_participants_analyzeContent
+      tags:
+      - Participants
+      parameters:
+      - name: projectsId
+        in: path
+        description: 'Part of `participant`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/conversations/[^/]+/participants/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: locationsId
+        in: path
+        description: 'Part of `participant`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/conversations/[^/]+/participants/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: conversationsId
+        in: path
+        description: 'Part of `participant`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/conversations/[^/]+/participants/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: participantsId
+        in: path
+        description: 'Part of `participant`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/conversations/[^/]+/participants/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      x-discovery-path-template: v2/{participant}:analyzeContent
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GoogleCloudDialogflowV2AnalyzeContentRequest'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleCloudDialogflowV2AnalyzeContentResponse'
+        default:
+          description: Error response (google.rpc.Status)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleRpcStatus'
+      security:
+      - OAuth2:
+        - https://www.googleapis.com/auth/cloud-platform
+        - https://www.googleapis.com/auth/dialogflow
+      - BearerAuth: []
+      summary: Dialogflow projects locations conversations participants analyze content
+      x-summary-source: derived
+  /v2/projects/{projectsId}/conversations/{conversationsId}/participants:
+    post:
+      operationId: dialogflow_projects_conversations_participants_create
+      tags:
+      - Participants
+      parameters:
+      - name: projectsId
+        in: path
+        description: 'Part of `parent`. Resource name pattern: `^projects/[^/]+/conversations/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: conversationsId
+        in: path
+        description: 'Part of `parent`. Resource name pattern: `^projects/[^/]+/conversations/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      x-discovery-path-template: v2/{parent}/participants
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GoogleCloudDialogflowV2Participant'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleCloudDialogflowV2Participant'
+        default:
+          description: Error response (google.rpc.Status)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleRpcStatus'
+      security:
+      - OAuth2:
+        - https://www.googleapis.com/auth/cloud-platform
+        - https://www.googleapis.com/auth/dialogflow
+      - BearerAuth: []
+      summary: Dialogflow projects conversations participants create
+      x-summary-source: derived
+    get:
+      operationId: dialogflow_projects_conversations_participants_list
+      tags:
+      - Participants
+      parameters:
+      - name: projectsId
+        in: path
+        description: 'Part of `parent`. Resource name pattern: `^projects/[^/]+/conversations/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: conversationsId
+        in: path
+        description: 'Part of `parent`. Resource name pattern: `^projects/[^/]+/conversations/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        schema:
+          type: integer
+          format: int32
+      - name: pageToken
+        in: query
+        schema:
+          type: string
+      x-discovery-path-template: v2/{parent}/participants
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleCloudDialogflowV2ListParticipantsResponse'
+        default:
+          description: Error response (google.rpc.Status)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleRpcStatus'
+      security:
+      - OAuth2:
+        - https://www.googleapis.com/auth/cloud-platform
+        - https://www.googleapis.com/auth/dialogflow
+      - BearerAuth: []
+      summary: Dialogflow projects conversations participants list
+      x-summary-source: derived
+  /v2/projects/{projectsId}/conversations/{conversationsId}/participants/{participantsId}:
+    get:
+      operationId: dialogflow_projects_conversations_participants_get
+      tags:
+      - Participants
+      parameters:
+      - name: projectsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/conversations/[^/]+/participants/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: conversationsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/conversations/[^/]+/participants/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: participantsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/conversations/[^/]+/participants/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      x-discovery-path-template: v2/{name}
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleCloudDialogflowV2Participant'
+        default:
+          description: Error response (google.rpc.Status)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleRpcStatus'
+      security:
+      - OAuth2:
+        - https://www.googleapis.com/auth/cloud-platform
+        - https://www.googleapis.com/auth/dialogflow
+      - BearerAuth: []
+      summary: Dialogflow projects conversations participants get
+      x-summary-source: derived
+    patch:
+      operationId: dialogflow_projects_conversations_participants_patch
+      tags:
+      - Participants
+      parameters:
+      - name: projectsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/conversations/[^/]+/participants/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: conversationsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/conversations/[^/]+/participants/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: participantsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/conversations/[^/]+/participants/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: updateMask
+        in: query
+        schema:
+          type: string
+      x-discovery-path-template: v2/{name}
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GoogleCloudDialogflowV2Participant'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleCloudDialogflowV2Participant'
+        default:
+          description: Error response (google.rpc.Status)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleRpcStatus'
+      security:
+      - OAuth2:
+        - https://www.googleapis.com/auth/cloud-platform
+        - https://www.googleapis.com/auth/dialogflow
+      - BearerAuth: []
+      summary: Dialogflow projects conversations participants patch
+      x-summary-source: derived
+  /v2/projects/{projectsId}/conversations/{conversationsId}/participants/{participantsId}:analyzeContent:
+    post:
+      operationId: dialogflow_projects_conversations_participants_analyzeContent
+      tags:
+      - Participants
+      parameters:
+      - name: projectsId
+        in: path
+        description: 'Part of `participant`. Resource name pattern: `^projects/[^/]+/conversations/[^/]+/participants/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: conversationsId
+        in: path
+        description: 'Part of `participant`. Resource name pattern: `^projects/[^/]+/conversations/[^/]+/participants/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: participantsId
+        in: path
+        description: 'Part of `participant`. Resource name pattern: `^projects/[^/]+/conversations/[^/]+/participants/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      x-discovery-path-template: v2/{participant}:analyzeContent
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GoogleCloudDialogflowV2AnalyzeContentRequest'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleCloudDialogflowV2AnalyzeContentResponse'
+        default:
+          description: Error response (google.rpc.Status)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleRpcStatus'
+      security:
+      - OAuth2:
+        - https://www.googleapis.com/auth/cloud-platform
+        - https://www.googleapis.com/auth/dialogflow
+      - BearerAuth: []
+      summary: Dialogflow projects conversations participants analyze content
+      x-summary-source: derived
+components:
+  schemas:
+    GoogleCloudDialogflowV2Intent:
+      type: object
+      properties:
+        outputContexts:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowV2Context'
+        defaultResponsePlatforms:
+          type: array
+          items:
+            type: string
+            enum:
+            - PLATFORM_UNSPECIFIED
+            - FACEBOOK
+            - SLACK
+            - TELEGRAM
+            - KIK
+            - SKYPE
+            - LINE
+            - VIBER
+            - ACTIONS_ON_GOOGLE
+            - GOOGLE_HANGOUTS
+            x-enumDescriptions:
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+        inputContextNames:
+          type: array
+          items:
+            type: string
+        rootFollowupIntentName:
+          type: string
+          readOnly: true
+        action:
+          type: string
+        messages:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowV2IntentMessage'
+        priority:
+          type: integer
+          format: int32
+        mlDisabled:
+          type: boolean
+        parentFollowupIntentName:
+          type: string
+        displayName:
+          type: string
+        isFallback:
+          type: boolean
+        parameters:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowV2IntentParameter'
+        webhookState:
+          type: string
+          enum:
+          - WEBHOOK_STATE_UNSPECIFIED
+          - WEBHOOK_STATE_ENABLED
+          - WEBHOOK_STATE_ENABLED_FOR_SLOT_FILLING
+          x-enumDescriptions:
+          - ''
+          - ''
+          - ''
+        events:
+          type: array
+          items:
+            type: string
+        trainingPhrases:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowV2IntentTrainingPhrase'
+        endInteraction:
+          type: boolean
+        name:
+          type: string
+        resetContexts:
+          type: boolean
+        followupIntentInfo:
+          type: array
+          readOnly: true
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowV2IntentFollowupIntentInfo'
+        liveAgentHandoff:
+          type: boolean
+    GoogleCloudDialogflowV2SuggestSmartRepliesResponse:
+      type: object
+      properties:
+        contextSize:
+          type: integer
+          format: int32
+        smartReplyAnswers:
+          type: array
+          readOnly: true
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowV2SmartReplyAnswer'
+        latestMessage:
+          type: string
+    GoogleCloudDialogflowV2Context:
+      type: object
+      properties:
+        parameters:
+          type: object
+          additionalProperties:
+            description: Properties of the object.
+        name:
+          type: string
+        lifespanCount:
+          type: integer
+          format: int32
+    GoogleCloudDialogflowV2AgentCoachingSuggestionAgentActionSuggestion:
+      type: object
+      properties:
+        agentAction:
+          type: string
+        duplicateCheckResult:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2AgentCoachingSuggestionDuplicateCheckResult'
+        sources:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2AgentCoachingSuggestionSources'
+    GoogleCloudDialogflowV2IntentMessageCarouselSelect:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowV2IntentMessageCarouselSelectItem'
+    GoogleCloudDialogflowV2SuggestKnowledgeAssistResponse:
+      type: object
+      properties:
+        knowledgeAssistAnswer:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2KnowledgeAssistAnswer'
+        additionalSuggestedQueryResults:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowV2KnowledgeAssistAnswerAdditionalSuggestedQueryResult'
+        contextSize:
+          type: integer
+          format: int32
+        latestMessage:
+          type: string
+    GoogleCloudDialogflowV2IntentMessageBrowseCarouselCardBrowseCarouselCardItem:
+      type: object
+      properties:
+        description:
+          type: string
+        footer:
+          type: string
+        image:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2IntentMessageImage'
+        openUriAction:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2IntentMessageBrowseCarouselCardBrowseCarouselCardItemOpenUrlAction'
+        title:
+          type: string
+    GoogleCloudDialogflowV2OutputAudioConfig:
+      type: object
+      properties:
+        audioEncoding:
+          type: string
+          enum:
+          - OUTPUT_AUDIO_ENCODING_UNSPECIFIED
+          - OUTPUT_AUDIO_ENCODING_LINEAR_16
+          - OUTPUT_AUDIO_ENCODING_MP3
+          - OUTPUT_AUDIO_ENCODING_MP3_64_KBPS
+          - OUTPUT_AUDIO_ENCODING_OGG_OPUS
+          - OUTPUT_AUDIO_ENCODING_MULAW
+          - OUTPUT_AUDIO_ENCODING_ALAW
+          x-enumDescriptions:
+          - ''
+          - ''
+          - ''
+          - ''
+          - ''
+          - ''
+          - ''
+        sampleRateHertz:
+          type: integer
+          format: int32
+        synthesizeSpeechConfig:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2SynthesizeSpeechConfig'
+    GoogleCloudDialogflowV2KnowledgeAssistAnswerKnowledgeAnswerGenerativeSourceSnippet:
+      type: object
+      properties:
+        text:
+          type: string
+        uri:
+          type: string
+        title:
+          type: string
+        metadata:
+          type: object
+          additionalProperties:
+            description: Properties of the object.
+    GoogleCloudDialogflowV2KnowledgeAssistDebugInfoKnowledgeAssistBehavior:
+      type: object
+      properties:
+        appendedSearchContextCount:
+          type: integer
+          format: int32
+        queryGenerationEndUserLanguageMismatch:
+          type: boolean
+        queryContainedSearchContext:
+          type: boolean
+        conversationTranscriptHasMixedLanguages:
+          type: boolean
+        useCustomSafetyFilterLevel:
+          type: boolean
+        useTranslatedMessage:
+          type: boolean
+        disableSyncDelivery:
+          type: boolean
+        thirdPartyConnectorAllowed:
+          type: boolean
+        previousQueriesIncluded:
+          type: boolean
+        multipleQueriesGenerated:
+          type: boolean
+        queryGenerationAgentLanguageMismatch:
+          type: boolean
+        primaryQueryRedactedAndReplaced:
+          type: boolean
+        returnQueryOnly:
+          type: boolean
+        invalidItemsQuerySuggestionSkipped:
+          type: boolean
+        endUserMetadataIncluded:
+          type: boolean
+        usePubsubDelivery:
+          type: boolean
+        answerGenerationRewriterOn:
+          type: boolean
+    GoogleCloudDialogflowV2IntentMessageTableCard:
+      type: object
+      properties:
+        buttons:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowV2IntentMessageBasicCardButton'
+        image:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2IntentMessageImage'
+        columnProperties:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowV2IntentMessageColumnProperties'
+        title:
+          type: string
+        rows:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowV2IntentMessageTableCardRow'
+        subtitle:
+          type: string
+    GoogleCloudDialogflowV2OutputAudio:
+      type: object
+      properties:
+        config:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2OutputAudioConfig'
+        audio:
+          type: string
+          format: byte
+    GoogleCloudDialogflowV2AgentCoachingInstruction:
+      type: object
+      properties:
+        duplicateCheckResult:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2AgentCoachingInstructionDuplicateCheckResult'
+        displayName:
+          type: string
+        agentAction:
+          type: string
+        systemAction:
+          type: string
+        displayDetails:
+          type: string
+        condition:
+          type: string
+        triggeringEvent:
+          type: string
+          enum:
+          - TRIGGER_EVENT_UNSPECIFIED
+          - END_OF_UTTERANCE
+          - MANUAL_CALL
+          - CUSTOMER_MESSAGE
+          - AGENT_MESSAGE
+          - TOOL_CALL_COMPLETION
+          x-enumDescriptions:
+          - ''
+          - ''
+          - ''
+          - ''
+          - ''
+          - ''
+    GoogleCloudDialogflowV2IntentMessageLinkOutSuggestion:
+      type: object
+      properties:
+        uri:
+          type: string
+        destinationName:
+          type: string
+    GoogleCloudDialogflowV2QueryParameters:
+      type: object
+      properties:
+        timeZone:
+          type: string
+        sessionEntityTypes:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowV2SessionEntityType'
+        contexts:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowV2Context'
+        resetContexts:
+          type: boolean
+        sentimentAnalysisRequestConfig:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2SentimentAnalysisRequestConfig'
+        geoLocation:
+          $ref: '#/components/schemas/GoogleTypeLatLng'
+        platform:
+          type: string
+        webhookHeaders:
+          type: object
+          additionalProperties:
+            type: string
+        payload:
+          type: object
+          additionalProperties:
+            description: Properties of the object.
+    GoogleCloudDialogflowV2IntentMessageCarouselSelectItem:
+      type: object
+      properties:
+        info:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2IntentMessageSelectItemInfo'
+        title:
+          type: string
+        description:
+          type: string
+        image:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2IntentMessageImage'
+    GoogleCloudDialogflowV2FaqAnswer:
+      type: object
+      properties:
+        metadata:
+          type: object
+          additionalProperties:
+            type: string
+        answer:
+          type: string
+        source:
+          type: string
+        answerRecord:
+          type: string
+        question:
+          type: string
+        confidence:
+          type: number
+          format: float
+    GoogleCloudDialogflowV2IntentMessageSuggestions:
+      type: object
+      properties:
+        suggestions:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowV2IntentMessageSuggestion'
+    GoogleCloudDialogflowV2DetectIntentResponse:
+      type: object
+      properties:
+        webhookStatus:
+          $ref: '#/components/schemas/GoogleRpcStatus'
+        queryResult:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2QueryResult'
+        outputAudio:
+          type: string
+          format: byte
+        responseId:
+          type: string
+        outputAudioConfig:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2OutputAudioConfig'
+    GoogleTypeLatLng:
+      type: object
+      properties:
+        latitude:
+          type: number
+          format: double
+        longitude:
+          type: number
+          format: double
+    GoogleCloudDialogflowV2ListParticipantsResponse:
+      type: object
+      properties:
+        participants:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowV2Participant'
+        nextPageToken:
+          type: string
+    GoogleCloudDialogflowV2Participant:
+      type: object
+      properties:
+        agentDesktopSource:
+          type: string
+          enum:
+          - AGENT_DESKTOP_SOURCE_UNSPECIFIED
+          - LIVE_PERSON
+          - GENESYS_CLOUD
+          - TWILIO
+          - SALESFORCE
+          - OTHER
+          x-enumDescriptions:
+          - ''
+          - ''
+          - ''
+          - ''
+          - ''
+          - ''
+        obfuscatedExternalUserId:
+          type: string
+        documentsMetadataFilters:
+          type: object
+          additionalProperties:
+            type: string
+        sipRecordingMediaLabel:
+          type: string
+        name:
+          type: string
+        role:
+          type: string
+          enum:
+          - ROLE_UNSPECIFIED
+          - HUMAN_AGENT
+          - AUTOMATED_AGENT
+          - END_USER
+          x-enumDescriptions:
+          - ''
+          - ''
+          - ''
+          - ''
+    GoogleCloudDialogflowV2AgentCoachingSuggestionDuplicateCheckResult:
+      type: object
+      properties:
+        duplicateSuggestions:
+          type: array
+          readOnly: true
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowV2AgentCoachingSuggestionDuplicateCheckResultDuplicateSuggestion'
+    GoogleCloudDialogflowV2AnalyzeContentRequest:
+      type: object
+      properties:
+        assistQueryParams:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2AssistQueryParameters'
+        eventInput:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2EventInput'
+        cxParameters:
+          type: object
+          additionalProperties:
+            description: Properties of the object.
+        suggestionInput:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2SuggestionInput'
+        textInput:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2TextInput'
+        queryParams:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2QueryParameters'
+        replyAudioConfig:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2OutputAudioConfig'
+        audioInput:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2AudioInput'
+        requestId:
+          type: string
+    GoogleCloudDialogflowV2IntentMessageListSelect:
+      type: object
+      properties:
+        title:
+          type: string
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowV2IntentMessageListSelectItem'
+        subtitle:
+          type: string
+    GoogleCloudDialogflowV2GenerateSuggestionsResponseGeneratorSuggestionAnswer:
+      type: object
+      properties:
+        sourceGenerator:
+          type: string
+        answerRecord:
+          type: string
+        generatorSuggestion:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2GeneratorSuggestion'
+    GoogleCloudDialogflowV2SpeechToTextConfigGeminiAsrConfig:
+      type: object
+      properties:
+        startOfSpeechSensitivity:
+          type: string
+          enum:
+          - START_SENSITIVITY_UNSPECIFIED
+          - START_SENSITIVITY_HIGH
+          - START_SENSITIVITY_LOW
+          x-enumDescriptions:
+          - ''
+          - ''
+          - ''
+        prefixPaddingMs:
+          type: integer
+          format: int32
+        endOfSpeechSensitivity:
+          type: string
+          enum:
+          - END_SENSITIVITY_UNSPECIFIED
+          - END_SENSITIVITY_HIGH
+          - END_SENSITIVITY_LOW
+          x-enumDescriptions:
+          - ''
+          - ''
+          - ''
+        silenceDurationMs:
+          type: integer
+          format: int32
+        modelId:
+          type: string
+    GoogleCloudDialogflowV2EntityTypeEntity:
+      type: object
+      properties:
+        value:
+          type: string
+        synonyms:
+          type: array
+          items:
+            type: string
+    GoogleCloudDialogflowV2IntentMessageQuickReplies:
+      type: object
+      properties:
+        quickReplies:
+          type: array
+          items:
+            type: string
+        title:
+          type: string
+    GoogleCloudDialogflowV2AgentCoachingSuggestion:
+      type: object
+      properties:
+        agentActionSuggestions:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowV2AgentCoachingSuggestionAgentActionSuggestion'
+        sampleResponses:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowV2AgentCoachingSuggestionSampleResponse'
+        applicableInstructions:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowV2AgentCoachingInstruction'
+    GoogleCloudDialogflowV2AnnotatedMessagePart:
+      type: object
+      properties:
+        entityType:
+          type: string
+        formattedValue: {}
+        text:
+          type: string
+    GoogleCloudDialogflowV2SentimentAnalysisResult:
+      type: object
+      properties:
+        queryTextSentiment:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2Sentiment'
+    GoogleCloudDialogflowV2VoiceSelectionParams:
+      type: object
+      properties:
+        ssmlGender:
+          type: string
+          enum:
+          - SSML_VOICE_GENDER_UNSPECIFIED
+          - SSML_VOICE_GENDER_MALE
+          - SSML_VOICE_GENDER_FEMALE
+          - SSML_VOICE_GENDER_NEUTRAL
+          x-enumDescriptions:
+          - ''
+          - ''
+          - ''
+          - ''
+        name:
+          type: string
+    GoogleCloudDialogflowV2KnowledgeAssistAnswerSuggestedQuery:
+      type: object
+      properties:
+        searchContexts:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowV2KnowledgeAssistAnswerSuggestedQuerySearchContext'
+        queryText:
+          type: string
+    GoogleCloudDialogflowV2CustomPronunciationParams:
+      type: object
+      properties:
+        phoneticEncoding:
+          type: string
+          enum:
+          - PHONETIC_ENCODING_UNSPECIFIED
+          - PHONETIC_ENCODING_IPA
+          - PHONETIC_ENCODING_X_SAMPA
+          x-enumDescriptions:
+          - ''
+          - ''
+          - ''
+        phrase:
+          type: string
+        pronunciation:
+          type: string
+    GoogleCloudDialogflowV2IntentTrainingPhrase:
+      type: object
+      properties:
+        name:
+          type: string
+          readOnly: true
+        type:
+          type: string
+          enum:
+          - TYPE_UNSPECIFIED
+          - EXAMPLE
+          - TEMPLATE
+          x-enumDescriptions:
+          - ''
+          - ''
+          - ''
+        timesAddedCount:
+          type: integer
+          format: int32
+        parts:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowV2IntentTrainingPhrasePart'
+    GoogleCloudDialogflowV2AgentCoachingSuggestionSampleResponse:
+      type: object
+      properties:
+        duplicateCheckResult:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2AgentCoachingSuggestionDuplicateCheckResult'
+        sources:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2AgentCoachingSuggestionSources'
+        responseText:
+          type: string
+    GoogleCloudDialogflowV2KnowledgeAssistDebugInfo:
+      type: object
+      properties:
+        queryGenerationFailureReason:
+          type: string
+          enum:
+          - QUERY_GENERATION_FAILURE_REASON_UNSPECIFIED
+          - QUERY_GENERATION_OUT_OF_QUOTA
+          - QUERY_GENERATION_FAILED
+          - QUERY_GENERATION_NO_QUERY_GENERATED
+          - QUERY_GENERATION_RAI_FAILED
+          - NOT_IN_ALLOWLIST
+          - QUERY_GENERATION_QUERY_REDACTED
+          - QUERY_GENERATION_LLM_RESPONSE_PARSE_FAILED
+          - QUERY_GENERATION_EMPTY_CONVERSATION
+          - QUERY_GENERATION_EMPTY_LAST_MESSAGE
+          - QUERY_GENERATION_TRIGGERING_EVENT_CONDITION_NOT_MET
+          x-enumDescriptions:
+          - ''
+          - ''
+          - ''
+          - ''
+          - ''
+          - ''
+          - ''
+          - ''
+          - ''
+          - ''
+          - ''
+        serviceLatency:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2ServiceLatency'
+        cesDebugInfo:
+          type: object
+          additionalProperties:
+            description: Properties of the object.
+        knowledgeAssistBehavior:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2KnowledgeAssistDebugInfoKnowledgeAssistBehavior'
+        queryCategorizationFailureReason:
+          type: string
+          enum:
+          - QUERY_CATEGORIZATION_FAILURE_REASON_UNSPECIFIED
+          - QUERY_CATEGORIZATION_INVALID_CONFIG
+          - QUERY_CATEGORIZATION_RESULT_NOT_FOUND
+          - QUERY_CATEGORIZATION_FAILED
+          x-enumDescriptions:
+          - ''
+          - ''
+          - ''
+          - ''
+        queryGenerationDebugInfo:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2KnowledgeAssistDebugInfoQueryGenerationDebugInfo'
+        ingestedContextReferenceDebugInfo:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2IngestedContextReferenceDebugInfo'
+        datastoreResponseReason:
+          type: string
+          enum:
+          - DATASTORE_RESPONSE_REASON_UNSPECIFIED
+          - NONE
+          - SEARCH_OUT_OF_QUOTA
+          - SEARCH_EMPTY_RESULTS
+          - ANSWER_GENERATION_GEN_AI_DISABLED
+          - ANSWER_GENERATION_OUT_OF_QUOTA
+          - ANSWER_GENERATION_ERROR
+          - ANSWER_GENERATION_NOT_ENOUGH_INFO
+          - ANSWER_GENERATION_RAI_FAILED
+          - ANSWER_GENERATION_NOT_GROUNDED
+          x-enumDescriptions:
+          - ''
+          - ''
+          - ''
+          - ''
+          - ''
+          - ''
+          - ''
+          - ''
+          - ''
+          - ''
+    GoogleCloudDialogflowV2SuggestionResult:
+      type: object
+      properties:
+        suggestSmartRepliesResponse:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2SuggestSmartRepliesResponse'
+        generateSuggestionsResponse:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2GenerateSuggestionsResponse'
+        suggestFaqAnswersResponse:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2SuggestFaqAnswersResponse'
+        error:
+          $ref: '#/components/schemas/GoogleRpcStatus'
+        suggestArticlesResponse:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2SuggestArticlesResponse'
+        suggestKnowledgeAssistResponse:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2SuggestKnowledgeAssistResponse'
+    GoogleCloudDialogflowV2ToolCallResultError:
+      type: object
+      properties:
+        retryable:
+          type: boolean
+        message:
+          type: string
+    GoogleCloudDialogflowV2TextInput:
+      type: object
+      properties:
+        text:
+          type: string
+        languageCode:
+          type: string
+    GoogleRpcStatus:
+      type: object
+      properties:
+        message:
+          type: string
+        code:
+          type: integer
+          format: int32
+        details:
+          type: array
+          items:
+            type: object
+            additionalProperties:
+              description: Properties of the object. Contains field @type with type URL.
+    GoogleCloudDialogflowV2IntentFollowupIntentInfo:
+      type: object
+      properties:
+        parentFollowupIntentName:
+          type: string
+        followupIntentName:
+          type: string
+    GoogleCloudDialogflowV2AgentCoachingInstructionDuplicateCheckResult:
+      type: object
+      properties:
+        duplicateSuggestions:
+          type: array
+          readOnly: true
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowV2AgentCoachingInstructionDuplicateCheckResultDuplicateSuggestion'
+    GoogleCloudDialogflowV2SuggestFaqAnswersResponse:
+      type: object
+      properties:
+        latestMessage:
+          type: string
+        contextSize:
+          type: integer
+          format: int32
+        faqAnswers:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowV2FaqAnswer'
+    GoogleCloudDialogflowV2AgentCoachingInstructionDuplicateCheckResultDuplicateSuggestion:
+      type: object
+      properties:
+        similarityScore:
+          type: number
+          format: float
+          readOnly: true
+        answerRecord:
+          type: string
+          readOnly: true
+        suggestionIndex:
+          type: integer
+          format: int32
+          readOnly: true
+    GoogleCloudDialogflowV2IntentMessage:
+      type: object
+      properties:
+        linkOutSuggestion:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2IntentMessageLinkOutSuggestion'
+        payload:
+          type: object
+          additionalProperties:
+            description: Properties of the object.
+        browseCarouselCard:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2IntentMessageBrowseCarouselCard'
+        suggestions:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2IntentMessageSuggestions'
+        text:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2IntentMessageText'
+        mediaContent:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2IntentMessageMediaContent'
+        image:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2IntentMessageImage'
+        carouselSelect:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2IntentMessageCarouselSelect'
+        tableCard:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2IntentMessageTableCard'
+        listSelect:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2IntentMessageListSelect'
+        card:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2IntentMessageCard'
+        basicCard:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2IntentMessageBasicCard'
+        platform:
+          type: string
+          enum:
+          - PLATFORM_UNSPECIFIED
+          - FACEBOOK
+          - SLACK
+          - TELEGRAM
+          - KIK
+          - SKYPE
+          - LINE
+          - VIBER
+          - ACTIONS_ON_GOOGLE
+          - GOOGLE_HANGOUTS
+          x-enumDescriptions:
+          - ''
+          - ''
+          - ''
+          - ''
+          - ''
+          - ''
+          - ''
+          - ''
+          - ''
+          - ''
+        simpleResponses:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2IntentMessageSimpleResponses'
+        quickReplies:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2IntentMessageQuickReplies'
+    GoogleCloudDialogflowV2MessageAnnotation:
+      type: object
+      properties:
+        parts:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowV2AnnotatedMessagePart'
+        containEntities:
+          type: boolean
+    GoogleCloudDialogflowV2SessionEntityType:
+      type: object
+      properties:
+        entities:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowV2EntityTypeEntity'
+        entityOverrideMode:
+          type: string
+          enum:
+          - ENTITY_OVERRIDE_MODE_UNSPECIFIED
+          - ENTITY_OVERRIDE_MODE_OVERRIDE
+          - ENTITY_OVERRIDE_MODE_SUPPLEMENT
+          x-enumDescriptions:
+          - ''
+          - ''
+          - ''
+        name:
+          type: string
+    GoogleCloudDialogflowV2IntentMessageCardButton:
+      type: object
+      properties:
+        text:
+          type: string
+        postback:
+          type: string
+    GoogleCloudDialogflowV2IntentMessageImage:
+      type: object
+      properties:
+        imageUri:
+          type: string
+        accessibilityText:
+          type: string
+    GoogleCloudDialogflowV2IntentMessageSimpleResponse:
+      type: object
+      properties:
+        textToSpeech:
+          type: string
+        displayText:
+          type: string
+        ssml:
+          type: string
+    GoogleCloudDialogflowV2SynthesizeSpeechConfig:
+      type: object
+      properties:
+        pitch:
+          type: number
+          format: double
+        effectsProfileId:
+          type: array
+          items:
+            type: string
+        volumeGainDb:
+          type: number
+          format: double
+        pronunciations:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowV2CustomPronunciationParams'
+        voice:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2VoiceSelectionParams'
+        speakingRate:
+          type: number
+          format: double
+    GoogleCloudDialogflowV2SentimentAnalysisRequestConfig:
+      type: object
+      properties:
+        analyzeQueryTextSentiment:
+          type: boolean
+    GoogleCloudDialogflowV2SpeechContext:
+      type: object
+      properties:
+        phrases:
+          type: array
+          items:
+            type: string
+        boost:
+          type: number
+          format: float
+    GoogleCloudDialogflowV2Message:
+      type: object
+      properties:
+        createTime:
+          type: string
+          format: date-time
+          readOnly: true
+        participant:
+          type: string
+          readOnly: true
+        sendTime:
+          type: string
+          format: date-time
+        sentimentAnalysis:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2SentimentAnalysisResult'
+        name:
+          type: string
+        participantRole:
+          type: string
+          enum:
+          - ROLE_UNSPECIFIED
+          - HUMAN_AGENT
+          - AUTOMATED_AGENT
+          - END_USER
+          x-enumDescriptions:
+          - ''
+          - ''
+          - ''
+          - ''
+          readOnly: true
+        messageAnnotation:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2MessageAnnotation'
+        content:
+          type: string
+        languageCode:
+          type: string
+    GoogleCloudDialogflowV2SummarySuggestion:
+      type: object
+      properties:
+        summarySections:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowV2SummarySuggestionSummarySection'
+    GoogleCloudDialogflowV2KnowledgeAssistAnswerKnowledgeAnswerGenerativeSource:
+      type: object
+      properties:
+        snippets:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowV2KnowledgeAssistAnswerKnowledgeAnswerGenerativeSourceSnippet'
+    GoogleCloudDialogflowV2AgentCoachingSuggestionDuplicateCheckResultDuplicateSuggestion:
+      type: object
+      properties:
+        answerRecord:
+          type: string
+          readOnly: true
+        similarityScore:
+          type: number
+          format: float
+          readOnly: true
+        suggestionIndex:
+          type: integer
+          format: int32
+          readOnly: true
+        sources:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2AgentCoachingSuggestionSources'
+    GoogleCloudDialogflowV2IntentMessageListSelectItem:
+      type: object
+      properties:
+        info:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2IntentMessageSelectItemInfo'
+        image:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2IntentMessageImage'
+        description:
+          type: string
+        title:
+          type: string
+    GoogleCloudDialogflowV2QueryResult:
+      type: object
+      properties:
+        intentDetectionConfidence:
+          type: number
+          format: float
+        webhookSource:
+          type: string
+        action:
+          type: string
+        webhookPayload:
+          type: object
+          additionalProperties:
+            description: Properties of the object.
+        queryText:
+          type: string
+        outputContexts:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowV2Context'
+        sentimentAnalysisResult:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2SentimentAnalysisResult'
+        parameters:
+          type: object
+          additionalProperties:
+            description: Properties of the object.
+        speechRecognitionConfidence:
+          type: number
+          format: float
+        intent:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2Intent'
+        allRequiredParamsPresent:
+          type: boolean
+        languageCode:
+          type: string
+        fulfillmentMessages:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowV2IntentMessage'
+        fulfillmentText:
+          type: string
+        diagnosticInfo:
+          type: object
+          additionalProperties:
+            description: Properties of the object.
+        cancelsSlotFilling:
+          type: boolean
+    GoogleCloudDialogflowV2KnowledgeAssistAnswer:
+      type: object
+      properties:
+        suggestedQueryAnswer:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2KnowledgeAssistAnswerKnowledgeAnswer'
+        suggestedQuery:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2KnowledgeAssistAnswerSuggestedQuery'
+        knowledgeAssistDebugInfo:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2KnowledgeAssistDebugInfo'
+        answerRecord:
+          type: string
+    GoogleCloudDialogflowV2FreeFormSuggestion:
+      type: object
+      properties:
+        response:
+          type: string
+    GoogleCloudDialogflowV2IntentMessageBasicCard:
+      type: object
+      properties:
+        image:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2IntentMessageImage'
+        title:
+          type: string
+        formattedText:
+          type: string
+        subtitle:
+          type: string
+        buttons:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowV2IntentMessageBasicCardButton'
+    GoogleCloudDialogflowV2KnowledgeAssistAnswerKnowledgeAnswerFaqSource:
+      type: object
+      properties:
+        question:
+          type: string
+    GoogleCloudDialogflowV2IngestedContextReferenceDebugInfoIngestedParameterDebugInfo:
+      type: object
+      properties:
+        parameter:
+          type: string
+        ingestionStatus:
+          type: string
+          enum:
+          - INGESTION_STATUS_UNSPECIFIED
+          - INGESTION_STATUS_SUCCEEDED
+          - INGESTION_STATUS_CONTEXT_NOT_AVAILABLE
+          - INGESTION_STATUS_PARSE_FAILED
+          - INGESTION_STATUS_INVALID_ENTRY
+          - INGESTION_STATUS_INVALID_FORMAT
+          - INGESTION_STATUS_LANGUAGE_MISMATCH
+          x-enumDescriptions:
+          - ''
+          - ''
+          - ''
+          - ''
+          - ''
+          - ''
+          - ''
+    GoogleCloudDialogflowV2IntentMessageMediaContent:
+      type: object
+      properties:
+        mediaObjects:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowV2IntentMessageMediaContentResponseMediaObject'
+        mediaType:
+          type: string
+          enum:
+          - RESPONSE_MEDIA_TYPE_UNSPECIFIED
+          - AUDIO
+          x-enumDescriptions:
+          - ''
+          - ''
+    GoogleCloudDialogflowV2IntentTrainingPhrasePart:
+      type: object
+      properties:
+        text:
+          type: string
+        userDefined:
+          type: boolean
+        entityType:
+          type: string
+        alias:
+          type: string
+    GoogleCloudDialogflowV2KnowledgeAssistAnswerAdditionalSuggestedQueryResult:
+      type: object
+      properties:
+        answerRecord:
+          type: string
+          readOnly: true
+        suggestedQuery:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2KnowledgeAssistAnswerSuggestedQuery'
+    GoogleCloudDialogflowV2EventInput:
+      type: object
+      properties:
+        parameters:
+          type: object
+          additionalProperties:
+            description: Properties of the object.
+        name:
+          type: string
+        languageCode:
+          type: string
+    GoogleCloudDialogflowV2KnowledgeAssistAnswerKnowledgeAnswer:
+      type: object
+      properties:
+        answerText:
+          type: string
+        generativeSource:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2KnowledgeAssistAnswerKnowledgeAnswerGenerativeSource'
+        eventSource:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2KnowledgeAssistAnswerKnowledgeAnswerEventSource'
+        faqSource:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2KnowledgeAssistAnswerKnowledgeAnswerFaqSource'
+        playbookSource:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2KnowledgeAssistAnswerKnowledgeAnswerGenerativeSource'
+    GoogleCloudDialogflowV2IntentParameter:
+      type: object
+      properties:
+        prompts:
+          type: array
+          items:
+            type: string
+        value:
+          type: string
+        isList:
+          type: boolean
+        name:
+          type: string
+        displayName:
+          type: string
+        defaultValue:
+          type: string
+        entityTypeDisplayName:
+          type: string
+        mandatory:
+          type: boolean
+    GoogleCloudDialogflowV2ToolCallResult:
+      type: object
+      properties:
+        answerRecord:
+          type: string
+        error:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2ToolCallResultError'
+        cesTool:
+          type: string
+        action:
+          type: string
+        content:
+          type: string
+        cesApp:
+          type: string
+        rawContent:
+          type: string
+          format: byte
+        tool:
+          type: string
+        cesToolset:
+          type: string
+        createTime:
+          type: string
+          format: date-time
+          readOnly: true
+    GoogleCloudDialogflowV2AnalyzeContentResponse:
+      type: object
+      properties:
+        dtmfParameters:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2DtmfParameters'
+        automatedAgentReply:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2AutomatedAgentReply'
+        message:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2Message'
+        replyAudio:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2OutputAudio'
+        humanAgentSuggestionResults:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowV2SuggestionResult'
+        endUserSuggestionResults:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowV2SuggestionResult'
+        replyText:
+          type: string
+    GoogleCloudDialogflowV2ServiceLatency:
+      type: object
+      properties:
+        internalServiceLatencies:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowV2ServiceLatencyInternalServiceLatency'
+    GoogleCloudDialogflowV2IntentMessageText:
+      type: object
+      properties:
+        text:
+          type: array
+          items:
+            type: string
+    GoogleCloudDialogflowV2DtmfParameters:
+      type: object
+      properties:
+        acceptsDtmfInput:
+          type: boolean
+    GoogleCloudDialogflowV2KnowledgeAssistAnswerSuggestedQuerySearchContext:
+      type: object
+      properties:
+        value:
+          type: string
+        key:
+          type: string
+    GoogleCloudDialogflowV2SummarySuggestionSummarySection:
+      type: object
+      properties:
+        section:
+          type: string
+        summary:
+          type: string
+    GoogleCloudDialogflowV2ServiceLatencyInternalServiceLatency:
+      type: object
+      properties:
+        completeTime:
+          type: string
+          format: date-time
+        latencyMs:
+          type: number
+          format: float
+        startTime:
+          type: string
+          format: date-time
+        step:
+          type: string
+    GoogleCloudDialogflowV2IntentMessageBrowseCarouselCard:
+      type: object
+      properties:
+        imageDisplayOptions:
+          type: string
+          enum:
+          - IMAGE_DISPLAY_OPTIONS_UNSPECIFIED
+          - GRAY
+          - WHITE
+          - CROPPED
+          - BLURRED_BACKGROUND
+          x-enumDescriptions:
+          - ''
+          - ''
+          - ''
+          - ''
+          - ''
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowV2IntentMessageBrowseCarouselCardBrowseCarouselCardItem'
+    GoogleCloudDialogflowV2IntentMessageBrowseCarouselCardBrowseCarouselCardItemOpenUrlAction:
+      type: object
+      properties:
+        urlTypeHint:
+          type: string
+          enum:
+          - URL_TYPE_HINT_UNSPECIFIED
+          - AMP_ACTION
+          - AMP_CONTENT
+          x-enumDescriptions:
+          - ''
+          - ''
+          - ''
+        url:
+          type: string
+    GoogleCloudDialogflowV2IntentMessageSimpleResponses:
+      type: object
+      properties:
+        simpleResponses:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowV2IntentMessageSimpleResponse'
+    GoogleCloudDialogflowV2ToolCall:
+      type: object
+      properties:
+        action:
+          type: string
+        createTime:
+          type: string
+          format: date-time
+          readOnly: true
+        cesApp:
+          type: string
+        cesToolset:
+          type: string
+        answerRecord:
+          type: string
+        toolDisplayDetails:
+          type: string
+        inputParameters:
+          type: object
+          additionalProperties:
+            description: Properties of the object.
+        tool:
+          type: string
+        toolDisplayName:
+          type: string
+        state:
+          type: string
+          enum:
+          - STATE_UNSPECIFIED
+          - TRIGGERED
+          - NEEDS_CONFIRMATION
+          x-enumDescriptions:
+          - ''
+          - ''
+          - ''
+          readOnly: true
+        cesTool:
+          type: string
+    GoogleCloudDialogflowV2SmartReplyAnswer:
+      type: object
+      properties:
+        answerRecord:
+          type: string
+        reply:
+          type: string
+        confidence:
+          type: number
+          format: float
+    GoogleCloudDialogflowV2InputAudioConfig:
+      type: object
+      properties:
+        disableNoSpeechRecognizedEvent:
+          type: boolean
+        modelVariant:
+          type: string
+          enum:
+          - SPEECH_MODEL_VARIANT_UNSPECIFIED
+          - USE_BEST_AVAILABLE
+          - USE_STANDARD
+          - USE_ENHANCED
+          x-enumDescriptions:
+          - ''
+          - ''
+          - ''
+          - ''
+        enableWordInfo:
+          type: boolean
+        sampleRateHertz:
+          type: integer
+          format: int32
+        phraseHints:
+          type: array
+          items:
+            type: string
+        languageCode:
+          type: string
+        enableAutomaticPunctuation:
+          type: boolean
+        singleUtterance:
+          type: boolean
+        geminiAsrConfig:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2SpeechToTextConfigGeminiAsrConfig'
+        enableVoiceActivityEvents:
+          type: boolean
+        phraseSets:
+          type: array
+          items:
+            type: string
+        speechContexts:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowV2SpeechContext'
+        optOutConformerModelMigration:
+          type: boolean
+        audioEncoding:
+          type: string
+          enum:
+          - AUDIO_ENCODING_UNSPECIFIED
+          - AUDIO_ENCODING_LINEAR_16
+          - AUDIO_ENCODING_FLAC
+          - AUDIO_ENCODING_MULAW
+          - AUDIO_ENCODING_AMR
+          - AUDIO_ENCODING_AMR_WB
+          - AUDIO_ENCODING_OGG_OPUS
+          - AUDIO_ENCODING_SPEEX_WITH_HEADER_BYTE
+          - AUDIO_ENCODING_ALAW
+          x-enumDescriptions:
+          - ''
+          - ''
+          - ''
+          - ''
+          - ''
+          - ''
+          - ''
+          - ''
+          - ''
+        model:
+          type: string
+        useGeminiAsr:
+          type: boolean
+    GoogleCloudDialogflowV2AudioInput:
+      type: object
+      properties:
+        config:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2InputAudioConfig'
+        audio:
+          type: string
+          format: byte
+    GoogleCloudDialogflowV2IntentMessageSelectItemInfo:
+      type: object
+      properties:
+        key:
+          type: string
+        synonyms:
+          type: array
+          items:
+            type: string
+    GoogleCloudDialogflowV2IntentMessageCard:
+      type: object
+      properties:
+        imageUri:
+          type: string
+        title:
+          type: string
+        buttons:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowV2IntentMessageCardButton'
+        subtitle:
+          type: string
+    GoogleCloudDialogflowV2SuggestArticlesResponse:
+      type: object
+      properties:
+        latestMessage:
+          type: string
+        articleAnswers:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowV2ArticleAnswer'
+        contextSize:
+          type: integer
+          format: int32
+    GoogleCloudDialogflowV2IntentMessageBasicCardButton:
+      type: object
+      properties:
+        openUriAction:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2IntentMessageBasicCardButtonOpenUriAction'
+        title:
+          type: string
+    GoogleCloudDialogflowV2IntentMessageTableCardRow:
+      type: object
+      properties:
+        cells:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowV2IntentMessageTableCardCell'
+        dividerAfter:
+          type: boolean
+    GoogleCloudDialogflowV2AutomatedAgentReply:
+      type: object
+      properties:
+        allowCancellation:
+          type: boolean
+        cxCurrentPage:
+          type: string
+        automatedAgentReplyType:
+          type: string
+          enum:
+          - AUTOMATED_AGENT_REPLY_TYPE_UNSPECIFIED
+          - PARTIAL
+          - FINAL
+          x-enumDescriptions:
+          - ''
+          - ''
+          - ''
+        detectIntentResponse:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2DetectIntentResponse'
+    GoogleCloudDialogflowV2GenerateSuggestionsResponse:
+      type: object
+      properties:
+        generatorSuggestionAnswers:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowV2GenerateSuggestionsResponseGeneratorSuggestionAnswer'
+        latestMessage:
+          type: string
+    GoogleCloudDialogflowV2KnowledgeAssistAnswerKnowledgeAnswerEventSource:
+      type: object
+      properties:
+        snippets:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2KnowledgeAssistAnswerKnowledgeAnswerGenerativeSource'
+        event:
+          type: string
+    GoogleCloudDialogflowV2IntentMessageMediaContentResponseMediaObject:
+      type: object
+      properties:
+        description:
+          type: string
+        icon:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2IntentMessageImage'
+        contentUrl:
+          type: string
+        largeImage:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2IntentMessageImage'
+        name:
+          type: string
+    GoogleCloudDialogflowV2GeneratorSuggestion:
+      type: object
+      properties:
+        freeFormSuggestion:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2FreeFormSuggestion'
+        summarySuggestion:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2SummarySuggestion'
+        toolCallInfo:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowV2GeneratorSuggestionToolCallInfo'
+        agentCoachingSuggestion:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2AgentCoachingSuggestion'
+    GoogleCloudDialogflowV2IntentMessageTableCardCell:
+      type: object
+      properties:
+        text:
+          type: string
+    GoogleCloudDialogflowV2ArticleAnswer:
+      type: object
+      properties:
+        uri:
+          type: string
+        answerRecord:
+          type: string
+        title:
+          type: string
+        snippets:
+          type: array
+          items:
+            type: string
+        metadata:
+          type: object
+          additionalProperties:
+            type: string
+        confidence:
+          type: number
+          format: float
+    GoogleCloudDialogflowV2AssistQueryParameters:
+      type: object
+      properties:
+        documentsMetadataFilters:
+          type: object
+          additionalProperties:
+            type: string
+    GoogleCloudDialogflowV2IntentMessageSuggestion:
+      type: object
+      properties:
+        title:
+          type: string
+    GoogleCloudDialogflowV2Sentiment:
+      type: object
+      properties:
+        magnitude:
+          type: number
+          format: float
+        score:
+          type: number
+          format: float
+    GoogleCloudDialogflowV2GeneratorSuggestionToolCallInfo:
+      type: object
+      properties:
+        toolCall:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2ToolCall'
+        toolCallResult:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2ToolCallResult'
+    GoogleCloudDialogflowV2KnowledgeAssistDebugInfoQueryGenerationDebugInfo:
+      type: object
+      properties:
+        thinkingBudgetTokens:
+          type: integer
+          format: int32
+        similarityToLastQueryThreshold:
+          type: number
+          format: float
+        similarityToLastQuery:
+          type: number
+          format: float
+        totalTokenCount:
+          type: integer
+          format: int32
+        thinkingLevel:
+          type: string
+        candidatesTokenCount:
+          type: integer
+          format: int32
+        promptTokenCount:
+          type: integer
+          format: int32
+    GoogleCloudDialogflowV2IngestedContextReferenceDebugInfo:
+      type: object
+      properties:
+        contextReferenceRetrieved:
+          type: boolean
+        ingestedParametersDebugInfo:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowV2IngestedContextReferenceDebugInfoIngestedParameterDebugInfo'
+        projectNotAllowlisted:
+          type: boolean
+    GoogleCloudDialogflowV2IntentMessageBasicCardButtonOpenUriAction:
+      type: object
+      properties:
+        uri:
+          type: string
+    GoogleCloudDialogflowV2SuggestionInput:
+      type: object
+      properties:
+        action:
+          type: string
+          enum:
+          - ACTION_UNSPECIFIED
+          - CANCEL
+          - REVISE
+          - CONFIRM
+          x-enumDescriptions:
+          - ''
+          - ''
+          - ''
+          - ''
+        sendTime:
+          type: string
+          format: date-time
+        parameters:
+          type: object
+          additionalProperties:
+            description: Properties of the object.
+        answerRecord:
+          type: string
+    GoogleCloudDialogflowV2AgentCoachingSuggestionSources:
+      type: object
+      properties:
+        instructionIndexes:
+          type: array
+          readOnly: true
+          items:
+            type: integer
+            format: int32
+    GoogleCloudDialogflowV2IntentMessageColumnProperties:
+      type: object
+      properties:
+        header:
+          type: string
+        horizontalAlignment:
+          type: string
+          enum:
+          - HORIZONTAL_ALIGNMENT_UNSPECIFIED
+          - LEADING
+          - CENTER
+          - TRAILING
+          x-enumDescriptions:
+          - ''
+          - ''
+          - ''
+          - ''
+  securitySchemes:
+    OAuth2:
+      type: oauth2
+      description: Google OAuth 2.0. Scopes are declared per operation in the Discovery Document.
+      flows:
+        authorizationCode:
+          authorizationUrl: https://accounts.google.com/o/oauth2/v2/auth
+          tokenUrl: https://oauth2.googleapis.com/token
+          scopes:
+            https://www.googleapis.com/auth/dialogflow: View, manage and query your Dialogflow agents
+            https://www.googleapis.com/auth/cloud-platform: See, edit, configure, and delete your Google Cloud data and see the email address for your Google Account.
+    BearerAuth:
+      type: http
+      scheme: bearer
+      description: 'Google OAuth 2.0 access token or service-account-minted bearer token, sent as Authorization: Bearer <token>.'
+externalDocs:
+  description: Dialogflow ES documentation
+  url: https://cloud.google.com/dialogflow/es/docs

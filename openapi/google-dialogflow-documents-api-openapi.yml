@@ -1,0 +1,1323 @@
+openapi: 3.2.0
+info:
+  title: Dialogflow ES API (v2) Documents API
+  version: v2
+  description: Dialogflow ES (Essentials) builds conversational interfaces with intents, entity types, contexts, sessions, knowledge bases, conversation profiles and Agent Assist. This OpenAPI is a mechanical conversion of the first-party Google Discovery Document served by dialogflow.googleapis.com.
+  contact:
+    name: Google Cloud
+    url: https://cloud.google.com/dialogflow/
+  termsOfService: https://cloud.google.com/terms
+  license:
+    name: Google APIs Terms of Service
+    url: https://developers.google.com/terms
+  x-discovery-source: https://dialogflow.googleapis.com/$discovery/rest?version=v2
+  x-discovery-revision: '20260825'
+  x-discovery-id: dialogflow:v2
+servers:
+- url: https://dialogflow.googleapis.com
+  description: Dialogflow API
+security:
+- OAuth2:
+  - https://www.googleapis.com/auth/dialogflow
+  - https://www.googleapis.com/auth/cloud-platform
+- BearerAuth: []
+tags:
+- name: Documents
+paths:
+  /v2/projects/{projectsId}/knowledgeBases/{knowledgeBasesId}/documents/{documentsId}:
+    delete:
+      operationId: dialogflow_projects_knowledgeBases_documents_delete
+      tags:
+      - Documents
+      parameters:
+      - name: projectsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/knowledgeBases/[^/]+/documents/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: knowledgeBasesId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/knowledgeBases/[^/]+/documents/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: documentsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/knowledgeBases/[^/]+/documents/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      x-discovery-path-template: v2/{name}
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleLongrunningOperation'
+        default:
+          description: Error response (google.rpc.Status)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleRpcStatus'
+      security:
+      - OAuth2:
+        - https://www.googleapis.com/auth/cloud-platform
+        - https://www.googleapis.com/auth/dialogflow
+      - BearerAuth: []
+      summary: Dialogflow projects knowledge bases documents delete
+      x-summary-source: derived
+    get:
+      operationId: dialogflow_projects_knowledgeBases_documents_get
+      tags:
+      - Documents
+      parameters:
+      - name: projectsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/knowledgeBases/[^/]+/documents/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: knowledgeBasesId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/knowledgeBases/[^/]+/documents/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: documentsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/knowledgeBases/[^/]+/documents/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      x-discovery-path-template: v2/{name}
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleCloudDialogflowV2Document'
+        default:
+          description: Error response (google.rpc.Status)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleRpcStatus'
+      security:
+      - OAuth2:
+        - https://www.googleapis.com/auth/cloud-platform
+        - https://www.googleapis.com/auth/dialogflow
+      - BearerAuth: []
+      summary: Dialogflow projects knowledge bases documents get
+      x-summary-source: derived
+    patch:
+      operationId: dialogflow_projects_knowledgeBases_documents_patch
+      tags:
+      - Documents
+      parameters:
+      - name: projectsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/knowledgeBases/[^/]+/documents/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: knowledgeBasesId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/knowledgeBases/[^/]+/documents/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: documentsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/knowledgeBases/[^/]+/documents/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: updateMask
+        in: query
+        schema:
+          type: string
+      x-discovery-path-template: v2/{name}
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GoogleCloudDialogflowV2Document'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleLongrunningOperation'
+        default:
+          description: Error response (google.rpc.Status)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleRpcStatus'
+      security:
+      - OAuth2:
+        - https://www.googleapis.com/auth/cloud-platform
+        - https://www.googleapis.com/auth/dialogflow
+      - BearerAuth: []
+      summary: Dialogflow projects knowledge bases documents patch
+      x-summary-source: derived
+  /v2/projects/{projectsId}/knowledgeBases/{knowledgeBasesId}/documents/{documentsId}:reload:
+    post:
+      operationId: dialogflow_projects_knowledgeBases_documents_reload
+      tags:
+      - Documents
+      parameters:
+      - name: projectsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/knowledgeBases/[^/]+/documents/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: knowledgeBasesId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/knowledgeBases/[^/]+/documents/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: documentsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/knowledgeBases/[^/]+/documents/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      x-discovery-path-template: v2/{name}:reload
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GoogleCloudDialogflowV2ReloadDocumentRequest'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleLongrunningOperation'
+        default:
+          description: Error response (google.rpc.Status)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleRpcStatus'
+      security:
+      - OAuth2:
+        - https://www.googleapis.com/auth/cloud-platform
+        - https://www.googleapis.com/auth/dialogflow
+      - BearerAuth: []
+      summary: Dialogflow projects knowledge bases documents reload
+      x-summary-source: derived
+  /v2/projects/{projectsId}/knowledgeBases/{knowledgeBasesId}/documents:
+    get:
+      operationId: dialogflow_projects_knowledgeBases_documents_list
+      tags:
+      - Documents
+      parameters:
+      - name: projectsId
+        in: path
+        description: 'Part of `parent`. Resource name pattern: `^projects/[^/]+/knowledgeBases/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: knowledgeBasesId
+        in: path
+        description: 'Part of `parent`. Resource name pattern: `^projects/[^/]+/knowledgeBases/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        schema:
+          type: integer
+          format: int32
+      - name: filter
+        in: query
+        schema:
+          type: string
+      - name: pageToken
+        in: query
+        schema:
+          type: string
+      x-discovery-path-template: v2/{parent}/documents
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleCloudDialogflowV2ListDocumentsResponse'
+        default:
+          description: Error response (google.rpc.Status)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleRpcStatus'
+      security:
+      - OAuth2:
+        - https://www.googleapis.com/auth/cloud-platform
+        - https://www.googleapis.com/auth/dialogflow
+      - BearerAuth: []
+      summary: Dialogflow projects knowledge bases documents list
+      x-summary-source: derived
+    post:
+      operationId: dialogflow_projects_knowledgeBases_documents_create
+      tags:
+      - Documents
+      parameters:
+      - name: projectsId
+        in: path
+        description: 'Part of `parent`. Resource name pattern: `^projects/[^/]+/knowledgeBases/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: knowledgeBasesId
+        in: path
+        description: 'Part of `parent`. Resource name pattern: `^projects/[^/]+/knowledgeBases/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      x-discovery-path-template: v2/{parent}/documents
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GoogleCloudDialogflowV2Document'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleLongrunningOperation'
+        default:
+          description: Error response (google.rpc.Status)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleRpcStatus'
+      security:
+      - OAuth2:
+        - https://www.googleapis.com/auth/cloud-platform
+        - https://www.googleapis.com/auth/dialogflow
+      - BearerAuth: []
+      summary: Dialogflow projects knowledge bases documents create
+      x-summary-source: derived
+  /v2/projects/{projectsId}/knowledgeBases/{knowledgeBasesId}/documents/{documentsId}:export:
+    post:
+      operationId: dialogflow_projects_knowledgeBases_documents_export
+      tags:
+      - Documents
+      parameters:
+      - name: projectsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/knowledgeBases/[^/]+/documents/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: knowledgeBasesId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/knowledgeBases/[^/]+/documents/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: documentsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/knowledgeBases/[^/]+/documents/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      x-discovery-path-template: v2/{name}:export
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GoogleCloudDialogflowV2ExportDocumentRequest'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleLongrunningOperation'
+        default:
+          description: Error response (google.rpc.Status)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleRpcStatus'
+      security:
+      - OAuth2:
+        - https://www.googleapis.com/auth/cloud-platform
+        - https://www.googleapis.com/auth/dialogflow
+      - BearerAuth: []
+      summary: Dialogflow projects knowledge bases documents export
+      x-summary-source: derived
+  /v2/projects/{projectsId}/knowledgeBases/{knowledgeBasesId}/documents:import:
+    post:
+      operationId: dialogflow_projects_knowledgeBases_documents_import
+      tags:
+      - Documents
+      parameters:
+      - name: projectsId
+        in: path
+        description: 'Part of `parent`. Resource name pattern: `^projects/[^/]+/knowledgeBases/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: knowledgeBasesId
+        in: path
+        description: 'Part of `parent`. Resource name pattern: `^projects/[^/]+/knowledgeBases/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      x-discovery-path-template: v2/{parent}/documents:import
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GoogleCloudDialogflowV2ImportDocumentsRequest'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleLongrunningOperation'
+        default:
+          description: Error response (google.rpc.Status)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleRpcStatus'
+      security:
+      - OAuth2:
+        - https://www.googleapis.com/auth/cloud-platform
+        - https://www.googleapis.com/auth/dialogflow
+      - BearerAuth: []
+      summary: Dialogflow projects knowledge bases documents import
+      x-summary-source: derived
+  /v2/projects/{projectsId}/locations/{locationsId}/knowledgeBases/{knowledgeBasesId}/documents/{documentsId}:
+    get:
+      operationId: dialogflow_projects_locations_knowledgeBases_documents_get
+      tags:
+      - Documents
+      parameters:
+      - name: projectsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/knowledgeBases/[^/]+/documents/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: locationsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/knowledgeBases/[^/]+/documents/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: knowledgeBasesId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/knowledgeBases/[^/]+/documents/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: documentsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/knowledgeBases/[^/]+/documents/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      x-discovery-path-template: v2/{name}
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleCloudDialogflowV2Document'
+        default:
+          description: Error response (google.rpc.Status)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleRpcStatus'
+      security:
+      - OAuth2:
+        - https://www.googleapis.com/auth/cloud-platform
+        - https://www.googleapis.com/auth/dialogflow
+      - BearerAuth: []
+      summary: Dialogflow projects locations knowledge bases documents get
+      x-summary-source: derived
+    delete:
+      operationId: dialogflow_projects_locations_knowledgeBases_documents_delete
+      tags:
+      - Documents
+      parameters:
+      - name: projectsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/knowledgeBases/[^/]+/documents/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: locationsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/knowledgeBases/[^/]+/documents/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: knowledgeBasesId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/knowledgeBases/[^/]+/documents/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: documentsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/knowledgeBases/[^/]+/documents/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      x-discovery-path-template: v2/{name}
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleLongrunningOperation'
+        default:
+          description: Error response (google.rpc.Status)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleRpcStatus'
+      security:
+      - OAuth2:
+        - https://www.googleapis.com/auth/cloud-platform
+        - https://www.googleapis.com/auth/dialogflow
+      - BearerAuth: []
+      summary: Dialogflow projects locations knowledge bases documents delete
+      x-summary-source: derived
+    patch:
+      operationId: dialogflow_projects_locations_knowledgeBases_documents_patch
+      tags:
+      - Documents
+      parameters:
+      - name: projectsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/knowledgeBases/[^/]+/documents/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: locationsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/knowledgeBases/[^/]+/documents/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: knowledgeBasesId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/knowledgeBases/[^/]+/documents/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: documentsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/knowledgeBases/[^/]+/documents/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: updateMask
+        in: query
+        schema:
+          type: string
+      x-discovery-path-template: v2/{name}
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GoogleCloudDialogflowV2Document'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleLongrunningOperation'
+        default:
+          description: Error response (google.rpc.Status)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleRpcStatus'
+      security:
+      - OAuth2:
+        - https://www.googleapis.com/auth/cloud-platform
+        - https://www.googleapis.com/auth/dialogflow
+      - BearerAuth: []
+      summary: Dialogflow projects locations knowledge bases documents patch
+      x-summary-source: derived
+  /v2/projects/{projectsId}/locations/{locationsId}/knowledgeBases/{knowledgeBasesId}/documents/{documentsId}:export:
+    post:
+      operationId: dialogflow_projects_locations_knowledgeBases_documents_export
+      tags:
+      - Documents
+      parameters:
+      - name: projectsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/knowledgeBases/[^/]+/documents/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: locationsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/knowledgeBases/[^/]+/documents/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: knowledgeBasesId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/knowledgeBases/[^/]+/documents/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: documentsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/knowledgeBases/[^/]+/documents/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      x-discovery-path-template: v2/{name}:export
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GoogleCloudDialogflowV2ExportDocumentRequest'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleLongrunningOperation'
+        default:
+          description: Error response (google.rpc.Status)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleRpcStatus'
+      security:
+      - OAuth2:
+        - https://www.googleapis.com/auth/cloud-platform
+        - https://www.googleapis.com/auth/dialogflow
+      - BearerAuth: []
+      summary: Dialogflow projects locations knowledge bases documents export
+      x-summary-source: derived
+  /v2/projects/{projectsId}/locations/{locationsId}/knowledgeBases/{knowledgeBasesId}/documents:import:
+    post:
+      operationId: dialogflow_projects_locations_knowledgeBases_documents_import
+      tags:
+      - Documents
+      parameters:
+      - name: projectsId
+        in: path
+        description: 'Part of `parent`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/knowledgeBases/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: locationsId
+        in: path
+        description: 'Part of `parent`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/knowledgeBases/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: knowledgeBasesId
+        in: path
+        description: 'Part of `parent`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/knowledgeBases/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      x-discovery-path-template: v2/{parent}/documents:import
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GoogleCloudDialogflowV2ImportDocumentsRequest'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleLongrunningOperation'
+        default:
+          description: Error response (google.rpc.Status)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleRpcStatus'
+      security:
+      - OAuth2:
+        - https://www.googleapis.com/auth/cloud-platform
+        - https://www.googleapis.com/auth/dialogflow
+      - BearerAuth: []
+      summary: Dialogflow projects locations knowledge bases documents import
+      x-summary-source: derived
+  /v2/projects/{projectsId}/locations/{locationsId}/knowledgeBases/{knowledgeBasesId}/documents:
+    get:
+      operationId: dialogflow_projects_locations_knowledgeBases_documents_list
+      tags:
+      - Documents
+      parameters:
+      - name: projectsId
+        in: path
+        description: 'Part of `parent`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/knowledgeBases/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: locationsId
+        in: path
+        description: 'Part of `parent`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/knowledgeBases/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: knowledgeBasesId
+        in: path
+        description: 'Part of `parent`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/knowledgeBases/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: filter
+        in: query
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        schema:
+          type: integer
+          format: int32
+      - name: pageToken
+        in: query
+        schema:
+          type: string
+      x-discovery-path-template: v2/{parent}/documents
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleCloudDialogflowV2ListDocumentsResponse'
+        default:
+          description: Error response (google.rpc.Status)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleRpcStatus'
+      security:
+      - OAuth2:
+        - https://www.googleapis.com/auth/cloud-platform
+        - https://www.googleapis.com/auth/dialogflow
+      - BearerAuth: []
+      summary: Dialogflow projects locations knowledge bases documents list
+      x-summary-source: derived
+    post:
+      operationId: dialogflow_projects_locations_knowledgeBases_documents_create
+      tags:
+      - Documents
+      parameters:
+      - name: projectsId
+        in: path
+        description: 'Part of `parent`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/knowledgeBases/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: locationsId
+        in: path
+        description: 'Part of `parent`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/knowledgeBases/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: knowledgeBasesId
+        in: path
+        description: 'Part of `parent`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/knowledgeBases/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      x-discovery-path-template: v2/{parent}/documents
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GoogleCloudDialogflowV2Document'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleLongrunningOperation'
+        default:
+          description: Error response (google.rpc.Status)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleRpcStatus'
+      security:
+      - OAuth2:
+        - https://www.googleapis.com/auth/cloud-platform
+        - https://www.googleapis.com/auth/dialogflow
+      - BearerAuth: []
+      summary: Dialogflow projects locations knowledge bases documents create
+      x-summary-source: derived
+  /v2/projects/{projectsId}/locations/{locationsId}/knowledgeBases/{knowledgeBasesId}/documents/{documentsId}:reload:
+    post:
+      operationId: dialogflow_projects_locations_knowledgeBases_documents_reload
+      tags:
+      - Documents
+      parameters:
+      - name: projectsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/knowledgeBases/[^/]+/documents/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: locationsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/knowledgeBases/[^/]+/documents/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: knowledgeBasesId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/knowledgeBases/[^/]+/documents/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: documentsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/knowledgeBases/[^/]+/documents/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      x-discovery-path-template: v2/{name}:reload
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GoogleCloudDialogflowV2ReloadDocumentRequest'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleLongrunningOperation'
+        default:
+          description: Error response (google.rpc.Status)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleRpcStatus'
+      security:
+      - OAuth2:
+        - https://www.googleapis.com/auth/cloud-platform
+        - https://www.googleapis.com/auth/dialogflow
+      - BearerAuth: []
+      summary: Dialogflow projects locations knowledge bases documents reload
+      x-summary-source: derived
+  /v2/projects/{projectsId}/agent/knowledgeBases/{knowledgeBasesId}/documents/{documentsId}:
+    patch:
+      operationId: dialogflow_projects_agent_knowledgeBases_documents_patch
+      tags:
+      - Documents
+      parameters:
+      - name: projectsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/agent/knowledgeBases/[^/]+/documents/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: knowledgeBasesId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/agent/knowledgeBases/[^/]+/documents/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: documentsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/agent/knowledgeBases/[^/]+/documents/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: updateMask
+        in: query
+        schema:
+          type: string
+      x-discovery-path-template: v2/{name}
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GoogleCloudDialogflowV2Document'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleLongrunningOperation'
+        default:
+          description: Error response (google.rpc.Status)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleRpcStatus'
+      security:
+      - OAuth2:
+        - https://www.googleapis.com/auth/cloud-platform
+        - https://www.googleapis.com/auth/dialogflow
+      - BearerAuth: []
+      summary: Dialogflow projects agent knowledge bases documents patch
+      x-summary-source: derived
+    get:
+      operationId: dialogflow_projects_agent_knowledgeBases_documents_get
+      tags:
+      - Documents
+      parameters:
+      - name: projectsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/agent/knowledgeBases/[^/]+/documents/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: knowledgeBasesId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/agent/knowledgeBases/[^/]+/documents/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: documentsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/agent/knowledgeBases/[^/]+/documents/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      x-discovery-path-template: v2/{name}
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleCloudDialogflowV2Document'
+        default:
+          description: Error response (google.rpc.Status)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleRpcStatus'
+      security:
+      - OAuth2:
+        - https://www.googleapis.com/auth/cloud-platform
+        - https://www.googleapis.com/auth/dialogflow
+      - BearerAuth: []
+      summary: Dialogflow projects agent knowledge bases documents get
+      x-summary-source: derived
+    delete:
+      operationId: dialogflow_projects_agent_knowledgeBases_documents_delete
+      tags:
+      - Documents
+      parameters:
+      - name: projectsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/agent/knowledgeBases/[^/]+/documents/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: knowledgeBasesId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/agent/knowledgeBases/[^/]+/documents/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: documentsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/agent/knowledgeBases/[^/]+/documents/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      x-discovery-path-template: v2/{name}
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleLongrunningOperation'
+        default:
+          description: Error response (google.rpc.Status)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleRpcStatus'
+      security:
+      - OAuth2:
+        - https://www.googleapis.com/auth/cloud-platform
+        - https://www.googleapis.com/auth/dialogflow
+      - BearerAuth: []
+      summary: Dialogflow projects agent knowledge bases documents delete
+      x-summary-source: derived
+  /v2/projects/{projectsId}/agent/knowledgeBases/{knowledgeBasesId}/documents:
+    get:
+      operationId: dialogflow_projects_agent_knowledgeBases_documents_list
+      tags:
+      - Documents
+      parameters:
+      - name: projectsId
+        in: path
+        description: 'Part of `parent`. Resource name pattern: `^projects/[^/]+/agent/knowledgeBases/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: knowledgeBasesId
+        in: path
+        description: 'Part of `parent`. Resource name pattern: `^projects/[^/]+/agent/knowledgeBases/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        schema:
+          type: integer
+          format: int32
+      - name: pageToken
+        in: query
+        schema:
+          type: string
+      - name: filter
+        in: query
+        schema:
+          type: string
+      x-discovery-path-template: v2/{parent}/documents
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleCloudDialogflowV2ListDocumentsResponse'
+        default:
+          description: Error response (google.rpc.Status)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleRpcStatus'
+      security:
+      - OAuth2:
+        - https://www.googleapis.com/auth/cloud-platform
+        - https://www.googleapis.com/auth/dialogflow
+      - BearerAuth: []
+      summary: Dialogflow projects agent knowledge bases documents list
+      x-summary-source: derived
+    post:
+      operationId: dialogflow_projects_agent_knowledgeBases_documents_create
+      tags:
+      - Documents
+      parameters:
+      - name: projectsId
+        in: path
+        description: 'Part of `parent`. Resource name pattern: `^projects/[^/]+/agent/knowledgeBases/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: knowledgeBasesId
+        in: path
+        description: 'Part of `parent`. Resource name pattern: `^projects/[^/]+/agent/knowledgeBases/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      x-discovery-path-template: v2/{parent}/documents
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GoogleCloudDialogflowV2Document'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleLongrunningOperation'
+        default:
+          description: Error response (google.rpc.Status)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleRpcStatus'
+      security:
+      - OAuth2:
+        - https://www.googleapis.com/auth/cloud-platform
+        - https://www.googleapis.com/auth/dialogflow
+      - BearerAuth: []
+      summary: Dialogflow projects agent knowledge bases documents create
+      x-summary-source: derived
+  /v2/projects/{projectsId}/agent/knowledgeBases/{knowledgeBasesId}/documents/{documentsId}:reload:
+    post:
+      operationId: dialogflow_projects_agent_knowledgeBases_documents_reload
+      tags:
+      - Documents
+      parameters:
+      - name: projectsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/agent/knowledgeBases/[^/]+/documents/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: knowledgeBasesId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/agent/knowledgeBases/[^/]+/documents/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: documentsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/agent/knowledgeBases/[^/]+/documents/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      x-discovery-path-template: v2/{name}:reload
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GoogleCloudDialogflowV2ReloadDocumentRequest'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleLongrunningOperation'
+        default:
+          description: Error response (google.rpc.Status)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleRpcStatus'
+      security:
+      - OAuth2:
+        - https://www.googleapis.com/auth/cloud-platform
+        - https://www.googleapis.com/auth/dialogflow
+      - BearerAuth: []
+      summary: Dialogflow projects agent knowledge bases documents reload
+      x-summary-source: derived
+components:
+  schemas:
+    GoogleCloudDialogflowV2GcsSources:
+      type: object
+      properties:
+        uris:
+          type: array
+          items:
+            type: string
+    GoogleCloudDialogflowV2ListDocumentsResponse:
+      type: object
+      properties:
+        documents:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowV2Document'
+        nextPageToken:
+          type: string
+    GoogleLongrunningOperation:
+      type: object
+      properties:
+        name:
+          type: string
+        metadata:
+          type: object
+          additionalProperties:
+            description: Properties of the object. Contains field @type with type URL.
+        done:
+          type: boolean
+        response:
+          type: object
+          additionalProperties:
+            description: Properties of the object. Contains field @type with type URL.
+        error:
+          $ref: '#/components/schemas/GoogleRpcStatus'
+    GoogleRpcStatus:
+      type: object
+      properties:
+        message:
+          type: string
+        code:
+          type: integer
+          format: int32
+        details:
+          type: array
+          items:
+            type: object
+            additionalProperties:
+              description: Properties of the object. Contains field @type with type URL.
+    GoogleCloudDialogflowV2Document:
+      type: object
+      properties:
+        state:
+          type: string
+          enum:
+          - STATE_UNSPECIFIED
+          - CREATING
+          - ACTIVE
+          - UPDATING
+          - RELOADING
+          - DELETING
+          x-enumDescriptions:
+          - ''
+          - ''
+          - ''
+          - ''
+          - ''
+          - ''
+          readOnly: true
+        name:
+          type: string
+        displayName:
+          type: string
+        latestReloadStatus:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2DocumentReloadStatus'
+        mimeType:
+          type: string
+        knowledgeTypes:
+          type: array
+          items:
+            type: string
+            enum:
+            - KNOWLEDGE_TYPE_UNSPECIFIED
+            - FAQ
+            - EXTRACTIVE_QA
+            - ARTICLE_SUGGESTION
+            - AGENT_FACING_SMART_REPLY
+            x-enumDescriptions:
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+        enableAutoReload:
+          type: boolean
+        rawContent:
+          type: string
+          format: byte
+        metadata:
+          type: object
+          additionalProperties:
+            type: string
+        contentUri:
+          type: string
+    GoogleCloudDialogflowV2DocumentReloadStatus:
+      type: object
+      properties:
+        time:
+          type: string
+          format: date-time
+        status:
+          $ref: '#/components/schemas/GoogleRpcStatus'
+    GoogleCloudDialogflowV2GcsDestination:
+      type: object
+      properties:
+        uri:
+          type: string
+    GoogleCloudDialogflowV2ExportDocumentRequest:
+      type: object
+      properties:
+        gcsDestination:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2GcsDestination'
+        exportFullContent:
+          type: boolean
+        smartMessagingPartialUpdate:
+          type: boolean
+    GoogleCloudDialogflowV2ImportDocumentTemplate:
+      type: object
+      properties:
+        mimeType:
+          type: string
+        metadata:
+          type: object
+          additionalProperties:
+            type: string
+        knowledgeTypes:
+          type: array
+          items:
+            type: string
+            enum:
+            - KNOWLEDGE_TYPE_UNSPECIFIED
+            - FAQ
+            - EXTRACTIVE_QA
+            - ARTICLE_SUGGESTION
+            - AGENT_FACING_SMART_REPLY
+            x-enumDescriptions:
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+    GoogleCloudDialogflowV2ImportDocumentsRequest:
+      type: object
+      properties:
+        importGcsCustomMetadata:
+          type: boolean
+        documentTemplate:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2ImportDocumentTemplate'
+        gcsSource:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2GcsSources'
+    GoogleCloudDialogflowV2ReloadDocumentRequest:
+      type: object
+      properties:
+        smartMessagingPartialUpdate:
+          type: boolean
+        importGcsCustomMetadata:
+          type: boolean
+        contentUri:
+          type: string
+  securitySchemes:
+    OAuth2:
+      type: oauth2
+      description: Google OAuth 2.0. Scopes are declared per operation in the Discovery Document.
+      flows:
+        authorizationCode:
+          authorizationUrl: https://accounts.google.com/o/oauth2/v2/auth
+          tokenUrl: https://oauth2.googleapis.com/token
+          scopes:
+            https://www.googleapis.com/auth/dialogflow: View, manage and query your Dialogflow agents
+            https://www.googleapis.com/auth/cloud-platform: See, edit, configure, and delete your Google Cloud data and see the email address for your Google Account.
+    BearerAuth:
+      type: http
+      scheme: bearer
+      description: 'Google OAuth 2.0 access token or service-account-minted bearer token, sent as Authorization: Bearer <token>.'
+externalDocs:
+  description: Dialogflow ES documentation
+  url: https://cloud.google.com/dialogflow/es/docs

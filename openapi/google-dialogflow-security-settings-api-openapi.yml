@@ -1,0 +1,386 @@
+openapi: 3.2.0
+info:
+  title: Dialogflow CX API (v3) - Conversational Agents Security…
+  version: v3
+  description: Dialogflow CX (Conversational Agents) builds flow- and playbook-based agents with pages, routes, webhooks, tools, test cases, environments, experiments and data stores. This OpenAPI is a mechanical conversion of the first-party Google Discovery Document served by dialogflow.googleapis.com.
+  contact:
+    name: Google Cloud
+    url: https://cloud.google.com/dialogflow/
+  termsOfService: https://cloud.google.com/terms
+  license:
+    name: Google APIs Terms of Service
+    url: https://developers.google.com/terms
+  x-discovery-source: https://dialogflow.googleapis.com/$discovery/rest?version=v3
+  x-discovery-revision: '20260825'
+  x-discovery-id: dialogflow:v3
+servers:
+- url: https://dialogflow.googleapis.com
+  description: Dialogflow API
+security:
+- OAuth2:
+  - https://www.googleapis.com/auth/cloud-platform
+  - https://www.googleapis.com/auth/dialogflow
+- BearerAuth: []
+tags:
+- name: Security Settings
+paths:
+  /v3/projects/{projectsId}/locations/{locationsId}/securitySettings:
+    get:
+      operationId: dialogflow_projects_locations_securitySettings_list
+      tags:
+      - Security Settings
+      parameters:
+      - name: projectsId
+        in: path
+        description: 'Part of `parent`. Resource name pattern: `^projects/[^/]+/locations/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: locationsId
+        in: path
+        description: 'Part of `parent`. Resource name pattern: `^projects/[^/]+/locations/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        schema:
+          type: integer
+          format: int32
+      - name: pageToken
+        in: query
+        schema:
+          type: string
+      x-discovery-path-template: v3/{parent}/securitySettings
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleCloudDialogflowCxV3ListSecuritySettingsResponse'
+        default:
+          description: Error response (google.rpc.Status)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleRpcStatus'
+      security:
+      - OAuth2:
+        - https://www.googleapis.com/auth/cloud-platform
+        - https://www.googleapis.com/auth/dialogflow
+      - BearerAuth: []
+      summary: Dialogflow projects locations security settings list
+      x-summary-source: derived
+    post:
+      operationId: dialogflow_projects_locations_securitySettings_create
+      tags:
+      - Security Settings
+      parameters:
+      - name: projectsId
+        in: path
+        description: 'Part of `parent`. Resource name pattern: `^projects/[^/]+/locations/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: locationsId
+        in: path
+        description: 'Part of `parent`. Resource name pattern: `^projects/[^/]+/locations/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      x-discovery-path-template: v3/{parent}/securitySettings
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GoogleCloudDialogflowCxV3SecuritySettings'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleCloudDialogflowCxV3SecuritySettings'
+        default:
+          description: Error response (google.rpc.Status)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleRpcStatus'
+      security:
+      - OAuth2:
+        - https://www.googleapis.com/auth/cloud-platform
+        - https://www.googleapis.com/auth/dialogflow
+      - BearerAuth: []
+      summary: Dialogflow projects locations security settings create
+      x-summary-source: derived
+  /v3/projects/{projectsId}/locations/{locationsId}/securitySettings/{securitySettingsId}:
+    get:
+      operationId: dialogflow_projects_locations_securitySettings_get
+      tags:
+      - Security Settings
+      parameters:
+      - name: projectsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/securitySettings/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: locationsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/securitySettings/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: securitySettingsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/securitySettings/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      x-discovery-path-template: v3/{name}
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleCloudDialogflowCxV3SecuritySettings'
+        default:
+          description: Error response (google.rpc.Status)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleRpcStatus'
+      security:
+      - OAuth2:
+        - https://www.googleapis.com/auth/cloud-platform
+        - https://www.googleapis.com/auth/dialogflow
+      - BearerAuth: []
+      summary: Dialogflow projects locations security settings get
+      x-summary-source: derived
+    patch:
+      operationId: dialogflow_projects_locations_securitySettings_patch
+      tags:
+      - Security Settings
+      parameters:
+      - name: projectsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/securitySettings/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: locationsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/securitySettings/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: securitySettingsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/securitySettings/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: updateMask
+        in: query
+        schema:
+          type: string
+      x-discovery-path-template: v3/{name}
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GoogleCloudDialogflowCxV3SecuritySettings'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleCloudDialogflowCxV3SecuritySettings'
+        default:
+          description: Error response (google.rpc.Status)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleRpcStatus'
+      security:
+      - OAuth2:
+        - https://www.googleapis.com/auth/cloud-platform
+        - https://www.googleapis.com/auth/dialogflow
+      - BearerAuth: []
+      summary: Dialogflow projects locations security settings patch
+      x-summary-source: derived
+    delete:
+      operationId: dialogflow_projects_locations_securitySettings_delete
+      tags:
+      - Security Settings
+      parameters:
+      - name: projectsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/securitySettings/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: locationsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/securitySettings/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      - name: securitySettingsId
+        in: path
+        description: 'Part of `name`. Resource name pattern: `^projects/[^/]+/locations/[^/]+/securitySettings/[^/]+$`.'
+        required: true
+        schema:
+          type: string
+      x-discovery-path-template: v3/{name}
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleProtobufEmpty'
+        default:
+          description: Error response (google.rpc.Status)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleRpcStatus'
+      security:
+      - OAuth2:
+        - https://www.googleapis.com/auth/cloud-platform
+        - https://www.googleapis.com/auth/dialogflow
+      - BearerAuth: []
+      summary: Dialogflow projects locations security settings delete
+      x-summary-source: derived
+components:
+  schemas:
+    GoogleCloudDialogflowCxV3SecuritySettingsInsightsExportSettings:
+      type: object
+      properties:
+        enableInsightsExport:
+          type: boolean
+    GoogleCloudDialogflowCxV3SecuritySettings:
+      type: object
+      properties:
+        insightsExportSettings:
+          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3SecuritySettingsInsightsExportSettings'
+        redactionScope:
+          type: string
+          enum:
+          - REDACTION_SCOPE_UNSPECIFIED
+          - REDACT_DISK_STORAGE
+          x-enumDescriptions:
+          - ''
+          - ''
+        name:
+          type: string
+        audioExportSettings:
+          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3SecuritySettingsAudioExportSettings'
+        displayName:
+          type: string
+        deidentifyTemplate:
+          type: string
+        inspectTemplate:
+          type: string
+        purgeDataTypes:
+          type: array
+          items:
+            type: string
+            enum:
+            - PURGE_DATA_TYPE_UNSPECIFIED
+            - DIALOGFLOW_HISTORY
+            x-enumDescriptions:
+            - ''
+            - ''
+        retentionWindowDays:
+          type: integer
+          format: int32
+        redactionStrategy:
+          type: string
+          enum:
+          - REDACTION_STRATEGY_UNSPECIFIED
+          - REDACT_WITH_SERVICE
+          x-enumDescriptions:
+          - ''
+          - ''
+        retentionStrategy:
+          type: string
+          enum:
+          - RETENTION_STRATEGY_UNSPECIFIED
+          - REMOVE_AFTER_CONVERSATION
+          x-enumDescriptions:
+          - ''
+          - ''
+    GoogleRpcStatus:
+      type: object
+      properties:
+        message:
+          type: string
+        code:
+          type: integer
+          format: int32
+        details:
+          type: array
+          items:
+            type: object
+            additionalProperties:
+              description: Properties of the object. Contains field @type with type URL.
+    GoogleProtobufEmpty:
+      type: object
+    GoogleCloudDialogflowCxV3SecuritySettingsAudioExportSettings:
+      type: object
+      properties:
+        enableAudioRedaction:
+          type: boolean
+        gcsBucket:
+          type: string
+        audioFormat:
+          type: string
+          enum:
+          - AUDIO_FORMAT_UNSPECIFIED
+          - MULAW
+          - MP3
+          - OGG
+          x-enumDescriptions:
+          - ''
+          - ''
+          - ''
+          - ''
+        storeTtsAudio:
+          type: boolean
+        audioExportPattern:
+          type: string
+    GoogleCloudDialogflowCxV3ListSecuritySettingsResponse:
+      type: object
+      properties:
+        nextPageToken:
+          type: string
+        securitySettings:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowCxV3SecuritySettings'
+  securitySchemes:
+    OAuth2:
+      type: oauth2
+      description: Google OAuth 2.0. Scopes are declared per operation in the Discovery Document.
+      flows:
+        authorizationCode:
+          authorizationUrl: https://accounts.google.com/o/oauth2/v2/auth
+          tokenUrl: https://oauth2.googleapis.com/token
+          scopes:
+            https://www.googleapis.com/auth/cloud-platform: See, edit, configure, and delete your Google Cloud data and see the email address for your Google Account.
+            https://www.googleapis.com/auth/dialogflow: View, manage and query your Dialogflow agents
+    BearerAuth:
+      type: http
+      scheme: bearer
+      description: 'Google OAuth 2.0 access token or service-account-minted bearer token, sent as Authorization: Bearer <token>.'
+externalDocs:
+  description: Dialogflow CX documentation
+  url: https://cloud.google.com/dialogflow/cx/docs
