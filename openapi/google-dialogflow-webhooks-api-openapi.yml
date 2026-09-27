@@ -295,35 +295,6 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    GoogleCloudDialogflowCxV3Webhook:
-      type: object
-      properties:
-        genericWebService:
-          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3WebhookGenericWebService'
-        timeout:
-          type: string
-        name:
-          type: string
-        serviceDirectory:
-          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3WebhookServiceDirectoryConfig'
-        disabled:
-          type: boolean
-        displayName:
-          type: string
-    GoogleRpcStatus:
-      type: object
-      properties:
-        message:
-          type: string
-        code:
-          type: integer
-          format: int32
-        details:
-          type: array
-          items:
-            type: object
-            additionalProperties:
-              description: Properties of the object. Contains field @type with type URL.
     GoogleCloudDialogflowCxV3WebhookGenericWebService:
       type: object
       properties:
@@ -400,28 +371,24 @@ components:
           - ''
           - ''
           - ''
-    GoogleProtobufEmpty:
-      type: object
-    GoogleCloudDialogflowCxV3ListWebhooksResponse:
+    GoogleRpcStatus:
       type: object
       properties:
-        webhooks:
+        message:
+          type: string
+        code:
+          type: integer
+          format: int32
+        details:
           type: array
           items:
-            $ref: '#/components/schemas/GoogleCloudDialogflowCxV3Webhook'
-        nextPageToken:
-          type: string
-    GoogleCloudDialogflowCxV3WebhookGenericWebServiceSecretVersionHeaderValue:
+            type: object
+            additionalProperties:
+              description: Properties of the object. Contains field @type with type URL.
+    GoogleCloudDialogflowCxV3WebhookGenericWebServiceServiceAccountAuthConfig:
       type: object
       properties:
-        secretVersion:
-          type: string
-    GoogleCloudDialogflowCxV3WebhookServiceDirectoryConfig:
-      type: object
-      properties:
-        genericWebService:
-          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3WebhookGenericWebService'
-        service:
+        serviceAccount:
           type: string
     GoogleCloudDialogflowCxV3WebhookGenericWebServiceOAuthConfig:
       type: object
@@ -438,11 +405,44 @@ components:
           type: string
         tokenEndpoint:
           type: string
-    GoogleCloudDialogflowCxV3WebhookGenericWebServiceServiceAccountAuthConfig:
+    GoogleCloudDialogflowCxV3WebhookGenericWebServiceSecretVersionHeaderValue:
       type: object
       properties:
-        serviceAccount:
+        secretVersion:
           type: string
+    GoogleCloudDialogflowCxV3WebhookServiceDirectoryConfig:
+      type: object
+      properties:
+        genericWebService:
+          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3WebhookGenericWebService'
+        service:
+          type: string
+    GoogleCloudDialogflowCxV3Webhook:
+      type: object
+      properties:
+        genericWebService:
+          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3WebhookGenericWebService'
+        timeout:
+          type: string
+        name:
+          type: string
+        serviceDirectory:
+          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3WebhookServiceDirectoryConfig'
+        disabled:
+          type: boolean
+        displayName:
+          type: string
+    GoogleCloudDialogflowCxV3ListWebhooksResponse:
+      type: object
+      properties:
+        webhooks:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowCxV3Webhook'
+        nextPageToken:
+          type: string
+    GoogleProtobufEmpty:
+      type: object
   securitySchemes:
     OAuth2:
       type: oauth2

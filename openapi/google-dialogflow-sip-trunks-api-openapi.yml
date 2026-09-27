@@ -261,6 +261,33 @@ paths:
       x-summary-source: derived
 components:
   schemas:
+    GoogleCloudDialogflowV2Connection:
+      type: object
+      properties:
+        connectionId:
+          type: string
+          readOnly: true
+        errorDetails:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2ConnectionErrorDetails'
+        state:
+          type: string
+          enum:
+          - STATE_UNSPECIFIED
+          - CONNECTED
+          - DISCONNECTED
+          - AUTHENTICATION_FAILED
+          - KEEPALIVE
+          x-enumDescriptions:
+          - ''
+          - ''
+          - ''
+          - ''
+          - ''
+          readOnly: true
+        updateTime:
+          type: string
+          format: date-time
+          readOnly: true
     GoogleCloudDialogflowV2SipHostnameHostnameErrorDetails:
       type: object
       properties:
@@ -290,34 +317,6 @@ components:
           - ''
           - ''
           readOnly: true
-    GoogleCloudDialogflowV2ConnectionErrorDetails:
-      type: object
-      properties:
-        errorMessage:
-          type: string
-        certificateState:
-          type: string
-          enum:
-          - CERTIFICATE_STATE_UNSPECIFIED
-          - CERTIFICATE_VALID
-          - CERTIFICATE_INVALID
-          - CERTIFICATE_EXPIRED
-          - CERTIFICATE_HOSTNAME_NOT_FOUND
-          - CERTIFICATE_UNAUTHENTICATED
-          - CERTIFICATE_TRUST_STORE_NOT_FOUND
-          - CERTIFICATE_HOSTNAME_INVALID_FORMAT
-          - CERTIFICATE_QUOTA_EXCEEDED
-          x-enumDescriptions:
-          - ''
-          - ''
-          - ''
-          - ''
-          - ''
-          - ''
-          - ''
-          - ''
-          - ''
-          readOnly: true
     GoogleRpcStatus:
       type: object
       properties:
@@ -332,6 +331,15 @@ components:
             type: object
             additionalProperties:
               description: Properties of the object. Contains field @type with type URL.
+    GoogleCloudDialogflowV2ListSipTrunksResponse:
+      type: object
+      properties:
+        sipTrunks:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowV2SipTrunk'
+        nextPageToken:
+          type: string
     GoogleCloudDialogflowV2ProbeDetails:
       type: object
       properties:
@@ -353,8 +361,34 @@ components:
           - ''
           - ''
           readOnly: true
-    GoogleProtobufEmpty:
+    GoogleCloudDialogflowV2SipTrunk:
       type: object
+      properties:
+        peerHostnames:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowV2SipHostname'
+        connections:
+          type: array
+          readOnly: true
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowV2Connection'
+        googleRootCertFile:
+          type: string
+          enum:
+          - CERT_FILE_UNSPECIFIED
+          - EXTERNAL_PRIVATE_CA
+          x-enumDescriptions:
+          - ''
+          - ''
+        displayName:
+          type: string
+        expectedHostname:
+          type: array
+          items:
+            type: string
+        name:
+          type: string
     GoogleCloudDialogflowV2SipHostname:
       type: object
       properties:
@@ -388,70 +422,36 @@ components:
           readOnly: true
         errorDetails:
           $ref: '#/components/schemas/GoogleCloudDialogflowV2SipHostnameHostnameErrorDetails'
-    GoogleCloudDialogflowV2Connection:
+    GoogleProtobufEmpty:
+      type: object
+    GoogleCloudDialogflowV2ConnectionErrorDetails:
       type: object
       properties:
-        connectionId:
+        errorMessage:
           type: string
-          readOnly: true
-        errorDetails:
-          $ref: '#/components/schemas/GoogleCloudDialogflowV2ConnectionErrorDetails'
-        state:
+        certificateState:
           type: string
           enum:
-          - STATE_UNSPECIFIED
-          - CONNECTED
-          - DISCONNECTED
-          - AUTHENTICATION_FAILED
-          - KEEPALIVE
+          - CERTIFICATE_STATE_UNSPECIFIED
+          - CERTIFICATE_VALID
+          - CERTIFICATE_INVALID
+          - CERTIFICATE_EXPIRED
+          - CERTIFICATE_HOSTNAME_NOT_FOUND
+          - CERTIFICATE_UNAUTHENTICATED
+          - CERTIFICATE_TRUST_STORE_NOT_FOUND
+          - CERTIFICATE_HOSTNAME_INVALID_FORMAT
+          - CERTIFICATE_QUOTA_EXCEEDED
           x-enumDescriptions:
           - ''
           - ''
           - ''
           - ''
           - ''
-          readOnly: true
-        updateTime:
-          type: string
-          format: date-time
-          readOnly: true
-    GoogleCloudDialogflowV2SipTrunk:
-      type: object
-      properties:
-        peerHostnames:
-          type: array
-          items:
-            $ref: '#/components/schemas/GoogleCloudDialogflowV2SipHostname'
-        connections:
-          type: array
-          readOnly: true
-          items:
-            $ref: '#/components/schemas/GoogleCloudDialogflowV2Connection'
-        googleRootCertFile:
-          type: string
-          enum:
-          - CERT_FILE_UNSPECIFIED
-          - EXTERNAL_PRIVATE_CA
-          x-enumDescriptions:
           - ''
           - ''
-        displayName:
-          type: string
-        expectedHostname:
-          type: array
-          items:
-            type: string
-        name:
-          type: string
-    GoogleCloudDialogflowV2ListSipTrunksResponse:
-      type: object
-      properties:
-        sipTrunks:
-          type: array
-          items:
-            $ref: '#/components/schemas/GoogleCloudDialogflowV2SipTrunk'
-        nextPageToken:
-          type: string
+          - ''
+          - ''
+          readOnly: true
   securitySchemes:
     OAuth2:
       type: oauth2

@@ -119,7 +119,7 @@ paths:
       description: Dialogflow API
   /v2/projects/{projectsId}/locations/{locationsId}:
     get:
-      operationId: dialogflow_projects_locations_get
+      operationId: getV2ProjectsByProjectsIdLocationsByLocationsId
       tags:
       - Locations
       parameters:
@@ -156,6 +156,8 @@ paths:
       - BearerAuth: []
       summary: Dialogflow projects locations get
       x-summary-source: derived
+      x-operation-id-source: normalized
+      x-operation-id-original: dialogflow_projects_locations_get
     servers:
     - url: https://dialogflow.googleapis.com
       description: Dialogflow API
@@ -331,7 +333,7 @@ paths:
       description: Dialogflow API
   /v2/projects/{projectsId}/locations:
     get:
-      operationId: dialogflow_projects_locations_list
+      operationId: getV2ProjectsByProjectsIdLocations
       tags:
       - Locations
       parameters:
@@ -381,34 +383,13 @@ paths:
       - BearerAuth: []
       summary: Dialogflow projects locations list
       x-summary-source: derived
+      x-operation-id-source: normalized
+      x-operation-id-original: dialogflow_projects_locations_list
     servers:
     - url: https://dialogflow.googleapis.com
       description: Dialogflow API
 components:
   schemas:
-    GoogleRpcStatus:
-      type: object
-      properties:
-        message:
-          type: string
-        code:
-          type: integer
-          format: int32
-        details:
-          type: array
-          items:
-            type: object
-            additionalProperties:
-              description: Properties of the object. Contains field @type with type URL.
-    GoogleCloudLocationListLocationsResponse:
-      type: object
-      properties:
-        locations:
-          type: array
-          items:
-            $ref: '#/components/schemas/GoogleCloudLocationLocation'
-        nextPageToken:
-          type: string
     GoogleCloudLocationLocation:
       type: object
       properties:
@@ -426,8 +407,36 @@ components:
             description: Properties of the object. Contains field @type with type URL.
         locationId:
           type: string
-    GoogleProtobufEmpty:
+    GoogleCloudLocationListLocationsResponse:
       type: object
+      properties:
+        locations:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudLocationLocation'
+        nextPageToken:
+          type: string
+    GoogleRpcStatus:
+      type: object
+      properties:
+        message:
+          type: string
+        code:
+          type: integer
+          format: int32
+        details:
+          type: array
+          items:
+            type: object
+            additionalProperties:
+              description: Properties of the object. Contains field @type with type URL.
+    GoogleCloudDialogflowV2EncryptionSpec:
+      type: object
+      properties:
+        name:
+          type: string
+        kmsKey:
+          type: string
     GoogleCloudDialogflowV2Agent:
       type: object
       properties:
@@ -486,13 +495,8 @@ components:
           format: float
         enableLogging:
           type: boolean
-    GoogleCloudDialogflowV2EncryptionSpec:
+    GoogleProtobufEmpty:
       type: object
-      properties:
-        name:
-          type: string
-        kmsKey:
-          type: string
   securitySchemes:
     OAuth2:
       type: oauth2

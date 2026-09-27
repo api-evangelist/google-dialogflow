@@ -40,7 +40,7 @@ tags:
 - Chatbots
 - Conversational AI
 - Google Cloud
-- Machine-Learning
+- Machine Learning
 - Natural Language Processing
 - Speech Recognition
 - Virtual Agents
@@ -56,15 +56,17 @@ tags_raw:
 - Speech Recognition
 - Virtual Agents
 - Voice Assistants
+- Machine-Learning
 apis:
 - name: Dialogflow
   description: Natural Language Processing
   humanURL: https://cloud.google.com/dialogflow/docs/
   baseURL: https://cloud.google.com/dialogflow/docs/
   tags:
-  - Machine-Learning
+  - Machine Learning
   tags_raw:
   - Machine Learning
+  - Machine-Learning
   properties:
   - type: Documentation
     url: https://cloud.google.com/dialogflow/docs/

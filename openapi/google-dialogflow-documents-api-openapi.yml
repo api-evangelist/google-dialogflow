@@ -1136,53 +1136,6 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    GoogleCloudDialogflowV2GcsSources:
-      type: object
-      properties:
-        uris:
-          type: array
-          items:
-            type: string
-    GoogleCloudDialogflowV2ListDocumentsResponse:
-      type: object
-      properties:
-        documents:
-          type: array
-          items:
-            $ref: '#/components/schemas/GoogleCloudDialogflowV2Document'
-        nextPageToken:
-          type: string
-    GoogleLongrunningOperation:
-      type: object
-      properties:
-        name:
-          type: string
-        metadata:
-          type: object
-          additionalProperties:
-            description: Properties of the object. Contains field @type with type URL.
-        done:
-          type: boolean
-        response:
-          type: object
-          additionalProperties:
-            description: Properties of the object. Contains field @type with type URL.
-        error:
-          $ref: '#/components/schemas/GoogleRpcStatus'
-    GoogleRpcStatus:
-      type: object
-      properties:
-        message:
-          type: string
-        code:
-          type: integer
-          format: int32
-        details:
-          type: array
-          items:
-            type: object
-            additionalProperties:
-              description: Properties of the object. Contains field @type with type URL.
     GoogleCloudDialogflowV2Document:
       type: object
       properties:
@@ -1238,6 +1191,29 @@ components:
             type: string
         contentUri:
           type: string
+    GoogleCloudDialogflowV2ImportDocumentsRequest:
+      type: object
+      properties:
+        importGcsCustomMetadata:
+          type: boolean
+        documentTemplate:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2ImportDocumentTemplate'
+        gcsSource:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2GcsSources'
+    GoogleRpcStatus:
+      type: object
+      properties:
+        message:
+          type: string
+        code:
+          type: integer
+          format: int32
+        details:
+          type: array
+          items:
+            type: object
+            additionalProperties:
+              description: Properties of the object. Contains field @type with type URL.
     GoogleCloudDialogflowV2DocumentReloadStatus:
       type: object
       properties:
@@ -1246,10 +1222,14 @@ components:
           format: date-time
         status:
           $ref: '#/components/schemas/GoogleRpcStatus'
-    GoogleCloudDialogflowV2GcsDestination:
+    GoogleCloudDialogflowV2ReloadDocumentRequest:
       type: object
       properties:
-        uri:
+        smartMessagingPartialUpdate:
+          type: boolean
+        importGcsCustomMetadata:
+          type: boolean
+        contentUri:
           type: string
     GoogleCloudDialogflowV2ExportDocumentRequest:
       type: object
@@ -1260,6 +1240,20 @@ components:
           type: boolean
         smartMessagingPartialUpdate:
           type: boolean
+    GoogleCloudDialogflowV2GcsDestination:
+      type: object
+      properties:
+        uri:
+          type: string
+    GoogleCloudDialogflowV2ListDocumentsResponse:
+      type: object
+      properties:
+        documents:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowV2Document'
+        nextPageToken:
+          type: string
     GoogleCloudDialogflowV2ImportDocumentTemplate:
       type: object
       properties:
@@ -1285,24 +1279,30 @@ components:
             - ''
             - ''
             - ''
-    GoogleCloudDialogflowV2ImportDocumentsRequest:
+    GoogleCloudDialogflowV2GcsSources:
       type: object
       properties:
-        importGcsCustomMetadata:
-          type: boolean
-        documentTemplate:
-          $ref: '#/components/schemas/GoogleCloudDialogflowV2ImportDocumentTemplate'
-        gcsSource:
-          $ref: '#/components/schemas/GoogleCloudDialogflowV2GcsSources'
-    GoogleCloudDialogflowV2ReloadDocumentRequest:
+        uris:
+          type: array
+          items:
+            type: string
+    GoogleLongrunningOperation:
       type: object
       properties:
-        smartMessagingPartialUpdate:
-          type: boolean
-        importGcsCustomMetadata:
-          type: boolean
-        contentUri:
+        name:
           type: string
+        metadata:
+          type: object
+          additionalProperties:
+            description: Properties of the object. Contains field @type with type URL.
+        done:
+          type: boolean
+        response:
+          type: object
+          additionalProperties:
+            description: Properties of the object. Contains field @type with type URL.
+        error:
+          $ref: '#/components/schemas/GoogleRpcStatus'
   securitySchemes:
     OAuth2:
       type: oauth2

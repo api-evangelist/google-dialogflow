@@ -136,6 +136,11 @@ paths:
       x-summary-source: derived
 components:
   schemas:
+    GoogleCloudDialogflowV2SentimentAnalysisResult:
+      type: object
+      properties:
+        queryTextSentiment:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2Sentiment'
     GoogleRpcStatus:
       type: object
       properties:
@@ -159,6 +164,32 @@ components:
         score:
           type: number
           format: float
+    GoogleCloudDialogflowV2AnnotatedMessagePart:
+      type: object
+      properties:
+        entityType:
+          type: string
+        formattedValue: {}
+        text:
+          type: string
+    GoogleCloudDialogflowV2MessageAnnotation:
+      type: object
+      properties:
+        parts:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowV2AnnotatedMessagePart'
+        containEntities:
+          type: boolean
+    GoogleCloudDialogflowV2ListMessagesResponse:
+      type: object
+      properties:
+        messages:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowV2Message'
+        nextPageToken:
+          type: string
     GoogleCloudDialogflowV2Message:
       type: object
       properties:
@@ -194,37 +225,6 @@ components:
         content:
           type: string
         languageCode:
-          type: string
-    GoogleCloudDialogflowV2AnnotatedMessagePart:
-      type: object
-      properties:
-        entityType:
-          type: string
-        formattedValue: {}
-        text:
-          type: string
-    GoogleCloudDialogflowV2MessageAnnotation:
-      type: object
-      properties:
-        parts:
-          type: array
-          items:
-            $ref: '#/components/schemas/GoogleCloudDialogflowV2AnnotatedMessagePart'
-        containEntities:
-          type: boolean
-    GoogleCloudDialogflowV2SentimentAnalysisResult:
-      type: object
-      properties:
-        queryTextSentiment:
-          $ref: '#/components/schemas/GoogleCloudDialogflowV2Sentiment'
-    GoogleCloudDialogflowV2ListMessagesResponse:
-      type: object
-      properties:
-        messages:
-          type: array
-          items:
-            $ref: '#/components/schemas/GoogleCloudDialogflowV2Message'
-        nextPageToken:
           type: string
   securitySchemes:
     OAuth2:

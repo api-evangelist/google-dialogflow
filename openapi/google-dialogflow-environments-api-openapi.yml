@@ -1052,84 +1052,6 @@ paths:
       description: Dialogflow API
 components:
   schemas:
-    GoogleCloudDialogflowCxV3ListEnvironmentsResponse:
-      type: object
-      properties:
-        environments:
-          type: array
-          items:
-            $ref: '#/components/schemas/GoogleCloudDialogflowCxV3Environment'
-        nextPageToken:
-          type: string
-    GoogleCloudDialogflowCxV3Environment:
-      type: object
-      properties:
-        name:
-          type: string
-        testCasesConfig:
-          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3EnvironmentTestCasesConfig'
-        description:
-          type: string
-        updateTime:
-          type: string
-          format: date-time
-          readOnly: true
-        versionConfigs:
-          type: array
-          items:
-            $ref: '#/components/schemas/GoogleCloudDialogflowCxV3EnvironmentVersionConfig'
-        webhookConfig:
-          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3EnvironmentWebhookConfig'
-        displayName:
-          type: string
-    GoogleLongrunningOperation:
-      type: object
-      properties:
-        metadata:
-          type: object
-          additionalProperties:
-            description: Properties of the object. Contains field @type with type URL.
-        name:
-          type: string
-        done:
-          type: boolean
-        response:
-          type: object
-          additionalProperties:
-            description: Properties of the object. Contains field @type with type URL.
-        error:
-          $ref: '#/components/schemas/GoogleRpcStatus'
-    GoogleCloudDialogflowCxV3Webhook:
-      type: object
-      properties:
-        genericWebService:
-          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3WebhookGenericWebService'
-        timeout:
-          type: string
-        name:
-          type: string
-        serviceDirectory:
-          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3WebhookServiceDirectoryConfig'
-        disabled:
-          type: boolean
-        displayName:
-          type: string
-    GoogleCloudDialogflowCxV3RunContinuousTestRequest:
-      type: object
-    GoogleRpcStatus:
-      type: object
-      properties:
-        message:
-          type: string
-        code:
-          type: integer
-          format: int32
-        details:
-          type: array
-          items:
-            type: object
-            additionalProperties:
-              description: Properties of the object. Contains field @type with type URL.
     GoogleCloudDialogflowCxV3WebhookGenericWebService:
       type: object
       properties:
@@ -1206,15 +1128,6 @@ components:
           - ''
           - ''
           - ''
-    GoogleProtobufEmpty:
-      type: object
-    GoogleCloudDialogflowCxV3EnvironmentWebhookConfig:
-      type: object
-      properties:
-        webhookOverrides:
-          type: array
-          items:
-            $ref: '#/components/schemas/GoogleCloudDialogflowCxV3Webhook'
     GoogleCloudDialogflowCxV3WebhookGenericWebServiceSecretVersionHeaderValue:
       type: object
       properties:
@@ -1227,16 +1140,73 @@ components:
           $ref: '#/components/schemas/GoogleCloudDialogflowCxV3WebhookGenericWebService'
         service:
           type: string
-    GoogleCloudDialogflowCxV3EnvironmentVersionConfig:
+    GoogleCloudDialogflowCxV3ListEnvironmentsResponse:
       type: object
       properties:
-        version:
+        environments:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowCxV3Environment'
+        nextPageToken:
           type: string
+    GoogleCloudDialogflowCxV3RunContinuousTestRequest:
+      type: object
+    GoogleRpcStatus:
+      type: object
+      properties:
+        message:
+          type: string
+        code:
+          type: integer
+          format: int32
+        details:
+          type: array
+          items:
+            type: object
+            additionalProperties:
+              description: Properties of the object. Contains field @type with type URL.
     GoogleCloudDialogflowCxV3DeployFlowRequest:
       type: object
       properties:
         flowVersion:
           type: string
+    GoogleCloudDialogflowCxV3WebhookGenericWebServiceServiceAccountAuthConfig:
+      type: object
+      properties:
+        serviceAccount:
+          type: string
+    GoogleCloudDialogflowCxV3EnvironmentTestCasesConfig:
+      type: object
+      properties:
+        enableContinuousRun:
+          type: boolean
+        testCases:
+          type: array
+          items:
+            type: string
+        enablePredeploymentRun:
+          type: boolean
+    GoogleCloudDialogflowCxV3LookupEnvironmentHistoryResponse:
+      type: object
+      properties:
+        environments:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowCxV3Environment'
+        nextPageToken:
+          type: string
+    GoogleCloudDialogflowCxV3EnvironmentVersionConfig:
+      type: object
+      properties:
+        version:
+          type: string
+    GoogleCloudDialogflowCxV3EnvironmentWebhookConfig:
+      type: object
+      properties:
+        webhookOverrides:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowCxV3Webhook'
     GoogleCloudDialogflowCxV3WebhookGenericWebServiceOAuthConfig:
       type: object
       properties:
@@ -1252,31 +1222,148 @@ components:
           type: string
         tokenEndpoint:
           type: string
-    GoogleCloudDialogflowCxV3LookupEnvironmentHistoryResponse:
+    GoogleCloudDialogflowCxV3Environment:
+      type: object
+      properties:
+        name:
+          type: string
+        testCasesConfig:
+          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3EnvironmentTestCasesConfig'
+        description:
+          type: string
+        updateTime:
+          type: string
+          format: date-time
+          readOnly: true
+        versionConfigs:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowCxV3EnvironmentVersionConfig'
+        webhookConfig:
+          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3EnvironmentWebhookConfig'
+        displayName:
+          type: string
+    GoogleCloudDialogflowCxV3Webhook:
+      type: object
+      properties:
+        genericWebService:
+          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3WebhookGenericWebService'
+        timeout:
+          type: string
+        name:
+          type: string
+        serviceDirectory:
+          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3WebhookServiceDirectoryConfig'
+        disabled:
+          type: boolean
+        displayName:
+          type: string
+    GoogleLongrunningOperation:
+      type: object
+      properties:
+        metadata:
+          type: object
+          additionalProperties:
+            description: Properties of the object. Contains field @type with type URL.
+        name:
+          type: string
+        done:
+          type: boolean
+        response:
+          type: object
+          additionalProperties:
+            description: Properties of the object. Contains field @type with type URL.
+        error:
+          $ref: '#/components/schemas/GoogleRpcStatus'
+    GoogleProtobufEmpty:
+      type: object
+    GoogleCloudDialogflowV2VoiceSelectionParams:
+      type: object
+      properties:
+        ssmlGender:
+          type: string
+          enum:
+          - SSML_VOICE_GENDER_UNSPECIFIED
+          - SSML_VOICE_GENDER_MALE
+          - SSML_VOICE_GENDER_FEMALE
+          - SSML_VOICE_GENDER_NEUTRAL
+          x-enumDescriptions:
+          - ''
+          - ''
+          - ''
+          - ''
+        name:
+          type: string
+    GoogleCloudDialogflowV2SynthesizeSpeechConfig:
+      type: object
+      properties:
+        pitch:
+          type: number
+          format: double
+        effectsProfileId:
+          type: array
+          items:
+            type: string
+        volumeGainDb:
+          type: number
+          format: double
+        pronunciations:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowV2CustomPronunciationParams'
+        voice:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2VoiceSelectionParams'
+        speakingRate:
+          type: number
+          format: double
+    GoogleCloudDialogflowV2EnvironmentHistory:
+      type: object
+      properties:
+        entries:
+          type: array
+          readOnly: true
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowV2EnvironmentHistoryEntry'
+        parent:
+          type: string
+          readOnly: true
+        nextPageToken:
+          type: string
+          readOnly: true
+    GoogleCloudDialogflowV2EnvironmentHistoryEntry:
+      type: object
+      properties:
+        description:
+          type: string
+        createTime:
+          type: string
+          format: date-time
+        agentVersion:
+          type: string
+    GoogleCloudDialogflowV2ListEnvironmentsResponse:
       type: object
       properties:
         environments:
           type: array
           items:
-            $ref: '#/components/schemas/GoogleCloudDialogflowCxV3Environment'
+            $ref: '#/components/schemas/GoogleCloudDialogflowV2Environment'
         nextPageToken:
           type: string
-    GoogleCloudDialogflowCxV3EnvironmentTestCasesConfig:
+    GoogleCloudDialogflowV2Fulfillment:
       type: object
       properties:
-        enableContinuousRun:
+        displayName:
+          type: string
+        name:
+          type: string
+        enabled:
           type: boolean
-        testCases:
+        genericWebService:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2FulfillmentGenericWebService'
+        features:
           type: array
           items:
-            type: string
-        enablePredeploymentRun:
-          type: boolean
-    GoogleCloudDialogflowCxV3WebhookGenericWebServiceServiceAccountAuthConfig:
-      type: object
-      properties:
-        serviceAccount:
-          type: string
+            $ref: '#/components/schemas/GoogleCloudDialogflowV2FulfillmentFeature'
     GoogleCloudDialogflowV2Environment:
       type: object
       properties:
@@ -1308,21 +1395,17 @@ components:
           - ''
           - ''
           readOnly: true
-    GoogleCloudDialogflowV2Fulfillment:
+    GoogleCloudDialogflowV2FulfillmentFeature:
       type: object
       properties:
-        displayName:
+        type:
           type: string
-        name:
-          type: string
-        enabled:
-          type: boolean
-        genericWebService:
-          $ref: '#/components/schemas/GoogleCloudDialogflowV2FulfillmentGenericWebService'
-        features:
-          type: array
-          items:
-            $ref: '#/components/schemas/GoogleCloudDialogflowV2FulfillmentFeature'
+          enum:
+          - TYPE_UNSPECIFIED
+          - SMALLTALK
+          x-enumDescriptions:
+          - ''
+          - ''
     GoogleCloudDialogflowV2FulfillmentGenericWebService:
       type: object
       properties:
@@ -1338,42 +1421,6 @@ components:
           type: object
           additionalProperties:
             type: string
-    GoogleCloudDialogflowV2EnvironmentHistory:
-      type: object
-      properties:
-        entries:
-          type: array
-          readOnly: true
-          items:
-            $ref: '#/components/schemas/GoogleCloudDialogflowV2EnvironmentHistoryEntry'
-        parent:
-          type: string
-          readOnly: true
-        nextPageToken:
-          type: string
-          readOnly: true
-    GoogleCloudDialogflowV2SynthesizeSpeechConfig:
-      type: object
-      properties:
-        pitch:
-          type: number
-          format: double
-        effectsProfileId:
-          type: array
-          items:
-            type: string
-        volumeGainDb:
-          type: number
-          format: double
-        pronunciations:
-          type: array
-          items:
-            $ref: '#/components/schemas/GoogleCloudDialogflowV2CustomPronunciationParams'
-        voice:
-          $ref: '#/components/schemas/GoogleCloudDialogflowV2VoiceSelectionParams'
-        speakingRate:
-          type: number
-          format: double
     GoogleCloudDialogflowV2TextToSpeechSettings:
       type: object
       properties:
@@ -1404,44 +1451,6 @@ components:
           format: int32
         enableTextToSpeech:
           type: boolean
-    GoogleCloudDialogflowV2FulfillmentFeature:
-      type: object
-      properties:
-        type:
-          type: string
-          enum:
-          - TYPE_UNSPECIFIED
-          - SMALLTALK
-          x-enumDescriptions:
-          - ''
-          - ''
-    GoogleCloudDialogflowV2EnvironmentHistoryEntry:
-      type: object
-      properties:
-        description:
-          type: string
-        createTime:
-          type: string
-          format: date-time
-        agentVersion:
-          type: string
-    GoogleCloudDialogflowV2VoiceSelectionParams:
-      type: object
-      properties:
-        ssmlGender:
-          type: string
-          enum:
-          - SSML_VOICE_GENDER_UNSPECIFIED
-          - SSML_VOICE_GENDER_MALE
-          - SSML_VOICE_GENDER_FEMALE
-          - SSML_VOICE_GENDER_NEUTRAL
-          x-enumDescriptions:
-          - ''
-          - ''
-          - ''
-          - ''
-        name:
-          type: string
     GoogleCloudDialogflowV2CustomPronunciationParams:
       type: object
       properties:
@@ -1458,15 +1467,6 @@ components:
         phrase:
           type: string
         pronunciation:
-          type: string
-    GoogleCloudDialogflowV2ListEnvironmentsResponse:
-      type: object
-      properties:
-        environments:
-          type: array
-          items:
-            $ref: '#/components/schemas/GoogleCloudDialogflowV2Environment'
-        nextPageToken:
           type: string
   securitySchemes:
     OAuth2:

@@ -314,7 +314,7 @@ paths:
       description: Dialogflow API
   /v2/projects/{projectsId}/locations/{locationsId}/operations/{operationsId}:cancel:
     post:
-      operationId: dialogflow_projects_locations_operations_cancel
+      operationId: postV2ProjectsByProjectsIdLocationsByLocationsIdOperations{operationsId}:cancel
       tags:
       - Operations
       parameters:
@@ -357,12 +357,14 @@ paths:
       - BearerAuth: []
       summary: Dialogflow projects locations operations cancel
       x-summary-source: derived
+      x-operation-id-source: normalized
+      x-operation-id-original: dialogflow_projects_locations_operations_cancel
     servers:
     - url: https://dialogflow.googleapis.com
       description: Dialogflow API
   /v2/projects/{projectsId}/locations/{locationsId}/operations/{operationsId}:
     get:
-      operationId: dialogflow_projects_locations_operations_get
+      operationId: getV2ProjectsByProjectsIdLocationsByLocationsIdOperationsByOperationsId
       tags:
       - Operations
       parameters:
@@ -405,12 +407,14 @@ paths:
       - BearerAuth: []
       summary: Dialogflow projects locations operations get
       x-summary-source: derived
+      x-operation-id-source: normalized
+      x-operation-id-original: dialogflow_projects_locations_operations_get
     servers:
     - url: https://dialogflow.googleapis.com
       description: Dialogflow API
   /v2/projects/{projectsId}/locations/{locationsId}/operations:
     get:
-      operationId: dialogflow_projects_locations_operations_list
+      operationId: getV2ProjectsByProjectsIdLocationsByLocationsIdOperations
       tags:
       - Operations
       parameters:
@@ -464,12 +468,14 @@ paths:
       - BearerAuth: []
       summary: Dialogflow projects locations operations list
       x-summary-source: derived
+      x-operation-id-source: normalized
+      x-operation-id-original: dialogflow_projects_locations_operations_list
     servers:
     - url: https://dialogflow.googleapis.com
       description: Dialogflow API
   /v2/projects/{projectsId}/operations/{operationsId}:cancel:
     post:
-      operationId: dialogflow_projects_operations_cancel
+      operationId: postV2ProjectsByProjectsIdOperations{operationsId}:cancel
       tags:
       - Operations
       parameters:
@@ -506,12 +512,14 @@ paths:
       - BearerAuth: []
       summary: Dialogflow projects operations cancel
       x-summary-source: derived
+      x-operation-id-source: normalized
+      x-operation-id-original: dialogflow_projects_operations_cancel
     servers:
     - url: https://dialogflow.googleapis.com
       description: Dialogflow API
   /v2/projects/{projectsId}/operations/{operationsId}:
     get:
-      operationId: dialogflow_projects_operations_get
+      operationId: getV2ProjectsByProjectsIdOperationsByOperationsId
       tags:
       - Operations
       parameters:
@@ -548,12 +556,14 @@ paths:
       - BearerAuth: []
       summary: Dialogflow projects operations get
       x-summary-source: derived
+      x-operation-id-source: normalized
+      x-operation-id-original: dialogflow_projects_operations_get
     servers:
     - url: https://dialogflow.googleapis.com
       description: Dialogflow API
   /v2/projects/{projectsId}/operations:
     get:
-      operationId: dialogflow_projects_operations_list
+      operationId: getV2ProjectsByProjectsIdOperations
       tags:
       - Operations
       parameters:
@@ -601,6 +611,8 @@ paths:
       - BearerAuth: []
       summary: Dialogflow projects operations list
       x-summary-source: derived
+      x-operation-id-source: normalized
+      x-operation-id-original: dialogflow_projects_operations_list
     servers:
     - url: https://dialogflow.googleapis.com
       description: Dialogflow API
@@ -619,22 +631,6 @@ components:
             $ref: '#/components/schemas/GoogleLongrunningOperation'
         nextPageToken:
           type: string
-    GoogleRpcStatus:
-      type: object
-      properties:
-        message:
-          type: string
-        code:
-          type: integer
-          format: int32
-        details:
-          type: array
-          items:
-            type: object
-            additionalProperties:
-              description: Properties of the object. Contains field @type with type URL.
-    GoogleProtobufEmpty:
-      type: object
     GoogleLongrunningOperation:
       type: object
       properties:
@@ -652,6 +648,22 @@ components:
             description: Properties of the object. Contains field @type with type URL.
         error:
           $ref: '#/components/schemas/GoogleRpcStatus'
+    GoogleProtobufEmpty:
+      type: object
+    GoogleRpcStatus:
+      type: object
+      properties:
+        message:
+          type: string
+        code:
+          type: integer
+          format: int32
+        details:
+          type: array
+          items:
+            type: object
+            additionalProperties:
+              description: Properties of the object. Contains field @type with type URL.
   securitySchemes:
     OAuth2:
       type: oauth2

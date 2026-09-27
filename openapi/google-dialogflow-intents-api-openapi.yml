@@ -1309,66 +1309,17 @@ paths:
       description: Dialogflow API
 components:
   schemas:
-    GoogleCloudDialogflowCxV3InlineSource:
+    GoogleCloudDialogflowCxV3IntentParameter:
       type: object
       properties:
-        content:
-          type: string
-          format: byte
-    GoogleCloudDialogflowCxV3Intent:
-      type: object
-      properties:
-        trainingPhrases:
-          type: array
-          items:
-            $ref: '#/components/schemas/GoogleCloudDialogflowCxV3IntentTrainingPhrase'
-        name:
-          type: string
-        parameters:
-          type: array
-          items:
-            $ref: '#/components/schemas/GoogleCloudDialogflowCxV3IntentParameter'
-        description:
-          type: string
-        priority:
-          type: integer
-          format: int32
-        labels:
-          type: object
-          additionalProperties:
-            type: string
-        displayName:
-          type: string
-        dtmfPattern:
-          type: string
-        isFallback:
+        redact:
           type: boolean
-    GoogleCloudDialogflowCxV3ListIntentsResponse:
-      type: object
-      properties:
-        nextPageToken:
+        entityType:
           type: string
-        intents:
-          type: array
-          items:
-            $ref: '#/components/schemas/GoogleCloudDialogflowCxV3Intent'
-    GoogleLongrunningOperation:
-      type: object
-      properties:
-        metadata:
-          type: object
-          additionalProperties:
-            description: Properties of the object. Contains field @type with type URL.
-        name:
+        id:
           type: string
-        done:
+        isList:
           type: boolean
-        response:
-          type: object
-          additionalProperties:
-            description: Properties of the object. Contains field @type with type URL.
-        error:
-          $ref: '#/components/schemas/GoogleRpcStatus'
     GoogleCloudDialogflowCxV3ExportIntentsRequest:
       type: object
       properties:
@@ -1419,26 +1370,21 @@ components:
             type: object
             additionalProperties:
               description: Properties of the object. Contains field @type with type URL.
-    GoogleProtobufEmpty:
-      type: object
-    GoogleCloudDialogflowCxV3IntentTrainingPhrasePart:
+    GoogleCloudDialogflowCxV3InlineSource:
       type: object
       properties:
-        text:
+        content:
           type: string
-        parameterId:
-          type: string
-    GoogleCloudDialogflowCxV3IntentParameter:
+          format: byte
+    GoogleCloudDialogflowCxV3ListIntentsResponse:
       type: object
       properties:
-        redact:
-          type: boolean
-        entityType:
+        nextPageToken:
           type: string
-        id:
-          type: string
-        isList:
-          type: boolean
+        intents:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowCxV3Intent'
     GoogleCloudDialogflowCxV3ImportIntentsRequest:
       type: object
       properties:
@@ -1464,6 +1410,251 @@ components:
           - ''
           - ''
           - ''
+    GoogleCloudDialogflowCxV3IntentTrainingPhrasePart:
+      type: object
+      properties:
+        text:
+          type: string
+        parameterId:
+          type: string
+    GoogleCloudDialogflowCxV3Intent:
+      type: object
+      properties:
+        trainingPhrases:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowCxV3IntentTrainingPhrase'
+        name:
+          type: string
+        parameters:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowCxV3IntentParameter'
+        description:
+          type: string
+        priority:
+          type: integer
+          format: int32
+        labels:
+          type: object
+          additionalProperties:
+            type: string
+        displayName:
+          type: string
+        dtmfPattern:
+          type: string
+        isFallback:
+          type: boolean
+    GoogleLongrunningOperation:
+      type: object
+      properties:
+        metadata:
+          type: object
+          additionalProperties:
+            description: Properties of the object. Contains field @type with type URL.
+        name:
+          type: string
+        done:
+          type: boolean
+        response:
+          type: object
+          additionalProperties:
+            description: Properties of the object. Contains field @type with type URL.
+        error:
+          $ref: '#/components/schemas/GoogleRpcStatus'
+    GoogleProtobufEmpty:
+      type: object
+    GoogleCloudDialogflowV2IntentMessageMediaContentResponseMediaObject:
+      type: object
+      properties:
+        description:
+          type: string
+        icon:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2IntentMessageImage'
+        contentUrl:
+          type: string
+        largeImage:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2IntentMessageImage'
+        name:
+          type: string
+    GoogleCloudDialogflowV2IntentMessageListSelect:
+      type: object
+      properties:
+        title:
+          type: string
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowV2IntentMessageListSelectItem'
+        subtitle:
+          type: string
+    GoogleCloudDialogflowV2IntentMessageLinkOutSuggestion:
+      type: object
+      properties:
+        uri:
+          type: string
+        destinationName:
+          type: string
+    GoogleCloudDialogflowV2IntentMessageSimpleResponses:
+      type: object
+      properties:
+        simpleResponses:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowV2IntentMessageSimpleResponse'
+    GoogleCloudDialogflowV2IntentMessageSuggestion:
+      type: object
+      properties:
+        title:
+          type: string
+    GoogleCloudDialogflowV2IntentMessageQuickReplies:
+      type: object
+      properties:
+        quickReplies:
+          type: array
+          items:
+            type: string
+        title:
+          type: string
+    GoogleCloudDialogflowV2ListIntentsResponse:
+      type: object
+      properties:
+        intents:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowV2Intent'
+        nextPageToken:
+          type: string
+    GoogleCloudDialogflowV2IntentMessageTableCardCell:
+      type: object
+      properties:
+        text:
+          type: string
+    GoogleCloudDialogflowV2Context:
+      type: object
+      properties:
+        parameters:
+          type: object
+          additionalProperties:
+            description: Properties of the object.
+        name:
+          type: string
+        lifespanCount:
+          type: integer
+          format: int32
+    GoogleCloudDialogflowV2IntentMessageSelectItemInfo:
+      type: object
+      properties:
+        key:
+          type: string
+        synonyms:
+          type: array
+          items:
+            type: string
+    GoogleCloudDialogflowV2IntentParameter:
+      type: object
+      properties:
+        prompts:
+          type: array
+          items:
+            type: string
+        value:
+          type: string
+        isList:
+          type: boolean
+        name:
+          type: string
+        displayName:
+          type: string
+        defaultValue:
+          type: string
+        entityTypeDisplayName:
+          type: string
+        mandatory:
+          type: boolean
+    GoogleCloudDialogflowV2IntentMessageBasicCardButton:
+      type: object
+      properties:
+        openUriAction:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2IntentMessageBasicCardButtonOpenUriAction'
+        title:
+          type: string
+    GoogleCloudDialogflowV2IntentMessageBasicCardButtonOpenUriAction:
+      type: object
+      properties:
+        uri:
+          type: string
+    GoogleCloudDialogflowV2IntentMessageCard:
+      type: object
+      properties:
+        imageUri:
+          type: string
+        title:
+          type: string
+        buttons:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowV2IntentMessageCardButton'
+        subtitle:
+          type: string
+    GoogleCloudDialogflowV2IntentMessageCardButton:
+      type: object
+      properties:
+        text:
+          type: string
+        postback:
+          type: string
+    GoogleCloudDialogflowV2BatchDeleteIntentsRequest:
+      type: object
+      properties:
+        intents:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowV2Intent'
+    GoogleCloudDialogflowV2IntentMessageSimpleResponse:
+      type: object
+      properties:
+        textToSpeech:
+          type: string
+        displayText:
+          type: string
+        ssml:
+          type: string
+    GoogleCloudDialogflowV2IntentBatch:
+      type: object
+      properties:
+        intents:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowV2Intent'
+    GoogleCloudDialogflowV2IntentMessageBrowseCarouselCard:
+      type: object
+      properties:
+        imageDisplayOptions:
+          type: string
+          enum:
+          - IMAGE_DISPLAY_OPTIONS_UNSPECIFIED
+          - GRAY
+          - WHITE
+          - CROPPED
+          - BLURRED_BACKGROUND
+          x-enumDescriptions:
+          - ''
+          - ''
+          - ''
+          - ''
+          - ''
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowV2IntentMessageBrowseCarouselCardBrowseCarouselCardItem'
+    GoogleCloudDialogflowV2IntentMessageSuggestions:
+      type: object
+      properties:
+        suggestions:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowV2IntentMessageSuggestion'
     GoogleCloudDialogflowV2Intent:
       type: object
       properties:
@@ -1556,219 +1747,12 @@ components:
             $ref: '#/components/schemas/GoogleCloudDialogflowV2IntentFollowupIntentInfo'
         liveAgentHandoff:
           type: boolean
-    GoogleCloudDialogflowV2IntentMessageListSelect:
-      type: object
-      properties:
-        title:
-          type: string
-        items:
-          type: array
-          items:
-            $ref: '#/components/schemas/GoogleCloudDialogflowV2IntentMessageListSelectItem'
-        subtitle:
-          type: string
-    GoogleCloudDialogflowV2IntentMessageQuickReplies:
-      type: object
-      properties:
-        quickReplies:
-          type: array
-          items:
-            type: string
-        title:
-          type: string
-    GoogleCloudDialogflowV2IntentMessageBrowseCarouselCard:
-      type: object
-      properties:
-        imageDisplayOptions:
-          type: string
-          enum:
-          - IMAGE_DISPLAY_OPTIONS_UNSPECIFIED
-          - GRAY
-          - WHITE
-          - CROPPED
-          - BLURRED_BACKGROUND
-          x-enumDescriptions:
-          - ''
-          - ''
-          - ''
-          - ''
-          - ''
-        items:
-          type: array
-          items:
-            $ref: '#/components/schemas/GoogleCloudDialogflowV2IntentMessageBrowseCarouselCardBrowseCarouselCardItem'
-    GoogleCloudDialogflowV2Context:
-      type: object
-      properties:
-        parameters:
-          type: object
-          additionalProperties:
-            description: Properties of the object.
-        name:
-          type: string
-        lifespanCount:
-          type: integer
-          format: int32
-    GoogleCloudDialogflowV2IntentMessageBrowseCarouselCardBrowseCarouselCardItemOpenUrlAction:
-      type: object
-      properties:
-        urlTypeHint:
-          type: string
-          enum:
-          - URL_TYPE_HINT_UNSPECIFIED
-          - AMP_ACTION
-          - AMP_CONTENT
-          x-enumDescriptions:
-          - ''
-          - ''
-          - ''
-        url:
-          type: string
-    GoogleCloudDialogflowV2IntentMessageListSelectItem:
-      type: object
-      properties:
-        info:
-          $ref: '#/components/schemas/GoogleCloudDialogflowV2IntentMessageSelectItemInfo'
-        image:
-          $ref: '#/components/schemas/GoogleCloudDialogflowV2IntentMessageImage'
-        description:
-          type: string
-        title:
-          type: string
-    GoogleCloudDialogflowV2IntentTrainingPhrase:
-      type: object
-      properties:
-        name:
-          type: string
-          readOnly: true
-        type:
-          type: string
-          enum:
-          - TYPE_UNSPECIFIED
-          - EXAMPLE
-          - TEMPLATE
-          x-enumDescriptions:
-          - ''
-          - ''
-          - ''
-        timesAddedCount:
-          type: integer
-          format: int32
-        parts:
-          type: array
-          items:
-            $ref: '#/components/schemas/GoogleCloudDialogflowV2IntentTrainingPhrasePart'
-    GoogleCloudDialogflowV2IntentMessageSimpleResponses:
-      type: object
-      properties:
-        simpleResponses:
-          type: array
-          items:
-            $ref: '#/components/schemas/GoogleCloudDialogflowV2IntentMessageSimpleResponse'
-    GoogleCloudDialogflowV2IntentMessageCarouselSelect:
-      type: object
-      properties:
-        items:
-          type: array
-          items:
-            $ref: '#/components/schemas/GoogleCloudDialogflowV2IntentMessageCarouselSelectItem'
-    GoogleCloudDialogflowV2IntentMessageBrowseCarouselCardBrowseCarouselCardItem:
-      type: object
-      properties:
-        description:
-          type: string
-        footer:
-          type: string
-        image:
-          $ref: '#/components/schemas/GoogleCloudDialogflowV2IntentMessageImage'
-        openUriAction:
-          $ref: '#/components/schemas/GoogleCloudDialogflowV2IntentMessageBrowseCarouselCardBrowseCarouselCardItemOpenUrlAction'
-        title:
-          type: string
-    GoogleCloudDialogflowV2IntentMessageSelectItemInfo:
-      type: object
-      properties:
-        key:
-          type: string
-        synonyms:
-          type: array
-          items:
-            type: string
-    GoogleCloudDialogflowV2IntentMessageCard:
+    GoogleCloudDialogflowV2IntentMessageImage:
       type: object
       properties:
         imageUri:
           type: string
-        title:
-          type: string
-        buttons:
-          type: array
-          items:
-            $ref: '#/components/schemas/GoogleCloudDialogflowV2IntentMessageCardButton'
-        subtitle:
-          type: string
-    GoogleCloudDialogflowV2IntentFollowupIntentInfo:
-      type: object
-      properties:
-        parentFollowupIntentName:
-          type: string
-        followupIntentName:
-          type: string
-    GoogleCloudDialogflowV2IntentMessageBasicCardButton:
-      type: object
-      properties:
-        openUriAction:
-          $ref: '#/components/schemas/GoogleCloudDialogflowV2IntentMessageBasicCardButtonOpenUriAction'
-        title:
-          type: string
-    GoogleCloudDialogflowV2IntentMessageTableCardRow:
-      type: object
-      properties:
-        cells:
-          type: array
-          items:
-            $ref: '#/components/schemas/GoogleCloudDialogflowV2IntentMessageTableCardCell'
-        dividerAfter:
-          type: boolean
-    GoogleCloudDialogflowV2IntentBatch:
-      type: object
-      properties:
-        intents:
-          type: array
-          items:
-            $ref: '#/components/schemas/GoogleCloudDialogflowV2Intent'
-    GoogleCloudDialogflowV2IntentMessageBasicCard:
-      type: object
-      properties:
-        image:
-          $ref: '#/components/schemas/GoogleCloudDialogflowV2IntentMessageImage'
-        title:
-          type: string
-        formattedText:
-          type: string
-        subtitle:
-          type: string
-        buttons:
-          type: array
-          items:
-            $ref: '#/components/schemas/GoogleCloudDialogflowV2IntentMessageBasicCardButton'
-    GoogleCloudDialogflowV2BatchDeleteIntentsRequest:
-      type: object
-      properties:
-        intents:
-          type: array
-          items:
-            $ref: '#/components/schemas/GoogleCloudDialogflowV2Intent'
-    GoogleCloudDialogflowV2IntentTrainingPhrasePart:
-      type: object
-      properties:
-        text:
-          type: string
-        userDefined:
-          type: boolean
-        entityType:
-          type: string
-        alias:
+        accessibilityText:
           type: string
     GoogleCloudDialogflowV2IntentMessageMediaContent:
       type: object
@@ -1785,66 +1769,26 @@ components:
           x-enumDescriptions:
           - ''
           - ''
-    GoogleCloudDialogflowV2IntentMessageTableCard:
+    GoogleCloudDialogflowV2IntentMessageCarouselSelectItem:
       type: object
       properties:
-        buttons:
-          type: array
-          items:
-            $ref: '#/components/schemas/GoogleCloudDialogflowV2IntentMessageBasicCardButton'
-        image:
-          $ref: '#/components/schemas/GoogleCloudDialogflowV2IntentMessageImage'
-        columnProperties:
-          type: array
-          items:
-            $ref: '#/components/schemas/GoogleCloudDialogflowV2IntentMessageColumnProperties'
+        info:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2IntentMessageSelectItemInfo'
         title:
           type: string
-        rows:
-          type: array
-          items:
-            $ref: '#/components/schemas/GoogleCloudDialogflowV2IntentMessageTableCardRow'
-        subtitle:
-          type: string
-    GoogleCloudDialogflowV2IntentMessageMediaContentResponseMediaObject:
-      type: object
-      properties:
         description:
           type: string
-        icon:
+        image:
           $ref: '#/components/schemas/GoogleCloudDialogflowV2IntentMessageImage'
-        contentUrl:
-          type: string
-        largeImage:
-          $ref: '#/components/schemas/GoogleCloudDialogflowV2IntentMessageImage'
-        name:
-          type: string
-    GoogleCloudDialogflowV2BatchUpdateIntentsRequest:
+    GoogleCloudDialogflowV2IntentMessageTableCardRow:
       type: object
       properties:
-        languageCode:
-          type: string
-        intentView:
-          type: string
-          enum:
-          - INTENT_VIEW_UNSPECIFIED
-          - INTENT_VIEW_FULL
-          x-enumDescriptions:
-          - ''
-          - ''
-        updateMask:
-          type: string
-        intentBatchUri:
-          type: string
-        intentBatchInline:
-          $ref: '#/components/schemas/GoogleCloudDialogflowV2IntentBatch'
-    GoogleCloudDialogflowV2IntentMessageLinkOutSuggestion:
-      type: object
-      properties:
-        uri:
-          type: string
-        destinationName:
-          type: string
+        cells:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowV2IntentMessageTableCardCell'
+        dividerAfter:
+          type: boolean
     GoogleCloudDialogflowV2IntentMessage:
       type: object
       properties:
@@ -1902,98 +1846,82 @@ components:
           $ref: '#/components/schemas/GoogleCloudDialogflowV2IntentMessageSimpleResponses'
         quickReplies:
           $ref: '#/components/schemas/GoogleCloudDialogflowV2IntentMessageQuickReplies'
-    GoogleCloudDialogflowV2IntentMessageTableCardCell:
+    GoogleCloudDialogflowV2IntentTrainingPhrasePart:
       type: object
       properties:
         text:
           type: string
-    GoogleCloudDialogflowV2IntentMessageCardButton:
-      type: object
-      properties:
-        text:
-          type: string
-        postback:
-          type: string
-    GoogleCloudDialogflowV2IntentMessageCarouselSelectItem:
-      type: object
-      properties:
-        info:
-          $ref: '#/components/schemas/GoogleCloudDialogflowV2IntentMessageSelectItemInfo'
-        title:
-          type: string
-        description:
-          type: string
-        image:
-          $ref: '#/components/schemas/GoogleCloudDialogflowV2IntentMessageImage'
-    GoogleCloudDialogflowV2IntentMessageSuggestions:
-      type: object
-      properties:
-        suggestions:
-          type: array
-          items:
-            $ref: '#/components/schemas/GoogleCloudDialogflowV2IntentMessageSuggestion'
-    GoogleCloudDialogflowV2IntentMessageSimpleResponse:
-      type: object
-      properties:
-        textToSpeech:
-          type: string
-        displayText:
-          type: string
-        ssml:
-          type: string
-    GoogleCloudDialogflowV2IntentMessageImage:
-      type: object
-      properties:
-        imageUri:
-          type: string
-        accessibilityText:
-          type: string
-    GoogleCloudDialogflowV2IntentParameter:
-      type: object
-      properties:
-        prompts:
-          type: array
-          items:
-            type: string
-        value:
-          type: string
-        isList:
+        userDefined:
           type: boolean
+        entityType:
+          type: string
+        alias:
+          type: string
+    GoogleCloudDialogflowV2IntentTrainingPhrase:
+      type: object
+      properties:
         name:
           type: string
-        displayName:
+          readOnly: true
+        type:
           type: string
-        defaultValue:
-          type: string
-        entityTypeDisplayName:
-          type: string
-        mandatory:
-          type: boolean
-    GoogleCloudDialogflowV2IntentMessageSuggestion:
+          enum:
+          - TYPE_UNSPECIFIED
+          - EXAMPLE
+          - TEMPLATE
+          x-enumDescriptions:
+          - ''
+          - ''
+          - ''
+        timesAddedCount:
+          type: integer
+          format: int32
+        parts:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowV2IntentTrainingPhrasePart'
+    GoogleCloudDialogflowV2IntentMessageTableCard:
       type: object
       properties:
+        buttons:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowV2IntentMessageBasicCardButton'
+        image:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2IntentMessageImage'
+        columnProperties:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowV2IntentMessageColumnProperties'
         title:
           type: string
-    GoogleCloudDialogflowV2IntentMessageText:
-      type: object
-      properties:
-        text:
+        rows:
           type: array
           items:
-            type: string
-    GoogleCloudDialogflowV2IntentMessageBasicCardButtonOpenUriAction:
-      type: object
-      properties:
-        uri:
+            $ref: '#/components/schemas/GoogleCloudDialogflowV2IntentMessageTableCardRow'
+        subtitle:
           type: string
-    GoogleCloudDialogflowV2ListIntentsResponse:
+    GoogleCloudDialogflowV2IntentMessageBasicCard:
       type: object
       properties:
-        intents:
+        image:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2IntentMessageImage'
+        title:
+          type: string
+        formattedText:
+          type: string
+        subtitle:
+          type: string
+        buttons:
           type: array
           items:
-            $ref: '#/components/schemas/GoogleCloudDialogflowV2Intent'
-        nextPageToken:
+            $ref: '#/components/schemas/GoogleCloudDialogflowV2IntentMessageBasicCardButton'
+    GoogleCloudDialogflowV2IntentFollowupIntentInfo:
+      type: object
+      properties:
+        parentFollowupIntentName:
+          type: string
+        followupIntentName:
           type: string
     GoogleCloudDialogflowV2IntentMessageColumnProperties:
       type: object
@@ -2012,6 +1940,78 @@ components:
           - ''
           - ''
           - ''
+    GoogleCloudDialogflowV2IntentMessageText:
+      type: object
+      properties:
+        text:
+          type: array
+          items:
+            type: string
+    GoogleCloudDialogflowV2IntentMessageListSelectItem:
+      type: object
+      properties:
+        info:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2IntentMessageSelectItemInfo'
+        image:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2IntentMessageImage'
+        description:
+          type: string
+        title:
+          type: string
+    GoogleCloudDialogflowV2BatchUpdateIntentsRequest:
+      type: object
+      properties:
+        languageCode:
+          type: string
+        intentView:
+          type: string
+          enum:
+          - INTENT_VIEW_UNSPECIFIED
+          - INTENT_VIEW_FULL
+          x-enumDescriptions:
+          - ''
+          - ''
+        updateMask:
+          type: string
+        intentBatchUri:
+          type: string
+        intentBatchInline:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2IntentBatch'
+    GoogleCloudDialogflowV2IntentMessageCarouselSelect:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowV2IntentMessageCarouselSelectItem'
+    GoogleCloudDialogflowV2IntentMessageBrowseCarouselCardBrowseCarouselCardItem:
+      type: object
+      properties:
+        description:
+          type: string
+        footer:
+          type: string
+        image:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2IntentMessageImage'
+        openUriAction:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2IntentMessageBrowseCarouselCardBrowseCarouselCardItemOpenUrlAction'
+        title:
+          type: string
+    GoogleCloudDialogflowV2IntentMessageBrowseCarouselCardBrowseCarouselCardItemOpenUrlAction:
+      type: object
+      properties:
+        urlTypeHint:
+          type: string
+          enum:
+          - URL_TYPE_HINT_UNSPECIFIED
+          - AMP_ACTION
+          - AMP_CONTENT
+          x-enumDescriptions:
+          - ''
+          - ''
+          - ''
+        url:
+          type: string
   securitySchemes:
     OAuth2:
       type: oauth2
