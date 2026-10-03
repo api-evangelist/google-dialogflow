@@ -618,19 +618,20 @@ paths:
       description: Dialogflow API
 components:
   schemas:
-    GoogleLongrunningListOperationsResponse:
+    GoogleRpcStatus:
       type: object
       properties:
-        unreachable:
-          type: array
-          items:
-            type: string
-        operations:
-          type: array
-          items:
-            $ref: '#/components/schemas/GoogleLongrunningOperation'
-        nextPageToken:
+        message:
           type: string
+        code:
+          type: integer
+          format: int32
+        details:
+          type: array
+          items:
+            type: object
+            additionalProperties:
+              description: Properties of the object. Contains field @type with type URL.
     GoogleLongrunningOperation:
       type: object
       properties:
@@ -648,22 +649,21 @@ components:
             description: Properties of the object. Contains field @type with type URL.
         error:
           $ref: '#/components/schemas/GoogleRpcStatus'
-    GoogleProtobufEmpty:
-      type: object
-    GoogleRpcStatus:
+    GoogleLongrunningListOperationsResponse:
       type: object
       properties:
-        message:
-          type: string
-        code:
-          type: integer
-          format: int32
-        details:
+        unreachable:
           type: array
           items:
-            type: object
-            additionalProperties:
-              description: Properties of the object. Contains field @type with type URL.
+            type: string
+        operations:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleLongrunningOperation'
+        nextPageToken:
+          type: string
+    GoogleProtobufEmpty:
+      type: object
   securitySchemes:
     OAuth2:
       type: oauth2

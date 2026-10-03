@@ -136,25 +136,6 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    GoogleCloudDialogflowV2SentimentAnalysisResult:
-      type: object
-      properties:
-        queryTextSentiment:
-          $ref: '#/components/schemas/GoogleCloudDialogflowV2Sentiment'
-    GoogleRpcStatus:
-      type: object
-      properties:
-        message:
-          type: string
-        code:
-          type: integer
-          format: int32
-        details:
-          type: array
-          items:
-            type: object
-            additionalProperties:
-              description: Properties of the object. Contains field @type with type URL.
     GoogleCloudDialogflowV2Sentiment:
       type: object
       properties:
@@ -181,6 +162,20 @@ components:
             $ref: '#/components/schemas/GoogleCloudDialogflowV2AnnotatedMessagePart'
         containEntities:
           type: boolean
+    GoogleRpcStatus:
+      type: object
+      properties:
+        message:
+          type: string
+        code:
+          type: integer
+          format: int32
+        details:
+          type: array
+          items:
+            type: object
+            additionalProperties:
+              description: Properties of the object. Contains field @type with type URL.
     GoogleCloudDialogflowV2ListMessagesResponse:
       type: object
       properties:
@@ -190,6 +185,11 @@ components:
             $ref: '#/components/schemas/GoogleCloudDialogflowV2Message'
         nextPageToken:
           type: string
+    GoogleCloudDialogflowV2SentimentAnalysisResult:
+      type: object
+      properties:
+        queryTextSentiment:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2Sentiment'
     GoogleCloudDialogflowV2Message:
       type: object
       properties:

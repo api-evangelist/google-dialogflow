@@ -704,17 +704,6 @@ components:
             $ref: '#/components/schemas/GoogleCloudDialogflowV2KnowledgeBase'
         nextPageToken:
           type: string
-    GoogleCloudDialogflowV2KnowledgeBase:
-      type: object
-      properties:
-        name:
-          type: string
-        languageCode:
-          type: string
-        displayName:
-          type: string
-    GoogleProtobufEmpty:
-      type: object
     GoogleRpcStatus:
       type: object
       properties:
@@ -729,6 +718,17 @@ components:
             type: object
             additionalProperties:
               description: Properties of the object. Contains field @type with type URL.
+    GoogleCloudDialogflowV2KnowledgeBase:
+      type: object
+      properties:
+        name:
+          type: string
+        languageCode:
+          type: string
+        displayName:
+          type: string
+    GoogleProtobufEmpty:
+      type: object
   securitySchemes:
     OAuth2:
       type: oauth2

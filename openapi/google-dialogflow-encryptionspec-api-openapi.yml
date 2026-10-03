@@ -71,11 +71,20 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    GoogleCloudDialogflowV2InitializeEncryptionSpecRequest:
+    GoogleRpcStatus:
       type: object
       properties:
-        encryptionSpec:
-          $ref: '#/components/schemas/GoogleCloudDialogflowV2EncryptionSpec'
+        message:
+          type: string
+        code:
+          type: integer
+          format: int32
+        details:
+          type: array
+          items:
+            type: object
+            additionalProperties:
+              description: Properties of the object. Contains field @type with type URL.
     GoogleCloudDialogflowV2EncryptionSpec:
       type: object
       properties:
@@ -100,20 +109,11 @@ components:
             description: Properties of the object. Contains field @type with type URL.
         error:
           $ref: '#/components/schemas/GoogleRpcStatus'
-    GoogleRpcStatus:
+    GoogleCloudDialogflowV2InitializeEncryptionSpecRequest:
       type: object
       properties:
-        message:
-          type: string
-        code:
-          type: integer
-          format: int32
-        details:
-          type: array
-          items:
-            type: object
-            additionalProperties:
-              description: Properties of the object. Contains field @type with type URL.
+        encryptionSpec:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2EncryptionSpec'
   securitySchemes:
     OAuth2:
       type: oauth2

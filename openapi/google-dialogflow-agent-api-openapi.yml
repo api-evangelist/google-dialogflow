@@ -694,20 +694,23 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    GoogleRpcStatus:
+    GoogleLongrunningOperation:
       type: object
       properties:
-        message:
+        name:
           type: string
-        code:
-          type: integer
-          format: int32
-        details:
-          type: array
-          items:
-            type: object
-            additionalProperties:
-              description: Properties of the object. Contains field @type with type URL.
+        metadata:
+          type: object
+          additionalProperties:
+            description: Properties of the object. Contains field @type with type URL.
+        done:
+          type: boolean
+        response:
+          type: object
+          additionalProperties:
+            description: Properties of the object. Contains field @type with type URL.
+        error:
+          $ref: '#/components/schemas/GoogleRpcStatus'
     GoogleCloudDialogflowV2ValidationError:
       type: object
       properties:
@@ -731,6 +734,59 @@ components:
           type: array
           items:
             type: string
+    GoogleCloudDialogflowV2FulfillmentFeature:
+      type: object
+      properties:
+        type:
+          type: string
+          enum:
+          - TYPE_UNSPECIFIED
+          - SMALLTALK
+          x-enumDescriptions:
+          - ''
+          - ''
+    GoogleCloudDialogflowV2FulfillmentGenericWebService:
+      type: object
+      properties:
+        uri:
+          type: string
+        username:
+          type: string
+        password:
+          type: string
+        isCloudFunction:
+          type: boolean
+        requestHeaders:
+          type: object
+          additionalProperties:
+            type: string
+    GoogleRpcStatus:
+      type: object
+      properties:
+        message:
+          type: string
+        code:
+          type: integer
+          format: int32
+        details:
+          type: array
+          items:
+            type: object
+            additionalProperties:
+              description: Properties of the object. Contains field @type with type URL.
+    GoogleCloudDialogflowV2ImportAgentRequest:
+      type: object
+      properties:
+        agentUri:
+          type: string
+        agentContent:
+          type: string
+          format: byte
+    GoogleCloudDialogflowV2ExportAgentRequest:
+      type: object
+      properties:
+        agentUri:
+          type: string
     GoogleCloudDialogflowV2RestoreAgentRequest:
       type: object
       properties:
@@ -739,30 +795,13 @@ components:
         agentContent:
           type: string
           format: byte
-    GoogleCloudDialogflowV2SearchAgentsResponse:
+    GoogleCloudDialogflowV2ValidationResult:
       type: object
       properties:
-        agents:
+        validationErrors:
           type: array
           items:
-            $ref: '#/components/schemas/GoogleCloudDialogflowV2Agent'
-        nextPageToken:
-          type: string
-    GoogleCloudDialogflowV2Fulfillment:
-      type: object
-      properties:
-        displayName:
-          type: string
-        name:
-          type: string
-        enabled:
-          type: boolean
-        genericWebService:
-          $ref: '#/components/schemas/GoogleCloudDialogflowV2FulfillmentGenericWebService'
-        features:
-          type: array
-          items:
-            $ref: '#/components/schemas/GoogleCloudDialogflowV2FulfillmentFeature'
+            $ref: '#/components/schemas/GoogleCloudDialogflowV2ValidationError'
     GoogleCloudDialogflowV2Agent:
       type: object
       properties:
@@ -821,71 +860,32 @@ components:
           format: float
         enableLogging:
           type: boolean
-    GoogleCloudDialogflowV2ValidationResult:
-      type: object
-      properties:
-        validationErrors:
-          type: array
-          items:
-            $ref: '#/components/schemas/GoogleCloudDialogflowV2ValidationError'
-    GoogleCloudDialogflowV2ExportAgentRequest:
-      type: object
-      properties:
-        agentUri:
-          type: string
-    GoogleCloudDialogflowV2FulfillmentGenericWebService:
-      type: object
-      properties:
-        uri:
-          type: string
-        username:
-          type: string
-        password:
-          type: string
-        isCloudFunction:
-          type: boolean
-        requestHeaders:
-          type: object
-          additionalProperties:
-            type: string
     GoogleCloudDialogflowV2TrainAgentRequest:
       type: object
-    GoogleCloudDialogflowV2FulfillmentFeature:
+    GoogleCloudDialogflowV2SearchAgentsResponse:
       type: object
       properties:
-        type:
+        agents:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowV2Agent'
+        nextPageToken:
           type: string
-          enum:
-          - TYPE_UNSPECIFIED
-          - SMALLTALK
-          x-enumDescriptions:
-          - ''
-          - ''
-    GoogleLongrunningOperation:
+    GoogleCloudDialogflowV2Fulfillment:
       type: object
       properties:
+        displayName:
+          type: string
         name:
           type: string
-        metadata:
-          type: object
-          additionalProperties:
-            description: Properties of the object. Contains field @type with type URL.
-        done:
+        enabled:
           type: boolean
-        response:
-          type: object
-          additionalProperties:
-            description: Properties of the object. Contains field @type with type URL.
-        error:
-          $ref: '#/components/schemas/GoogleRpcStatus'
-    GoogleCloudDialogflowV2ImportAgentRequest:
-      type: object
-      properties:
-        agentUri:
-          type: string
-        agentContent:
-          type: string
-          format: byte
+        genericWebService:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2FulfillmentGenericWebService'
+        features:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowV2FulfillmentFeature'
   securitySchemes:
     OAuth2:
       type: oauth2

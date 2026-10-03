@@ -1513,6 +1513,33 @@ paths:
       description: Dialogflow API
 components:
   schemas:
+    GoogleCloudDialogflowCxV3InlineSchema:
+      type: object
+      properties:
+        type:
+          type: string
+          enum:
+          - DATA_TYPE_UNSPECIFIED
+          - STRING
+          - NUMBER
+          - BOOLEAN
+          - ARRAY
+          x-enumDescriptions:
+          - ''
+          - ''
+          - ''
+          - ''
+          - ''
+        items:
+          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3TypeSchema'
+    GoogleCloudDialogflowCxV3FlowTransition:
+      type: object
+      properties:
+        flow:
+          type: string
+        displayName:
+          type: string
+          readOnly: true
     GoogleCloudDialogflowCxV3PlaybookInvocation:
       type: object
       properties:
@@ -1541,162 +1568,15 @@ components:
           $ref: '#/components/schemas/GoogleCloudDialogflowCxV3PlaybookOutput'
         playbookInput:
           $ref: '#/components/schemas/GoogleCloudDialogflowCxV3PlaybookInput'
-    GoogleCloudDialogflowCxV3RestorePlaybookVersionResponse:
+    GoogleCloudDialogflowCxV3PlaybookInstruction:
       type: object
       properties:
-        playbook:
-          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3Playbook'
-    GoogleCloudDialogflowCxV3ToolAuthenticationBearerTokenConfig:
-      type: object
-      properties:
-        secretVersionForToken:
+        guidelines:
           type: string
-        token:
-          type: string
-    GoogleCloudDialogflowCxV3PlaybookVersion:
-      type: object
-      properties:
-        updateTime:
-          type: string
-          format: date-time
-          readOnly: true
-        name:
-          type: string
-        playbook:
-          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3Playbook'
-        description:
-          type: string
-        examples:
-          type: array
-          readOnly: true
-          items:
-            $ref: '#/components/schemas/GoogleCloudDialogflowCxV3Example'
-    GoogleCloudDialogflowCxV3InlineSchema:
-      type: object
-      properties:
-        type:
-          type: string
-          enum:
-          - DATA_TYPE_UNSPECIFIED
-          - STRING
-          - NUMBER
-          - BOOLEAN
-          - ARRAY
-          x-enumDescriptions:
-          - ''
-          - ''
-          - ''
-          - ''
-          - ''
-        items:
-          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3TypeSchema'
-    GoogleCloudDialogflowCxV3ListVersionsResponse:
-      type: object
-      properties:
-        versions:
+        steps:
           type: array
           items:
-            $ref: '#/components/schemas/GoogleCloudDialogflowCxV3Version'
-        nextPageToken:
-          type: string
-    GoogleCloudDialogflowCxV3AdvancedSettingsDtmfSettings:
-      type: object
-      properties:
-        enabled:
-          type: boolean
-        finishDigit:
-          type: string
-        interdigitTimeoutDuration:
-          type: string
-        maxDigits:
-          type: integer
-          format: int32
-        endpointingTimeoutDuration:
-          type: string
-    GoogleCloudDialogflowCxV3AdvancedSettingsSpeechSettings:
-      type: object
-      properties:
-        noSpeechTimeout:
-          type: string
-        models:
-          type: object
-          additionalProperties:
-            type: string
-        useTimeoutBasedEndpointing:
-          type: boolean
-        endpointerSensitivity:
-          type: integer
-          format: int32
-    GoogleCloudDialogflowCxV3ToolFunctionTool:
-      type: object
-      properties:
-        outputSchema:
-          type: object
-          additionalProperties:
-            description: Properties of the object.
-        inputSchema:
-          type: object
-          additionalProperties:
-            description: Properties of the object.
-    GoogleCloudDialogflowCxV3LoadVersionRequest:
-      type: object
-      properties:
-        allowOverrideAgentResources:
-          type: boolean
-    GoogleCloudDialogflowCxV3ResponseMessageLiveAgentHandoff:
-      type: object
-      properties:
-        metadata:
-          type: object
-          additionalProperties:
-            description: Properties of the object.
-    GoogleCloudDialogflowCxV3FulfillmentConditionalCases:
-      type: object
-      properties:
-        cases:
-          type: array
-          items:
-            $ref: '#/components/schemas/GoogleCloudDialogflowCxV3FulfillmentConditionalCasesCase'
-    GoogleCloudDialogflowCxV3AdvancedSettings:
-      type: object
-      properties:
-        speechSettings:
-          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3AdvancedSettingsSpeechSettings'
-        audioExportGcsDestination:
-          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3GcsDestination'
-        loggingSettings:
-          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3AdvancedSettingsLoggingSettings'
-        dtmfSettings:
-          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3AdvancedSettingsDtmfSettings'
-    GoogleCloudDialogflowCxV3FlowInvocation:
-      type: object
-      properties:
-        flow:
-          type: string
-        displayName:
-          type: string
-          readOnly: true
-        flowState:
-          type: string
-          enum:
-          - OUTPUT_STATE_UNSPECIFIED
-          - OUTPUT_STATE_OK
-          - OUTPUT_STATE_CANCELLED
-          - OUTPUT_STATE_FAILED
-          - OUTPUT_STATE_ESCALATED
-          - OUTPUT_STATE_PENDING
-          x-enumDescriptions:
-          - ''
-          - ''
-          - ''
-          - ''
-          - ''
-          - ''
-    GoogleCloudDialogflowCxV3PlaybookOutput:
-      type: object
-      properties:
-        executionSummary:
-          type: string
+            $ref: '#/components/schemas/GoogleCloudDialogflowCxV3PlaybookStep'
     GoogleCloudDialogflowCxV3Version:
       type: object
       properties:
@@ -1725,6 +1605,188 @@ components:
           type: string
         nluSettings:
           $ref: '#/components/schemas/GoogleCloudDialogflowCxV3NluSettings'
+    GoogleCloudDialogflowCxV3PlaybookOutput:
+      type: object
+      properties:
+        executionSummary:
+          type: string
+    GoogleCloudDialogflowCxV3Tool:
+      type: object
+      properties:
+        functionSpec:
+          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3ToolFunctionTool'
+        description:
+          type: string
+        name:
+          type: string
+        dataStoreSpec:
+          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3ToolDataStoreTool'
+        displayName:
+          type: string
+        openApiSpec:
+          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3ToolOpenApiTool'
+        toolType:
+          type: string
+          enum:
+          - TOOL_TYPE_UNSPECIFIED
+          - CUSTOMIZED_TOOL
+          - BUILTIN_TOOL
+          x-enumDescriptions:
+          - ''
+          - ''
+          - ''
+          readOnly: true
+    GoogleCloudDialogflowCxV3NluSettings:
+      type: object
+      properties:
+        classificationThreshold:
+          type: number
+          format: float
+        modelTrainingMode:
+          type: string
+          enum:
+          - MODEL_TRAINING_MODE_UNSPECIFIED
+          - MODEL_TRAINING_MODE_AUTOMATIC
+          - MODEL_TRAINING_MODE_MANUAL
+          x-enumDescriptions:
+          - ''
+          - ''
+          - ''
+        modelType:
+          type: string
+          enum:
+          - MODEL_TYPE_UNSPECIFIED
+          - MODEL_TYPE_STANDARD
+          - MODEL_TYPE_ADVANCED
+          x-enumDescriptions:
+          - ''
+          - ''
+          - ''
+    GoogleCloudDialogflowCxV3ResponseMessageLiveAgentHandoff:
+      type: object
+      properties:
+        metadata:
+          type: object
+          additionalProperties:
+            description: Properties of the object.
+    GoogleRpcStatus:
+      type: object
+      properties:
+        message:
+          type: string
+        code:
+          type: integer
+          format: int32
+        details:
+          type: array
+          items:
+            type: object
+            additionalProperties:
+              description: Properties of the object. Contains field @type with type URL.
+    GoogleCloudDialogflowCxV3ToolFunctionTool:
+      type: object
+      properties:
+        outputSchema:
+          type: object
+          additionalProperties:
+            description: Properties of the object.
+        inputSchema:
+          type: object
+          additionalProperties:
+            description: Properties of the object.
+    GoogleCloudDialogflowCxV3ResponseMessageConversationSuccess:
+      type: object
+      properties:
+        metadata:
+          type: object
+          additionalProperties:
+            description: Properties of the object.
+    GoogleCloudDialogflowCxV3ToolDataStoreTool:
+      type: object
+      properties:
+        dataStoreConnections:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowCxV3DataStoreConnection'
+        fallbackPrompt:
+          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3ToolDataStoreToolFallbackPrompt'
+    GoogleCloudDialogflowCxV3ToolTLSConfigCACert:
+      type: object
+      properties:
+        cert:
+          type: string
+          format: byte
+        displayName:
+          type: string
+    GoogleCloudDialogflowCxV3ResponseMessageOutputAudioText:
+      type: object
+      properties:
+        allowPlaybackInterruption:
+          type: boolean
+          readOnly: true
+        ssml:
+          type: string
+        text:
+          type: string
+    GoogleCloudDialogflowCxV3ToolOpenApiTool:
+      type: object
+      properties:
+        tlsConfig:
+          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3ToolTLSConfig'
+        authentication:
+          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3ToolAuthentication'
+        textSchema:
+          type: string
+        serviceDirectoryConfig:
+          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3ToolServiceDirectoryConfig'
+    GoogleCloudDialogflowCxV3UserUtterance:
+      type: object
+      properties:
+        text:
+          type: string
+    GoogleCloudDialogflowCxV3AdvancedSettingsLoggingSettings:
+      type: object
+      properties:
+        enableConsentBasedRedaction:
+          type: boolean
+        enableStackdriverLogging:
+          type: boolean
+        enableInteractionLogging:
+          type: boolean
+    GoogleCloudDialogflowCxV3PlaybookInput:
+      type: object
+      properties:
+        precedingConversationSummary:
+          type: string
+    GoogleCloudDialogflowCxV3FulfillmentConditionalCasesCase:
+      type: object
+      properties:
+        caseContent:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowCxV3FulfillmentConditionalCasesCaseCaseContent'
+        condition:
+          type: string
+    GoogleCloudDialogflowCxV3CompareVersionsResponse:
+      type: object
+      properties:
+        targetVersionContentJson:
+          type: string
+        compareTime:
+          type: string
+          format: date-time
+        baseVersionContentJson:
+          type: string
+    GoogleCloudDialogflowCxV3AgentUtterance:
+      type: object
+      properties:
+        text:
+          type: string
+    GoogleCloudDialogflowCxV3LoadVersionRequest:
+      type: object
+      properties:
+        allowOverrideAgentResources:
+          type: boolean
     GoogleCloudDialogflowCxV3CompareVersionsRequest:
       type: object
       properties:
@@ -1732,22 +1794,150 @@ components:
           type: string
         targetVersion:
           type: string
-    GoogleCloudDialogflowCxV3PlaybookInstruction:
+    GoogleCloudDialogflowCxV3ToolAuthenticationApiKeyConfig:
       type: object
       properties:
-        guidelines:
+        apiKey:
           type: string
+        requestLocation:
+          type: string
+          enum:
+          - REQUEST_LOCATION_UNSPECIFIED
+          - HEADER
+          - QUERY_STRING
+          x-enumDescriptions:
+          - ''
+          - ''
+          - ''
+        keyName:
+          type: string
+        secretVersionForApiKey:
+          type: string
+    GoogleCloudDialogflowCxV3CodeBlock:
+      type: object
+      properties:
+        code:
+          type: string
+    GoogleCloudDialogflowCxV3ToolAuthenticationServiceAgentAuthConfig:
+      type: object
+      properties:
+        serviceAgentAuth:
+          type: string
+          enum:
+          - SERVICE_AGENT_AUTH_UNSPECIFIED
+          - ID_TOKEN
+          - ACCESS_TOKEN
+          x-enumDescriptions:
+          - ''
+          - ''
+          - ''
+    GoogleCloudDialogflowCxV3ResponseMessageTelephonyTransferCall:
+      type: object
+      properties:
+        phoneNumber:
+          type: string
+    GoogleCloudDialogflowCxV3ResponseMessageEndInteraction:
+      type: object
+    GoogleCloudDialogflowCxV3AdvancedSettingsDtmfSettings:
+      type: object
+      properties:
+        enabled:
+          type: boolean
+        finishDigit:
+          type: string
+        interdigitTimeoutDuration:
+          type: string
+        maxDigits:
+          type: integer
+          format: int32
+        endpointingTimeoutDuration:
+          type: string
+    GoogleCloudDialogflowCxV3ToolUse:
+      type: object
+      properties:
+        inputActionParameters:
+          type: object
+          additionalProperties:
+            description: Properties of the object.
+        tool:
+          type: string
+        outputActionParameters:
+          type: object
+          additionalProperties:
+            description: Properties of the object.
+        displayName:
+          type: string
+          readOnly: true
+        action:
+          type: string
+    GoogleCloudDialogflowCxV3PlaybookVersion:
+      type: object
+      properties:
+        updateTime:
+          type: string
+          format: date-time
+          readOnly: true
+        name:
+          type: string
+        playbook:
+          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3Playbook'
+        description:
+          type: string
+        examples:
+          type: array
+          readOnly: true
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowCxV3Example'
+    GoogleCloudDialogflowCxV3ResponseMessage:
+      type: object
+      properties:
+        outputAudioText:
+          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3ResponseMessageOutputAudioText'
+        endInteraction:
+          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3ResponseMessageEndInteraction'
+        toolCall:
+          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3ToolCall'
+        responseType:
+          type: string
+          enum:
+          - RESPONSE_TYPE_UNSPECIFIED
+          - ENTRY_PROMPT
+          - PARAMETER_PROMPT
+          - HANDLER_PROMPT
+          x-enumDescriptions:
+          - ''
+          - ''
+          - ''
+          - ''
+        text:
+          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3ResponseMessageText'
+        channel:
+          type: string
+        payload:
+          type: object
+          additionalProperties:
+            description: Properties of the object.
+        telephonyTransferCall:
+          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3ResponseMessageTelephonyTransferCall'
+        mixedAudio:
+          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3ResponseMessageMixedAudio'
+        playAudio:
+          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3ResponseMessagePlayAudio'
+        conversationSuccess:
+          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3ResponseMessageConversationSuccess'
+        knowledgeInfoCard:
+          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3ResponseMessageKnowledgeInfoCard'
+        liveAgentHandoff:
+          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3ResponseMessageLiveAgentHandoff'
+    GoogleCloudDialogflowCxV3PlaybookStep:
+      type: object
+      properties:
         steps:
           type: array
           items:
             $ref: '#/components/schemas/GoogleCloudDialogflowCxV3PlaybookStep'
-    GoogleCloudDialogflowCxV3FulfillmentConditionalCasesCaseCaseContent:
-      type: object
-      properties:
-        additionalCases:
-          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3FulfillmentConditionalCases'
-        message:
-          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3ResponseMessage'
+        text:
+          type: string
     GoogleCloudDialogflowCxV3ToolTLSConfig:
       type: object
       properties:
@@ -1755,6 +1945,45 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/GoogleCloudDialogflowCxV3ToolTLSConfigCACert'
+    GoogleCloudDialogflowCxV3RestorePlaybookVersionResponse:
+      type: object
+      properties:
+        playbook:
+          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3Playbook'
+    GoogleCloudDialogflowCxV3FlowInvocation:
+      type: object
+      properties:
+        flow:
+          type: string
+        displayName:
+          type: string
+          readOnly: true
+        flowState:
+          type: string
+          enum:
+          - OUTPUT_STATE_UNSPECIFIED
+          - OUTPUT_STATE_OK
+          - OUTPUT_STATE_CANCELLED
+          - OUTPUT_STATE_FAILED
+          - OUTPUT_STATE_ESCALATED
+          - OUTPUT_STATE_PENDING
+          x-enumDescriptions:
+          - ''
+          - ''
+          - ''
+          - ''
+          - ''
+          - ''
+    GoogleCloudDialogflowCxV3ResponseMessageKnowledgeInfoCard:
+      type: object
+    GoogleCloudDialogflowCxV3PlaybookTransition:
+      type: object
+      properties:
+        playbook:
+          type: string
+        displayName:
+          type: string
+          readOnly: true
     GoogleCloudDialogflowCxV3Fulfillment:
       type: object
       properties:
@@ -1786,44 +2015,7 @@ components:
           type: string
         codeBlockFunction:
           type: string
-    GoogleCloudDialogflowCxV3PlaybookTransition:
-      type: object
-      properties:
-        playbook:
-          type: string
-        displayName:
-          type: string
-          readOnly: true
-    GoogleCloudDialogflowCxV3ResponseMessageText:
-      type: object
-      properties:
-        allowPlaybackInterruption:
-          type: boolean
-          readOnly: true
-        text:
-          type: array
-          items:
-            type: string
-    GoogleCloudDialogflowCxV3ToolAuthenticationApiKeyConfig:
-      type: object
-      properties:
-        apiKey:
-          type: string
-        requestLocation:
-          type: string
-          enum:
-          - REQUEST_LOCATION_UNSPECIFIED
-          - HEADER
-          - QUERY_STRING
-          x-enumDescriptions:
-          - ''
-          - ''
-          - ''
-        keyName:
-          type: string
-        secretVersionForApiKey:
-          type: string
-    GoogleCloudDialogflowCxV3RestoreToolVersionRequest:
+    GoogleCloudDialogflowCxV3RestorePlaybookVersionRequest:
       type: object
     GoogleCloudDialogflowCxV3ToolAuthentication:
       type: object
@@ -1838,24 +2030,81 @@ components:
           $ref: '#/components/schemas/GoogleCloudDialogflowCxV3ToolAuthenticationBearerTokenConfig'
         apiKeyConfig:
           $ref: '#/components/schemas/GoogleCloudDialogflowCxV3ToolAuthenticationApiKeyConfig'
-    GoogleCloudDialogflowCxV3ResponseMessageMixedAudioSegment:
+    GoogleCloudDialogflowCxV3RestoreToolVersionRequest:
+      type: object
+    GoogleCloudDialogflowCxV3FulfillmentConditionalCases:
       type: object
       properties:
-        audio:
+        cases:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowCxV3FulfillmentConditionalCasesCase'
+    GoogleCloudDialogflowCxV3ParameterDefinition:
+      type: object
+      properties:
+        type:
           type: string
-          format: byte
+          enum:
+          - PARAMETER_TYPE_UNSPECIFIED
+          - STRING
+          - NUMBER
+          - BOOLEAN
+          - 'NULL'
+          - OBJECT
+          - LIST
+          x-enumDescriptions:
+          - ''
+          - ''
+          - ''
+          - ''
+          - ''
+          - ''
+          - ''
+        description:
+          type: string
+        typeSchema:
+          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3TypeSchema'
+        name:
+          type: string
+    GoogleCloudDialogflowCxV3ToolServiceDirectoryConfig:
+      type: object
+      properties:
+        service:
+          type: string
+    GoogleCloudDialogflowCxV3Action:
+      type: object
+      properties:
+        userUtterance:
+          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3UserUtterance'
+        flowTransition:
+          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3FlowTransition'
+        flowInvocation:
+          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3FlowInvocation'
+        agentUtterance:
+          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3AgentUtterance'
+        playbookInvocation:
+          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3PlaybookInvocation'
+        toolUse:
+          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3ToolUse'
+        playbookTransition:
+          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3PlaybookTransition'
+    GoogleCloudDialogflowCxV3ResponseMessageText:
+      type: object
+      properties:
         allowPlaybackInterruption:
           type: boolean
           readOnly: true
-        uri:
-          type: string
-    GoogleCloudDialogflowCxV3TypeSchema:
+        text:
+          type: array
+          items:
+            type: string
+    GoogleCloudDialogflowCxV3TypeSchemaSchemaReference:
       type: object
       properties:
-        inlineSchema:
-          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3InlineSchema'
-        schemaReference:
-          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3TypeSchemaSchemaReference'
+        schema:
+          type: string
+        tool:
+          type: string
     GoogleCloudDialogflowCxV3HandlerLifecycleHandler:
       type: object
       properties:
@@ -1865,63 +2114,16 @@ components:
           $ref: '#/components/schemas/GoogleCloudDialogflowCxV3Fulfillment'
         lifecycleStage:
           type: string
-    GoogleCloudDialogflowCxV3ToolCall:
-      type: object
-      properties:
-        inputParameters:
-          type: object
-          additionalProperties:
-            description: Properties of the object.
-        action:
-          type: string
-        tool:
-          type: string
     GoogleCloudDialogflowCxV3GcsDestination:
       type: object
       properties:
         uri:
           type: string
-    GoogleProtobufEmpty:
-      type: object
-    GoogleCloudDialogflowCxV3ListToolVersionsResponse:
+    GoogleCloudDialogflowCxV3RestoreToolVersionResponse:
       type: object
       properties:
-        toolVersions:
-          type: array
-          items:
-            $ref: '#/components/schemas/GoogleCloudDialogflowCxV3ToolVersion'
-        nextPageToken:
-          type: string
-    GoogleCloudDialogflowCxV3ResponseMessagePlayAudio:
-      type: object
-      properties:
-        allowPlaybackInterruption:
-          type: boolean
-          readOnly: true
-        audioUri:
-          type: string
-    GoogleCloudDialogflowCxV3ToolTLSConfigCACert:
-      type: object
-      properties:
-        cert:
-          type: string
-          format: byte
-        displayName:
-          type: string
-    GoogleRpcStatus:
-      type: object
-      properties:
-        message:
-          type: string
-        code:
-          type: integer
-          format: int32
-        details:
-          type: array
-          items:
-            type: object
-            additionalProperties:
-              description: Properties of the object. Contains field @type with type URL.
+        tool:
+          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3Tool'
     GoogleCloudDialogflowCxV3Example:
       type: object
       properties:
@@ -1969,54 +2171,13 @@ components:
           readOnly: true
         displayName:
           type: string
-    GoogleCloudDialogflowCxV3CompareVersionsResponse:
+    GoogleCloudDialogflowCxV3LlmModelSettings:
       type: object
       properties:
-        targetVersionContentJson:
+        model:
           type: string
-        compareTime:
+        promptText:
           type: string
-          format: date-time
-        baseVersionContentJson:
-          type: string
-    GoogleCloudDialogflowCxV3RestorePlaybookVersionRequest:
-      type: object
-    GoogleCloudDialogflowCxV3AdvancedSettingsLoggingSettings:
-      type: object
-      properties:
-        enableConsentBasedRedaction:
-          type: boolean
-        enableStackdriverLogging:
-          type: boolean
-        enableInteractionLogging:
-          type: boolean
-    GoogleCloudDialogflowCxV3ToolDataStoreTool:
-      type: object
-      properties:
-        dataStoreConnections:
-          type: array
-          items:
-            $ref: '#/components/schemas/GoogleCloudDialogflowCxV3DataStoreConnection'
-        fallbackPrompt:
-          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3ToolDataStoreToolFallbackPrompt'
-    GoogleCloudDialogflowCxV3FulfillmentGeneratorSettings:
-      type: object
-      properties:
-        generator:
-          type: string
-        outputParameter:
-          type: string
-        inputParameters:
-          type: object
-          additionalProperties:
-            type: string
-    GoogleCloudDialogflowCxV3ResponseMessageConversationSuccess:
-      type: object
-      properties:
-        metadata:
-          type: object
-          additionalProperties:
-            description: Properties of the object.
     GoogleCloudDialogflowCxV3ResponseMessageMixedAudio:
       type: object
       properties:
@@ -2024,15 +2185,69 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/GoogleCloudDialogflowCxV3ResponseMessageMixedAudioSegment'
-    GoogleCloudDialogflowCxV3TypeSchemaSchemaReference:
+    GoogleCloudDialogflowCxV3DataStoreConnection:
       type: object
       properties:
-        schema:
+        dataStoreType:
           type: string
-        tool:
+          enum:
+          - DATA_STORE_TYPE_UNSPECIFIED
+          - PUBLIC_WEB
+          - UNSTRUCTURED
+          - STRUCTURED
+          x-enumDescriptions:
+          - ''
+          - ''
+          - ''
+          - ''
+        dataStore:
           type: string
-    GoogleCloudDialogflowCxV3ResponseMessageEndInteraction:
+        documentProcessingMode:
+          type: string
+          enum:
+          - DOCUMENT_PROCESSING_MODE_UNSPECIFIED
+          - DOCUMENTS
+          - CHUNKS
+          x-enumDescriptions:
+          - ''
+          - ''
+          - ''
+    GoogleCloudDialogflowCxV3FulfillmentSetParameterAction:
       type: object
+      properties:
+        parameter:
+          type: string
+        value: {}
+    GoogleCloudDialogflowCxV3ToolAuthenticationOAuthConfig:
+      type: object
+      properties:
+        clientId:
+          type: string
+        tokenEndpoint:
+          type: string
+        secretVersionForClientSecret:
+          type: string
+        scopes:
+          type: array
+          items:
+            type: string
+        clientSecret:
+          type: string
+        oauthGrantType:
+          type: string
+          enum:
+          - OAUTH_GRANT_TYPE_UNSPECIFIED
+          - CLIENT_CREDENTIAL
+          x-enumDescriptions:
+          - ''
+          - ''
+    GoogleCloudDialogflowCxV3FulfillmentConditionalCasesCaseCaseContent:
+      type: object
+      properties:
+        additionalCases:
+          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3FulfillmentConditionalCases'
+        message:
+          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3ResponseMessage'
     GoogleCloudDialogflowCxV3Handler:
       type: object
       properties:
@@ -2040,52 +2255,32 @@ components:
           $ref: '#/components/schemas/GoogleCloudDialogflowCxV3HandlerEventHandler'
         lifecycleHandler:
           $ref: '#/components/schemas/GoogleCloudDialogflowCxV3HandlerLifecycleHandler'
-    GoogleCloudDialogflowCxV3ToolAuthenticationServiceAccountAuthConfig:
+    GoogleLongrunningOperation:
       type: object
       properties:
-        serviceAccount:
+        metadata:
+          type: object
+          additionalProperties:
+            description: Properties of the object. Contains field @type with type URL.
+        name:
           type: string
-    GoogleCloudDialogflowCxV3FulfillmentConditionalCasesCase:
+        done:
+          type: boolean
+        response:
+          type: object
+          additionalProperties:
+            description: Properties of the object. Contains field @type with type URL.
+        error:
+          $ref: '#/components/schemas/GoogleRpcStatus'
+    GoogleCloudDialogflowCxV3ListVersionsResponse:
       type: object
       properties:
-        caseContent:
+        versions:
           type: array
           items:
-            $ref: '#/components/schemas/GoogleCloudDialogflowCxV3FulfillmentConditionalCasesCaseCaseContent'
-        condition:
+            $ref: '#/components/schemas/GoogleCloudDialogflowCxV3Version'
+        nextPageToken:
           type: string
-    GoogleCloudDialogflowCxV3ResponseMessageTelephonyTransferCall:
-      type: object
-      properties:
-        phoneNumber:
-          type: string
-    GoogleCloudDialogflowCxV3PlaybookStep:
-      type: object
-      properties:
-        steps:
-          type: array
-          items:
-            $ref: '#/components/schemas/GoogleCloudDialogflowCxV3PlaybookStep'
-        text:
-          type: string
-    GoogleCloudDialogflowCxV3ToolOpenApiTool:
-      type: object
-      properties:
-        tlsConfig:
-          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3ToolTLSConfig'
-        authentication:
-          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3ToolAuthentication'
-        textSchema:
-          type: string
-        serviceDirectoryConfig:
-          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3ToolServiceDirectoryConfig'
-    GoogleCloudDialogflowCxV3RestoreToolVersionResponse:
-      type: object
-      properties:
-        tool:
-          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3Tool'
-    GoogleCloudDialogflowCxV3ResponseMessageKnowledgeInfoCard:
-      type: object
     GoogleCloudDialogflowCxV3Playbook:
       type: object
       properties:
@@ -2154,97 +2349,61 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/GoogleCloudDialogflowCxV3ParameterDefinition'
-    GoogleLongrunningOperation:
+    GoogleProtobufEmpty:
+      type: object
+    GoogleCloudDialogflowCxV3AdvancedSettings:
       type: object
       properties:
-        metadata:
+        speechSettings:
+          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3AdvancedSettingsSpeechSettings'
+        audioExportGcsDestination:
+          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3GcsDestination'
+        loggingSettings:
+          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3AdvancedSettingsLoggingSettings'
+        dtmfSettings:
+          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3AdvancedSettingsDtmfSettings'
+    GoogleCloudDialogflowCxV3ListToolVersionsResponse:
+      type: object
+      properties:
+        toolVersions:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowCxV3ToolVersion'
+        nextPageToken:
+          type: string
+    GoogleCloudDialogflowCxV3FulfillmentGeneratorSettings:
+      type: object
+      properties:
+        generator:
+          type: string
+        outputParameter:
+          type: string
+        inputParameters:
           type: object
           additionalProperties:
-            description: Properties of the object. Contains field @type with type URL.
-        name:
-          type: string
-        done:
+            type: string
+    GoogleCloudDialogflowCxV3ResponseMessagePlayAudio:
+      type: object
+      properties:
+        allowPlaybackInterruption:
           type: boolean
-        response:
-          type: object
-          additionalProperties:
-            description: Properties of the object. Contains field @type with type URL.
-        error:
-          $ref: '#/components/schemas/GoogleRpcStatus'
-    GoogleCloudDialogflowCxV3FulfillmentSetParameterAction:
-      type: object
-      properties:
-        parameter:
-          type: string
-        value: {}
-    GoogleCloudDialogflowCxV3ToolServiceDirectoryConfig:
-      type: object
-      properties:
-        service:
-          type: string
-    GoogleCloudDialogflowCxV3UserUtterance:
-      type: object
-      properties:
-        text:
-          type: string
-    GoogleCloudDialogflowCxV3ToolAuthenticationServiceAgentAuthConfig:
-      type: object
-      properties:
-        serviceAgentAuth:
-          type: string
-          enum:
-          - SERVICE_AGENT_AUTH_UNSPECIFIED
-          - ID_TOKEN
-          - ACCESS_TOKEN
-          x-enumDescriptions:
-          - ''
-          - ''
-          - ''
-    GoogleCloudDialogflowCxV3DataStoreConnection:
-      type: object
-      properties:
-        dataStoreType:
-          type: string
-          enum:
-          - DATA_STORE_TYPE_UNSPECIFIED
-          - PUBLIC_WEB
-          - UNSTRUCTURED
-          - STRUCTURED
-          x-enumDescriptions:
-          - ''
-          - ''
-          - ''
-          - ''
-        dataStore:
-          type: string
-        documentProcessingMode:
-          type: string
-          enum:
-          - DOCUMENT_PROCESSING_MODE_UNSPECIFIED
-          - DOCUMENTS
-          - CHUNKS
-          x-enumDescriptions:
-          - ''
-          - ''
-          - ''
-    GoogleCloudDialogflowCxV3ToolUse:
-      type: object
-      properties:
-        inputActionParameters:
-          type: object
-          additionalProperties:
-            description: Properties of the object.
-        tool:
-          type: string
-        outputActionParameters:
-          type: object
-          additionalProperties:
-            description: Properties of the object.
-        displayName:
-          type: string
           readOnly: true
-        action:
+        audioUri:
           type: string
+    GoogleCloudDialogflowCxV3AdvancedSettingsSpeechSettings:
+      type: object
+      properties:
+        noSpeechTimeout:
+          type: string
+        models:
+          type: object
+          additionalProperties:
+            type: string
+        useTimeoutBasedEndpointing:
+          type: boolean
+        endpointerSensitivity:
+          type: integer
+          format: int32
     GoogleCloudDialogflowCxV3ListPlaybookVersionsResponse:
       type: object
       properties:
@@ -2254,6 +2413,8 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/GoogleCloudDialogflowCxV3PlaybookVersion'
+    GoogleCloudDialogflowCxV3ToolDataStoreToolFallbackPrompt:
+      type: object
     GoogleCloudDialogflowCxV3HandlerEventHandler:
       type: object
       properties:
@@ -2263,58 +2424,11 @@ components:
           type: string
         fulfillment:
           $ref: '#/components/schemas/GoogleCloudDialogflowCxV3Fulfillment'
-    GoogleCloudDialogflowCxV3NluSettings:
+    GoogleCloudDialogflowCxV3ToolAuthenticationServiceAccountAuthConfig:
       type: object
       properties:
-        classificationThreshold:
-          type: number
-          format: float
-        modelTrainingMode:
+        serviceAccount:
           type: string
-          enum:
-          - MODEL_TRAINING_MODE_UNSPECIFIED
-          - MODEL_TRAINING_MODE_AUTOMATIC
-          - MODEL_TRAINING_MODE_MANUAL
-          x-enumDescriptions:
-          - ''
-          - ''
-          - ''
-        modelType:
-          type: string
-          enum:
-          - MODEL_TYPE_UNSPECIFIED
-          - MODEL_TYPE_STANDARD
-          - MODEL_TYPE_ADVANCED
-          x-enumDescriptions:
-          - ''
-          - ''
-          - ''
-    GoogleCloudDialogflowCxV3Tool:
-      type: object
-      properties:
-        functionSpec:
-          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3ToolFunctionTool'
-        description:
-          type: string
-        name:
-          type: string
-        dataStoreSpec:
-          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3ToolDataStoreTool'
-        displayName:
-          type: string
-        openApiSpec:
-          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3ToolOpenApiTool'
-        toolType:
-          type: string
-          enum:
-          - TOOL_TYPE_UNSPECIFIED
-          - CUSTOMIZED_TOOL
-          - BUILTIN_TOOL
-          x-enumDescriptions:
-          - ''
-          - ''
-          - ''
-          readOnly: true
     GoogleCloudDialogflowCxV3ToolVersion:
       type: object
       properties:
@@ -2332,165 +2446,42 @@ components:
           type: string
           format: date-time
           readOnly: true
-    GoogleCloudDialogflowCxV3PlaybookInput:
+    GoogleCloudDialogflowCxV3ToolAuthenticationBearerTokenConfig:
       type: object
       properties:
-        precedingConversationSummary:
+        secretVersionForToken:
           type: string
-    GoogleCloudDialogflowCxV3Action:
+        token:
+          type: string
+    GoogleCloudDialogflowCxV3ResponseMessageMixedAudioSegment:
       type: object
       properties:
-        userUtterance:
-          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3UserUtterance'
-        flowTransition:
-          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3FlowTransition'
-        flowInvocation:
-          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3FlowInvocation'
-        agentUtterance:
-          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3AgentUtterance'
-        playbookInvocation:
-          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3PlaybookInvocation'
-        toolUse:
-          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3ToolUse'
-        playbookTransition:
-          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3PlaybookTransition'
-    GoogleCloudDialogflowCxV3FlowTransition:
-      type: object
-      properties:
-        flow:
+        audio:
           type: string
-        displayName:
-          type: string
-          readOnly: true
-    GoogleCloudDialogflowCxV3LlmModelSettings:
-      type: object
-      properties:
-        model:
-          type: string
-        promptText:
-          type: string
-    GoogleCloudDialogflowCxV3ResponseMessageOutputAudioText:
-      type: object
-      properties:
+          format: byte
         allowPlaybackInterruption:
           type: boolean
           readOnly: true
-        ssml:
+        uri:
           type: string
-        text:
-          type: string
-    GoogleCloudDialogflowCxV3ToolAuthenticationOAuthConfig:
+    GoogleCloudDialogflowCxV3TypeSchema:
       type: object
       properties:
-        clientId:
-          type: string
-        tokenEndpoint:
-          type: string
-        secretVersionForClientSecret:
-          type: string
-        scopes:
-          type: array
-          items:
-            type: string
-        clientSecret:
-          type: string
-        oauthGrantType:
-          type: string
-          enum:
-          - OAUTH_GRANT_TYPE_UNSPECIFIED
-          - CLIENT_CREDENTIAL
-          x-enumDescriptions:
-          - ''
-          - ''
-    GoogleCloudDialogflowCxV3CodeBlock:
+        inlineSchema:
+          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3InlineSchema'
+        schemaReference:
+          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3TypeSchemaSchemaReference'
+    GoogleCloudDialogflowCxV3ToolCall:
       type: object
       properties:
-        code:
-          type: string
-    GoogleCloudDialogflowCxV3ToolDataStoreToolFallbackPrompt:
-      type: object
-    GoogleCloudDialogflowCxV3ResponseMessage:
-      type: object
-      properties:
-        outputAudioText:
-          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3ResponseMessageOutputAudioText'
-        endInteraction:
-          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3ResponseMessageEndInteraction'
-        toolCall:
-          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3ToolCall'
-        responseType:
-          type: string
-          enum:
-          - RESPONSE_TYPE_UNSPECIFIED
-          - ENTRY_PROMPT
-          - PARAMETER_PROMPT
-          - HANDLER_PROMPT
-          x-enumDescriptions:
-          - ''
-          - ''
-          - ''
-          - ''
-        text:
-          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3ResponseMessageText'
-        channel:
-          type: string
-        payload:
+        inputParameters:
           type: object
           additionalProperties:
             description: Properties of the object.
-        telephonyTransferCall:
-          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3ResponseMessageTelephonyTransferCall'
-        mixedAudio:
-          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3ResponseMessageMixedAudio'
-        playAudio:
-          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3ResponseMessagePlayAudio'
-        conversationSuccess:
-          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3ResponseMessageConversationSuccess'
-        knowledgeInfoCard:
-          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3ResponseMessageKnowledgeInfoCard'
-        liveAgentHandoff:
-          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3ResponseMessageLiveAgentHandoff'
-    GoogleCloudDialogflowCxV3ParameterDefinition:
-      type: object
-      properties:
-        type:
+        action:
           type: string
-          enum:
-          - PARAMETER_TYPE_UNSPECIFIED
-          - STRING
-          - NUMBER
-          - BOOLEAN
-          - 'NULL'
-          - OBJECT
-          - LIST
-          x-enumDescriptions:
-          - ''
-          - ''
-          - ''
-          - ''
-          - ''
-          - ''
-          - ''
-        description:
+        tool:
           type: string
-        typeSchema:
-          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3TypeSchema'
-        name:
-          type: string
-    GoogleCloudDialogflowCxV3AgentUtterance:
-      type: object
-      properties:
-        text:
-          type: string
-    GoogleCloudDialogflowV2ListVersionsResponse:
-      type: object
-      properties:
-        nextPageToken:
-          type: string
-        versions:
-          type: array
-          items:
-            $ref: '#/components/schemas/GoogleCloudDialogflowV2Version'
     GoogleCloudDialogflowV2Version:
       type: object
       properties:
@@ -2520,6 +2511,15 @@ components:
           readOnly: true
         description:
           type: string
+    GoogleCloudDialogflowV2ListVersionsResponse:
+      type: object
+      properties:
+        nextPageToken:
+          type: string
+        versions:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowV2Version'
   securitySchemes:
     OAuth2:
       type: oauth2

@@ -2861,39 +2861,32 @@ paths:
       description: Dialogflow API
 components:
   schemas:
-    GoogleCloudDialogflowCxV3SessionEntityType:
+    GoogleLongrunningOperation:
       type: object
       properties:
-        entities:
-          type: array
-          items:
-            $ref: '#/components/schemas/GoogleCloudDialogflowCxV3EntityTypeEntity'
+        metadata:
+          type: object
+          additionalProperties:
+            description: Properties of the object. Contains field @type with type URL.
         name:
           type: string
-        entityOverrideMode:
-          type: string
-          enum:
-          - ENTITY_OVERRIDE_MODE_UNSPECIFIED
-          - ENTITY_OVERRIDE_MODE_OVERRIDE
-          - ENTITY_OVERRIDE_MODE_SUPPLEMENT
-          x-enumDescriptions:
-          - ''
-          - ''
-          - ''
-    GoogleRpcStatus:
+        done:
+          type: boolean
+        response:
+          type: object
+          additionalProperties:
+            description: Properties of the object. Contains field @type with type URL.
+        error:
+          $ref: '#/components/schemas/GoogleRpcStatus'
+    GoogleCloudDialogflowCxV3ListSessionEntityTypesResponse:
       type: object
       properties:
-        message:
-          type: string
-        code:
-          type: integer
-          format: int32
-        details:
+        sessionEntityTypes:
           type: array
           items:
-            type: object
-            additionalProperties:
-              description: Properties of the object. Contains field @type with type URL.
+            $ref: '#/components/schemas/GoogleCloudDialogflowCxV3SessionEntityType'
+        nextPageToken:
+          type: string
     GoogleCloudDialogflowCxV3EntityType:
       type: object
       properties:
@@ -2933,6 +2926,39 @@ components:
           x-enumDescriptions:
           - ''
           - ''
+    GoogleCloudDialogflowCxV3SessionEntityType:
+      type: object
+      properties:
+        entities:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowCxV3EntityTypeEntity'
+        name:
+          type: string
+        entityOverrideMode:
+          type: string
+          enum:
+          - ENTITY_OVERRIDE_MODE_UNSPECIFIED
+          - ENTITY_OVERRIDE_MODE_OVERRIDE
+          - ENTITY_OVERRIDE_MODE_SUPPLEMENT
+          x-enumDescriptions:
+          - ''
+          - ''
+          - ''
+    GoogleRpcStatus:
+      type: object
+      properties:
+        message:
+          type: string
+        code:
+          type: integer
+          format: int32
+        details:
+          type: array
+          items:
+            type: object
+            additionalProperties:
+              description: Properties of the object. Contains field @type with type URL.
     GoogleCloudDialogflowCxV3ImportEntityTypesRequest:
       type: object
       properties:
@@ -2964,33 +2990,6 @@ components:
         content:
           type: string
           format: byte
-    GoogleCloudDialogflowCxV3ListSessionEntityTypesResponse:
-      type: object
-      properties:
-        sessionEntityTypes:
-          type: array
-          items:
-            $ref: '#/components/schemas/GoogleCloudDialogflowCxV3SessionEntityType'
-        nextPageToken:
-          type: string
-    GoogleCloudDialogflowCxV3ListEntityTypesResponse:
-      type: object
-      properties:
-        nextPageToken:
-          type: string
-        entityTypes:
-          type: array
-          items:
-            $ref: '#/components/schemas/GoogleCloudDialogflowCxV3EntityType'
-    GoogleCloudDialogflowCxV3EntityTypeEntity:
-      type: object
-      properties:
-        value:
-          type: string
-        synonyms:
-          type: array
-          items:
-            type: string
     GoogleCloudDialogflowCxV3ExportEntityTypesRequest:
       type: object
       properties:
@@ -3014,61 +3013,14 @@ components:
           - ''
         languageCode:
           type: string
+    GoogleProtobufEmpty:
+      type: object
     GoogleCloudDialogflowCxV3EntityTypeExcludedPhrase:
       type: object
       properties:
         value:
           type: string
-    GoogleLongrunningOperation:
-      type: object
-      properties:
-        metadata:
-          type: object
-          additionalProperties:
-            description: Properties of the object. Contains field @type with type URL.
-        name:
-          type: string
-        done:
-          type: boolean
-        response:
-          type: object
-          additionalProperties:
-            description: Properties of the object. Contains field @type with type URL.
-        error:
-          $ref: '#/components/schemas/GoogleRpcStatus'
-    GoogleProtobufEmpty:
-      type: object
-    GoogleCloudDialogflowV2SessionEntityType:
-      type: object
-      properties:
-        entities:
-          type: array
-          items:
-            $ref: '#/components/schemas/GoogleCloudDialogflowV2EntityTypeEntity'
-        entityOverrideMode:
-          type: string
-          enum:
-          - ENTITY_OVERRIDE_MODE_UNSPECIFIED
-          - ENTITY_OVERRIDE_MODE_OVERRIDE
-          - ENTITY_OVERRIDE_MODE_SUPPLEMENT
-          x-enumDescriptions:
-          - ''
-          - ''
-          - ''
-        name:
-          type: string
-    GoogleCloudDialogflowV2BatchUpdateEntityTypesRequest:
-      type: object
-      properties:
-        entityTypeBatchInline:
-          $ref: '#/components/schemas/GoogleCloudDialogflowV2EntityTypeBatch'
-        entityTypeBatchUri:
-          type: string
-        languageCode:
-          type: string
-        updateMask:
-          type: string
-    GoogleCloudDialogflowV2EntityTypeEntity:
+    GoogleCloudDialogflowCxV3EntityTypeEntity:
       type: object
       properties:
         value:
@@ -3077,7 +3029,7 @@ components:
           type: array
           items:
             type: string
-    GoogleCloudDialogflowV2ListEntityTypesResponse:
+    GoogleCloudDialogflowCxV3ListEntityTypesResponse:
       type: object
       properties:
         nextPageToken:
@@ -3085,30 +3037,7 @@ components:
         entityTypes:
           type: array
           items:
-            $ref: '#/components/schemas/GoogleCloudDialogflowV2EntityType'
-    GoogleCloudDialogflowV2EntityTypeBatch:
-      type: object
-      properties:
-        entityTypes:
-          type: array
-          items:
-            $ref: '#/components/schemas/GoogleCloudDialogflowV2EntityType'
-    GoogleCloudDialogflowV2ListSessionEntityTypesResponse:
-      type: object
-      properties:
-        sessionEntityTypes:
-          type: array
-          items:
-            $ref: '#/components/schemas/GoogleCloudDialogflowV2SessionEntityType'
-        nextPageToken:
-          type: string
-    GoogleCloudDialogflowV2BatchDeleteEntityTypesRequest:
-      type: object
-      properties:
-        entityTypeNames:
-          type: array
-          items:
-            type: string
+            $ref: '#/components/schemas/GoogleCloudDialogflowCxV3EntityType'
     GoogleCloudDialogflowV2EntityType:
       type: object
       properties:
@@ -3142,6 +3071,77 @@ components:
           - ''
           - ''
           - ''
+    GoogleCloudDialogflowV2ListEntityTypesResponse:
+      type: object
+      properties:
+        nextPageToken:
+          type: string
+        entityTypes:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowV2EntityType'
+    GoogleCloudDialogflowV2EntityTypeBatch:
+      type: object
+      properties:
+        entityTypes:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowV2EntityType'
+    GoogleCloudDialogflowV2BatchDeleteEntityTypesRequest:
+      type: object
+      properties:
+        entityTypeNames:
+          type: array
+          items:
+            type: string
+    GoogleCloudDialogflowV2ListSessionEntityTypesResponse:
+      type: object
+      properties:
+        sessionEntityTypes:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowV2SessionEntityType'
+        nextPageToken:
+          type: string
+    GoogleCloudDialogflowV2SessionEntityType:
+      type: object
+      properties:
+        entities:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowV2EntityTypeEntity'
+        entityOverrideMode:
+          type: string
+          enum:
+          - ENTITY_OVERRIDE_MODE_UNSPECIFIED
+          - ENTITY_OVERRIDE_MODE_OVERRIDE
+          - ENTITY_OVERRIDE_MODE_SUPPLEMENT
+          x-enumDescriptions:
+          - ''
+          - ''
+          - ''
+        name:
+          type: string
+    GoogleCloudDialogflowV2EntityTypeEntity:
+      type: object
+      properties:
+        value:
+          type: string
+        synonyms:
+          type: array
+          items:
+            type: string
+    GoogleCloudDialogflowV2BatchUpdateEntityTypesRequest:
+      type: object
+      properties:
+        entityTypeBatchInline:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2EntityTypeBatch'
+        entityTypeBatchUri:
+          type: string
+        languageCode:
+          type: string
+        updateMask:
+          type: string
   securitySchemes:
     OAuth2:
       type: oauth2

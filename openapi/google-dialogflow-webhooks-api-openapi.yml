@@ -371,25 +371,6 @@ components:
           - ''
           - ''
           - ''
-    GoogleRpcStatus:
-      type: object
-      properties:
-        message:
-          type: string
-        code:
-          type: integer
-          format: int32
-        details:
-          type: array
-          items:
-            type: object
-            additionalProperties:
-              description: Properties of the object. Contains field @type with type URL.
-    GoogleCloudDialogflowCxV3WebhookGenericWebServiceServiceAccountAuthConfig:
-      type: object
-      properties:
-        serviceAccount:
-          type: string
     GoogleCloudDialogflowCxV3WebhookGenericWebServiceOAuthConfig:
       type: object
       properties:
@@ -405,6 +386,34 @@ components:
           type: string
         tokenEndpoint:
           type: string
+    GoogleCloudDialogflowCxV3ListWebhooksResponse:
+      type: object
+      properties:
+        webhooks:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowCxV3Webhook'
+        nextPageToken:
+          type: string
+    GoogleCloudDialogflowCxV3WebhookGenericWebServiceServiceAccountAuthConfig:
+      type: object
+      properties:
+        serviceAccount:
+          type: string
+    GoogleRpcStatus:
+      type: object
+      properties:
+        message:
+          type: string
+        code:
+          type: integer
+          format: int32
+        details:
+          type: array
+          items:
+            type: object
+            additionalProperties:
+              description: Properties of the object. Contains field @type with type URL.
     GoogleCloudDialogflowCxV3WebhookGenericWebServiceSecretVersionHeaderValue:
       type: object
       properties:
@@ -417,6 +426,8 @@ components:
           $ref: '#/components/schemas/GoogleCloudDialogflowCxV3WebhookGenericWebService'
         service:
           type: string
+    GoogleProtobufEmpty:
+      type: object
     GoogleCloudDialogflowCxV3Webhook:
       type: object
       properties:
@@ -432,17 +443,6 @@ components:
           type: boolean
         displayName:
           type: string
-    GoogleCloudDialogflowCxV3ListWebhooksResponse:
-      type: object
-      properties:
-        webhooks:
-          type: array
-          items:
-            $ref: '#/components/schemas/GoogleCloudDialogflowCxV3Webhook'
-        nextPageToken:
-          type: string
-    GoogleProtobufEmpty:
-      type: object
   securitySchemes:
     OAuth2:
       type: oauth2

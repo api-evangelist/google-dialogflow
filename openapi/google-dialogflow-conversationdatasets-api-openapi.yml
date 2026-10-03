@@ -384,11 +384,35 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    GoogleCloudDialogflowV2ConversationInfo:
+    GoogleCloudDialogflowV2GcsSources:
       type: object
       properties:
-        languageCode:
+        uris:
+          type: array
+          items:
+            type: string
+    GoogleLongrunningOperation:
+      type: object
+      properties:
+        name:
           type: string
+        metadata:
+          type: object
+          additionalProperties:
+            description: Properties of the object. Contains field @type with type URL.
+        done:
+          type: boolean
+        response:
+          type: object
+          additionalProperties:
+            description: Properties of the object. Contains field @type with type URL.
+        error:
+          $ref: '#/components/schemas/GoogleRpcStatus'
+    GoogleCloudDialogflowV2InputConfig:
+      type: object
+      properties:
+        gcsSource:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2GcsSources'
     GoogleRpcStatus:
       type: object
       properties:
@@ -403,20 +427,6 @@ components:
             type: object
             additionalProperties:
               description: Properties of the object. Contains field @type with type URL.
-    GoogleCloudDialogflowV2InputConfig:
-      type: object
-      properties:
-        gcsSource:
-          $ref: '#/components/schemas/GoogleCloudDialogflowV2GcsSources'
-    GoogleCloudDialogflowV2ListConversationDatasetsResponse:
-      type: object
-      properties:
-        nextPageToken:
-          type: string
-        conversationDatasets:
-          type: array
-          items:
-            $ref: '#/components/schemas/GoogleCloudDialogflowV2ConversationDataset'
     GoogleCloudDialogflowV2ConversationDataset:
       type: object
       properties:
@@ -445,35 +455,25 @@ components:
           $ref: '#/components/schemas/GoogleCloudDialogflowV2ConversationInfo'
         inputConfig:
           $ref: '#/components/schemas/GoogleCloudDialogflowV2InputConfig'
+    GoogleCloudDialogflowV2ListConversationDatasetsResponse:
+      type: object
+      properties:
+        nextPageToken:
+          type: string
+        conversationDatasets:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowV2ConversationDataset'
     GoogleCloudDialogflowV2ImportConversationDataRequest:
       type: object
       properties:
         inputConfig:
           $ref: '#/components/schemas/GoogleCloudDialogflowV2InputConfig'
-    GoogleCloudDialogflowV2GcsSources:
+    GoogleCloudDialogflowV2ConversationInfo:
       type: object
       properties:
-        uris:
-          type: array
-          items:
-            type: string
-    GoogleLongrunningOperation:
-      type: object
-      properties:
-        name:
+        languageCode:
           type: string
-        metadata:
-          type: object
-          additionalProperties:
-            description: Properties of the object. Contains field @type with type URL.
-        done:
-          type: boolean
-        response:
-          type: object
-          additionalProperties:
-            description: Properties of the object. Contains field @type with type URL.
-        error:
-          $ref: '#/components/schemas/GoogleRpcStatus'
   securitySchemes:
     OAuth2:
       type: oauth2

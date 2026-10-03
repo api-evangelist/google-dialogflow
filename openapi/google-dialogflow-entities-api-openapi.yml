@@ -314,58 +314,6 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    GoogleCloudDialogflowV2BatchCreateEntitiesRequest:
-      type: object
-      properties:
-        languageCode:
-          type: string
-        entities:
-          type: array
-          items:
-            $ref: '#/components/schemas/GoogleCloudDialogflowV2EntityTypeEntity'
-    GoogleCloudDialogflowV2BatchUpdateEntitiesRequest:
-      type: object
-      properties:
-        updateMask:
-          type: string
-        entities:
-          type: array
-          items:
-            $ref: '#/components/schemas/GoogleCloudDialogflowV2EntityTypeEntity'
-        languageCode:
-          type: string
-    GoogleRpcStatus:
-      type: object
-      properties:
-        message:
-          type: string
-        code:
-          type: integer
-          format: int32
-        details:
-          type: array
-          items:
-            type: object
-            additionalProperties:
-              description: Properties of the object. Contains field @type with type URL.
-    GoogleCloudDialogflowV2EntityTypeEntity:
-      type: object
-      properties:
-        value:
-          type: string
-        synonyms:
-          type: array
-          items:
-            type: string
-    GoogleCloudDialogflowV2BatchDeleteEntitiesRequest:
-      type: object
-      properties:
-        entityValues:
-          type: array
-          items:
-            type: string
-        languageCode:
-          type: string
     GoogleLongrunningOperation:
       type: object
       properties:
@@ -383,6 +331,58 @@ components:
             description: Properties of the object. Contains field @type with type URL.
         error:
           $ref: '#/components/schemas/GoogleRpcStatus'
+    GoogleRpcStatus:
+      type: object
+      properties:
+        message:
+          type: string
+        code:
+          type: integer
+          format: int32
+        details:
+          type: array
+          items:
+            type: object
+            additionalProperties:
+              description: Properties of the object. Contains field @type with type URL.
+    GoogleCloudDialogflowV2BatchCreateEntitiesRequest:
+      type: object
+      properties:
+        languageCode:
+          type: string
+        entities:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowV2EntityTypeEntity'
+    GoogleCloudDialogflowV2EntityTypeEntity:
+      type: object
+      properties:
+        value:
+          type: string
+        synonyms:
+          type: array
+          items:
+            type: string
+    GoogleCloudDialogflowV2BatchUpdateEntitiesRequest:
+      type: object
+      properties:
+        updateMask:
+          type: string
+        entities:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowV2EntityTypeEntity'
+        languageCode:
+          type: string
+    GoogleCloudDialogflowV2BatchDeleteEntitiesRequest:
+      type: object
+      properties:
+        entityValues:
+          type: array
+          items:
+            type: string
+        languageCode:
+          type: string
   securitySchemes:
     OAuth2:
       type: oauth2

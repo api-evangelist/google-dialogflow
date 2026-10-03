@@ -542,31 +542,11 @@ paths:
       description: Dialogflow API
 components:
   schemas:
-    GoogleCloudDialogflowCxV3ToolTLSConfig:
+    GoogleCloudDialogflowCxV3ToolAuthenticationServiceAccountAuthConfig:
       type: object
       properties:
-        caCerts:
-          type: array
-          items:
-            $ref: '#/components/schemas/GoogleCloudDialogflowCxV3ToolTLSConfigCACert'
-    GoogleCloudDialogflowCxV3ToolAuthenticationBearerTokenConfig:
-      type: object
-      properties:
-        secretVersionForToken:
+        serviceAccount:
           type: string
-        token:
-          type: string
-    GoogleCloudDialogflowCxV3ToolFunctionTool:
-      type: object
-      properties:
-        outputSchema:
-          type: object
-          additionalProperties:
-            description: Properties of the object.
-        inputSchema:
-          type: object
-          additionalProperties:
-            description: Properties of the object.
     GoogleCloudDialogflowCxV3ToolTLSConfigCACert:
       type: object
       properties:
@@ -575,6 +555,61 @@ components:
           format: byte
         displayName:
           type: string
+    GoogleCloudDialogflowCxV3ToolAuthenticationServiceAgentAuthConfig:
+      type: object
+      properties:
+        serviceAgentAuth:
+          type: string
+          enum:
+          - SERVICE_AGENT_AUTH_UNSPECIFIED
+          - ID_TOKEN
+          - ACCESS_TOKEN
+          x-enumDescriptions:
+          - ''
+          - ''
+          - ''
+    GoogleCloudDialogflowCxV3Tool:
+      type: object
+      properties:
+        functionSpec:
+          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3ToolFunctionTool'
+        description:
+          type: string
+        name:
+          type: string
+        dataStoreSpec:
+          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3ToolDataStoreTool'
+        displayName:
+          type: string
+        openApiSpec:
+          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3ToolOpenApiTool'
+        toolType:
+          type: string
+          enum:
+          - TOOL_TYPE_UNSPECIFIED
+          - CUSTOMIZED_TOOL
+          - BUILTIN_TOOL
+          x-enumDescriptions:
+          - ''
+          - ''
+          - ''
+          readOnly: true
+    GoogleCloudDialogflowCxV3ToolAuthenticationBearerTokenConfig:
+      type: object
+      properties:
+        secretVersionForToken:
+          type: string
+        token:
+          type: string
+    GoogleCloudDialogflowCxV3ListToolsResponse:
+      type: object
+      properties:
+        nextPageToken:
+          type: string
+        tools:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowCxV3Tool'
     GoogleRpcStatus:
       type: object
       properties:
@@ -589,34 +624,58 @@ components:
             type: object
             additionalProperties:
               description: Properties of the object. Contains field @type with type URL.
-    GoogleCloudDialogflowCxV3ToolAuthenticationServiceAccountAuthConfig:
+    GoogleCloudDialogflowCxV3ToolAuthenticationApiKeyConfig:
       type: object
       properties:
-        serviceAccount:
+        apiKey:
           type: string
-    GoogleCloudDialogflowCxV3ToolAuthenticationOAuthConfig:
-      type: object
-      properties:
-        clientId:
-          type: string
-        tokenEndpoint:
-          type: string
-        secretVersionForClientSecret:
-          type: string
-        scopes:
-          type: array
-          items:
-            type: string
-        clientSecret:
-          type: string
-        oauthGrantType:
+        requestLocation:
           type: string
           enum:
-          - OAUTH_GRANT_TYPE_UNSPECIFIED
-          - CLIENT_CREDENTIAL
+          - REQUEST_LOCATION_UNSPECIFIED
+          - HEADER
+          - QUERY_STRING
           x-enumDescriptions:
           - ''
           - ''
+          - ''
+        keyName:
+          type: string
+        secretVersionForApiKey:
+          type: string
+    GoogleCloudDialogflowCxV3ToolAuthentication:
+      type: object
+      properties:
+        serviceAccountAuthConfig:
+          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3ToolAuthenticationServiceAccountAuthConfig'
+        oauthConfig:
+          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3ToolAuthenticationOAuthConfig'
+        serviceAgentAuthConfig:
+          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3ToolAuthenticationServiceAgentAuthConfig'
+        bearerTokenConfig:
+          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3ToolAuthenticationBearerTokenConfig'
+        apiKeyConfig:
+          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3ToolAuthenticationApiKeyConfig'
+    GoogleCloudDialogflowCxV3ToolTLSConfig:
+      type: object
+      properties:
+        caCerts:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowCxV3ToolTLSConfigCACert'
+    GoogleProtobufEmpty:
+      type: object
+    GoogleCloudDialogflowCxV3ToolFunctionTool:
+      type: object
+      properties:
+        outputSchema:
+          type: object
+          additionalProperties:
+            description: Properties of the object.
+        inputSchema:
+          type: object
+          additionalProperties:
+            description: Properties of the object.
     GoogleCloudDialogflowCxV3DataStoreConnection:
       type: object
       properties:
@@ -644,6 +703,36 @@ components:
           - ''
           - ''
           - ''
+    GoogleCloudDialogflowCxV3ToolAuthenticationOAuthConfig:
+      type: object
+      properties:
+        clientId:
+          type: string
+        tokenEndpoint:
+          type: string
+        secretVersionForClientSecret:
+          type: string
+        scopes:
+          type: array
+          items:
+            type: string
+        clientSecret:
+          type: string
+        oauthGrantType:
+          type: string
+          enum:
+          - OAUTH_GRANT_TYPE_UNSPECIFIED
+          - CLIENT_CREDENTIAL
+          x-enumDescriptions:
+          - ''
+          - ''
+    GoogleCloudDialogflowCxV3ToolDataStoreToolFallbackPrompt:
+      type: object
+    GoogleCloudDialogflowCxV3ToolServiceDirectoryConfig:
+      type: object
+      properties:
+        service:
+          type: string
     GoogleCloudDialogflowCxV3ToolDataStoreTool:
       type: object
       properties:
@@ -664,95 +753,62 @@ components:
           type: string
         serviceDirectoryConfig:
           $ref: '#/components/schemas/GoogleCloudDialogflowCxV3ToolServiceDirectoryConfig'
-    GoogleCloudDialogflowCxV3ToolServiceDirectoryConfig:
+    GoogleCloudDialogflowV2ToolAuthenticationOAuthConfig:
       type: object
       properties:
-        service:
+        oauthGrantType:
           type: string
-    GoogleCloudDialogflowCxV3ListToolsResponse:
+          enum:
+          - OAUTH_GRANT_TYPE_UNSPECIFIED
+          - CLIENT_CREDENTIAL
+          x-enumDescriptions:
+          - ''
+          - ''
+        clientSecret:
+          type: string
+        clientId:
+          type: string
+        secretVersionForClientSecret:
+          type: string
+        tokenEndpoint:
+          type: string
+        scopes:
+          type: array
+          items:
+            type: string
+    GoogleCloudDialogflowV2ToolConnectorTool:
       type: object
       properties:
-        nextPageToken:
+        name:
           type: string
+        actions:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowV2ToolConnectorToolAction'
+    GoogleCloudDialogflowV2ListToolsResponse:
+      type: object
+      properties:
         tools:
           type: array
           items:
-            $ref: '#/components/schemas/GoogleCloudDialogflowCxV3Tool'
-    GoogleCloudDialogflowCxV3ToolDataStoreToolFallbackPrompt:
-      type: object
-    GoogleCloudDialogflowCxV3ToolAuthenticationApiKeyConfig:
-      type: object
-      properties:
-        apiKey:
+            $ref: '#/components/schemas/GoogleCloudDialogflowV2Tool'
+        nextPageToken:
           type: string
-        requestLocation:
-          type: string
-          enum:
-          - REQUEST_LOCATION_UNSPECIFIED
-          - HEADER
-          - QUERY_STRING
-          x-enumDescriptions:
-          - ''
-          - ''
-          - ''
-        keyName:
-          type: string
-        secretVersionForApiKey:
-          type: string
-    GoogleCloudDialogflowCxV3Tool:
+    GoogleCloudDialogflowV2ToolConnectorToolAction:
       type: object
       properties:
-        functionSpec:
-          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3ToolFunctionTool'
-        description:
+        outputFields:
+          type: array
+          items:
+            type: string
+        entityOperation:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2ToolConnectorToolActionEntityOperation'
+        connectionActionId:
           type: string
-        name:
-          type: string
-        dataStoreSpec:
-          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3ToolDataStoreTool'
-        displayName:
-          type: string
-        openApiSpec:
-          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3ToolOpenApiTool'
-        toolType:
-          type: string
-          enum:
-          - TOOL_TYPE_UNSPECIFIED
-          - CUSTOMIZED_TOOL
-          - BUILTIN_TOOL
-          x-enumDescriptions:
-          - ''
-          - ''
-          - ''
-          readOnly: true
-    GoogleCloudDialogflowCxV3ToolAuthenticationServiceAgentAuthConfig:
-      type: object
-      properties:
-        serviceAgentAuth:
-          type: string
-          enum:
-          - SERVICE_AGENT_AUTH_UNSPECIFIED
-          - ID_TOKEN
-          - ACCESS_TOKEN
-          x-enumDescriptions:
-          - ''
-          - ''
-          - ''
-    GoogleCloudDialogflowCxV3ToolAuthentication:
-      type: object
-      properties:
-        serviceAccountAuthConfig:
-          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3ToolAuthenticationServiceAccountAuthConfig'
-        oauthConfig:
-          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3ToolAuthenticationOAuthConfig'
-        serviceAgentAuthConfig:
-          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3ToolAuthenticationServiceAgentAuthConfig'
-        bearerTokenConfig:
-          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3ToolAuthenticationBearerTokenConfig'
-        apiKeyConfig:
-          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3ToolAuthenticationApiKeyConfig'
-    GoogleProtobufEmpty:
-      type: object
+        inputFields:
+          type: array
+          items:
+            type: string
     GoogleCloudDialogflowV2ToolAuthentication:
       type: object
       properties:
@@ -771,26 +827,35 @@ components:
           type: string
         secretVersionForToken:
           type: string
-    GoogleCloudDialogflowV2ToolConnectorToolAction:
+    GoogleCloudDialogflowV2ToolAuthenticationServiceAgentAuthConfig:
       type: object
       properties:
-        outputFields:
-          type: array
-          items:
-            type: string
-        entityOperation:
-          $ref: '#/components/schemas/GoogleCloudDialogflowV2ToolConnectorToolActionEntityOperation'
-        connectionActionId:
+        serviceAgentAuth:
           type: string
-        inputFields:
-          type: array
-          items:
-            type: string
-    GoogleCloudDialogflowV2ToolExtensionTool:
+          enum:
+          - SERVICE_AGENT_AUTH_UNSPECIFIED
+          - ID_TOKEN
+          - ACCESS_TOKEN
+          x-enumDescriptions:
+          - ''
+          - ''
+          - ''
+    GoogleCloudDialogflowV2ToolServiceDirectoryConfig:
       type: object
       properties:
-        name:
+        service:
           type: string
+    GoogleCloudDialogflowV2ToolOpenApiTool:
+      type: object
+      properties:
+        serviceDirectoryConfig:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2ToolServiceDirectoryConfig'
+        textSchema:
+          type: string
+        authentication:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2ToolAuthentication'
+        tlsConfig:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2ToolTLSConfig'
     GoogleCloudDialogflowV2ToolTLSConfig:
       type: object
       properties:
@@ -798,6 +863,86 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/GoogleCloudDialogflowV2ToolTLSConfigCACert'
+    GoogleCloudDialogflowV2ToolExtensionTool:
+      type: object
+      properties:
+        name:
+          type: string
+    GoogleCloudDialogflowV2ToolConnectorToolActionEntityOperation:
+      type: object
+      properties:
+        operation:
+          type: string
+          enum:
+          - OPERATION_TYPE_UNSPECIFIED
+          - LIST
+          - GET
+          - CREATE
+          - UPDATE
+          - DELETE
+          x-enumDescriptions:
+          - ''
+          - ''
+          - ''
+          - ''
+          - ''
+          - ''
+        entityId:
+          type: string
+    GoogleCloudDialogflowV2ToolFunctionTool:
+      type: object
+      properties:
+        outputSchema:
+          type: object
+          additionalProperties:
+            description: Properties of the object.
+        methodType:
+          type: string
+          enum:
+          - METHOD_TYPE_UNSPECIFIED
+          - GET
+          - POST
+          - PUT
+          - DELETE
+          - PATCH
+          x-enumDescriptions:
+          - ''
+          - ''
+          - ''
+          - ''
+          - ''
+          - ''
+        inputSchema:
+          type: object
+          additionalProperties:
+            description: Properties of the object.
+    GoogleCloudDialogflowV2ToolAuthenticationApiKeyConfig:
+      type: object
+      properties:
+        secretVersionForApiKey:
+          type: string
+        keyName:
+          type: string
+        requestLocation:
+          type: string
+          enum:
+          - REQUEST_LOCATION_UNSPECIFIED
+          - HEADER
+          - QUERY_STRING
+          x-enumDescriptions:
+          - ''
+          - ''
+          - ''
+        apiKey:
+          type: string
+    GoogleCloudDialogflowV2ToolTLSConfigCACert:
+      type: object
+      properties:
+        cert:
+          type: string
+          format: byte
+        displayName:
+          type: string
     GoogleCloudDialogflowV2Tool:
       type: object
       properties:
@@ -844,151 +989,6 @@ components:
           type: string
           format: date-time
           readOnly: true
-    GoogleCloudDialogflowV2ToolTLSConfigCACert:
-      type: object
-      properties:
-        cert:
-          type: string
-          format: byte
-        displayName:
-          type: string
-    GoogleCloudDialogflowV2ToolAuthenticationApiKeyConfig:
-      type: object
-      properties:
-        secretVersionForApiKey:
-          type: string
-        keyName:
-          type: string
-        requestLocation:
-          type: string
-          enum:
-          - REQUEST_LOCATION_UNSPECIFIED
-          - HEADER
-          - QUERY_STRING
-          x-enumDescriptions:
-          - ''
-          - ''
-          - ''
-        apiKey:
-          type: string
-    GoogleCloudDialogflowV2ToolAuthenticationServiceAgentAuthConfig:
-      type: object
-      properties:
-        serviceAgentAuth:
-          type: string
-          enum:
-          - SERVICE_AGENT_AUTH_UNSPECIFIED
-          - ID_TOKEN
-          - ACCESS_TOKEN
-          x-enumDescriptions:
-          - ''
-          - ''
-          - ''
-    GoogleCloudDialogflowV2ListToolsResponse:
-      type: object
-      properties:
-        tools:
-          type: array
-          items:
-            $ref: '#/components/schemas/GoogleCloudDialogflowV2Tool'
-        nextPageToken:
-          type: string
-    GoogleCloudDialogflowV2ToolServiceDirectoryConfig:
-      type: object
-      properties:
-        service:
-          type: string
-    GoogleCloudDialogflowV2ToolConnectorToolActionEntityOperation:
-      type: object
-      properties:
-        operation:
-          type: string
-          enum:
-          - OPERATION_TYPE_UNSPECIFIED
-          - LIST
-          - GET
-          - CREATE
-          - UPDATE
-          - DELETE
-          x-enumDescriptions:
-          - ''
-          - ''
-          - ''
-          - ''
-          - ''
-          - ''
-        entityId:
-          type: string
-    GoogleCloudDialogflowV2ToolAuthenticationOAuthConfig:
-      type: object
-      properties:
-        oauthGrantType:
-          type: string
-          enum:
-          - OAUTH_GRANT_TYPE_UNSPECIFIED
-          - CLIENT_CREDENTIAL
-          x-enumDescriptions:
-          - ''
-          - ''
-        clientSecret:
-          type: string
-        clientId:
-          type: string
-        secretVersionForClientSecret:
-          type: string
-        tokenEndpoint:
-          type: string
-        scopes:
-          type: array
-          items:
-            type: string
-    GoogleCloudDialogflowV2ToolOpenApiTool:
-      type: object
-      properties:
-        serviceDirectoryConfig:
-          $ref: '#/components/schemas/GoogleCloudDialogflowV2ToolServiceDirectoryConfig'
-        textSchema:
-          type: string
-        authentication:
-          $ref: '#/components/schemas/GoogleCloudDialogflowV2ToolAuthentication'
-        tlsConfig:
-          $ref: '#/components/schemas/GoogleCloudDialogflowV2ToolTLSConfig'
-    GoogleCloudDialogflowV2ToolConnectorTool:
-      type: object
-      properties:
-        name:
-          type: string
-        actions:
-          type: array
-          items:
-            $ref: '#/components/schemas/GoogleCloudDialogflowV2ToolConnectorToolAction'
-    GoogleCloudDialogflowV2ToolFunctionTool:
-      type: object
-      properties:
-        outputSchema:
-          type: object
-          additionalProperties:
-            description: Properties of the object.
-        methodType:
-          type: string
-          enum:
-          - METHOD_TYPE_UNSPECIFIED
-          - GET
-          - POST
-          - PUT
-          - DELETE
-          - PATCH
-          x-enumDescriptions:
-          - ''
-          - ''
-          - ''
-          - ''
-          - ''
-          - ''
-        inputSchema:
-          type: object
-          additionalProperties:
-            description: Properties of the object.
   securitySchemes:
     OAuth2:
       type: oauth2

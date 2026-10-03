@@ -135,15 +135,20 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    GoogleCloudDialogflowCxV3ListChangelogsResponse:
+    GoogleRpcStatus:
       type: object
       properties:
-        nextPageToken:
+        message:
           type: string
-        changelogs:
+        code:
+          type: integer
+          format: int32
+        details:
           type: array
           items:
-            $ref: '#/components/schemas/GoogleCloudDialogflowCxV3Changelog'
+            type: object
+            additionalProperties:
+              description: Properties of the object. Contains field @type with type URL.
     GoogleCloudDialogflowCxV3Changelog:
       type: object
       properties:
@@ -164,20 +169,15 @@ components:
           type: string
         action:
           type: string
-    GoogleRpcStatus:
+    GoogleCloudDialogflowCxV3ListChangelogsResponse:
       type: object
       properties:
-        message:
+        nextPageToken:
           type: string
-        code:
-          type: integer
-          format: int32
-        details:
+        changelogs:
           type: array
           items:
-            type: object
-            additionalProperties:
-              description: Properties of the object. Contains field @type with type URL.
+            $ref: '#/components/schemas/GoogleCloudDialogflowCxV3Changelog'
   securitySchemes:
     OAuth2:
       type: oauth2

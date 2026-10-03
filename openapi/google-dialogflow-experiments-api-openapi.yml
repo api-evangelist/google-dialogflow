@@ -447,18 +447,6 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    GoogleCloudDialogflowCxV3RolloutConfigRolloutStep:
-      type: object
-      properties:
-        displayName:
-          type: string
-        minDuration:
-          type: string
-        trafficPercent:
-          type: integer
-          format: int32
-    GoogleCloudDialogflowCxV3StartExperimentRequest:
-      type: object
     GoogleCloudDialogflowCxV3ExperimentResultConfidenceInterval:
       type: object
       properties:
@@ -474,26 +462,6 @@ components:
         lowerBound:
           type: number
           format: double
-    GoogleCloudDialogflowCxV3ExperimentResult:
-      type: object
-      properties:
-        versionMetrics:
-          type: array
-          items:
-            $ref: '#/components/schemas/GoogleCloudDialogflowCxV3ExperimentResultVersionMetrics'
-        lastUpdateTime:
-          type: string
-          format: date-time
-    GoogleCloudDialogflowCxV3VersionVariantsVariant:
-      type: object
-      properties:
-        isControlGroup:
-          type: boolean
-        trafficAllocation:
-          type: number
-          format: float
-        version:
-          type: string
     GoogleCloudDialogflowCxV3RolloutState:
       type: object
       properties:
@@ -505,6 +473,117 @@ components:
         startTime:
           type: string
           format: date-time
+    GoogleCloudDialogflowCxV3ExperimentDefinition:
+      type: object
+      properties:
+        condition:
+          type: string
+        versionVariants:
+          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3VersionVariants'
+    GoogleCloudDialogflowCxV3ExperimentResultMetric:
+      type: object
+      properties:
+        count:
+          type: number
+          format: double
+        ratio:
+          type: number
+          format: double
+        confidenceInterval:
+          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3ExperimentResultConfidenceInterval'
+        type:
+          type: string
+          enum:
+          - METRIC_UNSPECIFIED
+          - CONTAINED_SESSION_NO_CALLBACK_RATE
+          - LIVE_AGENT_HANDOFF_RATE
+          - CALLBACK_SESSION_RATE
+          - ABANDONED_SESSION_RATE
+          - SESSION_END_RATE
+          x-enumDescriptions:
+          - ''
+          - ''
+          - ''
+          - ''
+          - ''
+          - ''
+        countType:
+          type: string
+          enum:
+          - COUNT_TYPE_UNSPECIFIED
+          - TOTAL_NO_MATCH_COUNT
+          - TOTAL_TURN_COUNT
+          - AVERAGE_TURN_COUNT
+          x-enumDescriptions:
+          - ''
+          - ''
+          - ''
+          - ''
+    GoogleCloudDialogflowCxV3StartExperimentRequest:
+      type: object
+    GoogleCloudDialogflowCxV3StopExperimentRequest:
+      type: object
+    GoogleCloudDialogflowCxV3ExperimentResult:
+      type: object
+      properties:
+        versionMetrics:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowCxV3ExperimentResultVersionMetrics'
+        lastUpdateTime:
+          type: string
+          format: date-time
+    GoogleRpcStatus:
+      type: object
+      properties:
+        message:
+          type: string
+        code:
+          type: integer
+          format: int32
+        details:
+          type: array
+          items:
+            type: object
+            additionalProperties:
+              description: Properties of the object. Contains field @type with type URL.
+    GoogleCloudDialogflowCxV3VariantsHistory:
+      type: object
+      properties:
+        versionVariants:
+          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3VersionVariants'
+        updateTime:
+          type: string
+          format: date-time
+    GoogleCloudDialogflowCxV3VersionVariants:
+      type: object
+      properties:
+        variants:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowCxV3VersionVariantsVariant'
+    GoogleProtobufEmpty:
+      type: object
+    GoogleCloudDialogflowCxV3ListExperimentsResponse:
+      type: object
+      properties:
+        nextPageToken:
+          type: string
+        experiments:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowCxV3Experiment'
+    GoogleCloudDialogflowCxV3RolloutConfig:
+      type: object
+      properties:
+        rolloutCondition:
+          type: string
+        failureCondition:
+          type: string
+        rolloutSteps:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowCxV3RolloutConfigRolloutStep'
     GoogleCloudDialogflowCxV3Experiment:
       type: object
       properties:
@@ -556,105 +635,6 @@ components:
           $ref: '#/components/schemas/GoogleCloudDialogflowCxV3RolloutState'
         description:
           type: string
-    GoogleRpcStatus:
-      type: object
-      properties:
-        message:
-          type: string
-        code:
-          type: integer
-          format: int32
-        details:
-          type: array
-          items:
-            type: object
-            additionalProperties:
-              description: Properties of the object. Contains field @type with type URL.
-    GoogleCloudDialogflowCxV3ExperimentDefinition:
-      type: object
-      properties:
-        condition:
-          type: string
-        versionVariants:
-          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3VersionVariants'
-    GoogleCloudDialogflowCxV3VersionVariants:
-      type: object
-      properties:
-        variants:
-          type: array
-          items:
-            $ref: '#/components/schemas/GoogleCloudDialogflowCxV3VersionVariantsVariant'
-    GoogleCloudDialogflowCxV3ListExperimentsResponse:
-      type: object
-      properties:
-        nextPageToken:
-          type: string
-        experiments:
-          type: array
-          items:
-            $ref: '#/components/schemas/GoogleCloudDialogflowCxV3Experiment'
-    GoogleCloudDialogflowCxV3StopExperimentRequest:
-      type: object
-    GoogleCloudDialogflowCxV3RolloutConfig:
-      type: object
-      properties:
-        rolloutCondition:
-          type: string
-        failureCondition:
-          type: string
-        rolloutSteps:
-          type: array
-          items:
-            $ref: '#/components/schemas/GoogleCloudDialogflowCxV3RolloutConfigRolloutStep'
-    GoogleCloudDialogflowCxV3VariantsHistory:
-      type: object
-      properties:
-        versionVariants:
-          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3VersionVariants'
-        updateTime:
-          type: string
-          format: date-time
-    GoogleCloudDialogflowCxV3ExperimentResultMetric:
-      type: object
-      properties:
-        count:
-          type: number
-          format: double
-        ratio:
-          type: number
-          format: double
-        confidenceInterval:
-          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3ExperimentResultConfidenceInterval'
-        type:
-          type: string
-          enum:
-          - METRIC_UNSPECIFIED
-          - CONTAINED_SESSION_NO_CALLBACK_RATE
-          - LIVE_AGENT_HANDOFF_RATE
-          - CALLBACK_SESSION_RATE
-          - ABANDONED_SESSION_RATE
-          - SESSION_END_RATE
-          x-enumDescriptions:
-          - ''
-          - ''
-          - ''
-          - ''
-          - ''
-          - ''
-        countType:
-          type: string
-          enum:
-          - COUNT_TYPE_UNSPECIFIED
-          - TOTAL_NO_MATCH_COUNT
-          - TOTAL_TURN_COUNT
-          - AVERAGE_TURN_COUNT
-          x-enumDescriptions:
-          - ''
-          - ''
-          - ''
-          - ''
-    GoogleProtobufEmpty:
-      type: object
     GoogleCloudDialogflowCxV3ExperimentResultVersionMetrics:
       type: object
       properties:
@@ -667,6 +647,26 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/GoogleCloudDialogflowCxV3ExperimentResultMetric'
+    GoogleCloudDialogflowCxV3RolloutConfigRolloutStep:
+      type: object
+      properties:
+        displayName:
+          type: string
+        minDuration:
+          type: string
+        trafficPercent:
+          type: integer
+          format: int32
+    GoogleCloudDialogflowCxV3VersionVariantsVariant:
+      type: object
+      properties:
+        isControlGroup:
+          type: boolean
+        trafficAllocation:
+          type: number
+          format: float
+        version:
+          type: string
   securitySchemes:
     OAuth2:
       type: oauth2

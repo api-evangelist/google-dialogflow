@@ -325,7 +325,7 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    GoogleCloudDialogflowCxV3PlaybookInvocation:
+    GoogleCloudDialogflowCxV3PlaybookTransition:
       type: object
       properties:
         playbook:
@@ -333,31 +333,23 @@ components:
         displayName:
           type: string
           readOnly: true
-        playbookState:
-          type: string
-          enum:
-          - OUTPUT_STATE_UNSPECIFIED
-          - OUTPUT_STATE_OK
-          - OUTPUT_STATE_CANCELLED
-          - OUTPUT_STATE_FAILED
-          - OUTPUT_STATE_ESCALATED
-          - OUTPUT_STATE_PENDING
-          x-enumDescriptions:
-          - ''
-          - ''
-          - ''
-          - ''
-          - ''
-          - ''
-        playbookOutput:
-          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3PlaybookOutput'
-        playbookInput:
-          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3PlaybookInput'
-    GoogleCloudDialogflowCxV3AgentUtterance:
+    GoogleCloudDialogflowCxV3ListExamplesResponse:
       type: object
       properties:
-        text:
+        nextPageToken:
           type: string
+        examples:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowCxV3Example'
+    GoogleCloudDialogflowCxV3FlowTransition:
+      type: object
+      properties:
+        flow:
+          type: string
+        displayName:
+          type: string
+          readOnly: true
     GoogleRpcStatus:
       type: object
       properties:
@@ -396,6 +388,8 @@ components:
           - ''
           - ''
           - ''
+    GoogleProtobufEmpty:
+      type: object
     GoogleCloudDialogflowCxV3Example:
       type: object
       properties:
@@ -443,21 +437,40 @@ components:
           readOnly: true
         displayName:
           type: string
-    GoogleCloudDialogflowCxV3PlaybookOutput:
+    GoogleCloudDialogflowCxV3PlaybookInvocation:
       type: object
       properties:
-        executionSummary:
+        playbook:
           type: string
-    GoogleCloudDialogflowCxV3ListExamplesResponse:
-      type: object
-      properties:
-        nextPageToken:
+        displayName:
           type: string
-        examples:
-          type: array
-          items:
-            $ref: '#/components/schemas/GoogleCloudDialogflowCxV3Example'
+          readOnly: true
+        playbookState:
+          type: string
+          enum:
+          - OUTPUT_STATE_UNSPECIFIED
+          - OUTPUT_STATE_OK
+          - OUTPUT_STATE_CANCELLED
+          - OUTPUT_STATE_FAILED
+          - OUTPUT_STATE_ESCALATED
+          - OUTPUT_STATE_PENDING
+          x-enumDescriptions:
+          - ''
+          - ''
+          - ''
+          - ''
+          - ''
+          - ''
+        playbookOutput:
+          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3PlaybookOutput'
+        playbookInput:
+          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3PlaybookInput'
     GoogleCloudDialogflowCxV3UserUtterance:
+      type: object
+      properties:
+        text:
+          type: string
+    GoogleCloudDialogflowCxV3AgentUtterance:
       type: object
       properties:
         text:
@@ -484,14 +497,6 @@ components:
           $ref: '#/components/schemas/GoogleCloudDialogflowCxV3ToolUse'
         playbookTransition:
           $ref: '#/components/schemas/GoogleCloudDialogflowCxV3PlaybookTransition'
-    GoogleCloudDialogflowCxV3PlaybookTransition:
-      type: object
-      properties:
-        playbook:
-          type: string
-        displayName:
-          type: string
-          readOnly: true
     GoogleCloudDialogflowCxV3ToolUse:
       type: object
       properties:
@@ -510,16 +515,11 @@ components:
           readOnly: true
         action:
           type: string
-    GoogleCloudDialogflowCxV3FlowTransition:
+    GoogleCloudDialogflowCxV3PlaybookOutput:
       type: object
       properties:
-        flow:
+        executionSummary:
           type: string
-        displayName:
-          type: string
-          readOnly: true
-    GoogleProtobufEmpty:
-      type: object
   securitySchemes:
     OAuth2:
       type: oauth2

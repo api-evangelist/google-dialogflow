@@ -1146,15 +1146,6 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    GoogleCloudDialogflowV2ListContextsResponse:
-      type: object
-      properties:
-        nextPageToken:
-          type: string
-        contexts:
-          type: array
-          items:
-            $ref: '#/components/schemas/GoogleCloudDialogflowV2Context'
     GoogleRpcStatus:
       type: object
       properties:
@@ -1169,8 +1160,15 @@ components:
             type: object
             additionalProperties:
               description: Properties of the object. Contains field @type with type URL.
-    GoogleProtobufEmpty:
+    GoogleCloudDialogflowV2ListContextsResponse:
       type: object
+      properties:
+        nextPageToken:
+          type: string
+        contexts:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowV2Context'
     GoogleCloudDialogflowV2Context:
       type: object
       properties:
@@ -1183,6 +1181,8 @@ components:
         lifespanCount:
           type: integer
           format: int32
+    GoogleProtobufEmpty:
+      type: object
   securitySchemes:
     OAuth2:
       type: oauth2

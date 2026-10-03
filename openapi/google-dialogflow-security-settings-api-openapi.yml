@@ -261,6 +261,11 @@ paths:
       x-summary-source: derived
 components:
   schemas:
+    GoogleCloudDialogflowCxV3SecuritySettingsInsightsExportSettings:
+      type: object
+      properties:
+        enableInsightsExport:
+          type: boolean
     GoogleRpcStatus:
       type: object
       properties:
@@ -307,6 +312,8 @@ components:
           type: boolean
         audioExportPattern:
           type: string
+    GoogleProtobufEmpty:
+      type: object
     GoogleCloudDialogflowCxV3SecuritySettings:
       type: object
       properties:
@@ -359,13 +366,6 @@ components:
           x-enumDescriptions:
           - ''
           - ''
-    GoogleCloudDialogflowCxV3SecuritySettingsInsightsExportSettings:
-      type: object
-      properties:
-        enableInsightsExport:
-          type: boolean
-    GoogleProtobufEmpty:
-      type: object
   securitySchemes:
     OAuth2:
       type: oauth2
