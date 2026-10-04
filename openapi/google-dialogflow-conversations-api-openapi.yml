@@ -445,13 +445,44 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    GoogleCloudDialogflowV2HumanAgentAssistantConfigSuggestionQueryConfigDialogflowQuerySource:
+    GoogleCloudDialogflowV2HumanAgentAssistantConfigConversationModelConfig:
       type: object
       properties:
-        agent:
+        baselineModelVersion:
           type: string
-        humanAgentSideConfig:
-          $ref: '#/components/schemas/GoogleCloudDialogflowV2HumanAgentAssistantConfigSuggestionQueryConfigDialogflowQuerySourceHumanAgentSideConfig'
+        model:
+          type: string
+    GoogleCloudDialogflowV2ConversationTelephonyConnectionInfoSipHeader:
+      type: object
+      properties:
+        value:
+          type: string
+        name:
+          type: string
+    GoogleCloudDialogflowV2HumanAgentHandoffConfig:
+      type: object
+      properties:
+        salesforceLiveAgentConfig:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2HumanAgentHandoffConfigSalesforceLiveAgentConfig'
+        livePersonConfig:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2HumanAgentHandoffConfigLivePersonConfig'
+    GoogleCloudDialogflowV2CustomPronunciationParams:
+      type: object
+      properties:
+        phoneticEncoding:
+          type: string
+          enum:
+          - PHONETIC_ENCODING_UNSPECIFIED
+          - PHONETIC_ENCODING_IPA
+          - PHONETIC_ENCODING_X_SAMPA
+          x-enumDescriptions:
+          - ''
+          - ''
+          - ''
+        phrase:
+          type: string
+        pronunciation:
+          type: string
     GoogleCloudDialogflowV2HumanAgentAssistantConfigSuggestionFeatureConfig:
       type: object
       properties:
@@ -495,28 +526,196 @@ components:
           type: boolean
         enableQuerySuggestionOnly:
           type: boolean
-    GoogleCloudDialogflowV2IngestContextReferencesRequest:
+    GoogleCloudDialogflowV2HumanAgentAssistantConfigSuggestionQueryConfigSections:
       type: object
       properties:
-        contextReferences:
-          type: object
-          additionalProperties:
-            $ref: '#/components/schemas/GoogleCloudDialogflowV2ConversationContextReference'
+        sectionTypes:
+          type: array
+          items:
+            type: string
+            enum:
+            - SECTION_TYPE_UNSPECIFIED
+            - SITUATION
+            - ACTION
+            - RESOLUTION
+            - REASON_FOR_CANCELLATION
+            - CUSTOMER_SATISFACTION
+            - ENTITIES
+            x-enumDescriptions:
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
     GoogleCloudDialogflowV2HumanAgentAssistantConfigConversationProcessConfig:
       type: object
       properties:
         recentSentencesCount:
           type: integer
           format: int32
-    GoogleCloudDialogflowV2HumanAgentAssistantConfigSuggestionQueryConfigContextFilterSettings:
+    GoogleCloudDialogflowV2HumanAgentAssistantConfigSuggestionTriggerSettings:
       type: object
       properties:
-        dropIvrMessages:
+        onlyEndUser:
           type: boolean
-        dropHandoffMessages:
+        noSmalltalk:
           type: boolean
-        dropVirtualAgentMessages:
+    GoogleCloudDialogflowV2RaiSettingsRaiCategoryConfig:
+      type: object
+      properties:
+        sensitivityLevel:
+          type: string
+          enum:
+          - SENSITIVITY_LEVEL_UNSPECIFIED
+          - BLOCK_MOST
+          - BLOCK_SOME
+          - BLOCK_FEW
+          - BLOCK_NONE
+          x-enumDescriptions:
+          - ''
+          - ''
+          - ''
+          - ''
+          - ''
+        category:
+          type: string
+          enum:
+          - RAI_CATEGORY_UNSPECIFIED
+          - DANGEROUS_CONTENT
+          - SEXUALLY_EXPLICIT
+          - HARASSMENT
+          - HATE_SPEECH
+          x-enumDescriptions:
+          - ''
+          - ''
+          - ''
+          - ''
+          - ''
+    GoogleCloudDialogflowV2SuggestionFeature:
+      type: object
+      properties:
+        type:
+          type: string
+          enum:
+          - TYPE_UNSPECIFIED
+          - ARTICLE_SUGGESTION
+          - FAQ
+          - SMART_REPLY
+          - CONVERSATION_SUMMARIZATION
+          - KNOWLEDGE_SEARCH
+          - KNOWLEDGE_ASSIST
+          x-enumDescriptions:
+          - ''
+          - ''
+          - ''
+          - ''
+          - ''
+          - ''
+          - ''
+    GoogleCloudDialogflowV2LoggingConfig:
+      type: object
+      properties:
+        enableStackdriverLogging:
           type: boolean
+    GoogleCloudDialogflowV2ConversationTelephonyConnectionInfo:
+      type: object
+      properties:
+        dialedNumber:
+          type: string
+          readOnly: true
+        sipHeaders:
+          type: array
+          readOnly: true
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowV2ConversationTelephonyConnectionInfoSipHeader'
+        sdp:
+          type: string
+        extraMimeContents:
+          type: array
+          readOnly: true
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowV2ConversationTelephonyConnectionInfoMimeContent'
+    GoogleCloudDialogflowV2VoiceSelectionParams:
+      type: object
+      properties:
+        ssmlGender:
+          type: string
+          enum:
+          - SSML_VOICE_GENDER_UNSPECIFIED
+          - SSML_VOICE_GENDER_MALE
+          - SSML_VOICE_GENDER_FEMALE
+          - SSML_VOICE_GENDER_NEUTRAL
+          x-enumDescriptions:
+          - ''
+          - ''
+          - ''
+          - ''
+        name:
+          type: string
+    GoogleCloudDialogflowV2ConversationPhoneNumber:
+      type: object
+      properties:
+        countryCode:
+          type: integer
+          format: int32
+          readOnly: true
+        phoneNumber:
+          type: string
+          readOnly: true
+    GoogleCloudDialogflowV2ConversationTelephonyConnectionInfoMimeContent:
+      type: object
+      properties:
+        content:
+          type: string
+          format: byte
+        mimeType:
+          type: string
+    GoogleCloudDialogflowV2ListConversationsResponse:
+      type: object
+      properties:
+        nextPageToken:
+          type: string
+        conversations:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowV2Conversation'
+    GoogleCloudDialogflowV2HumanAgentHandoffConfigLivePersonConfig:
+      type: object
+      properties:
+        accountNumber:
+          type: string
+    GoogleCloudDialogflowV2ConversationContextReference:
+      type: object
+      properties:
+        createTime:
+          type: string
+          format: date-time
+          readOnly: true
+        languageCode:
+          type: string
+        updateMode:
+          type: string
+          enum:
+          - UPDATE_MODE_UNSPECIFIED
+          - APPEND
+          - OVERWRITE
+          x-enumDescriptions:
+          - ''
+          - ''
+          - ''
+        contextContents:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowV2ConversationContextReferenceContextContent'
+    GoogleCloudDialogflowV2AutomatedAgentConfig:
+      type: object
+      properties:
+        agent:
+          type: string
+        sessionTtl:
+          type: string
     GoogleCloudDialogflowV2ConversationProfile:
       type: object
       properties:
@@ -558,66 +757,6 @@ components:
           $ref: '#/components/schemas/GoogleCloudDialogflowV2NotificationConfig'
         name:
           type: string
-    GoogleCloudDialogflowV2ConversationTelephonyConnectionInfoSipHeader:
-      type: object
-      properties:
-        value:
-          type: string
-        name:
-          type: string
-    GoogleCloudDialogflowV2HumanAgentAssistantConfigSuggestionTriggerSettings:
-      type: object
-      properties:
-        onlyEndUser:
-          type: boolean
-        noSmalltalk:
-          type: boolean
-    GoogleCloudDialogflowV2HumanAgentAssistantConfigSuggestionQueryConfigDialogflowQuerySourceHumanAgentSideConfig:
-      type: object
-      properties:
-        agent:
-          type: string
-    GoogleCloudDialogflowV2LoggingConfig:
-      type: object
-      properties:
-        enableStackdriverLogging:
-          type: boolean
-    GoogleCloudDialogflowV2VoiceSelectionParams:
-      type: object
-      properties:
-        ssmlGender:
-          type: string
-          enum:
-          - SSML_VOICE_GENDER_UNSPECIFIED
-          - SSML_VOICE_GENDER_MALE
-          - SSML_VOICE_GENDER_FEMALE
-          - SSML_VOICE_GENDER_NEUTRAL
-          x-enumDescriptions:
-          - ''
-          - ''
-          - ''
-          - ''
-        name:
-          type: string
-    GoogleCloudDialogflowV2SipConfig:
-      type: object
-      properties:
-        keepConversationRunning:
-          type: boolean
-        copyInboundCallLegHeaders:
-          type: array
-          items:
-            type: string
-        allowVirtualAgentInteraction:
-          type: boolean
-        maxAudioRecordingDuration:
-          type: string
-        inactiveStart:
-          type: boolean
-        createConversationOnTheFly:
-          type: boolean
-        ignoreReinviteMediaDirection:
-          type: boolean
     GoogleRpcStatus:
       type: object
       properties:
@@ -632,6 +771,157 @@ components:
             type: object
             additionalProperties:
               description: Properties of the object. Contains field @type with type URL.
+    GoogleCloudDialogflowV2HumanAgentHandoffConfigSalesforceLiveAgentConfig:
+      type: object
+      properties:
+        organizationId:
+          type: string
+        deploymentId:
+          type: string
+        buttonId:
+          type: string
+        endpointDomain:
+          type: string
+    GoogleCloudDialogflowV2IngestContextReferencesRequest:
+      type: object
+      properties:
+        contextReferences:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/GoogleCloudDialogflowV2ConversationContextReference'
+    GoogleCloudDialogflowV2ConversationContextReferenceContextContent:
+      type: object
+      properties:
+        contentFormat:
+          type: string
+          enum:
+          - CONTENT_FORMAT_UNSPECIFIED
+          - JSON
+          - PLAIN_TEXT
+          x-enumDescriptions:
+          - ''
+          - ''
+          - ''
+        ingestionTime:
+          type: string
+          format: date-time
+          readOnly: true
+        content:
+          type: string
+        answerRecord:
+          type: string
+    GoogleCloudDialogflowV2IngestContextReferencesResponse:
+      type: object
+      properties:
+        ingestedContextReferences:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/GoogleCloudDialogflowV2ConversationContextReference'
+    GoogleCloudDialogflowV2HumanAgentAssistantConfig:
+      type: object
+      properties:
+        humanAgentSuggestionConfig:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2HumanAgentAssistantConfigSuggestionConfig'
+        notificationConfig:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2NotificationConfig'
+        messageAnalysisConfig:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2HumanAgentAssistantConfigMessageAnalysisConfig'
+        endUserSuggestionConfig:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2HumanAgentAssistantConfigSuggestionConfig'
+    GoogleCloudDialogflowV2HumanAgentAssistantConfigSuggestionQueryConfigDialogflowQuerySourceHumanAgentSideConfig:
+      type: object
+      properties:
+        agent:
+          type: string
+    GoogleCloudDialogflowV2CompleteConversationRequest:
+      type: object
+    GoogleCloudDialogflowV2SpeechToTextConfig:
+      type: object
+      properties:
+        useTimeoutBasedEndpointing:
+          type: boolean
+        audioEncoding:
+          type: string
+          enum:
+          - AUDIO_ENCODING_UNSPECIFIED
+          - AUDIO_ENCODING_LINEAR_16
+          - AUDIO_ENCODING_FLAC
+          - AUDIO_ENCODING_MULAW
+          - AUDIO_ENCODING_AMR
+          - AUDIO_ENCODING_AMR_WB
+          - AUDIO_ENCODING_OGG_OPUS
+          - AUDIO_ENCODING_SPEEX_WITH_HEADER_BYTE
+          - AUDIO_ENCODING_ALAW
+          x-enumDescriptions:
+          - ''
+          - ''
+          - ''
+          - ''
+          - ''
+          - ''
+          - ''
+          - ''
+          - ''
+        model:
+          type: string
+        geminiAsrConfig:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2SpeechToTextConfigGeminiAsrConfig'
+        speechModelVariant:
+          type: string
+          enum:
+          - SPEECH_MODEL_VARIANT_UNSPECIFIED
+          - USE_BEST_AVAILABLE
+          - USE_STANDARD
+          - USE_ENHANCED
+          x-enumDescriptions:
+          - ''
+          - ''
+          - ''
+          - ''
+        enableWordInfo:
+          type: boolean
+        sampleRateHertz:
+          type: integer
+          format: int32
+        languageCode:
+          type: string
+        phraseSets:
+          type: array
+          items:
+            type: string
+        useGeminiAsr:
+          type: boolean
+    GoogleCloudDialogflowV2HumanAgentAssistantConfigSuggestionQueryConfigContextFilterSettings:
+      type: object
+      properties:
+        dropIvrMessages:
+          type: boolean
+        dropHandoffMessages:
+          type: boolean
+        dropVirtualAgentMessages:
+          type: boolean
+    GoogleCloudDialogflowV2SynthesizeSpeechConfig:
+      type: object
+      properties:
+        pitch:
+          type: number
+          format: double
+        effectsProfileId:
+          type: array
+          items:
+            type: string
+        volumeGainDb:
+          type: number
+          format: double
+        pronunciations:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowV2CustomPronunciationParams'
+        voice:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2VoiceSelectionParams'
+        speakingRate:
+          type: number
+          format: double
     GoogleCloudDialogflowV2HumanAgentAssistantConfigMessageAnalysisConfig:
       type: object
       properties:
@@ -694,173 +984,35 @@ components:
           $ref: '#/components/schemas/GoogleCloudDialogflowV2ConversationTelephonyConnectionInfo'
         conversationProfile:
           type: string
-    GoogleCloudDialogflowV2ListConversationsResponse:
+    GoogleCloudDialogflowV2HumanAgentAssistantConfigSuggestionQueryConfigDialogflowQuerySource:
       type: object
       properties:
-        nextPageToken:
+        agent:
           type: string
-        conversations:
-          type: array
-          items:
-            $ref: '#/components/schemas/GoogleCloudDialogflowV2Conversation'
-    GoogleCloudDialogflowV2ConversationContextReference:
+        humanAgentSideConfig:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2HumanAgentAssistantConfigSuggestionQueryConfigDialogflowQuerySourceHumanAgentSideConfig'
+    GoogleCloudDialogflowV2ConversationGeneratorContext:
       type: object
       properties:
-        createTime:
+        generatorType:
           type: string
-          format: date-time
+          enum:
+          - GENERATOR_TYPE_UNSPECIFIED
+          - FREE_FORM
+          - AGENT_COACHING
+          - SUMMARIZATION
+          - TRANSLATION
+          - AGENT_FEEDBACK
+          - CUSTOMER_MESSAGE_GENERATION
+          x-enumDescriptions:
+          - ''
+          - ''
+          - ''
+          - ''
+          - ''
+          - ''
+          - ''
           readOnly: true
-        languageCode:
-          type: string
-        updateMode:
-          type: string
-          enum:
-          - UPDATE_MODE_UNSPECIFIED
-          - APPEND
-          - OVERWRITE
-          x-enumDescriptions:
-          - ''
-          - ''
-          - ''
-        contextContents:
-          type: array
-          items:
-            $ref: '#/components/schemas/GoogleCloudDialogflowV2ConversationContextReferenceContextContent'
-    GoogleCloudDialogflowV2SuggestionFeature:
-      type: object
-      properties:
-        type:
-          type: string
-          enum:
-          - TYPE_UNSPECIFIED
-          - ARTICLE_SUGGESTION
-          - FAQ
-          - SMART_REPLY
-          - CONVERSATION_SUMMARIZATION
-          - KNOWLEDGE_SEARCH
-          - KNOWLEDGE_ASSIST
-          x-enumDescriptions:
-          - ''
-          - ''
-          - ''
-          - ''
-          - ''
-          - ''
-          - ''
-    GoogleCloudDialogflowV2HumanAgentHandoffConfigLivePersonConfig:
-      type: object
-      properties:
-        accountNumber:
-          type: string
-    GoogleCloudDialogflowV2CompleteConversationRequest:
-      type: object
-    GoogleCloudDialogflowV2NotificationConfig:
-      type: object
-      properties:
-        topic:
-          type: string
-        messageFormat:
-          type: string
-          enum:
-          - MESSAGE_FORMAT_UNSPECIFIED
-          - PROTO
-          - JSON
-          x-enumDescriptions:
-          - ''
-          - ''
-          - ''
-    GoogleCloudDialogflowV2HumanAgentHandoffConfigSalesforceLiveAgentConfig:
-      type: object
-      properties:
-        organizationId:
-          type: string
-        deploymentId:
-          type: string
-        buttonId:
-          type: string
-        endpointDomain:
-          type: string
-    GoogleCloudDialogflowV2HumanAgentAssistantConfigSuggestionQueryConfigDocumentQuerySource:
-      type: object
-      properties:
-        documents:
-          type: array
-          items:
-            type: string
-    GoogleCloudDialogflowV2HumanAgentAssistantConfigSuggestionQueryConfig:
-      type: object
-      properties:
-        dialogflowQuerySource:
-          $ref: '#/components/schemas/GoogleCloudDialogflowV2HumanAgentAssistantConfigSuggestionQueryConfigDialogflowQuerySource'
-        maxResults:
-          type: integer
-          format: int32
-        contextSize:
-          type: integer
-          format: int32
-        documentQuerySource:
-          $ref: '#/components/schemas/GoogleCloudDialogflowV2HumanAgentAssistantConfigSuggestionQueryConfigDocumentQuerySource'
-        sections:
-          $ref: '#/components/schemas/GoogleCloudDialogflowV2HumanAgentAssistantConfigSuggestionQueryConfigSections'
-        confidenceThreshold:
-          type: number
-          format: float
-        contextFilterSettings:
-          $ref: '#/components/schemas/GoogleCloudDialogflowV2HumanAgentAssistantConfigSuggestionQueryConfigContextFilterSettings'
-        knowledgeBaseQuerySource:
-          $ref: '#/components/schemas/GoogleCloudDialogflowV2HumanAgentAssistantConfigSuggestionQueryConfigKnowledgeBaseQuerySource'
-    GoogleCloudDialogflowV2HumanAgentHandoffConfig:
-      type: object
-      properties:
-        salesforceLiveAgentConfig:
-          $ref: '#/components/schemas/GoogleCloudDialogflowV2HumanAgentHandoffConfigSalesforceLiveAgentConfig'
-        livePersonConfig:
-          $ref: '#/components/schemas/GoogleCloudDialogflowV2HumanAgentHandoffConfigLivePersonConfig'
-    GoogleCloudDialogflowV2ConversationTelephonyConnectionInfoMimeContent:
-      type: object
-      properties:
-        content:
-          type: string
-          format: byte
-        mimeType:
-          type: string
-    GoogleCloudDialogflowV2HumanAgentAssistantConfigSuggestionQueryConfigKnowledgeBaseQuerySource:
-      type: object
-      properties:
-        knowledgeBases:
-          type: array
-          items:
-            type: string
-    GoogleCloudDialogflowV2IngestContextReferencesResponse:
-      type: object
-      properties:
-        ingestedContextReferences:
-          type: object
-          additionalProperties:
-            $ref: '#/components/schemas/GoogleCloudDialogflowV2ConversationContextReference'
-    GoogleCloudDialogflowV2HumanAgentAssistantConfigSuggestionQueryConfigSections:
-      type: object
-      properties:
-        sectionTypes:
-          type: array
-          items:
-            type: string
-            enum:
-            - SECTION_TYPE_UNSPECIFIED
-            - SITUATION
-            - ACTION
-            - RESOLUTION
-            - REASON_FOR_CANCELLATION
-            - CUSTOMER_SATISFACTION
-            - ENTITIES
-            x-enumDescriptions:
-            - ''
-            - ''
-            - ''
-            - ''
-            - ''
-            - ''
-            - ''
     GoogleCloudDialogflowV2SpeechToTextConfigGeminiAsrConfig:
       type: object
       properties:
@@ -892,6 +1044,21 @@ components:
           format: int32
         modelId:
           type: string
+    GoogleCloudDialogflowV2NotificationConfig:
+      type: object
+      properties:
+        topic:
+          type: string
+        messageFormat:
+          type: string
+          enum:
+          - MESSAGE_FORMAT_UNSPECIFIED
+          - PROTO
+          - JSON
+          x-enumDescriptions:
+          - ''
+          - ''
+          - ''
     GoogleCloudDialogflowV2HumanAgentAssistantConfigSuggestionConfig:
       type: object
       properties:
@@ -913,74 +1080,6 @@ components:
           type: boolean
         groupSuggestionResponses:
           type: boolean
-    GoogleCloudDialogflowV2ConversationPhoneNumber:
-      type: object
-      properties:
-        countryCode:
-          type: integer
-          format: int32
-          readOnly: true
-        phoneNumber:
-          type: string
-          readOnly: true
-    GoogleCloudDialogflowV2ConversationTelephonyConnectionInfo:
-      type: object
-      properties:
-        dialedNumber:
-          type: string
-          readOnly: true
-        sipHeaders:
-          type: array
-          readOnly: true
-          items:
-            $ref: '#/components/schemas/GoogleCloudDialogflowV2ConversationTelephonyConnectionInfoSipHeader'
-        sdp:
-          type: string
-        extraMimeContents:
-          type: array
-          readOnly: true
-          items:
-            $ref: '#/components/schemas/GoogleCloudDialogflowV2ConversationTelephonyConnectionInfoMimeContent'
-    GoogleCloudDialogflowV2AutomatedAgentConfig:
-      type: object
-      properties:
-        agent:
-          type: string
-        sessionTtl:
-          type: string
-    GoogleCloudDialogflowV2HumanAgentAssistantConfig:
-      type: object
-      properties:
-        humanAgentSuggestionConfig:
-          $ref: '#/components/schemas/GoogleCloudDialogflowV2HumanAgentAssistantConfigSuggestionConfig'
-        notificationConfig:
-          $ref: '#/components/schemas/GoogleCloudDialogflowV2NotificationConfig'
-        messageAnalysisConfig:
-          $ref: '#/components/schemas/GoogleCloudDialogflowV2HumanAgentAssistantConfigMessageAnalysisConfig'
-        endUserSuggestionConfig:
-          $ref: '#/components/schemas/GoogleCloudDialogflowV2HumanAgentAssistantConfigSuggestionConfig'
-    GoogleCloudDialogflowV2SynthesizeSpeechConfig:
-      type: object
-      properties:
-        pitch:
-          type: number
-          format: double
-        effectsProfileId:
-          type: array
-          items:
-            type: string
-        volumeGainDb:
-          type: number
-          format: double
-        pronunciations:
-          type: array
-          items:
-            $ref: '#/components/schemas/GoogleCloudDialogflowV2CustomPronunciationParams'
-        voice:
-          $ref: '#/components/schemas/GoogleCloudDialogflowV2VoiceSelectionParams'
-        speakingRate:
-          type: number
-          format: double
     GoogleCloudDialogflowV2RaiSettings:
       type: object
       properties:
@@ -988,160 +1087,61 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/GoogleCloudDialogflowV2RaiSettingsRaiCategoryConfig'
-    GoogleCloudDialogflowV2SpeechToTextConfig:
+    GoogleCloudDialogflowV2HumanAgentAssistantConfigSuggestionQueryConfig:
       type: object
       properties:
-        useTimeoutBasedEndpointing:
-          type: boolean
-        audioEncoding:
-          type: string
-          enum:
-          - AUDIO_ENCODING_UNSPECIFIED
-          - AUDIO_ENCODING_LINEAR_16
-          - AUDIO_ENCODING_FLAC
-          - AUDIO_ENCODING_MULAW
-          - AUDIO_ENCODING_AMR
-          - AUDIO_ENCODING_AMR_WB
-          - AUDIO_ENCODING_OGG_OPUS
-          - AUDIO_ENCODING_SPEEX_WITH_HEADER_BYTE
-          - AUDIO_ENCODING_ALAW
-          x-enumDescriptions:
-          - ''
-          - ''
-          - ''
-          - ''
-          - ''
-          - ''
-          - ''
-          - ''
-          - ''
-        model:
-          type: string
-        geminiAsrConfig:
-          $ref: '#/components/schemas/GoogleCloudDialogflowV2SpeechToTextConfigGeminiAsrConfig'
-        speechModelVariant:
-          type: string
-          enum:
-          - SPEECH_MODEL_VARIANT_UNSPECIFIED
-          - USE_BEST_AVAILABLE
-          - USE_STANDARD
-          - USE_ENHANCED
-          x-enumDescriptions:
-          - ''
-          - ''
-          - ''
-          - ''
-        enableWordInfo:
-          type: boolean
-        sampleRateHertz:
+        dialogflowQuerySource:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2HumanAgentAssistantConfigSuggestionQueryConfigDialogflowQuerySource'
+        maxResults:
           type: integer
           format: int32
-        languageCode:
-          type: string
-        phraseSets:
+        contextSize:
+          type: integer
+          format: int32
+        documentQuerySource:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2HumanAgentAssistantConfigSuggestionQueryConfigDocumentQuerySource'
+        sections:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2HumanAgentAssistantConfigSuggestionQueryConfigSections'
+        confidenceThreshold:
+          type: number
+          format: float
+        contextFilterSettings:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2HumanAgentAssistantConfigSuggestionQueryConfigContextFilterSettings'
+        knowledgeBaseQuerySource:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2HumanAgentAssistantConfigSuggestionQueryConfigKnowledgeBaseQuerySource'
+    GoogleCloudDialogflowV2HumanAgentAssistantConfigSuggestionQueryConfigDocumentQuerySource:
+      type: object
+      properties:
+        documents:
           type: array
           items:
             type: string
-        useGeminiAsr:
+    GoogleCloudDialogflowV2SipConfig:
+      type: object
+      properties:
+        keepConversationRunning:
           type: boolean
-    GoogleCloudDialogflowV2HumanAgentAssistantConfigConversationModelConfig:
+        copyInboundCallLegHeaders:
+          type: array
+          items:
+            type: string
+        allowVirtualAgentInteraction:
+          type: boolean
+        maxAudioRecordingDuration:
+          type: string
+        inactiveStart:
+          type: boolean
+        createConversationOnTheFly:
+          type: boolean
+        ignoreReinviteMediaDirection:
+          type: boolean
+    GoogleCloudDialogflowV2HumanAgentAssistantConfigSuggestionQueryConfigKnowledgeBaseQuerySource:
       type: object
       properties:
-        baselineModelVersion:
-          type: string
-        model:
-          type: string
-    GoogleCloudDialogflowV2ConversationGeneratorContext:
-      type: object
-      properties:
-        generatorType:
-          type: string
-          enum:
-          - GENERATOR_TYPE_UNSPECIFIED
-          - FREE_FORM
-          - AGENT_COACHING
-          - SUMMARIZATION
-          - TRANSLATION
-          - AGENT_FEEDBACK
-          - CUSTOMER_MESSAGE_GENERATION
-          x-enumDescriptions:
-          - ''
-          - ''
-          - ''
-          - ''
-          - ''
-          - ''
-          - ''
-          readOnly: true
-    GoogleCloudDialogflowV2CustomPronunciationParams:
-      type: object
-      properties:
-        phoneticEncoding:
-          type: string
-          enum:
-          - PHONETIC_ENCODING_UNSPECIFIED
-          - PHONETIC_ENCODING_IPA
-          - PHONETIC_ENCODING_X_SAMPA
-          x-enumDescriptions:
-          - ''
-          - ''
-          - ''
-        phrase:
-          type: string
-        pronunciation:
-          type: string
-    GoogleCloudDialogflowV2ConversationContextReferenceContextContent:
-      type: object
-      properties:
-        contentFormat:
-          type: string
-          enum:
-          - CONTENT_FORMAT_UNSPECIFIED
-          - JSON
-          - PLAIN_TEXT
-          x-enumDescriptions:
-          - ''
-          - ''
-          - ''
-        ingestionTime:
-          type: string
-          format: date-time
-          readOnly: true
-        content:
-          type: string
-        answerRecord:
-          type: string
-    GoogleCloudDialogflowV2RaiSettingsRaiCategoryConfig:
-      type: object
-      properties:
-        sensitivityLevel:
-          type: string
-          enum:
-          - SENSITIVITY_LEVEL_UNSPECIFIED
-          - BLOCK_MOST
-          - BLOCK_SOME
-          - BLOCK_FEW
-          - BLOCK_NONE
-          x-enumDescriptions:
-          - ''
-          - ''
-          - ''
-          - ''
-          - ''
-        category:
-          type: string
-          enum:
-          - RAI_CATEGORY_UNSPECIFIED
-          - DANGEROUS_CONTENT
-          - SEXUALLY_EXPLICIT
-          - HARASSMENT
-          - HATE_SPEECH
-          x-enumDescriptions:
-          - ''
-          - ''
-          - ''
-          - ''
-          - ''
+        knowledgeBases:
+          type: array
+          items:
+            type: string
   securitySchemes:
     OAuth2:
       type: oauth2

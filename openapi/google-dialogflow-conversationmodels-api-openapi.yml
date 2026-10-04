@@ -556,6 +556,28 @@ paths:
       x-summary-source: derived
 components:
   schemas:
+    GoogleCloudDialogflowV2SmartReplyModelMetadata:
+      type: object
+      properties:
+        trainingModelType:
+          type: string
+          enum:
+          - MODEL_TYPE_UNSPECIFIED
+          - SMART_REPLY_DUAL_ENCODER_MODEL
+          - SMART_REPLY_BERT_MODEL
+          x-enumDescriptions:
+          - ''
+          - ''
+          - ''
+    GoogleCloudDialogflowV2ListConversationModelsResponse:
+      type: object
+      properties:
+        conversationModels:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowV2ConversationModel'
+        nextPageToken:
+          type: string
     GoogleLongrunningOperation:
       type: object
       properties:
@@ -579,31 +601,6 @@ components:
       type: object
       properties:
         dataset:
-          type: string
-    GoogleRpcStatus:
-      type: object
-      properties:
-        message:
-          type: string
-        code:
-          type: integer
-          format: int32
-        details:
-          type: array
-          items:
-            type: object
-            additionalProperties:
-              description: Properties of the object. Contains field @type with type URL.
-    GoogleCloudDialogflowV2DeployConversationModelRequest:
-      type: object
-    GoogleCloudDialogflowV2ListConversationModelsResponse:
-      type: object
-      properties:
-        conversationModels:
-          type: array
-          items:
-            $ref: '#/components/schemas/GoogleCloudDialogflowV2ConversationModel'
-        nextPageToken:
           type: string
     GoogleCloudDialogflowV2ConversationModel:
       type: object
@@ -655,19 +652,8 @@ components:
         satisfiesPzi:
           type: boolean
           readOnly: true
-    GoogleCloudDialogflowV2SmartReplyModelMetadata:
+    GoogleCloudDialogflowV2DeployConversationModelRequest:
       type: object
-      properties:
-        trainingModelType:
-          type: string
-          enum:
-          - MODEL_TYPE_UNSPECIFIED
-          - SMART_REPLY_DUAL_ENCODER_MODEL
-          - SMART_REPLY_BERT_MODEL
-          x-enumDescriptions:
-          - ''
-          - ''
-          - ''
     GoogleCloudDialogflowV2ArticleSuggestionModelMetadata:
       type: object
       properties:
@@ -681,6 +667,20 @@ components:
           - ''
           - ''
           - ''
+    GoogleRpcStatus:
+      type: object
+      properties:
+        message:
+          type: string
+        code:
+          type: integer
+          format: int32
+        details:
+          type: array
+          items:
+            type: object
+            additionalProperties:
+              description: Properties of the object. Contains field @type with type URL.
   securitySchemes:
     OAuth2:
       type: oauth2

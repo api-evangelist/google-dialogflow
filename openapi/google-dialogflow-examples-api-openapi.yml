@@ -325,71 +325,6 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    GoogleCloudDialogflowCxV3PlaybookTransition:
-      type: object
-      properties:
-        playbook:
-          type: string
-        displayName:
-          type: string
-          readOnly: true
-    GoogleCloudDialogflowCxV3ListExamplesResponse:
-      type: object
-      properties:
-        nextPageToken:
-          type: string
-        examples:
-          type: array
-          items:
-            $ref: '#/components/schemas/GoogleCloudDialogflowCxV3Example'
-    GoogleCloudDialogflowCxV3FlowTransition:
-      type: object
-      properties:
-        flow:
-          type: string
-        displayName:
-          type: string
-          readOnly: true
-    GoogleRpcStatus:
-      type: object
-      properties:
-        message:
-          type: string
-        code:
-          type: integer
-          format: int32
-        details:
-          type: array
-          items:
-            type: object
-            additionalProperties:
-              description: Properties of the object. Contains field @type with type URL.
-    GoogleCloudDialogflowCxV3FlowInvocation:
-      type: object
-      properties:
-        flow:
-          type: string
-        displayName:
-          type: string
-          readOnly: true
-        flowState:
-          type: string
-          enum:
-          - OUTPUT_STATE_UNSPECIFIED
-          - OUTPUT_STATE_OK
-          - OUTPUT_STATE_CANCELLED
-          - OUTPUT_STATE_FAILED
-          - OUTPUT_STATE_ESCALATED
-          - OUTPUT_STATE_PENDING
-          x-enumDescriptions:
-          - ''
-          - ''
-          - ''
-          - ''
-          - ''
-          - ''
-    GoogleProtobufEmpty:
-      type: object
     GoogleCloudDialogflowCxV3Example:
       type: object
       properties:
@@ -437,6 +372,65 @@ components:
           readOnly: true
         displayName:
           type: string
+    GoogleCloudDialogflowCxV3PlaybookInput:
+      type: object
+      properties:
+        precedingConversationSummary:
+          type: string
+    GoogleCloudDialogflowCxV3AgentUtterance:
+      type: object
+      properties:
+        text:
+          type: string
+    GoogleCloudDialogflowCxV3FlowTransition:
+      type: object
+      properties:
+        flow:
+          type: string
+        displayName:
+          type: string
+          readOnly: true
+    GoogleCloudDialogflowCxV3FlowInvocation:
+      type: object
+      properties:
+        flow:
+          type: string
+        displayName:
+          type: string
+          readOnly: true
+        flowState:
+          type: string
+          enum:
+          - OUTPUT_STATE_UNSPECIFIED
+          - OUTPUT_STATE_OK
+          - OUTPUT_STATE_CANCELLED
+          - OUTPUT_STATE_FAILED
+          - OUTPUT_STATE_ESCALATED
+          - OUTPUT_STATE_PENDING
+          x-enumDescriptions:
+          - ''
+          - ''
+          - ''
+          - ''
+          - ''
+          - ''
+    GoogleCloudDialogflowCxV3Action:
+      type: object
+      properties:
+        userUtterance:
+          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3UserUtterance'
+        flowTransition:
+          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3FlowTransition'
+        flowInvocation:
+          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3FlowInvocation'
+        agentUtterance:
+          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3AgentUtterance'
+        playbookInvocation:
+          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3PlaybookInvocation'
+        toolUse:
+          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3ToolUse'
+        playbookTransition:
+          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3PlaybookTransition'
     GoogleCloudDialogflowCxV3PlaybookInvocation:
       type: object
       properties:
@@ -470,33 +464,22 @@ components:
       properties:
         text:
           type: string
-    GoogleCloudDialogflowCxV3AgentUtterance:
+    GoogleCloudDialogflowCxV3PlaybookOutput:
       type: object
       properties:
-        text:
+        executionSummary:
           type: string
-    GoogleCloudDialogflowCxV3PlaybookInput:
+    GoogleCloudDialogflowCxV3ListExamplesResponse:
       type: object
       properties:
-        precedingConversationSummary:
+        nextPageToken:
           type: string
-    GoogleCloudDialogflowCxV3Action:
+        examples:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowCxV3Example'
+    GoogleProtobufEmpty:
       type: object
-      properties:
-        userUtterance:
-          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3UserUtterance'
-        flowTransition:
-          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3FlowTransition'
-        flowInvocation:
-          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3FlowInvocation'
-        agentUtterance:
-          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3AgentUtterance'
-        playbookInvocation:
-          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3PlaybookInvocation'
-        toolUse:
-          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3ToolUse'
-        playbookTransition:
-          $ref: '#/components/schemas/GoogleCloudDialogflowCxV3PlaybookTransition'
     GoogleCloudDialogflowCxV3ToolUse:
       type: object
       properties:
@@ -515,11 +498,28 @@ components:
           readOnly: true
         action:
           type: string
-    GoogleCloudDialogflowCxV3PlaybookOutput:
+    GoogleCloudDialogflowCxV3PlaybookTransition:
       type: object
       properties:
-        executionSummary:
+        playbook:
           type: string
+        displayName:
+          type: string
+          readOnly: true
+    GoogleRpcStatus:
+      type: object
+      properties:
+        message:
+          type: string
+        code:
+          type: integer
+          format: int32
+        details:
+          type: array
+          items:
+            type: object
+            additionalProperties:
+              description: Properties of the object. Contains field @type with type URL.
   securitySchemes:
     OAuth2:
       type: oauth2

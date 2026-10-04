@@ -384,49 +384,16 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    GoogleCloudDialogflowV2GcsSources:
-      type: object
-      properties:
-        uris:
-          type: array
-          items:
-            type: string
-    GoogleLongrunningOperation:
-      type: object
-      properties:
-        name:
-          type: string
-        metadata:
-          type: object
-          additionalProperties:
-            description: Properties of the object. Contains field @type with type URL.
-        done:
-          type: boolean
-        response:
-          type: object
-          additionalProperties:
-            description: Properties of the object. Contains field @type with type URL.
-        error:
-          $ref: '#/components/schemas/GoogleRpcStatus'
     GoogleCloudDialogflowV2InputConfig:
       type: object
       properties:
         gcsSource:
           $ref: '#/components/schemas/GoogleCloudDialogflowV2GcsSources'
-    GoogleRpcStatus:
+    GoogleCloudDialogflowV2ConversationInfo:
       type: object
       properties:
-        message:
+        languageCode:
           type: string
-        code:
-          type: integer
-          format: int32
-        details:
-          type: array
-          items:
-            type: object
-            additionalProperties:
-              description: Properties of the object. Contains field @type with type URL.
     GoogleCloudDialogflowV2ConversationDataset:
       type: object
       properties:
@@ -455,6 +422,23 @@ components:
           $ref: '#/components/schemas/GoogleCloudDialogflowV2ConversationInfo'
         inputConfig:
           $ref: '#/components/schemas/GoogleCloudDialogflowV2InputConfig'
+    GoogleLongrunningOperation:
+      type: object
+      properties:
+        name:
+          type: string
+        metadata:
+          type: object
+          additionalProperties:
+            description: Properties of the object. Contains field @type with type URL.
+        done:
+          type: boolean
+        response:
+          type: object
+          additionalProperties:
+            description: Properties of the object. Contains field @type with type URL.
+        error:
+          $ref: '#/components/schemas/GoogleRpcStatus'
     GoogleCloudDialogflowV2ListConversationDatasetsResponse:
       type: object
       properties:
@@ -469,11 +453,27 @@ components:
       properties:
         inputConfig:
           $ref: '#/components/schemas/GoogleCloudDialogflowV2InputConfig'
-    GoogleCloudDialogflowV2ConversationInfo:
+    GoogleCloudDialogflowV2GcsSources:
       type: object
       properties:
-        languageCode:
+        uris:
+          type: array
+          items:
+            type: string
+    GoogleRpcStatus:
+      type: object
+      properties:
+        message:
           type: string
+        code:
+          type: integer
+          format: int32
+        details:
+          type: array
+          items:
+            type: object
+            additionalProperties:
+              description: Properties of the object. Contains field @type with type URL.
   securitySchemes:
     OAuth2:
       type: oauth2

@@ -1136,13 +1136,6 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    GoogleCloudDialogflowV2GcsSources:
-      type: object
-      properties:
-        uris:
-          type: array
-          items:
-            type: string
     GoogleCloudDialogflowV2ListDocumentsResponse:
       type: object
       properties:
@@ -1152,6 +1145,15 @@ components:
             $ref: '#/components/schemas/GoogleCloudDialogflowV2Document'
         nextPageToken:
           type: string
+    GoogleCloudDialogflowV2ImportDocumentsRequest:
+      type: object
+      properties:
+        importGcsCustomMetadata:
+          type: boolean
+        documentTemplate:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2ImportDocumentTemplate'
+        gcsSource:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2GcsSources'
     GoogleLongrunningOperation:
       type: object
       properties:
@@ -1169,20 +1171,49 @@ components:
             description: Properties of the object. Contains field @type with type URL.
         error:
           $ref: '#/components/schemas/GoogleRpcStatus'
-    GoogleRpcStatus:
+    GoogleCloudDialogflowV2ExportDocumentRequest:
       type: object
       properties:
-        message:
+        gcsDestination:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2GcsDestination'
+        exportFullContent:
+          type: boolean
+        smartMessagingPartialUpdate:
+          type: boolean
+    GoogleCloudDialogflowV2ReloadDocumentRequest:
+      type: object
+      properties:
+        smartMessagingPartialUpdate:
+          type: boolean
+        importGcsCustomMetadata:
+          type: boolean
+        contentUri:
           type: string
-        code:
-          type: integer
-          format: int32
-        details:
+    GoogleCloudDialogflowV2ImportDocumentTemplate:
+      type: object
+      properties:
+        mimeType:
+          type: string
+        metadata:
+          type: object
+          additionalProperties:
+            type: string
+        knowledgeTypes:
           type: array
           items:
-            type: object
-            additionalProperties:
-              description: Properties of the object. Contains field @type with type URL.
+            type: string
+            enum:
+            - KNOWLEDGE_TYPE_UNSPECIFIED
+            - FAQ
+            - EXTRACTIVE_QA
+            - ARTICLE_SUGGESTION
+            - AGENT_FACING_SMART_REPLY
+            x-enumDescriptions:
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
     GoogleCloudDialogflowV2Document:
       type: object
       properties:
@@ -1246,63 +1277,32 @@ components:
           format: date-time
         status:
           $ref: '#/components/schemas/GoogleRpcStatus'
-    GoogleCloudDialogflowV2ExportDocumentRequest:
-      type: object
-      properties:
-        gcsDestination:
-          $ref: '#/components/schemas/GoogleCloudDialogflowV2GcsDestination'
-        exportFullContent:
-          type: boolean
-        smartMessagingPartialUpdate:
-          type: boolean
-    GoogleCloudDialogflowV2ReloadDocumentRequest:
-      type: object
-      properties:
-        smartMessagingPartialUpdate:
-          type: boolean
-        importGcsCustomMetadata:
-          type: boolean
-        contentUri:
-          type: string
     GoogleCloudDialogflowV2GcsDestination:
       type: object
       properties:
         uri:
           type: string
-    GoogleCloudDialogflowV2ImportDocumentsRequest:
+    GoogleCloudDialogflowV2GcsSources:
       type: object
       properties:
-        importGcsCustomMetadata:
-          type: boolean
-        documentTemplate:
-          $ref: '#/components/schemas/GoogleCloudDialogflowV2ImportDocumentTemplate'
-        gcsSource:
-          $ref: '#/components/schemas/GoogleCloudDialogflowV2GcsSources'
-    GoogleCloudDialogflowV2ImportDocumentTemplate:
-      type: object
-      properties:
-        mimeType:
-          type: string
-        metadata:
-          type: object
-          additionalProperties:
-            type: string
-        knowledgeTypes:
+        uris:
           type: array
           items:
             type: string
-            enum:
-            - KNOWLEDGE_TYPE_UNSPECIFIED
-            - FAQ
-            - EXTRACTIVE_QA
-            - ARTICLE_SUGGESTION
-            - AGENT_FACING_SMART_REPLY
-            x-enumDescriptions:
-            - ''
-            - ''
-            - ''
-            - ''
-            - ''
+    GoogleRpcStatus:
+      type: object
+      properties:
+        message:
+          type: string
+        code:
+          type: integer
+          format: int32
+        details:
+          type: array
+          items:
+            type: object
+            additionalProperties:
+              description: Properties of the object. Contains field @type with type URL.
   securitySchemes:
     OAuth2:
       type: oauth2

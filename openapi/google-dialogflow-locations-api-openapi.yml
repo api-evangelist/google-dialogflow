@@ -390,6 +390,15 @@ paths:
       description: Dialogflow API
 components:
   schemas:
+    GoogleCloudLocationListLocationsResponse:
+      type: object
+      properties:
+        locations:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudLocationLocation'
+        nextPageToken:
+          type: string
     GoogleRpcStatus:
       type: object
       properties:
@@ -421,17 +430,6 @@ components:
             description: Properties of the object. Contains field @type with type URL.
         locationId:
           type: string
-    GoogleCloudLocationListLocationsResponse:
-      type: object
-      properties:
-        locations:
-          type: array
-          items:
-            $ref: '#/components/schemas/GoogleCloudLocationLocation'
-        nextPageToken:
-          type: string
-    GoogleProtobufEmpty:
-      type: object
     GoogleCloudDialogflowV2EncryptionSpec:
       type: object
       properties:
@@ -497,6 +495,8 @@ components:
           format: float
         enableLogging:
           type: boolean
+    GoogleProtobufEmpty:
+      type: object
   securitySchemes:
     OAuth2:
       type: oauth2

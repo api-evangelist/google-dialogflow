@@ -658,13 +658,54 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    GoogleCloudDialogflowV2HumanAgentAssistantConfigSuggestionQueryConfigDialogflowQuerySource:
+    GoogleCloudDialogflowV2HumanAgentAssistantConfigConversationModelConfig:
       type: object
       properties:
-        agent:
+        baselineModelVersion:
           type: string
-        humanAgentSideConfig:
-          $ref: '#/components/schemas/GoogleCloudDialogflowV2HumanAgentAssistantConfigSuggestionQueryConfigDialogflowQuerySourceHumanAgentSideConfig'
+        model:
+          type: string
+    GoogleCloudDialogflowV2SetSuggestionFeatureConfigRequest:
+      type: object
+      properties:
+        participantRole:
+          type: string
+          enum:
+          - ROLE_UNSPECIFIED
+          - HUMAN_AGENT
+          - AUTOMATED_AGENT
+          - END_USER
+          x-enumDescriptions:
+          - ''
+          - ''
+          - ''
+          - ''
+        suggestionFeatureConfig:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2HumanAgentAssistantConfigSuggestionFeatureConfig'
+    GoogleCloudDialogflowV2HumanAgentHandoffConfig:
+      type: object
+      properties:
+        salesforceLiveAgentConfig:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2HumanAgentHandoffConfigSalesforceLiveAgentConfig'
+        livePersonConfig:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2HumanAgentHandoffConfigLivePersonConfig'
+    GoogleCloudDialogflowV2CustomPronunciationParams:
+      type: object
+      properties:
+        phoneticEncoding:
+          type: string
+          enum:
+          - PHONETIC_ENCODING_UNSPECIFIED
+          - PHONETIC_ENCODING_IPA
+          - PHONETIC_ENCODING_X_SAMPA
+          x-enumDescriptions:
+          - ''
+          - ''
+          - ''
+        phrase:
+          type: string
+        pronunciation:
+          type: string
     GoogleCloudDialogflowV2HumanAgentAssistantConfigSuggestionFeatureConfig:
       type: object
       properties:
@@ -708,6 +749,118 @@ components:
           type: boolean
         enableQuerySuggestionOnly:
           type: boolean
+    GoogleCloudDialogflowV2HumanAgentAssistantConfigSuggestionQueryConfigSections:
+      type: object
+      properties:
+        sectionTypes:
+          type: array
+          items:
+            type: string
+            enum:
+            - SECTION_TYPE_UNSPECIFIED
+            - SITUATION
+            - ACTION
+            - RESOLUTION
+            - REASON_FOR_CANCELLATION
+            - CUSTOMER_SATISFACTION
+            - ENTITIES
+            x-enumDescriptions:
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+            - ''
+    GoogleCloudDialogflowV2HumanAgentAssistantConfigConversationProcessConfig:
+      type: object
+      properties:
+        recentSentencesCount:
+          type: integer
+          format: int32
+    GoogleCloudDialogflowV2HumanAgentAssistantConfigSuggestionTriggerSettings:
+      type: object
+      properties:
+        onlyEndUser:
+          type: boolean
+        noSmalltalk:
+          type: boolean
+    GoogleCloudDialogflowV2RaiSettingsRaiCategoryConfig:
+      type: object
+      properties:
+        sensitivityLevel:
+          type: string
+          enum:
+          - SENSITIVITY_LEVEL_UNSPECIFIED
+          - BLOCK_MOST
+          - BLOCK_SOME
+          - BLOCK_FEW
+          - BLOCK_NONE
+          x-enumDescriptions:
+          - ''
+          - ''
+          - ''
+          - ''
+          - ''
+        category:
+          type: string
+          enum:
+          - RAI_CATEGORY_UNSPECIFIED
+          - DANGEROUS_CONTENT
+          - SEXUALLY_EXPLICIT
+          - HARASSMENT
+          - HATE_SPEECH
+          x-enumDescriptions:
+          - ''
+          - ''
+          - ''
+          - ''
+          - ''
+    GoogleProtobufEmpty:
+      type: object
+    GoogleCloudDialogflowV2SuggestionFeature:
+      type: object
+      properties:
+        type:
+          type: string
+          enum:
+          - TYPE_UNSPECIFIED
+          - ARTICLE_SUGGESTION
+          - FAQ
+          - SMART_REPLY
+          - CONVERSATION_SUMMARIZATION
+          - KNOWLEDGE_SEARCH
+          - KNOWLEDGE_ASSIST
+          x-enumDescriptions:
+          - ''
+          - ''
+          - ''
+          - ''
+          - ''
+          - ''
+          - ''
+    GoogleCloudDialogflowV2LoggingConfig:
+      type: object
+      properties:
+        enableStackdriverLogging:
+          type: boolean
+    GoogleCloudDialogflowV2VoiceSelectionParams:
+      type: object
+      properties:
+        ssmlGender:
+          type: string
+          enum:
+          - SSML_VOICE_GENDER_UNSPECIFIED
+          - SSML_VOICE_GENDER_MALE
+          - SSML_VOICE_GENDER_FEMALE
+          - SSML_VOICE_GENDER_NEUTRAL
+          x-enumDescriptions:
+          - ''
+          - ''
+          - ''
+          - ''
+        name:
+          type: string
     GoogleLongrunningOperation:
       type: object
       properties:
@@ -725,21 +878,27 @@ components:
             description: Properties of the object. Contains field @type with type URL.
         error:
           $ref: '#/components/schemas/GoogleRpcStatus'
-    GoogleCloudDialogflowV2HumanAgentAssistantConfigConversationProcessConfig:
+    GoogleCloudDialogflowV2ListConversationProfilesResponse:
       type: object
       properties:
-        recentSentencesCount:
-          type: integer
-          format: int32
-    GoogleCloudDialogflowV2HumanAgentAssistantConfigSuggestionQueryConfigContextFilterSettings:
+        nextPageToken:
+          type: string
+        conversationProfiles:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowV2ConversationProfile'
+    GoogleCloudDialogflowV2HumanAgentHandoffConfigLivePersonConfig:
       type: object
       properties:
-        dropIvrMessages:
-          type: boolean
-        dropHandoffMessages:
-          type: boolean
-        dropVirtualAgentMessages:
-          type: boolean
+        accountNumber:
+          type: string
+    GoogleCloudDialogflowV2AutomatedAgentConfig:
+      type: object
+      properties:
+        agent:
+          type: string
+        sessionTtl:
+          type: string
     GoogleCloudDialogflowV2ConversationProfile:
       type: object
       properties:
@@ -781,59 +940,6 @@ components:
           $ref: '#/components/schemas/GoogleCloudDialogflowV2NotificationConfig'
         name:
           type: string
-    GoogleCloudDialogflowV2HumanAgentAssistantConfigSuggestionTriggerSettings:
-      type: object
-      properties:
-        onlyEndUser:
-          type: boolean
-        noSmalltalk:
-          type: boolean
-    GoogleCloudDialogflowV2HumanAgentAssistantConfigSuggestionQueryConfigDialogflowQuerySourceHumanAgentSideConfig:
-      type: object
-      properties:
-        agent:
-          type: string
-    GoogleCloudDialogflowV2LoggingConfig:
-      type: object
-      properties:
-        enableStackdriverLogging:
-          type: boolean
-    GoogleCloudDialogflowV2VoiceSelectionParams:
-      type: object
-      properties:
-        ssmlGender:
-          type: string
-          enum:
-          - SSML_VOICE_GENDER_UNSPECIFIED
-          - SSML_VOICE_GENDER_MALE
-          - SSML_VOICE_GENDER_FEMALE
-          - SSML_VOICE_GENDER_NEUTRAL
-          x-enumDescriptions:
-          - ''
-          - ''
-          - ''
-          - ''
-        name:
-          type: string
-    GoogleCloudDialogflowV2SipConfig:
-      type: object
-      properties:
-        keepConversationRunning:
-          type: boolean
-        copyInboundCallLegHeaders:
-          type: array
-          items:
-            type: string
-        allowVirtualAgentInteraction:
-          type: boolean
-        maxAudioRecordingDuration:
-          type: string
-        inactiveStart:
-          type: boolean
-        createConversationOnTheFly:
-          type: boolean
-        ignoreReinviteMediaDirection:
-          type: boolean
     GoogleRpcStatus:
       type: object
       properties:
@@ -848,91 +954,6 @@ components:
             type: object
             additionalProperties:
               description: Properties of the object. Contains field @type with type URL.
-    GoogleCloudDialogflowV2HumanAgentAssistantConfigMessageAnalysisConfig:
-      type: object
-      properties:
-        enableSentimentAnalysis:
-          type: boolean
-        enableSentimentAnalysisV3:
-          type: boolean
-        enableEntityExtraction:
-          type: boolean
-    GoogleProtobufEmpty:
-      type: object
-    GoogleCloudDialogflowV2ClearSuggestionFeatureConfigRequest:
-      type: object
-      properties:
-        suggestionFeatureType:
-          type: string
-          enum:
-          - TYPE_UNSPECIFIED
-          - ARTICLE_SUGGESTION
-          - FAQ
-          - SMART_REPLY
-          - CONVERSATION_SUMMARIZATION
-          - KNOWLEDGE_SEARCH
-          - KNOWLEDGE_ASSIST
-          x-enumDescriptions:
-          - ''
-          - ''
-          - ''
-          - ''
-          - ''
-          - ''
-          - ''
-        participantRole:
-          type: string
-          enum:
-          - ROLE_UNSPECIFIED
-          - HUMAN_AGENT
-          - AUTOMATED_AGENT
-          - END_USER
-          x-enumDescriptions:
-          - ''
-          - ''
-          - ''
-          - ''
-    GoogleCloudDialogflowV2SuggestionFeature:
-      type: object
-      properties:
-        type:
-          type: string
-          enum:
-          - TYPE_UNSPECIFIED
-          - ARTICLE_SUGGESTION
-          - FAQ
-          - SMART_REPLY
-          - CONVERSATION_SUMMARIZATION
-          - KNOWLEDGE_SEARCH
-          - KNOWLEDGE_ASSIST
-          x-enumDescriptions:
-          - ''
-          - ''
-          - ''
-          - ''
-          - ''
-          - ''
-          - ''
-    GoogleCloudDialogflowV2HumanAgentHandoffConfigLivePersonConfig:
-      type: object
-      properties:
-        accountNumber:
-          type: string
-    GoogleCloudDialogflowV2NotificationConfig:
-      type: object
-      properties:
-        topic:
-          type: string
-        messageFormat:
-          type: string
-          enum:
-          - MESSAGE_FORMAT_UNSPECIFIED
-          - PROTO
-          - JSON
-          x-enumDescriptions:
-          - ''
-          - ''
-          - ''
     GoogleCloudDialogflowV2HumanAgentHandoffConfigSalesforceLiveAgentConfig:
       type: object
       properties:
@@ -943,150 +964,6 @@ components:
         buttonId:
           type: string
         endpointDomain:
-          type: string
-    GoogleCloudDialogflowV2HumanAgentAssistantConfigSuggestionQueryConfig:
-      type: object
-      properties:
-        dialogflowQuerySource:
-          $ref: '#/components/schemas/GoogleCloudDialogflowV2HumanAgentAssistantConfigSuggestionQueryConfigDialogflowQuerySource'
-        maxResults:
-          type: integer
-          format: int32
-        contextSize:
-          type: integer
-          format: int32
-        documentQuerySource:
-          $ref: '#/components/schemas/GoogleCloudDialogflowV2HumanAgentAssistantConfigSuggestionQueryConfigDocumentQuerySource'
-        sections:
-          $ref: '#/components/schemas/GoogleCloudDialogflowV2HumanAgentAssistantConfigSuggestionQueryConfigSections'
-        confidenceThreshold:
-          type: number
-          format: float
-        contextFilterSettings:
-          $ref: '#/components/schemas/GoogleCloudDialogflowV2HumanAgentAssistantConfigSuggestionQueryConfigContextFilterSettings'
-        knowledgeBaseQuerySource:
-          $ref: '#/components/schemas/GoogleCloudDialogflowV2HumanAgentAssistantConfigSuggestionQueryConfigKnowledgeBaseQuerySource'
-    GoogleCloudDialogflowV2HumanAgentHandoffConfig:
-      type: object
-      properties:
-        salesforceLiveAgentConfig:
-          $ref: '#/components/schemas/GoogleCloudDialogflowV2HumanAgentHandoffConfigSalesforceLiveAgentConfig'
-        livePersonConfig:
-          $ref: '#/components/schemas/GoogleCloudDialogflowV2HumanAgentHandoffConfigLivePersonConfig'
-    GoogleCloudDialogflowV2HumanAgentAssistantConfigSuggestionQueryConfigKnowledgeBaseQuerySource:
-      type: object
-      properties:
-        knowledgeBases:
-          type: array
-          items:
-            type: string
-    GoogleCloudDialogflowV2HumanAgentAssistantConfigSuggestionQueryConfigSections:
-      type: object
-      properties:
-        sectionTypes:
-          type: array
-          items:
-            type: string
-            enum:
-            - SECTION_TYPE_UNSPECIFIED
-            - SITUATION
-            - ACTION
-            - RESOLUTION
-            - REASON_FOR_CANCELLATION
-            - CUSTOMER_SATISFACTION
-            - ENTITIES
-            x-enumDescriptions:
-            - ''
-            - ''
-            - ''
-            - ''
-            - ''
-            - ''
-            - ''
-    GoogleCloudDialogflowV2SetSuggestionFeatureConfigRequest:
-      type: object
-      properties:
-        participantRole:
-          type: string
-          enum:
-          - ROLE_UNSPECIFIED
-          - HUMAN_AGENT
-          - AUTOMATED_AGENT
-          - END_USER
-          x-enumDescriptions:
-          - ''
-          - ''
-          - ''
-          - ''
-        suggestionFeatureConfig:
-          $ref: '#/components/schemas/GoogleCloudDialogflowV2HumanAgentAssistantConfigSuggestionFeatureConfig'
-    GoogleCloudDialogflowV2ListConversationProfilesResponse:
-      type: object
-      properties:
-        nextPageToken:
-          type: string
-        conversationProfiles:
-          type: array
-          items:
-            $ref: '#/components/schemas/GoogleCloudDialogflowV2ConversationProfile'
-    GoogleCloudDialogflowV2SpeechToTextConfigGeminiAsrConfig:
-      type: object
-      properties:
-        startOfSpeechSensitivity:
-          type: string
-          enum:
-          - START_SENSITIVITY_UNSPECIFIED
-          - START_SENSITIVITY_HIGH
-          - START_SENSITIVITY_LOW
-          x-enumDescriptions:
-          - ''
-          - ''
-          - ''
-        prefixPaddingMs:
-          type: integer
-          format: int32
-        endOfSpeechSensitivity:
-          type: string
-          enum:
-          - END_SENSITIVITY_UNSPECIFIED
-          - END_SENSITIVITY_HIGH
-          - END_SENSITIVITY_LOW
-          x-enumDescriptions:
-          - ''
-          - ''
-          - ''
-        silenceDurationMs:
-          type: integer
-          format: int32
-        modelId:
-          type: string
-    GoogleCloudDialogflowV2HumanAgentAssistantConfigSuggestionConfig:
-      type: object
-      properties:
-        generators:
-          type: array
-          items:
-            type: string
-        enableAsyncToolCall:
-          type: boolean
-        useUnredactedConversationData:
-          type: boolean
-        featureConfigs:
-          type: array
-          items:
-            $ref: '#/components/schemas/GoogleCloudDialogflowV2HumanAgentAssistantConfigSuggestionFeatureConfig'
-        skipEmptyEventBasedSuggestion:
-          type: boolean
-        disableHighLatencyFeaturesSyncDelivery:
-          type: boolean
-        groupSuggestionResponses:
-          type: boolean
-    GoogleCloudDialogflowV2AutomatedAgentConfig:
-      type: object
-      properties:
-        agent:
-          type: string
-        sessionTtl:
           type: string
     GoogleCloudDialogflowV2HumanAgentAssistantConfig:
       type: object
@@ -1099,35 +976,11 @@ components:
           $ref: '#/components/schemas/GoogleCloudDialogflowV2HumanAgentAssistantConfigMessageAnalysisConfig'
         endUserSuggestionConfig:
           $ref: '#/components/schemas/GoogleCloudDialogflowV2HumanAgentAssistantConfigSuggestionConfig'
-    GoogleCloudDialogflowV2SynthesizeSpeechConfig:
+    GoogleCloudDialogflowV2HumanAgentAssistantConfigSuggestionQueryConfigDialogflowQuerySourceHumanAgentSideConfig:
       type: object
       properties:
-        pitch:
-          type: number
-          format: double
-        effectsProfileId:
-          type: array
-          items:
-            type: string
-        volumeGainDb:
-          type: number
-          format: double
-        pronunciations:
-          type: array
-          items:
-            $ref: '#/components/schemas/GoogleCloudDialogflowV2CustomPronunciationParams'
-        voice:
-          $ref: '#/components/schemas/GoogleCloudDialogflowV2VoiceSelectionParams'
-        speakingRate:
-          type: number
-          format: double
-    GoogleCloudDialogflowV2RaiSettings:
-      type: object
-      properties:
-        raiCategoryConfigs:
-          type: array
-          items:
-            $ref: '#/components/schemas/GoogleCloudDialogflowV2RaiSettingsRaiCategoryConfig'
+        agent:
+          type: string
     GoogleCloudDialogflowV2SpeechToTextConfig:
       type: object
       properties:
@@ -1184,30 +1037,182 @@ components:
             type: string
         useGeminiAsr:
           type: boolean
-    GoogleCloudDialogflowV2HumanAgentAssistantConfigConversationModelConfig:
+    GoogleCloudDialogflowV2HumanAgentAssistantConfigSuggestionQueryConfigContextFilterSettings:
       type: object
       properties:
-        baselineModelVersion:
-          type: string
-        model:
-          type: string
-    GoogleCloudDialogflowV2CustomPronunciationParams:
+        dropIvrMessages:
+          type: boolean
+        dropHandoffMessages:
+          type: boolean
+        dropVirtualAgentMessages:
+          type: boolean
+    GoogleCloudDialogflowV2SynthesizeSpeechConfig:
       type: object
       properties:
-        phoneticEncoding:
+        pitch:
+          type: number
+          format: double
+        effectsProfileId:
+          type: array
+          items:
+            type: string
+        volumeGainDb:
+          type: number
+          format: double
+        pronunciations:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowV2CustomPronunciationParams'
+        voice:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2VoiceSelectionParams'
+        speakingRate:
+          type: number
+          format: double
+    GoogleCloudDialogflowV2HumanAgentAssistantConfigMessageAnalysisConfig:
+      type: object
+      properties:
+        enableSentimentAnalysis:
+          type: boolean
+        enableSentimentAnalysisV3:
+          type: boolean
+        enableEntityExtraction:
+          type: boolean
+    GoogleCloudDialogflowV2HumanAgentAssistantConfigSuggestionQueryConfigDialogflowQuerySource:
+      type: object
+      properties:
+        agent:
+          type: string
+        humanAgentSideConfig:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2HumanAgentAssistantConfigSuggestionQueryConfigDialogflowQuerySourceHumanAgentSideConfig'
+    GoogleCloudDialogflowV2SpeechToTextConfigGeminiAsrConfig:
+      type: object
+      properties:
+        startOfSpeechSensitivity:
           type: string
           enum:
-          - PHONETIC_ENCODING_UNSPECIFIED
-          - PHONETIC_ENCODING_IPA
-          - PHONETIC_ENCODING_X_SAMPA
+          - START_SENSITIVITY_UNSPECIFIED
+          - START_SENSITIVITY_HIGH
+          - START_SENSITIVITY_LOW
           x-enumDescriptions:
           - ''
           - ''
           - ''
-        phrase:
+        prefixPaddingMs:
+          type: integer
+          format: int32
+        endOfSpeechSensitivity:
           type: string
-        pronunciation:
+          enum:
+          - END_SENSITIVITY_UNSPECIFIED
+          - END_SENSITIVITY_HIGH
+          - END_SENSITIVITY_LOW
+          x-enumDescriptions:
+          - ''
+          - ''
+          - ''
+        silenceDurationMs:
+          type: integer
+          format: int32
+        modelId:
           type: string
+    GoogleCloudDialogflowV2NotificationConfig:
+      type: object
+      properties:
+        topic:
+          type: string
+        messageFormat:
+          type: string
+          enum:
+          - MESSAGE_FORMAT_UNSPECIFIED
+          - PROTO
+          - JSON
+          x-enumDescriptions:
+          - ''
+          - ''
+          - ''
+    GoogleCloudDialogflowV2HumanAgentAssistantConfigSuggestionConfig:
+      type: object
+      properties:
+        generators:
+          type: array
+          items:
+            type: string
+        enableAsyncToolCall:
+          type: boolean
+        useUnredactedConversationData:
+          type: boolean
+        featureConfigs:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowV2HumanAgentAssistantConfigSuggestionFeatureConfig'
+        skipEmptyEventBasedSuggestion:
+          type: boolean
+        disableHighLatencyFeaturesSyncDelivery:
+          type: boolean
+        groupSuggestionResponses:
+          type: boolean
+    GoogleCloudDialogflowV2RaiSettings:
+      type: object
+      properties:
+        raiCategoryConfigs:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowV2RaiSettingsRaiCategoryConfig'
+    GoogleCloudDialogflowV2ClearSuggestionFeatureConfigRequest:
+      type: object
+      properties:
+        suggestionFeatureType:
+          type: string
+          enum:
+          - TYPE_UNSPECIFIED
+          - ARTICLE_SUGGESTION
+          - FAQ
+          - SMART_REPLY
+          - CONVERSATION_SUMMARIZATION
+          - KNOWLEDGE_SEARCH
+          - KNOWLEDGE_ASSIST
+          x-enumDescriptions:
+          - ''
+          - ''
+          - ''
+          - ''
+          - ''
+          - ''
+          - ''
+        participantRole:
+          type: string
+          enum:
+          - ROLE_UNSPECIFIED
+          - HUMAN_AGENT
+          - AUTOMATED_AGENT
+          - END_USER
+          x-enumDescriptions:
+          - ''
+          - ''
+          - ''
+          - ''
+    GoogleCloudDialogflowV2HumanAgentAssistantConfigSuggestionQueryConfig:
+      type: object
+      properties:
+        dialogflowQuerySource:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2HumanAgentAssistantConfigSuggestionQueryConfigDialogflowQuerySource'
+        maxResults:
+          type: integer
+          format: int32
+        contextSize:
+          type: integer
+          format: int32
+        documentQuerySource:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2HumanAgentAssistantConfigSuggestionQueryConfigDocumentQuerySource'
+        sections:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2HumanAgentAssistantConfigSuggestionQueryConfigSections'
+        confidenceThreshold:
+          type: number
+          format: float
+        contextFilterSettings:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2HumanAgentAssistantConfigSuggestionQueryConfigContextFilterSettings'
+        knowledgeBaseQuerySource:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2HumanAgentAssistantConfigSuggestionQueryConfigKnowledgeBaseQuerySource'
     GoogleCloudDialogflowV2HumanAgentAssistantConfigSuggestionQueryConfigDocumentQuerySource:
       type: object
       properties:
@@ -1215,37 +1220,32 @@ components:
           type: array
           items:
             type: string
-    GoogleCloudDialogflowV2RaiSettingsRaiCategoryConfig:
+    GoogleCloudDialogflowV2SipConfig:
       type: object
       properties:
-        sensitivityLevel:
+        keepConversationRunning:
+          type: boolean
+        copyInboundCallLegHeaders:
+          type: array
+          items:
+            type: string
+        allowVirtualAgentInteraction:
+          type: boolean
+        maxAudioRecordingDuration:
           type: string
-          enum:
-          - SENSITIVITY_LEVEL_UNSPECIFIED
-          - BLOCK_MOST
-          - BLOCK_SOME
-          - BLOCK_FEW
-          - BLOCK_NONE
-          x-enumDescriptions:
-          - ''
-          - ''
-          - ''
-          - ''
-          - ''
-        category:
-          type: string
-          enum:
-          - RAI_CATEGORY_UNSPECIFIED
-          - DANGEROUS_CONTENT
-          - SEXUALLY_EXPLICIT
-          - HARASSMENT
-          - HATE_SPEECH
-          x-enumDescriptions:
-          - ''
-          - ''
-          - ''
-          - ''
-          - ''
+        inactiveStart:
+          type: boolean
+        createConversationOnTheFly:
+          type: boolean
+        ignoreReinviteMediaDirection:
+          type: boolean
+    GoogleCloudDialogflowV2HumanAgentAssistantConfigSuggestionQueryConfigKnowledgeBaseQuerySource:
+      type: object
+      properties:
+        knowledgeBases:
+          type: array
+          items:
+            type: string
   securitySchemes:
     OAuth2:
       type: oauth2

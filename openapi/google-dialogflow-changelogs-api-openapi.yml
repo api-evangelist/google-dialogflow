@@ -149,6 +149,15 @@ components:
             type: object
             additionalProperties:
               description: Properties of the object. Contains field @type with type URL.
+    GoogleCloudDialogflowCxV3ListChangelogsResponse:
+      type: object
+      properties:
+        nextPageToken:
+          type: string
+        changelogs:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowCxV3Changelog'
     GoogleCloudDialogflowCxV3Changelog:
       type: object
       properties:
@@ -169,15 +178,6 @@ components:
           type: string
         action:
           type: string
-    GoogleCloudDialogflowCxV3ListChangelogsResponse:
-      type: object
-      properties:
-        nextPageToken:
-          type: string
-        changelogs:
-          type: array
-          items:
-            $ref: '#/components/schemas/GoogleCloudDialogflowCxV3Changelog'
   securitySchemes:
     OAuth2:
       type: oauth2

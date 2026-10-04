@@ -1160,15 +1160,8 @@ components:
             type: object
             additionalProperties:
               description: Properties of the object. Contains field @type with type URL.
-    GoogleCloudDialogflowV2ListContextsResponse:
+    GoogleProtobufEmpty:
       type: object
-      properties:
-        nextPageToken:
-          type: string
-        contexts:
-          type: array
-          items:
-            $ref: '#/components/schemas/GoogleCloudDialogflowV2Context'
     GoogleCloudDialogflowV2Context:
       type: object
       properties:
@@ -1181,8 +1174,15 @@ components:
         lifespanCount:
           type: integer
           format: int32
-    GoogleProtobufEmpty:
+    GoogleCloudDialogflowV2ListContextsResponse:
       type: object
+      properties:
+        nextPageToken:
+          type: string
+        contexts:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowV2Context'
   securitySchemes:
     OAuth2:
       type: oauth2

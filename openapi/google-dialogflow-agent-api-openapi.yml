@@ -694,6 +694,15 @@ paths:
       x-summary-source: derived
 components:
   schemas:
+    GoogleCloudDialogflowV2SearchAgentsResponse:
+      type: object
+      properties:
+        agents:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowV2Agent'
+        nextPageToken:
+          type: string
     GoogleLongrunningOperation:
       type: object
       properties:
@@ -711,40 +720,6 @@ components:
             description: Properties of the object. Contains field @type with type URL.
         error:
           $ref: '#/components/schemas/GoogleRpcStatus'
-    GoogleCloudDialogflowV2ValidationError:
-      type: object
-      properties:
-        errorMessage:
-          type: string
-        severity:
-          type: string
-          enum:
-          - SEVERITY_UNSPECIFIED
-          - INFO
-          - WARNING
-          - ERROR
-          - CRITICAL
-          x-enumDescriptions:
-          - ''
-          - ''
-          - ''
-          - ''
-          - ''
-        entries:
-          type: array
-          items:
-            type: string
-    GoogleCloudDialogflowV2FulfillmentFeature:
-      type: object
-      properties:
-        type:
-          type: string
-          enum:
-          - TYPE_UNSPECIFIED
-          - SMALLTALK
-          x-enumDescriptions:
-          - ''
-          - ''
     GoogleCloudDialogflowV2FulfillmentGenericWebService:
       type: object
       properties:
@@ -760,21 +735,7 @@ components:
           type: object
           additionalProperties:
             type: string
-    GoogleRpcStatus:
-      type: object
-      properties:
-        message:
-          type: string
-        code:
-          type: integer
-          format: int32
-        details:
-          type: array
-          items:
-            type: object
-            additionalProperties:
-              description: Properties of the object. Contains field @type with type URL.
-    GoogleCloudDialogflowV2ImportAgentRequest:
+    GoogleCloudDialogflowV2RestoreAgentRequest:
       type: object
       properties:
         agentUri:
@@ -787,14 +748,6 @@ components:
       properties:
         agentUri:
           type: string
-    GoogleCloudDialogflowV2RestoreAgentRequest:
-      type: object
-      properties:
-        agentUri:
-          type: string
-        agentContent:
-          type: string
-          format: byte
     GoogleCloudDialogflowV2ValidationResult:
       type: object
       properties:
@@ -802,6 +755,21 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/GoogleCloudDialogflowV2ValidationError'
+    GoogleCloudDialogflowV2Fulfillment:
+      type: object
+      properties:
+        displayName:
+          type: string
+        name:
+          type: string
+        enabled:
+          type: boolean
+        genericWebService:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2FulfillmentGenericWebService'
+        features:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowV2FulfillmentFeature'
     GoogleCloudDialogflowV2Agent:
       type: object
       properties:
@@ -860,32 +828,64 @@ components:
           format: float
         enableLogging:
           type: boolean
+    GoogleCloudDialogflowV2FulfillmentFeature:
+      type: object
+      properties:
+        type:
+          type: string
+          enum:
+          - TYPE_UNSPECIFIED
+          - SMALLTALK
+          x-enumDescriptions:
+          - ''
+          - ''
     GoogleCloudDialogflowV2TrainAgentRequest:
       type: object
-    GoogleCloudDialogflowV2SearchAgentsResponse:
+    GoogleCloudDialogflowV2ImportAgentRequest:
       type: object
       properties:
-        agents:
-          type: array
-          items:
-            $ref: '#/components/schemas/GoogleCloudDialogflowV2Agent'
-        nextPageToken:
+        agentUri:
           type: string
-    GoogleCloudDialogflowV2Fulfillment:
+        agentContent:
+          type: string
+          format: byte
+    GoogleCloudDialogflowV2ValidationError:
       type: object
       properties:
-        displayName:
+        errorMessage:
           type: string
-        name:
+        severity:
           type: string
-        enabled:
-          type: boolean
-        genericWebService:
-          $ref: '#/components/schemas/GoogleCloudDialogflowV2FulfillmentGenericWebService'
-        features:
+          enum:
+          - SEVERITY_UNSPECIFIED
+          - INFO
+          - WARNING
+          - ERROR
+          - CRITICAL
+          x-enumDescriptions:
+          - ''
+          - ''
+          - ''
+          - ''
+          - ''
+        entries:
           type: array
           items:
-            $ref: '#/components/schemas/GoogleCloudDialogflowV2FulfillmentFeature'
+            type: string
+    GoogleRpcStatus:
+      type: object
+      properties:
+        message:
+          type: string
+        code:
+          type: integer
+          format: int32
+        details:
+          type: array
+          items:
+            type: object
+            additionalProperties:
+              description: Properties of the object. Contains field @type with type URL.
   securitySchemes:
     OAuth2:
       type: oauth2

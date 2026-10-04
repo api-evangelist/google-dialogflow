@@ -86,6 +86,15 @@ paths:
       x-summary-source: derived
 components:
   schemas:
+    GoogleCloudDialogflowCxV3ListContinuousTestResultsResponse:
+      type: object
+      properties:
+        continuousTestResults:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowCxV3ContinuousTestResult'
+        nextPageToken:
+          type: string
     GoogleRpcStatus:
       type: object
       properties:
@@ -100,15 +109,6 @@ components:
             type: object
             additionalProperties:
               description: Properties of the object. Contains field @type with type URL.
-    GoogleCloudDialogflowCxV3ListContinuousTestResultsResponse:
-      type: object
-      properties:
-        continuousTestResults:
-          type: array
-          items:
-            $ref: '#/components/schemas/GoogleCloudDialogflowCxV3ContinuousTestResult'
-        nextPageToken:
-          type: string
     GoogleCloudDialogflowCxV3ContinuousTestResult:
       type: object
       properties:

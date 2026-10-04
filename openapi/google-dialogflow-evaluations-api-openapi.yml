@@ -487,111 +487,13 @@ components:
           readOnly: true
           items:
             $ref: '#/components/schemas/GoogleCloudDialogflowV2AgentCoachingSuggestionDuplicateCheckResultDuplicateSuggestion'
-    GoogleLongrunningOperation:
+    GoogleCloudDialogflowV2SummarySuggestion:
       type: object
       properties:
-        name:
-          type: string
-        metadata:
-          type: object
-          additionalProperties:
-            description: Properties of the object. Contains field @type with type URL.
-        done:
-          type: boolean
-        response:
-          type: object
-          additionalProperties:
-            description: Properties of the object. Contains field @type with type URL.
-        error:
-          $ref: '#/components/schemas/GoogleRpcStatus'
-    GoogleCloudDialogflowV2EvaluationStatus:
-      type: object
-      properties:
-        done:
-          type: boolean
-          readOnly: true
-        pipelineStatus:
-          $ref: '#/components/schemas/GoogleRpcStatus'
-    GoogleCloudDialogflowV2GeneratorEvaluationConfigSummarizationConfig:
-      type: object
-      properties:
-        evaluatorVersion:
-          type: string
-        enableAccuracyEvaluation:
-          type: boolean
-        completenessEvaluationVersion:
-          type: string
-        enableCompletenessEvaluation:
-          type: boolean
-        accuracyEvaluationVersion:
-          type: string
-    GoogleCloudDialogflowV2ToolCallResultError:
-      type: object
-      properties:
-        retryable:
-          type: boolean
-        message:
-          type: string
-    GoogleCloudDialogflowV2SummarizationEvaluationMetricsAdherenceDecomposition:
-      type: object
-      properties:
-        isAdherent:
-          type: boolean
-          readOnly: true
-        adherenceReasoning:
-          type: string
-          readOnly: true
-        point:
-          type: string
-          readOnly: true
-    GoogleCloudDialogflowV2GeneratorSuggestion:
-      type: object
-      properties:
-        freeFormSuggestion:
-          $ref: '#/components/schemas/GoogleCloudDialogflowV2FreeFormSuggestion'
-        summarySuggestion:
-          $ref: '#/components/schemas/GoogleCloudDialogflowV2SummarySuggestion'
-        toolCallInfo:
+        summarySections:
           type: array
           items:
-            $ref: '#/components/schemas/GoogleCloudDialogflowV2GeneratorSuggestionToolCallInfo'
-        agentCoachingSuggestion:
-          $ref: '#/components/schemas/GoogleCloudDialogflowV2AgentCoachingSuggestion'
-    GoogleCloudDialogflowV2ToolCallResult:
-      type: object
-      properties:
-        answerRecord:
-          type: string
-        error:
-          $ref: '#/components/schemas/GoogleCloudDialogflowV2ToolCallResultError'
-        cesTool:
-          type: string
-        action:
-          type: string
-        content:
-          type: string
-        cesApp:
-          type: string
-        rawContent:
-          type: string
-          format: byte
-        tool:
-          type: string
-        cesToolset:
-          type: string
-        createTime:
-          type: string
-          format: date-time
-          readOnly: true
-    GoogleCloudDialogflowV2ListGeneratorEvaluationsResponse:
-      type: object
-      properties:
-        generatorEvaluations:
-          type: array
-          items:
-            $ref: '#/components/schemas/GoogleCloudDialogflowV2GeneratorEvaluation'
-        nextPageToken:
-          type: string
+            $ref: '#/components/schemas/GoogleCloudDialogflowV2SummarySuggestionSummarySection'
     GoogleCloudDialogflowV2SummarizationEvaluationMetricsSummarizationEvaluationResult:
       type: object
       properties:
@@ -621,165 +523,48 @@ components:
           readOnly: true
           items:
             $ref: '#/components/schemas/GoogleCloudDialogflowV2SummarizationEvaluationMetricsDecomposition'
-    GoogleCloudDialogflowV2GeneratorEvaluationConfigAgentAssistInputDataConfig:
+    GoogleCloudDialogflowV2EvaluationStatus:
       type: object
       properties:
-        startTime:
-          type: string
-          format: date-time
-        endTime:
-          type: string
-          format: date-time
-    GoogleCloudDialogflowV2SummarizationEvaluationMetricsEvaluationResult:
+        done:
+          type: boolean
+          readOnly: true
+        pipelineStatus:
+          $ref: '#/components/schemas/GoogleRpcStatus'
+    GoogleCloudDialogflowV2AgentCoachingSuggestionSources:
       type: object
       properties:
-        accuracyDecomposition:
-          $ref: '#/components/schemas/GoogleCloudDialogflowV2SummarizationEvaluationMetricsAccuracyDecomposition'
-        adherenceRubric:
-          $ref: '#/components/schemas/GoogleCloudDialogflowV2SummarizationEvaluationMetricsAdherenceRubric'
-        completenessRubric:
-          $ref: '#/components/schemas/GoogleCloudDialogflowV2SummarizationEvaluationMetricsCompletenessRubric'
-    GoogleCloudDialogflowV2SummarizationSection:
+        instructionIndexes:
+          type: array
+          readOnly: true
+          items:
+            type: integer
+            format: int32
+    GoogleCloudDialogflowV2SummarizationSectionList:
       type: object
       properties:
-        key:
-          type: string
-        type:
-          type: string
-          enum:
-          - TYPE_UNSPECIFIED
-          - SITUATION
-          - ACTION
-          - RESOLUTION
-          - REASON_FOR_CANCELLATION
-          - CUSTOMER_SATISFACTION
-          - ENTITIES
-          - CUSTOMER_DEFINED
-          - SITUATION_CONCISE
-          - ACTION_CONCISE
-          x-enumDescriptions:
-          - ''
-          - ''
-          - ''
-          - ''
-          - ''
-          - ''
-          - ''
-          - ''
-          - ''
-          - ''
-        definition:
-          type: string
-    GoogleCloudDialogflowV2SummarySuggestionSummarySection:
+        summarizationSections:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowV2SummarizationSection'
+    GoogleCloudDialogflowV2SummarizationEvaluationMetricsSectionToken:
       type: object
       properties:
+        tokenCount:
+          type: string
+          format: int64
+          readOnly: true
         section:
           type: string
-        summary:
-          type: string
-    GoogleCloudDialogflowV2GeneratorEvaluation:
+          readOnly: true
+    GoogleCloudDialogflowV2SuggestionDedupingConfig:
       type: object
       properties:
-        evaluationStatus:
-          $ref: '#/components/schemas/GoogleCloudDialogflowV2EvaluationStatus'
-        satisfiesPzs:
+        similarityThreshold:
+          type: number
+          format: float
+        enableDeduping:
           type: boolean
-          readOnly: true
-        satisfiesPzi:
-          type: boolean
-          readOnly: true
-        name:
-          type: string
-          readOnly: true
-        completeTime:
-          type: string
-          format: date-time
-          readOnly: true
-        summarizationMetrics:
-          $ref: '#/components/schemas/GoogleCloudDialogflowV2SummarizationEvaluationMetrics'
-        displayName:
-          type: string
-        generatorEvaluationConfig:
-          $ref: '#/components/schemas/GoogleCloudDialogflowV2GeneratorEvaluationConfig'
-        createTime:
-          type: string
-          format: date-time
-          readOnly: true
-        initialGenerator:
-          $ref: '#/components/schemas/GoogleCloudDialogflowV2Generator'
-    GoogleCloudDialogflowV2SummarizationEvaluationMetricsConversationDetail:
-      type: object
-      properties:
-        summarySections:
-          type: array
-          readOnly: true
-          items:
-            $ref: '#/components/schemas/GoogleCloudDialogflowV2SummarySuggestionSummarySection'
-        metricDetails:
-          type: array
-          readOnly: true
-          items:
-            $ref: '#/components/schemas/GoogleCloudDialogflowV2SummarizationEvaluationMetricsConversationDetailMetricDetail'
-        messageEntries:
-          type: array
-          readOnly: true
-          items:
-            $ref: '#/components/schemas/GoogleCloudDialogflowV2MessageEntry'
-        sectionTokens:
-          type: array
-          readOnly: true
-          items:
-            $ref: '#/components/schemas/GoogleCloudDialogflowV2SummarizationEvaluationMetricsSectionToken'
-    GoogleCloudDialogflowV2CesAppSpec:
-      type: object
-      properties:
-        proactiveEnabled:
-          type: boolean
-        cesApp:
-          type: string
-        confirmationRequirement:
-          type: string
-          enum:
-          - CONFIRMATION_REQUIREMENT_UNSPECIFIED
-          - REQUIRED
-          - NOT_REQUIRED
-          x-enumDescriptions:
-          - ''
-          - ''
-          - ''
-        reactiveEnabled:
-          type: boolean
-    GoogleCloudDialogflowV2ToolsetTool:
-      type: object
-      properties:
-        toolset:
-          type: string
-        operationId:
-          type: string
-        confirmationRequirement:
-          type: string
-          enum:
-          - CONFIRMATION_REQUIREMENT_UNSPECIFIED
-          - REQUIRED
-          - NOT_REQUIRED
-          x-enumDescriptions:
-          - ''
-          - ''
-          - ''
-    GoogleRpcStatus:
-      type: object
-      properties:
-        message:
-          type: string
-        code:
-          type: integer
-          format: int32
-        details:
-          type: array
-          items:
-            type: object
-            additionalProperties:
-              description: Properties of the object. Contains field @type with type URL.
     GoogleCloudDialogflowV2GeneratorEvaluationConfigInputDataConfig:
       type: object
       properties:
@@ -820,40 +605,31 @@ components:
           - ''
           - ''
           - ''
-    GoogleCloudDialogflowV2SummarizationEvaluationMetricsAdherenceRubric:
+    GoogleCloudDialogflowV2SummarizationEvaluationMetricsConversationDetail:
       type: object
       properties:
-        question:
-          type: string
+        summarySections:
+          type: array
           readOnly: true
-        reasoning:
-          type: string
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowV2SummarySuggestionSummarySection'
+        metricDetails:
+          type: array
           readOnly: true
-        isAddressed:
-          type: boolean
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowV2SummarizationEvaluationMetricsConversationDetailMetricDetail'
+        messageEntries:
+          type: array
           readOnly: true
-    GoogleCloudDialogflowV2MessageEntry:
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowV2MessageEntry'
+        sectionTokens:
+          type: array
+          readOnly: true
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowV2SummarizationEvaluationMetricsSectionToken'
+    GoogleProtobufEmpty:
       type: object
-      properties:
-        role:
-          type: string
-          enum:
-          - ROLE_UNSPECIFIED
-          - HUMAN_AGENT
-          - AUTOMATED_AGENT
-          - END_USER
-          x-enumDescriptions:
-          - ''
-          - ''
-          - ''
-          - ''
-        languageCode:
-          type: string
-        createTime:
-          type: string
-          format: date-time
-        text:
-          type: string
     GoogleCloudDialogflowV2AgentCoachingInstructionDuplicateCheckResult:
       type: object
       properties:
@@ -862,17 +638,98 @@ components:
           readOnly: true
           items:
             $ref: '#/components/schemas/GoogleCloudDialogflowV2AgentCoachingInstructionDuplicateCheckResultDuplicateSuggestion'
-    GoogleProtobufEmpty:
-      type: object
-    GoogleCloudDialogflowV2ListConversationModelEvaluationsResponse:
+    GoogleCloudDialogflowV2SummarizationContext:
       type: object
       properties:
-        conversationModelEvaluations:
+        version:
+          type: string
+        fewShotExamples:
           type: array
           items:
-            $ref: '#/components/schemas/GoogleCloudDialogflowV2ConversationModelEvaluation'
-        nextPageToken:
+            $ref: '#/components/schemas/GoogleCloudDialogflowV2FewShotExample'
+        summarizationSections:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowV2SummarizationSection'
+        outputLanguageCode:
           type: string
+    GoogleCloudDialogflowV2SummarizationEvaluationMetricsCompletenessRubric:
+      type: object
+      properties:
+        question:
+          type: string
+          readOnly: true
+        isAddressed:
+          type: boolean
+          readOnly: true
+    GoogleLongrunningOperation:
+      type: object
+      properties:
+        name:
+          type: string
+        metadata:
+          type: object
+          additionalProperties:
+            description: Properties of the object. Contains field @type with type URL.
+        done:
+          type: boolean
+        response:
+          type: object
+          additionalProperties:
+            description: Properties of the object. Contains field @type with type URL.
+        error:
+          $ref: '#/components/schemas/GoogleRpcStatus'
+    GoogleCloudDialogflowV2ToolCallResultError:
+      type: object
+      properties:
+        retryable:
+          type: boolean
+        message:
+          type: string
+    GoogleCloudDialogflowV2GeneratorSuggestionToolCallInfo:
+      type: object
+      properties:
+        toolCall:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2ToolCall'
+        toolCallResult:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2ToolCallResult'
+    GoogleCloudDialogflowV2FreeFormSuggestion:
+      type: object
+      properties:
+        response:
+          type: string
+    GoogleCloudDialogflowV2AgentCoachingSuggestionDuplicateCheckResultDuplicateSuggestion:
+      type: object
+      properties:
+        answerRecord:
+          type: string
+          readOnly: true
+        similarityScore:
+          type: number
+          format: float
+          readOnly: true
+        suggestionIndex:
+          type: integer
+          format: int32
+          readOnly: true
+        sources:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2AgentCoachingSuggestionSources'
+    GoogleCloudDialogflowV2GeneratorEvaluationConfig:
+      type: object
+      properties:
+        summarizationConfig:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2GeneratorEvaluationConfigSummarizationConfig'
+        outputGcsBucketPath:
+          type: string
+        inputDataConfig:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2GeneratorEvaluationConfigInputDataConfig'
+    GoogleCloudDialogflowV2ConversationContext:
+      type: object
+      properties:
+        messageEntries:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowV2MessageEntry'
     GoogleCloudDialogflowV2SmartReplyMetrics:
       type: object
       properties:
@@ -886,146 +743,137 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/GoogleCloudDialogflowV2SmartReplyMetricsTopNMetrics'
-    GoogleCloudDialogflowV2EvaluationConfigSmartComposeConfig:
+    GoogleRpcStatus:
       type: object
       properties:
-        maxResultCount:
+        message:
+          type: string
+        code:
           type: integer
           format: int32
-        allowlistDocument:
-          type: string
-    GoogleCloudDialogflowV2GeneratorEvaluationConfigDatasetInputDataConfig:
+        details:
+          type: array
+          items:
+            type: object
+            additionalProperties:
+              description: Properties of the object. Contains field @type with type URL.
+    GoogleCloudDialogflowV2AgentCoachingInstruction:
       type: object
       properties:
-        dataset:
-          type: string
-    GoogleCloudDialogflowV2SuggestionDedupingConfig:
-      type: object
-      properties:
-        similarityThreshold:
-          type: number
-          format: float
-        enableDeduping:
-          type: boolean
-    GoogleCloudDialogflowV2AgentCoachingSuggestion:
-      type: object
-      properties:
-        agentActionSuggestions:
-          type: array
-          items:
-            $ref: '#/components/schemas/GoogleCloudDialogflowV2AgentCoachingSuggestionAgentActionSuggestion'
-        sampleResponses:
-          type: array
-          items:
-            $ref: '#/components/schemas/GoogleCloudDialogflowV2AgentCoachingSuggestionSampleResponse'
-        applicableInstructions:
-          type: array
-          items:
-            $ref: '#/components/schemas/GoogleCloudDialogflowV2AgentCoachingInstruction'
-    GoogleCloudDialogflowV2EvaluationConfig:
-      type: object
-      properties:
-        smartComposeConfig:
-          $ref: '#/components/schemas/GoogleCloudDialogflowV2EvaluationConfigSmartComposeConfig'
-        datasets:
-          type: array
-          items:
-            $ref: '#/components/schemas/GoogleCloudDialogflowV2InputDataset'
-        smartReplyConfig:
-          $ref: '#/components/schemas/GoogleCloudDialogflowV2EvaluationConfigSmartReplyConfig'
-    GoogleCloudDialogflowV2AgentCoachingContext:
-      type: object
-      properties:
-        version:
-          type: string
-        instructions:
-          type: array
-          items:
-            $ref: '#/components/schemas/GoogleCloudDialogflowV2AgentCoachingInstruction'
-        outputLanguageCode:
-          type: string
-        overarchingGuidance:
-          type: string
-    GoogleCloudDialogflowV2SummarizationEvaluationMetricsCompletenessRubric:
-      type: object
-      properties:
-        question:
-          type: string
-          readOnly: true
-        isAddressed:
-          type: boolean
-          readOnly: true
-    GoogleCloudDialogflowV2SummarizationEvaluationMetrics:
-      type: object
-      properties:
-        overallSectionTokens:
-          type: array
-          readOnly: true
-          items:
-            $ref: '#/components/schemas/GoogleCloudDialogflowV2SummarizationEvaluationMetricsSectionToken'
-        summarizationEvaluationMergedResultsUri:
-          type: string
-          readOnly: true
-        conversationDetails:
-          type: array
-          readOnly: true
-          items:
-            $ref: '#/components/schemas/GoogleCloudDialogflowV2SummarizationEvaluationMetricsConversationDetail'
-        summarizationEvaluationResults:
-          type: array
-          readOnly: true
-          items:
-            $ref: '#/components/schemas/GoogleCloudDialogflowV2SummarizationEvaluationMetricsSummarizationEvaluationResult'
-        overallMetrics:
-          type: array
-          readOnly: true
-          items:
-            $ref: '#/components/schemas/GoogleCloudDialogflowV2SummarizationEvaluationMetricsOverallScoresByMetric'
-    GoogleCloudDialogflowV2ConversationModelEvaluation:
-      type: object
-      properties:
-        smartReplyMetrics:
-          $ref: '#/components/schemas/GoogleCloudDialogflowV2SmartReplyMetrics'
+        duplicateCheckResult:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2AgentCoachingInstructionDuplicateCheckResult'
         displayName:
           type: string
-        rawHumanEvalTemplateCsv:
+        agentAction:
           type: string
-          readOnly: true
-        evaluationConfig:
-          $ref: '#/components/schemas/GoogleCloudDialogflowV2EvaluationConfig'
-        name:
+        systemAction:
           type: string
-        createTime:
+        displayDetails:
           type: string
-          format: date-time
-          readOnly: true
-    GoogleCloudDialogflowV2SummarizationEvaluationMetricsConversationDetailMetricDetailSectionDetail:
+        condition:
+          type: string
+        triggeringEvent:
+          type: string
+          enum:
+          - TRIGGER_EVENT_UNSPECIFIED
+          - END_OF_UTTERANCE
+          - MANUAL_CALL
+          - CUSTOMER_MESSAGE
+          - AGENT_MESSAGE
+          - TOOL_CALL_COMPLETION
+          x-enumDescriptions:
+          - ''
+          - ''
+          - ''
+          - ''
+          - ''
+          - ''
+    GoogleCloudDialogflowV2SummarizationEvaluationMetricsConversationDetailMetricDetail:
       type: object
       properties:
-        section:
-          type: string
+        sectionDetails:
+          type: array
           readOnly: true
-        sectionSummary:
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowV2SummarizationEvaluationMetricsConversationDetailMetricDetailSectionDetail'
+        metric:
           type: string
           readOnly: true
         score:
           type: number
           format: float
           readOnly: true
-        evaluationResults:
-          type: array
-          readOnly: true
-          items:
-            $ref: '#/components/schemas/GoogleCloudDialogflowV2SummarizationEvaluationMetricsEvaluationResult'
-    GoogleCloudDialogflowV2GeneratorEvaluationConfig:
+    GoogleCloudDialogflowV2GeneratorEvaluation:
       type: object
       properties:
-        summarizationConfig:
-          $ref: '#/components/schemas/GoogleCloudDialogflowV2GeneratorEvaluationConfigSummarizationConfig'
-        outputGcsBucketPath:
+        evaluationStatus:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2EvaluationStatus'
+        satisfiesPzs:
+          type: boolean
+          readOnly: true
+        satisfiesPzi:
+          type: boolean
+          readOnly: true
+        name:
           type: string
-        inputDataConfig:
-          $ref: '#/components/schemas/GoogleCloudDialogflowV2GeneratorEvaluationConfigInputDataConfig'
+          readOnly: true
+        completeTime:
+          type: string
+          format: date-time
+          readOnly: true
+        summarizationMetrics:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2SummarizationEvaluationMetrics'
+        displayName:
+          type: string
+        generatorEvaluationConfig:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2GeneratorEvaluationConfig'
+        createTime:
+          type: string
+          format: date-time
+          readOnly: true
+        initialGenerator:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2Generator'
+    GoogleCloudDialogflowV2AgentCoachingSuggestionAgentActionSuggestion:
+      type: object
+      properties:
+        agentAction:
+          type: string
+        duplicateCheckResult:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2AgentCoachingSuggestionDuplicateCheckResult'
+        sources:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2AgentCoachingSuggestionSources'
+    GoogleCloudDialogflowV2EvaluationConfigSmartReplyConfig:
+      type: object
+      properties:
+        allowlistDocument:
+          type: string
+        maxResultCount:
+          type: integer
+          format: int32
+    GoogleCloudDialogflowV2CesToolSpec:
+      type: object
+      properties:
+        confirmationRequirement:
+          type: string
+          enum:
+          - CONFIRMATION_REQUIREMENT_UNSPECIFIED
+          - REQUIRED
+          - NOT_REQUIRED
+          x-enumDescriptions:
+          - ''
+          - ''
+          - ''
+        cesTool:
+          type: string
+    GoogleCloudDialogflowV2SummarizationEvaluationMetricsEvaluationResult:
+      type: object
+      properties:
+        accuracyDecomposition:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2SummarizationEvaluationMetricsAccuracyDecomposition'
+        adherenceRubric:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2SummarizationEvaluationMetricsAdherenceRubric'
+        completenessRubric:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2SummarizationEvaluationMetricsCompletenessRubric'
     GoogleCloudDialogflowV2Generator:
       type: object
       properties:
@@ -1084,53 +932,187 @@ components:
         name:
           type: string
           readOnly: true
+    GoogleCloudDialogflowV2AgentCoachingSuggestion:
+      type: object
+      properties:
+        agentActionSuggestions:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowV2AgentCoachingSuggestionAgentActionSuggestion'
+        sampleResponses:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowV2AgentCoachingSuggestionSampleResponse'
+        applicableInstructions:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowV2AgentCoachingInstruction'
+    GoogleCloudDialogflowV2CesAppSpec:
+      type: object
+      properties:
+        proactiveEnabled:
+          type: boolean
+        cesApp:
+          type: string
+        confirmationRequirement:
+          type: string
+          enum:
+          - CONFIRMATION_REQUIREMENT_UNSPECIFIED
+          - REQUIRED
+          - NOT_REQUIRED
+          x-enumDescriptions:
+          - ''
+          - ''
+          - ''
+        reactiveEnabled:
+          type: boolean
+    GoogleCloudDialogflowV2SummarizationEvaluationMetricsAccuracyDecomposition:
+      type: object
+      properties:
+        accuracyReasoning:
+          type: string
+          readOnly: true
+        point:
+          type: string
+          readOnly: true
+        isAccurate:
+          type: boolean
+          readOnly: true
+    GoogleCloudDialogflowV2SummarizationEvaluationMetricsAdherenceDecomposition:
+      type: object
+      properties:
+        isAdherent:
+          type: boolean
+          readOnly: true
+        adherenceReasoning:
+          type: string
+          readOnly: true
+        point:
+          type: string
+          readOnly: true
+    GoogleCloudDialogflowV2SummarizationSection:
+      type: object
+      properties:
+        key:
+          type: string
+        type:
+          type: string
+          enum:
+          - TYPE_UNSPECIFIED
+          - SITUATION
+          - ACTION
+          - RESOLUTION
+          - REASON_FOR_CANCELLATION
+          - CUSTOMER_SATISFACTION
+          - ENTITIES
+          - CUSTOMER_DEFINED
+          - SITUATION_CONCISE
+          - ACTION_CONCISE
+          x-enumDescriptions:
+          - ''
+          - ''
+          - ''
+          - ''
+          - ''
+          - ''
+          - ''
+          - ''
+          - ''
+          - ''
+        definition:
+          type: string
+    GoogleCloudDialogflowV2EvaluationConfigSmartComposeConfig:
+      type: object
+      properties:
+        maxResultCount:
+          type: integer
+          format: int32
+        allowlistDocument:
+          type: string
+    GoogleCloudDialogflowV2ToolCallResult:
+      type: object
+      properties:
+        answerRecord:
+          type: string
+        error:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2ToolCallResultError'
+        cesTool:
+          type: string
+        action:
+          type: string
+        content:
+          type: string
+        cesApp:
+          type: string
+        rawContent:
+          type: string
+          format: byte
+        tool:
+          type: string
+        cesToolset:
+          type: string
+        createTime:
+          type: string
+          format: date-time
+          readOnly: true
+    GoogleCloudDialogflowV2SummarizationEvaluationMetricsOverallScoresByMetric:
+      type: object
+      properties:
+        metric:
+          type: string
+          readOnly: true
+    GoogleCloudDialogflowV2GeneratorEvaluationConfigAgentAssistInputDataConfig:
+      type: object
+      properties:
+        startTime:
+          type: string
+          format: date-time
+        endTime:
+          type: string
+          format: date-time
+    GoogleCloudDialogflowV2SummarySuggestionSummarySection:
+      type: object
+      properties:
+        section:
+          type: string
+        summary:
+          type: string
+    GoogleCloudDialogflowV2SummarizationEvaluationMetricsDecomposition:
+      type: object
+      properties:
+        accuracyDecomposition:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2SummarizationEvaluationMetricsAccuracyDecomposition'
+        adherenceDecomposition:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2SummarizationEvaluationMetricsAdherenceDecomposition'
+    GoogleCloudDialogflowV2EvaluationConfig:
+      type: object
+      properties:
+        smartComposeConfig:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2EvaluationConfigSmartComposeConfig'
+        datasets:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowV2InputDataset'
+        smartReplyConfig:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2EvaluationConfigSmartReplyConfig'
+    GoogleCloudDialogflowV2GeneratorSuggestion:
+      type: object
+      properties:
+        freeFormSuggestion:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2FreeFormSuggestion'
+        summarySuggestion:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2SummarySuggestion'
+        toolCallInfo:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowV2GeneratorSuggestionToolCallInfo'
+        agentCoachingSuggestion:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2AgentCoachingSuggestion'
     GoogleCloudDialogflowV2InputDataset:
       type: object
       properties:
         dataset:
           type: string
-    GoogleCloudDialogflowV2AgentCoachingSuggestionSources:
-      type: object
-      properties:
-        instructionIndexes:
-          type: array
-          readOnly: true
-          items:
-            type: integer
-            format: int32
-    GoogleCloudDialogflowV2AgentCoachingSuggestionDuplicateCheckResultDuplicateSuggestion:
-      type: object
-      properties:
-        answerRecord:
-          type: string
-          readOnly: true
-        similarityScore:
-          type: number
-          format: float
-          readOnly: true
-        suggestionIndex:
-          type: integer
-          format: int32
-          readOnly: true
-        sources:
-          $ref: '#/components/schemas/GoogleCloudDialogflowV2AgentCoachingSuggestionSources'
-    GoogleCloudDialogflowV2GeneratorSuggestionToolCallInfo:
-      type: object
-      properties:
-        toolCall:
-          $ref: '#/components/schemas/GoogleCloudDialogflowV2ToolCall'
-        toolCallResult:
-          $ref: '#/components/schemas/GoogleCloudDialogflowV2ToolCallResult'
-    GoogleCloudDialogflowV2SummarizationEvaluationMetricsSectionToken:
-      type: object
-      properties:
-        tokenCount:
-          type: string
-          format: int64
-          readOnly: true
-        section:
-          type: string
-          readOnly: true
     GoogleCloudDialogflowV2AgentCoachingInstructionDuplicateCheckResultDuplicateSuggestion:
       type: object
       properties:
@@ -1145,9 +1127,23 @@ components:
           type: integer
           format: int32
           readOnly: true
-    GoogleCloudDialogflowV2CesToolSpec:
+    GoogleCloudDialogflowV2FreeFormContext:
       type: object
       properties:
+        text:
+          type: string
+    GoogleCloudDialogflowV2CreateConversationModelEvaluationRequest:
+      type: object
+      properties:
+        conversationModelEvaluation:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2ConversationModelEvaluation'
+    GoogleCloudDialogflowV2ToolsetTool:
+      type: object
+      properties:
+        toolset:
+          type: string
+        operationId:
+          type: string
         confirmationRequirement:
           type: string
           enum:
@@ -1158,37 +1154,6 @@ components:
           - ''
           - ''
           - ''
-        cesTool:
-          type: string
-    GoogleCloudDialogflowV2SummarizationSectionList:
-      type: object
-      properties:
-        summarizationSections:
-          type: array
-          items:
-            $ref: '#/components/schemas/GoogleCloudDialogflowV2SummarizationSection'
-    GoogleCloudDialogflowV2CreateConversationModelEvaluationRequest:
-      type: object
-      properties:
-        conversationModelEvaluation:
-          $ref: '#/components/schemas/GoogleCloudDialogflowV2ConversationModelEvaluation'
-    GoogleCloudDialogflowV2SummarizationEvaluationMetricsAccuracyDecomposition:
-      type: object
-      properties:
-        accuracyReasoning:
-          type: string
-          readOnly: true
-        point:
-          type: string
-          readOnly: true
-        isAccurate:
-          type: boolean
-          readOnly: true
-    GoogleCloudDialogflowV2FreeFormContext:
-      type: object
-      properties:
-        text:
-          type: string
     GoogleCloudDialogflowV2ToolCall:
       type: object
       properties:
@@ -1227,35 +1192,11 @@ components:
           readOnly: true
         cesTool:
           type: string
-    GoogleCloudDialogflowV2SummarizationEvaluationMetricsOverallScoresByMetric:
+    GoogleCloudDialogflowV2GeneratorEvaluationConfigDatasetInputDataConfig:
       type: object
       properties:
-        metric:
+        dataset:
           type: string
-          readOnly: true
-    GoogleCloudDialogflowV2EvaluationConfigSmartReplyConfig:
-      type: object
-      properties:
-        allowlistDocument:
-          type: string
-        maxResultCount:
-          type: integer
-          format: int32
-    GoogleCloudDialogflowV2SummarizationEvaluationMetricsConversationDetailMetricDetail:
-      type: object
-      properties:
-        sectionDetails:
-          type: array
-          readOnly: true
-          items:
-            $ref: '#/components/schemas/GoogleCloudDialogflowV2SummarizationEvaluationMetricsConversationDetailMetricDetailSectionDetail'
-        metric:
-          type: string
-          readOnly: true
-        score:
-          type: number
-          format: float
-          readOnly: true
     GoogleCloudDialogflowV2SmartReplyMetricsTopNMetrics:
       type: object
       properties:
@@ -1265,42 +1206,138 @@ components:
         recall:
           type: number
           format: float
-    GoogleCloudDialogflowV2AgentCoachingInstruction:
+    GoogleCloudDialogflowV2AgentCoachingContext:
+      type: object
+      properties:
+        version:
+          type: string
+        instructions:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowV2AgentCoachingInstruction'
+        outputLanguageCode:
+          type: string
+        overarchingGuidance:
+          type: string
+    GoogleCloudDialogflowV2SummarizationEvaluationMetrics:
+      type: object
+      properties:
+        overallSectionTokens:
+          type: array
+          readOnly: true
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowV2SummarizationEvaluationMetricsSectionToken'
+        summarizationEvaluationMergedResultsUri:
+          type: string
+          readOnly: true
+        conversationDetails:
+          type: array
+          readOnly: true
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowV2SummarizationEvaluationMetricsConversationDetail'
+        summarizationEvaluationResults:
+          type: array
+          readOnly: true
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowV2SummarizationEvaluationMetricsSummarizationEvaluationResult'
+        overallMetrics:
+          type: array
+          readOnly: true
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowV2SummarizationEvaluationMetricsOverallScoresByMetric'
+    GoogleCloudDialogflowV2AgentCoachingSuggestionSampleResponse:
       type: object
       properties:
         duplicateCheckResult:
-          $ref: '#/components/schemas/GoogleCloudDialogflowV2AgentCoachingInstructionDuplicateCheckResult'
-        displayName:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2AgentCoachingSuggestionDuplicateCheckResult'
+        sources:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2AgentCoachingSuggestionSources'
+        responseText:
           type: string
-        agentAction:
-          type: string
-        systemAction:
-          type: string
-        displayDetails:
-          type: string
-        condition:
-          type: string
-        triggeringEvent:
+    GoogleCloudDialogflowV2MessageEntry:
+      type: object
+      properties:
+        role:
           type: string
           enum:
-          - TRIGGER_EVENT_UNSPECIFIED
-          - END_OF_UTTERANCE
-          - MANUAL_CALL
-          - CUSTOMER_MESSAGE
-          - AGENT_MESSAGE
-          - TOOL_CALL_COMPLETION
+          - ROLE_UNSPECIFIED
+          - HUMAN_AGENT
+          - AUTOMATED_AGENT
+          - END_USER
           x-enumDescriptions:
           - ''
           - ''
           - ''
           - ''
-          - ''
-          - ''
-    GoogleCloudDialogflowV2FreeFormSuggestion:
+        languageCode:
+          type: string
+        createTime:
+          type: string
+          format: date-time
+        text:
+          type: string
+    GoogleCloudDialogflowV2FewShotExample:
       type: object
       properties:
-        response:
+        summarizationSectionList:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2SummarizationSectionList'
+        conversationContext:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2ConversationContext'
+        extraInfo:
+          type: object
+          additionalProperties:
+            type: string
+        output:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2GeneratorSuggestion'
+    GoogleCloudDialogflowV2GeneratorEvaluationConfigSummarizationConfig:
+      type: object
+      properties:
+        evaluatorVersion:
           type: string
+        enableAccuracyEvaluation:
+          type: boolean
+        completenessEvaluationVersion:
+          type: string
+        enableCompletenessEvaluation:
+          type: boolean
+        accuracyEvaluationVersion:
+          type: string
+    GoogleCloudDialogflowV2ConversationModelEvaluation:
+      type: object
+      properties:
+        smartReplyMetrics:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2SmartReplyMetrics'
+        displayName:
+          type: string
+        rawHumanEvalTemplateCsv:
+          type: string
+          readOnly: true
+        evaluationConfig:
+          $ref: '#/components/schemas/GoogleCloudDialogflowV2EvaluationConfig'
+        name:
+          type: string
+        createTime:
+          type: string
+          format: date-time
+          readOnly: true
+    GoogleCloudDialogflowV2SummarizationEvaluationMetricsConversationDetailMetricDetailSectionDetail:
+      type: object
+      properties:
+        section:
+          type: string
+          readOnly: true
+        sectionSummary:
+          type: string
+          readOnly: true
+        score:
+          type: number
+          format: float
+          readOnly: true
+        evaluationResults:
+          type: array
+          readOnly: true
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowV2SummarizationEvaluationMetricsEvaluationResult'
     GoogleCloudDialogflowV2InferenceParameter:
       type: object
       properties:
@@ -1316,73 +1353,36 @@ components:
         topP:
           type: number
           format: double
-    GoogleCloudDialogflowV2SummarizationEvaluationMetricsDecomposition:
+    GoogleCloudDialogflowV2ListConversationModelEvaluationsResponse:
       type: object
       properties:
-        accuracyDecomposition:
-          $ref: '#/components/schemas/GoogleCloudDialogflowV2SummarizationEvaluationMetricsAccuracyDecomposition'
-        adherenceDecomposition:
-          $ref: '#/components/schemas/GoogleCloudDialogflowV2SummarizationEvaluationMetricsAdherenceDecomposition'
-    GoogleCloudDialogflowV2SummarizationContext:
-      type: object
-      properties:
-        version:
-          type: string
-        fewShotExamples:
+        conversationModelEvaluations:
           type: array
           items:
-            $ref: '#/components/schemas/GoogleCloudDialogflowV2FewShotExample'
-        summarizationSections:
+            $ref: '#/components/schemas/GoogleCloudDialogflowV2ConversationModelEvaluation'
+        nextPageToken:
+          type: string
+    GoogleCloudDialogflowV2SummarizationEvaluationMetricsAdherenceRubric:
+      type: object
+      properties:
+        question:
+          type: string
+          readOnly: true
+        reasoning:
+          type: string
+          readOnly: true
+        isAddressed:
+          type: boolean
+          readOnly: true
+    GoogleCloudDialogflowV2ListGeneratorEvaluationsResponse:
+      type: object
+      properties:
+        generatorEvaluations:
           type: array
           items:
-            $ref: '#/components/schemas/GoogleCloudDialogflowV2SummarizationSection'
-        outputLanguageCode:
+            $ref: '#/components/schemas/GoogleCloudDialogflowV2GeneratorEvaluation'
+        nextPageToken:
           type: string
-    GoogleCloudDialogflowV2AgentCoachingSuggestionAgentActionSuggestion:
-      type: object
-      properties:
-        agentAction:
-          type: string
-        duplicateCheckResult:
-          $ref: '#/components/schemas/GoogleCloudDialogflowV2AgentCoachingSuggestionDuplicateCheckResult'
-        sources:
-          $ref: '#/components/schemas/GoogleCloudDialogflowV2AgentCoachingSuggestionSources'
-    GoogleCloudDialogflowV2AgentCoachingSuggestionSampleResponse:
-      type: object
-      properties:
-        duplicateCheckResult:
-          $ref: '#/components/schemas/GoogleCloudDialogflowV2AgentCoachingSuggestionDuplicateCheckResult'
-        sources:
-          $ref: '#/components/schemas/GoogleCloudDialogflowV2AgentCoachingSuggestionSources'
-        responseText:
-          type: string
-    GoogleCloudDialogflowV2ConversationContext:
-      type: object
-      properties:
-        messageEntries:
-          type: array
-          items:
-            $ref: '#/components/schemas/GoogleCloudDialogflowV2MessageEntry'
-    GoogleCloudDialogflowV2FewShotExample:
-      type: object
-      properties:
-        summarizationSectionList:
-          $ref: '#/components/schemas/GoogleCloudDialogflowV2SummarizationSectionList'
-        conversationContext:
-          $ref: '#/components/schemas/GoogleCloudDialogflowV2ConversationContext'
-        extraInfo:
-          type: object
-          additionalProperties:
-            type: string
-        output:
-          $ref: '#/components/schemas/GoogleCloudDialogflowV2GeneratorSuggestion'
-    GoogleCloudDialogflowV2SummarySuggestion:
-      type: object
-      properties:
-        summarySections:
-          type: array
-          items:
-            $ref: '#/components/schemas/GoogleCloudDialogflowV2SummarySuggestionSummarySection'
   securitySchemes:
     OAuth2:
       type: oauth2

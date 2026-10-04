@@ -261,59 +261,6 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    GoogleCloudDialogflowCxV3SecuritySettingsInsightsExportSettings:
-      type: object
-      properties:
-        enableInsightsExport:
-          type: boolean
-    GoogleRpcStatus:
-      type: object
-      properties:
-        message:
-          type: string
-        code:
-          type: integer
-          format: int32
-        details:
-          type: array
-          items:
-            type: object
-            additionalProperties:
-              description: Properties of the object. Contains field @type with type URL.
-    GoogleCloudDialogflowCxV3ListSecuritySettingsResponse:
-      type: object
-      properties:
-        nextPageToken:
-          type: string
-        securitySettings:
-          type: array
-          items:
-            $ref: '#/components/schemas/GoogleCloudDialogflowCxV3SecuritySettings'
-    GoogleCloudDialogflowCxV3SecuritySettingsAudioExportSettings:
-      type: object
-      properties:
-        enableAudioRedaction:
-          type: boolean
-        gcsBucket:
-          type: string
-        audioFormat:
-          type: string
-          enum:
-          - AUDIO_FORMAT_UNSPECIFIED
-          - MULAW
-          - MP3
-          - OGG
-          x-enumDescriptions:
-          - ''
-          - ''
-          - ''
-          - ''
-        storeTtsAudio:
-          type: boolean
-        audioExportPattern:
-          type: string
-    GoogleProtobufEmpty:
-      type: object
     GoogleCloudDialogflowCxV3SecuritySettings:
       type: object
       properties:
@@ -366,6 +313,59 @@ components:
           x-enumDescriptions:
           - ''
           - ''
+    GoogleCloudDialogflowCxV3SecuritySettingsAudioExportSettings:
+      type: object
+      properties:
+        enableAudioRedaction:
+          type: boolean
+        gcsBucket:
+          type: string
+        audioFormat:
+          type: string
+          enum:
+          - AUDIO_FORMAT_UNSPECIFIED
+          - MULAW
+          - MP3
+          - OGG
+          x-enumDescriptions:
+          - ''
+          - ''
+          - ''
+          - ''
+        storeTtsAudio:
+          type: boolean
+        audioExportPattern:
+          type: string
+    GoogleCloudDialogflowCxV3ListSecuritySettingsResponse:
+      type: object
+      properties:
+        nextPageToken:
+          type: string
+        securitySettings:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoogleCloudDialogflowCxV3SecuritySettings'
+    GoogleProtobufEmpty:
+      type: object
+    GoogleRpcStatus:
+      type: object
+      properties:
+        message:
+          type: string
+        code:
+          type: integer
+          format: int32
+        details:
+          type: array
+          items:
+            type: object
+            additionalProperties:
+              description: Properties of the object. Contains field @type with type URL.
+    GoogleCloudDialogflowCxV3SecuritySettingsInsightsExportSettings:
+      type: object
+      properties:
+        enableInsightsExport:
+          type: boolean
   securitySchemes:
     OAuth2:
       type: oauth2
