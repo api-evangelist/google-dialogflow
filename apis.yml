@@ -2764,6 +2764,9 @@ apis:
   - type: Webhooks
     url: https://cloud.google.com/dialogflow/es/docs/fulfillment-webhook
 common:
+- type: CapabilityMap
+  url: capabilities/google-dialogflow-capability-edges.yml
+  name: Google Dialogflow Business Capability Map
 - type: Overlay
   url: overlays/google-dialogflow-cx-v3-overlay.yaml
 - type: Overlay

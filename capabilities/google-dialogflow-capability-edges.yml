@@ -1,0 +1,61 @@
+slug: google-dialogflow
+provider: Google Dialogflow
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Software & Technology
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 4
+edges:
+- tag: conversationModels
+  spec_file: google-dialogflow-conversationmodels-api-openapi.yml
+  capability_id: BC-610.60
+  capability_id_l1: BC-610
+  capability_name: Artificial Intelligence Management
+  confidence: 0.82
+  evidence: '"conversation models deploy", "conversation models undeploy", schemas GoogleCloudDialogflowV2ConversationModel,
+    GoogleCloudDialogflowV2SmartReplyModelMetadata, GoogleCloudDialogflowV2InputDataset'
+  reason: Create, train-from-dataset, deploy and undeploy ML models (smart reply, article suggestion)
+    — plainly ML model lifecycle / MLOps, which is Artificial Intelligence Management.
+- tag: Test Cases
+  spec_file: google-dialogflow-test-cases-api-openapi.yml
+  capability_id: BC-4200.50
+  capability_id_l1: BC-4200
+  capability_name: Software Quality Engineering
+  confidence: 0.78
+  evidence: '"Dialogflow projects locations agents test cases run", "test cases batch run", "test cases
+    calculate coverage", schema GoogleCloudDialogflowCxV3IntentCoverage'
+  reason: The surface is create/import/run/batch-run of test cases and coverage calculation for an agent
+    build — automated test suite stewardship and regression testing of the software artefact, i.e. software
+    quality engineering. Not a customer-facing capability.
+- tag: Evaluations
+  spec_file: google-dialogflow-evaluations-api-openapi.yml
+  capability_id: BC-610.60
+  capability_id_l1: BC-610
+  capability_name: Artificial Intelligence Management
+  confidence: 0.7
+  evidence: '''Dialogflow projects locations conversation models evaluations create'', GoogleCloudDialogflowV2SummarizationEvaluationMetricsEvaluationResult,
+    GoogleCloudDialogflowV2GeneratorEvaluation'
+  reason: Operations create and read evaluations of conversation models and generative generators with
+    summarisation evaluation metrics — model evaluation within the AI/ML model lifecycle (MLOps), fitting
+    Artificial Intelligence Management.
+- tag: Suggestions
+  spec_file: google-dialogflow-suggestions-api-openapi.yml
+  capability_id: BC-430.30
+  capability_id_l1: BC-430
+  capability_name: Contact Centre Operations Management
+  confidence: 0.7
+  evidence: 'suggestions:suggestFaqAnswers, suggestions:suggestArticles, suggestions:suggestSmartReplies,
+    suggestions:suggestConversationSummary; vendor: "the Agent Assist surface for human contact-centre
+    agents"'
+  reason: The operations generate FAQ answers, article suggestions, smart replies and conversation summaries
+    for human agents handling live customer conversations — the Agent Assist surface. That is contact-centre
+    agent support within Customer Service Management; the explicit 'human contact-centre agents' framing
+    points to contact centre operations, though inquiry resolution (430.10) is an adjacent reading, hence
+    moderate confidence on the sub-capability.
