@@ -157,3 +157,49 @@ notes:
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
+x-canonical:
+  generated: '2026-10-08'
+  vocabulary: all/0-working/economics/plans-canonical.yml
+  models:
+  - metered
+  units:
+  - compute
+  - data
+  - request
+  plans:
+  - name: Conversational Agents — Flows (Dialogflow CX), chat
+    access: other
+    model: metered
+    model_how: stated
+    units:
+    - request
+    periods: []
+  - name: Conversational Agents — Flows (Dialogflow CX), voice
+    access: other
+    model: metered
+    model_how: stated
+    units:
+    - compute
+    periods: []
+  - name: Conversational Agents — Playbooks, chat
+    access: other
+    model: metered
+    model_how: stated
+    units:
+    - request
+    periods: []
+  - name: Conversational Agents — Playbooks, voice
+    access: other
+    model: metered
+    model_how: stated
+    units:
+    - compute
+    periods: []
+  - name: Data store index storage
+    access: other
+    model: metered
+    model_how: stated
+    units:
+    - data
+    periods:
+    - month
