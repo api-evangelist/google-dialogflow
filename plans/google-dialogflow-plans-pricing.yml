@@ -1,0 +1,104 @@
+# Pricing transcribed from the provider's own page — see provenance. Numbers are quoted, not derived.
+generated: '2026-10-28'
+method: searched
+source: https://cloud.google.com/products/conversational-agents/pricing
+sources:
+- https://cloud.google.com/products/conversational-agents/pricing
+- https://cloud.google.com/dialogflow/pricing
+provenance:
+  tool: engine/economics/harvest_pricing.py
+  run: 20261028T141238
+  grounding: every price_text was found verbatim in the fetched page text
+audience: developer-api
+pricing_basis: per-call
+delivery:
+  delivery: managed
+  method: page
+  read: '2026-10-28'
+published: true
+note: 'Free trial credits: Flows $600, Playbooks $1000, expiring after 12 months. Design time requests
+  free of charge. Hybrid agent billing rules described.'
+plan_count: 5
+currency: USD
+plans:
+- name: Flows - Chat
+  price_text: $0.007 / 1 count
+  price: 0.007
+  currency: USD
+  period: per-use
+  unit: count (request)
+- name: Playbooks - Chat
+  price_text: $0.012 / 1 count
+  price: 0.012
+  currency: USD
+  period: per-use
+  unit: count (request)
+- name: Flows - Voice
+  price_text: $0.001 / 1 second
+  price: 0.001
+  currency: USD
+  period: per-use
+  unit: second of audio
+- name: Playbooks - Voice
+  price_text: $0.002 / 1 second
+  price: 0.002
+  currency: USD
+  period: per-use
+  unit: second of audio
+- name: Data Store index storage
+  price_text: $5.00 per GiB of additional raw data per month
+  price: 5
+  currency: USD
+  period: month
+  unit: GiB
+  included_quota: Free quota of 10 GiB per month
+x-canonical:
+  generated: '2026-11-01'
+  vocabulary: engine/economics/plans-canonical.yml
+  models:
+  - hybrid
+  - subscription
+  units:
+  - compute
+  - data
+  plans:
+  - name: Flows - Chat
+    access: other
+    model: subscription
+    model_how: derived
+    units:
+    - other
+    periods:
+    - other
+  - name: Playbooks - Chat
+    access: other
+    model: subscription
+    model_how: derived
+    units:
+    - other
+    periods:
+    - other
+  - name: Flows - Voice
+    access: other
+    model: hybrid
+    model_how: derived
+    units:
+    - compute
+    periods:
+    - other
+  - name: Playbooks - Voice
+    access: other
+    model: hybrid
+    model_how: derived
+    units:
+    - compute
+    periods:
+    - other
+  - name: Data Store index storage
+    access: other
+    model: hybrid
+    model_how: derived
+    units:
+    - data
+    periods:
+    - month
