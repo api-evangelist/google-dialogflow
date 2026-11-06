@@ -68,12 +68,420 @@ artifacts:
   grpc/_index.yml:
     method: searched
     evidence: declared in the artifact
+  hosts/google-dialogflow-hosts.yml:
+    method: derived
+    evidence: declared in the artifact
   integrations/_index.yml:
     method: generated
     evidence: carries an API Evangelist house phrase
   integrations/google-dialogflow-integration-edges.yml:
     method: searched
     evidence: declared in the artifact
+  json-ld/google-dialogflow-context.jsonld:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/google-dialogflow-google-cloud-dialogflow-cx-v3-agent-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/google-dialogflow-google-cloud-dialogflow-cx-v3-agent-validation-result-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/google-dialogflow-google-cloud-dialogflow-cx-v3-batch-run-test-cases-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/google-dialogflow-google-cloud-dialogflow-cx-v3-calculate-coverage-response-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/google-dialogflow-google-cloud-dialogflow-cx-v3-changelog-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/google-dialogflow-google-cloud-dialogflow-cx-v3-deployment-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/google-dialogflow-google-cloud-dialogflow-cx-v3-detect-intent-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/google-dialogflow-google-cloud-dialogflow-cx-v3-detect-intent-response-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/google-dialogflow-google-cloud-dialogflow-cx-v3-entity-type-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/google-dialogflow-google-cloud-dialogflow-cx-v3-environment-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/google-dialogflow-google-cloud-dialogflow-cx-v3-example-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/google-dialogflow-google-cloud-dialogflow-cx-v3-experiment-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/google-dialogflow-google-cloud-dialogflow-cx-v3-export-agent-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/google-dialogflow-google-cloud-dialogflow-cx-v3-export-flow-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/google-dialogflow-google-cloud-dialogflow-cx-v3-export-intents-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/google-dialogflow-google-cloud-dialogflow-cx-v3-export-playbook-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/google-dialogflow-google-cloud-dialogflow-cx-v3-export-test-cases-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/google-dialogflow-google-cloud-dialogflow-cx-v3-flow-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/google-dialogflow-google-cloud-dialogflow-cx-v3-flow-validation-result-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/google-dialogflow-google-cloud-dialogflow-cx-v3-fulfill-intent-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/google-dialogflow-google-cloud-dialogflow-cx-v3-generative-settings-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/google-dialogflow-google-cloud-dialogflow-cx-v3-generator-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/google-dialogflow-google-cloud-dialogflow-cx-v3-import-entity-types-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/google-dialogflow-google-cloud-dialogflow-cx-v3-import-flow-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/google-dialogflow-google-cloud-dialogflow-cx-v3-import-intents-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/google-dialogflow-google-cloud-dialogflow-cx-v3-import-playbook-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/google-dialogflow-google-cloud-dialogflow-cx-v3-intent-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/google-dialogflow-google-cloud-dialogflow-cx-v3-list-changelogs-response-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/google-dialogflow-google-cloud-dialogflow-cx-v3-list-continuous-test-results-response-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/google-dialogflow-google-cloud-dialogflow-cx-v3-list-deployments-response-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/google-dialogflow-google-cloud-dialogflow-cx-v3-list-environments-response-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/google-dialogflow-google-cloud-dialogflow-cx-v3-list-examples-response-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/google-dialogflow-google-cloud-dialogflow-cx-v3-list-experiments-response-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/google-dialogflow-google-cloud-dialogflow-cx-v3-list-flows-response-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/google-dialogflow-google-cloud-dialogflow-cx-v3-list-generators-response-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/google-dialogflow-google-cloud-dialogflow-cx-v3-list-pages-response-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/google-dialogflow-google-cloud-dialogflow-cx-v3-list-playbook-versions-response-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/google-dialogflow-google-cloud-dialogflow-cx-v3-list-playbooks-response-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/google-dialogflow-google-cloud-dialogflow-cx-v3-list-security-settings-response-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/google-dialogflow-google-cloud-dialogflow-cx-v3-list-test-case-results-response-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/google-dialogflow-google-cloud-dialogflow-cx-v3-list-test-cases-response-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/google-dialogflow-google-cloud-dialogflow-cx-v3-list-tools-response-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/google-dialogflow-google-cloud-dialogflow-cx-v3-list-transition-route-groups-response-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/google-dialogflow-google-cloud-dialogflow-cx-v3-lookup-environment-history-response-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/google-dialogflow-google-cloud-dialogflow-cx-v3-match-intent-response-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/google-dialogflow-google-cloud-dialogflow-cx-v3-page-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/google-dialogflow-google-cloud-dialogflow-cx-v3-playbook-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/google-dialogflow-google-cloud-dialogflow-cx-v3-playbook-version-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/google-dialogflow-google-cloud-dialogflow-cx-v3-restore-agent-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/google-dialogflow-google-cloud-dialogflow-cx-v3-security-settings-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/google-dialogflow-google-cloud-dialogflow-cx-v3-session-entity-type-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/google-dialogflow-google-cloud-dialogflow-cx-v3-test-case-result-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/google-dialogflow-google-cloud-dialogflow-cx-v3-test-case-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/google-dialogflow-google-cloud-dialogflow-cx-v3-tool-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/google-dialogflow-google-cloud-dialogflow-cx-v3-tool-version-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/google-dialogflow-google-cloud-dialogflow-cx-v3-transition-route-group-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/google-dialogflow-google-cloud-dialogflow-cx-v3-version-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/google-dialogflow-google-cloud-dialogflow-cx-v3-webhook-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/google-dialogflow-google-cloud-dialogflow-v2-agent-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/google-dialogflow-google-cloud-dialogflow-v2-analyze-content-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/google-dialogflow-google-cloud-dialogflow-v2-analyze-content-response-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/google-dialogflow-google-cloud-dialogflow-v2-answer-record-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/google-dialogflow-google-cloud-dialogflow-v2-batch-create-entities-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/google-dialogflow-google-cloud-dialogflow-v2-batch-delete-entities-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/google-dialogflow-google-cloud-dialogflow-v2-batch-update-entities-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/google-dialogflow-google-cloud-dialogflow-v2-batch-update-intents-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/google-dialogflow-google-cloud-dialogflow-v2-clear-suggestion-feature-config-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/google-dialogflow-google-cloud-dialogflow-v2-complete-conversation-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/google-dialogflow-google-cloud-dialogflow-v2-context-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/google-dialogflow-google-cloud-dialogflow-v2-conversation-dataset-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/google-dialogflow-google-cloud-dialogflow-v2-conversation-model-evaluation-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/google-dialogflow-google-cloud-dialogflow-v2-conversation-model-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/google-dialogflow-google-cloud-dialogflow-v2-conversation-profile-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/google-dialogflow-google-cloud-dialogflow-v2-conversation-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/google-dialogflow-google-cloud-dialogflow-v2-create-conversation-model-evaluation-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/google-dialogflow-google-cloud-dialogflow-v2-deploy-conversation-model-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/google-dialogflow-google-cloud-dialogflow-v2-detect-intent-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/google-dialogflow-google-cloud-dialogflow-v2-detect-intent-response-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/google-dialogflow-google-cloud-dialogflow-v2-document-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/google-dialogflow-google-cloud-dialogflow-v2-encryption-spec-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/google-dialogflow-google-cloud-dialogflow-v2-entity-type-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/google-dialogflow-google-cloud-dialogflow-v2-environment-history-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/google-dialogflow-google-cloud-dialogflow-v2-environment-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/google-dialogflow-google-cloud-dialogflow-v2-export-document-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/google-dialogflow-google-cloud-dialogflow-v2-fulfillment-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/google-dialogflow-google-cloud-dialogflow-v2-generate-stateless-suggestion-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/google-dialogflow-google-cloud-dialogflow-v2-generate-stateless-suggestion-response-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/google-dialogflow-google-cloud-dialogflow-v2-generate-stateless-summary-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/google-dialogflow-google-cloud-dialogflow-v2-generate-suggestions-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/google-dialogflow-google-cloud-dialogflow-v2-generator-evaluation-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/google-dialogflow-google-cloud-dialogflow-v2-generator-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/google-dialogflow-google-cloud-dialogflow-v2-import-agent-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/google-dialogflow-google-cloud-dialogflow-v2-import-conversation-data-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/google-dialogflow-google-cloud-dialogflow-v2-import-documents-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/google-dialogflow-google-cloud-dialogflow-v2-ingest-context-references-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/google-dialogflow-google-cloud-dialogflow-v2-ingest-context-references-response-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/google-dialogflow-google-cloud-dialogflow-v2-initialize-encryption-spec-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/google-dialogflow-google-cloud-dialogflow-v2-intent-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/google-dialogflow-google-cloud-dialogflow-v2-knowledge-base-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/google-dialogflow-google-cloud-dialogflow-v2-list-answer-records-response-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/google-dialogflow-google-cloud-dialogflow-v2-list-contexts-response-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/google-dialogflow-google-cloud-dialogflow-v2-list-conversation-datasets-response-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/google-dialogflow-google-cloud-dialogflow-v2-list-conversation-model-evaluations-response-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/google-dialogflow-google-cloud-dialogflow-v2-list-conversation-models-response-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/google-dialogflow-google-cloud-dialogflow-v2-list-conversation-profiles-response-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/google-dialogflow-google-cloud-dialogflow-v2-list-conversations-response-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/google-dialogflow-google-cloud-dialogflow-v2-list-documents-response-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/google-dialogflow-google-cloud-dialogflow-v2-list-generator-evaluations-response-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/google-dialogflow-google-cloud-dialogflow-v2-list-generators-response-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/google-dialogflow-google-cloud-dialogflow-v2-list-knowledge-bases-response-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/google-dialogflow-google-cloud-dialogflow-v2-list-messages-response-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/google-dialogflow-google-cloud-dialogflow-v2-list-participants-response-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/google-dialogflow-google-cloud-dialogflow-v2-list-sip-trunks-response-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/google-dialogflow-google-cloud-dialogflow-v2-list-tools-response-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/google-dialogflow-google-cloud-dialogflow-v2-participant-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/google-dialogflow-google-cloud-dialogflow-v2-reload-document-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/google-dialogflow-google-cloud-dialogflow-v2-restore-agent-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/google-dialogflow-google-cloud-dialogflow-v2-search-agents-response-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/google-dialogflow-google-cloud-dialogflow-v2-search-knowledge-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/google-dialogflow-google-cloud-dialogflow-v2-search-knowledge-response-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/google-dialogflow-google-cloud-dialogflow-v2-session-entity-type-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/google-dialogflow-google-cloud-dialogflow-v2-set-suggestion-feature-config-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/google-dialogflow-google-cloud-dialogflow-v2-sip-trunk-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/google-dialogflow-google-cloud-dialogflow-v2-suggest-knowledge-assist-response-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/google-dialogflow-google-cloud-dialogflow-v2-suggest-smart-replies-response-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/google-dialogflow-google-cloud-dialogflow-v2-tool-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/google-dialogflow-google-cloud-dialogflow-v2-undeploy-conversation-model-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/google-dialogflow-google-cloud-dialogflow-v2-validation-result-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/google-dialogflow-google-cloud-dialogflow-v2-version-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/google-dialogflow-google-cloud-location-list-locations-response-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/google-dialogflow-google-cloud-location-location-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/google-dialogflow-google-longrunning-list-operations-response-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/google-dialogflow-google-longrunning-operation-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/google-dialogflow-google-protobuf-empty-schema.json:
+    method: unknown
+    evidence: no authorship recorded
   kin/checks-2026-10-23T222754.yml:
     method: generated
     evidence: Kin Score snapshot written by score.rb
@@ -146,6 +554,9 @@ artifacts:
   lifecycle/google-dialogflow-lifecycle.yml:
     method: searched
     evidence: declared in the artifact
+  llms/google-dialogflow-llms-provenance.yml:
+    method: generated
+    evidence: 'derive-llms-provenance.py: generated'
   llms/google-dialogflow-llms.txt:
     method: generated
     evidence: carries an API Evangelist house phrase
@@ -424,6 +835,9 @@ artifacts:
   rate-limits/google-dialogflow-rate-limits.yml:
     method: searched
     evidence: declared in the artifact
+  regulatory/google-dialogflow-regulatory-posture.yml:
+    method: searched
+    evidence: declared in the artifact
   rules/google-dialogflow-rules.yml:
     method: generated
     evidence: declared in the artifact
@@ -453,6 +867,12 @@ artifacts:
     evidence: declared in the artifact
   sla/google-dialogflow-sla.yml:
     method: searched
+    evidence: declared in the artifact
+  vendors/google-dialogflow-vendors.yml:
+    method: unknown
+    evidence: no authorship recorded
+  vocabulary/google-dialogflow-vocabulary.yml:
+    method: derived
     evidence: declared in the artifact
   well-known/google-dialogflow-accounts-oauth-authorization-server.json:
     method: unknown

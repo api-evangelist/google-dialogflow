@@ -2,6 +2,7 @@
 generated: '2026-10-28'
 method: searched
 source: https://cloud.google.com/products/conversational-agents/pricing
+name: Google Dialogflow API Plans
 sources:
 - https://cloud.google.com/products/conversational-agents/pricing
 - https://cloud.google.com/dialogflow/pricing
@@ -53,29 +54,29 @@ plans:
   unit: GiB
   included_quota: Free quota of 10 GiB per month
 x-canonical:
-  generated: '2026-11-02'
+  generated: '2026-11-06'
   vocabulary: engine/economics/plans-canonical.yml
   models:
   - hybrid
-  - subscription
   units:
   - compute
   - data
+  - request
   plans:
   - name: Flows - Chat
     access: other
-    model: subscription
+    model: hybrid
     model_how: derived
     units:
-    - other
+    - request
     periods:
     - other
   - name: Playbooks - Chat
     access: other
-    model: subscription
+    model: hybrid
     model_how: derived
     units:
-    - other
+    - request
     periods:
     - other
   - name: Flows - Voice
