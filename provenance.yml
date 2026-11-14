@@ -5,6 +5,9 @@ artifacts:
   agentic-access/google-dialogflow-agentic-access.yml:
     method: generated
     evidence: declared in the artifact
+  ai-preferences/google-dialogflow-ai-preferences.yml:
+    method: harvested
+    evidence: declared in the artifact
   asyncapi/google-dialogflow-webhooks.yml:
     method: searched
     evidence: declared in the artifact
@@ -12,6 +15,12 @@ artifacts:
     method: derived
     evidence: declared in the artifact
   capabilities/google-dialogflow-capability-edges.yml:
+    method: unknown
+    evidence: no authorship recorded
+  certification/observations-2026-11-11.jsonl:
+    method: unknown
+    evidence: no authorship recorded
+  certification/status.yml:
     method: unknown
     evidence: no authorship recorded
   changelog/google-dialogflow-changelog.yml:
@@ -32,6 +41,9 @@ artifacts:
   collections/google-dialogflow.postman_collection.json:
     method: derived
     evidence: openapi/google-dialogflow
+  compliance/google-dialogflow-compliance.yml:
+    method: harvested
+    evidence: declared in the artifact
   components/google-dialogflow-components.yml:
     method: searched
     evidence: declared in the artifact
@@ -41,9 +53,16 @@ artifacts:
   conventions/google-dialogflow-conventions.yml:
     method: derived
     evidence: declared in the artifact
+  data-license/google-dialogflow-data-license.yml:
+    method: harvested
+    evidence: declared in the artifact
   data-model/google-dialogflow-data-model.yml:
     method: derived
     evidence: declared in the artifact
+  discovery/dialogflow-v2.json:
+    method: harvested
+    evidence: byte-identical to https://dialogflow.googleapis.com/$discovery/rest?version=v2 (sha256 ef35f4e8af72,
+      fetched 2026-11-12T01:34:19+00:00)
   discovery/google-dialogflow-v2.json:
     method: unknown
     evidence: no authorship recorded
@@ -56,6 +75,9 @@ artifacts:
   discovery/google-dialogflow-v3beta1.json:
     method: unknown
     evidence: no authorship recorded
+  eligibility/google-dialogflow-eligibility.yml:
+    method: harvested
+    evidence: declared in the artifact
   errors/google-dialogflow-problem-types.yml:
     method: derived
     evidence: declared in the artifact
@@ -485,7 +507,7 @@ artifacts:
   kin/checks-2026-10-23T222754.yml:
     method: generated
     evidence: Kin Score snapshot written by score.rb
-  kin/checks-2026-11-02T082323.yml:
+  kin/checks-2026-11-06T143934.yml:
     method: generated
     evidence: Kin Score snapshot written by score.rb
   kin/score-2026-09-23T000603.yml:
@@ -551,6 +573,9 @@ artifacts:
   kin/score-2026-11-02T082323.yml:
     method: generated
     evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-11-06T143934.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
   lifecycle/google-dialogflow-lifecycle.yml:
     method: searched
     evidence: declared in the artifact
@@ -563,137 +588,9 @@ artifacts:
   mcp/google-dialogflow-mcp.yml:
     method: derived
     evidence: declared in the artifact
-  openapi/_original/google-dialogflow-cx-v3-openapi.yml:
-    method: harvested
-    evidence: found in openapi/_original/; the fetch URL and bytes were not recorded, so byte-identity
-      to the provider's source is unverified
-  openapi/_original/google-dialogflow-es-v2-openapi.yml:
-    method: harvested
-    evidence: found in openapi/_original/; the fetch URL and bytes were not recorded, so byte-identity
-      to the provider's source is unverified
-  openapi/google-dialogflow-agent-api-openapi.yml:
-    method: derived
-    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
-  openapi/google-dialogflow-agents-api-openapi.yml:
-    method: derived
-    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
-  openapi/google-dialogflow-answerrecords-api-openapi.yml:
-    method: derived
-    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
-  openapi/google-dialogflow-changelogs-api-openapi.yml:
-    method: derived
-    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
-  openapi/google-dialogflow-contexts-api-openapi.yml:
-    method: derived
-    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
-  openapi/google-dialogflow-continuoustestresults-api-openapi.yml:
-    method: derived
-    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
-  openapi/google-dialogflow-conversationdatasets-api-openapi.yml:
-    method: derived
-    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
-  openapi/google-dialogflow-conversationmodels-api-openapi.yml:
-    method: derived
-    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
-  openapi/google-dialogflow-conversationprofiles-api-openapi.yml:
-    method: derived
-    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
-  openapi/google-dialogflow-conversations-api-openapi.yml:
-    method: derived
-    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
-  openapi/google-dialogflow-deployments-api-openapi.yml:
-    method: derived
-    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
-  openapi/google-dialogflow-documents-api-openapi.yml:
-    method: derived
-    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
-  openapi/google-dialogflow-encryptionspec-api-openapi.yml:
-    method: derived
-    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
-  openapi/google-dialogflow-entities-api-openapi.yml:
-    method: derived
-    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
-  openapi/google-dialogflow-entity-types-api-openapi.yml:
-    method: derived
-    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
-  openapi/google-dialogflow-environments-api-openapi.yml:
-    method: derived
-    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
-  openapi/google-dialogflow-evaluations-api-openapi.yml:
-    method: derived
-    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
-  openapi/google-dialogflow-examples-api-openapi.yml:
-    method: derived
-    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
-  openapi/google-dialogflow-experiments-api-openapi.yml:
-    method: derived
-    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
-  openapi/google-dialogflow-flows-api-openapi.yml:
-    method: derived
-    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
-  openapi/google-dialogflow-generators-api-openapi.yml:
-    method: derived
-    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
-  openapi/google-dialogflow-intents-api-openapi.yml:
-    method: derived
-    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
-  openapi/google-dialogflow-knowledge-bases-api-openapi.yml:
-    method: derived
-    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
-  openapi/google-dialogflow-locations-api-openapi.yml:
-    method: derived
-    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
-  openapi/google-dialogflow-messages-api-openapi.yml:
-    method: derived
-    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
-  openapi/google-dialogflow-operations-api-openapi.yml:
-    method: derived
-    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
-  openapi/google-dialogflow-pages-api-openapi.yml:
-    method: derived
-    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
-  openapi/google-dialogflow-participants-api-openapi.yml:
-    method: derived
-    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
-  openapi/google-dialogflow-playbooks-api-openapi.yml:
-    method: derived
-    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
   openapi/google-dialogflow-projects-api-openapi.yml:
-    method: derived
-    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
-  openapi/google-dialogflow-results-api-openapi.yml:
-    method: derived
-    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
-  openapi/google-dialogflow-security-settings-api-openapi.yml:
-    method: derived
-    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
-  openapi/google-dialogflow-sessions-api-openapi.yml:
-    method: derived
-    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
-  openapi/google-dialogflow-sip-trunks-api-openapi.yml:
-    method: derived
-    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
-  openapi/google-dialogflow-statelesssuggestion-api-openapi.yml:
-    method: derived
-    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
-  openapi/google-dialogflow-suggestions-api-openapi.yml:
-    method: derived
-    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
-  openapi/google-dialogflow-test-cases-api-openapi.yml:
-    method: derived
-    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
-  openapi/google-dialogflow-tools-api-openapi.yml:
-    method: derived
-    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
-  openapi/google-dialogflow-transitionroutegroups-api-openapi.yml:
-    method: derived
-    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
-  openapi/google-dialogflow-versions-api-openapi.yml:
-    method: derived
-    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
-  openapi/google-dialogflow-webhooks-api-openapi.yml:
-    method: derived
-    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
+    method: unknown
+    evidence: no authorship recorded
   overlays/google-dialogflow-agent-api-phrasing-overlay.yaml:
     method: generated
     evidence: declared in the artifact
@@ -867,6 +764,9 @@ artifacts:
     evidence: declared in the artifact
   sla/google-dialogflow-sla.yml:
     method: searched
+    evidence: declared in the artifact
+  terms/google-dialogflow-terms-of-service.yml:
+    method: harvested
     evidence: declared in the artifact
   vendors/google-dialogflow-vendors.yml:
     method: unknown
